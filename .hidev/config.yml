@@ -1,0 +1,6 @@
+package:
+    type:           yii2-extension
+    name:           provider-site
+    title:          Hosting Provider Site
+    namespace:      hiqdev\providersite
+
