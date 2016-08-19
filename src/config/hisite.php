@@ -3,7 +3,7 @@
 return [
     'components' => [
         'themeManager' => [
-            'defaultTheme' => 'original',
+            'defaultTheme' => 'dataserv',
         ],
     ],
 ];
