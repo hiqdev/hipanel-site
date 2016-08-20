@@ -1,12 +1,12 @@
 <?php
 
-namespace hisite;
+namespace hiqdev\providersite;
 
 use Yii;
 
 class MainMenu extends FooterMenu
 {
-    protected $_addTo = 'footer';
+    protected $_addTo = 'main';
 
     public function items()
     {

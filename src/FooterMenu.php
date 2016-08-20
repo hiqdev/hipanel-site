@@ -1,12 +1,12 @@
 <?php
 
-namespace hisite;
+namespace hiqdev\providersite;
 
 use Yii;
 
-class MainMenu extends \hiqdev\menumanager\Menu
+class FooterMenu extends \hiqdev\menumanager\Menu
 {
-    protected $_addTo = 'main';
+    protected $_addTo = 'footer';
 
     public function items()
     {
@@ -52,7 +52,7 @@ class MainMenu extends \hiqdev\menumanager\Menu
                 ],
             ],
             'other' => [
-                'label' => Yii::t('hisite', 'Help'),
+                'label' => Yii::t('hisite', 'Other'),
                 'url'   => '#',
                 'items' => [
                     ['label' => Yii::t('hisite', 'About us'), 'url' => ['/site/about']],
