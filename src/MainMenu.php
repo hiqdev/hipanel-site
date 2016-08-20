@@ -1,8 +1,15 @@
 <?php
 
-namespace hipanel\site;
+/*
+ * Selling site for HiPanel
+ *
+ * @link      http://hipanel.com/
+ * @package   hipanel-site
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
+ */
 
-use Yii;
+namespace hipanel\site;
 
 class MainMenu extends FooterMenu
 {

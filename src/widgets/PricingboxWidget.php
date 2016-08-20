@@ -1,13 +1,18 @@
 <?php
 
-namespace app\widgets;
+/*
+ * Selling site for HiPanel
+ *
+ * @link      http://hipanel.com/
+ * @package   hipanel-site
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
+ */
 
-use Yii;
-use yii\base\Widget;
+namespace hipanel\site\widgets;
 
-class PricingboxWidget extends Widget
+class PricingboxWidget extends \yii\base\Widget
 {
-
     public function init()
     {
         parent::init();

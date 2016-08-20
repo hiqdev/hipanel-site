@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * Selling site for HiPanel
+ *
+ * @link      http://hipanel.com/
+ * @package   hipanel-site
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
+ */
+
 namespace hipanel\site;
 
 use Yii;
@@ -13,7 +22,7 @@ class FooterMenu extends \hiqdev\menumanager\Menu
         return [
             'domains' => [
                 'label' => Yii::t('hisite', 'Domains'),
-                'url'   => '#',
+                'url' => '#',
                 'items' => [
                     ['label' => Yii::t('hisite', 'Prices'), 'url' => ['/domain/prices']],
                     ['label' => Yii::t('hisite', 'Advantages'), 'url' => ['/domain/advantages']],
@@ -24,7 +33,7 @@ class FooterMenu extends \hiqdev\menumanager\Menu
             ],
             'hosting' => [
                 'label' => Yii::t('hisite', 'Hosting'),
-                'url'   => '#',
+                'url' => '#',
                 'items' => [
                     ['label' => Yii::t('hisite', 'XEN SSD'), 'url' => ['/hosting/xen-ssd']],
                     ['label' => Yii::t('hisite', 'OpenVZ'), 'url' => ['/hosting/open-vz']],
@@ -35,7 +44,7 @@ class FooterMenu extends \hiqdev\menumanager\Menu
             ],
             'resellers' => [
                 'label' => Yii::t('hisite', 'For resellers'),
-                'url'   => '#',
+                'url' => '#',
                 'items' => [
                     ['label' => Yii::t('hisite', 'Prices'), 'url' => ['/reseller/prices']],
                     ['label' => Yii::t('hisite', 'Advantages'), 'url' => ['/reseller/advantages']],
@@ -44,7 +53,7 @@ class FooterMenu extends \hiqdev\menumanager\Menu
             ],
             'help' => [
                 'label' => Yii::t('hisite', 'Help'),
-                'url'   => '#',
+                'url' => '#',
                 'items' => [
                     ['label' => Yii::t('hisite', 'FAQ'), 'url' => ['/help/faq']],
                     ['label' => Yii::t('hisite', 'Create ticket'), 'url' => ['/help/ticket']],
@@ -53,7 +62,7 @@ class FooterMenu extends \hiqdev\menumanager\Menu
             ],
             'other' => [
                 'label' => Yii::t('hisite', 'Other'),
-                'url'   => '#',
+                'url' => '#',
                 'items' => [
                     ['label' => Yii::t('hisite', 'About us'), 'url' => ['/site/about']],
                     ['label' => Yii::t('hisite', 'Contacts'), 'url' => ['/pages/contacts']],
