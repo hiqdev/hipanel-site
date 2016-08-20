@@ -1,7 +1,7 @@
 HiPanel Site
 ============
 
-**Site for HiPanel**
+**Selling site for HiPanel**
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/hipanel-site/v/stable)](https://packagist.org/packages/hiqdev/hipanel-site)
 [![Total Downloads](https://poser.pugx.org/hiqdev/hipanel-site/downloads)](https://packagist.org/packages/hiqdev/hipanel-site)

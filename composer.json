@@ -1,7 +1,7 @@
 {
     "name": "hiqdev/hipanel-site",
     "type": "yii2-extension",
-    "description": "Site for HiPanel",
+    "description": "Selling site for HiPanel",
     "keywords": [
         "hipanel",
         "site"

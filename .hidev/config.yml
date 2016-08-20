@@ -1,7 +1,7 @@
 package:
     type:           yii2-extension
     name:           hipanel-site
-    title:          Site for HiPanel
+    title:          Selling site for HiPanel
     headline:       HiPanel Site
     homepage:       http://hipanel.com/
     keywords:       hipanel, site
