@@ -1,9 +1,12 @@
 {
-    "name": "hiqdev/provider-site",
+    "name": "hiqdev/hipanel-site",
     "type": "yii2-extension",
-    "description": "Hosting Provider Site",
-    "keywords": [],
-    "homepage": "https://github.com/hiqdev/provider-site",
+    "description": "Site for HiPanel",
+    "keywords": [
+        "hipanel",
+        "site"
+    ],
+    "homepage": "http://hipanel.com/",
     "license": "BSD-3-Clause",
     "support": {
         "email": "support@hiqdev.com",
@@ -54,6 +57,7 @@
     },
     "autoload": {
         "psr-4": {
+            "hipanel\\site\\": "src",
             "hiqdev\\providersite\\": "src"
         }
     },

@@ -1,6 +1,14 @@
 package:
     type:           yii2-extension
-    name:           provider-site
-    title:          Hosting Provider Site
-    namespace:      hiqdev\providersite
+    name:           hipanel-site
+    title:          Site for HiPanel
+    headline:       HiPanel Site
+    homepage:       http://hipanel.com/
+    keywords:       hipanel, site
+    namespace:      hipanel\site
+    description:    |
+        [![Logo](https://raw.githubusercontent.com/hiqdev/hipanel-core/master/docs/logo.png)](https://hipanel.com/)
 
+        [HiPanel](http://hipanel.com) is next generation control panel for hosting, domains and more.
+
+        This package is the selling site for HiPanel.

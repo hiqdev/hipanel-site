@@ -7,8 +7,8 @@ return [
         ],
         'menuManager' => [
             'menus' => [
-                'main'   => \hiqdev\providersite\MainMenu::class,
-                'footer' => \hiqdev\providersite\FooterMenu::class,
+                'main'   => \hipanel\site\MainMenu::class,
+                'footer' => \hipanel\site\FooterMenu::class,
             ],
         ],
     ],

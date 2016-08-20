@@ -1,6 +1,6 @@
 <?php
 
-namespace hiqdev\providersite;
+namespace hipanel\site;
 
 use Yii;
 

@@ -1,12 +1,20 @@
-Hosting Provider Site
-=====================
+HiPanel Site
+============
 
-[![Latest Stable Version](https://poser.pugx.org/hiqdev/provider-site/v/stable)](https://packagist.org/packages/hiqdev/provider-site)
-[![Total Downloads](https://poser.pugx.org/hiqdev/provider-site/downloads)](https://packagist.org/packages/hiqdev/provider-site)
-[![Build Status](https://img.shields.io/travis/hiqdev/provider-site.svg)](https://travis-ci.org/hiqdev/provider-site)
-[![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/hiqdev/provider-site.svg)](https://scrutinizer-ci.com/g/hiqdev/provider-site/)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/provider-site.svg)](https://scrutinizer-ci.com/g/hiqdev/provider-site/)
-[![Dependency Status](https://www.versioneye.com/php/hiqdev:provider-site/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:provider-site/dev-master)
+**Site for HiPanel**
+
+[![Latest Stable Version](https://poser.pugx.org/hiqdev/hipanel-site/v/stable)](https://packagist.org/packages/hiqdev/hipanel-site)
+[![Total Downloads](https://poser.pugx.org/hiqdev/hipanel-site/downloads)](https://packagist.org/packages/hiqdev/hipanel-site)
+[![Build Status](https://img.shields.io/travis/hiqdev/hipanel-site.svg)](https://travis-ci.org/hiqdev/hipanel-site)
+[![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/hiqdev/hipanel-site.svg)](https://scrutinizer-ci.com/g/hiqdev/hipanel-site/)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/hipanel-site.svg)](https://scrutinizer-ci.com/g/hiqdev/hipanel-site/)
+[![Dependency Status](https://www.versioneye.com/php/hiqdev:hipanel-site/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:hipanel-site/dev-master)
+
+[![Logo](https://raw.githubusercontent.com/hiqdev/hipanel-core/master/docs/logo.png)](https://hipanel.com/)
+
+[HiPanel](http://hipanel.com) is next generation control panel for hosting, domains and more.
+
+This package is the selling site for HiPanel.
 
 ## Installation
 
@@ -15,13 +23,13 @@ The preferred way to install this yii2-extension is through [composer](http://ge
 Either run
 
 ```sh
-php composer.phar require "hiqdev/provider-site"
+php composer.phar require "hiqdev/hipanel-site"
 ```
 
 or add
 
 ```json
-"hiqdev/provider-site": "*"
+"hiqdev/hipanel-site": "*"
 ```
 
 to the require section of your composer.json.
