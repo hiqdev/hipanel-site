@@ -57,8 +57,7 @@
     },
     "autoload": {
         "psr-4": {
-            "hipanel\\site\\": "src",
-            "hiqdev\\providersite\\": "src"
+            "hipanel\\site\\": "src"
         }
     },
     "extra": {
