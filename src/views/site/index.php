@@ -1,15 +1,15 @@
 <?php
 
 use hisite\modules\news\widgets\NewsRotatorWidget;
-use hiqdev\providersite\widgets\DomainAvailabilityWidget;
-use hiqdev\providersite\widgets\NewPlansWidget;
-use hiqdev\providersite\widgets\PricingboxWidget;
-use hiqdev\providersite\widgets\OurAppWidget;
+use hipanel\site\widgets\DomainAvailability;
+use hipanel\site\widgets\NewPlans;
+use hipanel\site\widgets\PricingBox;
+use hipanel\site\widgets\OurApp;
 
 ?>
 
-<?= DomainAvailabilityWidget::widget() ?>
-<?= NewPlansWidget::widget() ?>
-<?= PricingboxWidget::widget() ?>
-<?= OurAppWidget::widget() ?>
+<?= DomainAvailability::widget() ?>
+<?= NewPlans::widget() ?>
+<?= PricingBox::widget() ?>
+<?= OurApp::widget() ?>
 <?= NewsRotatorWidget::widget() ?>

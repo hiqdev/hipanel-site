@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hipanel\hipanelsite\widgets;
+namespace hipanel\site\widgets;
 
 use hipanel\modules\domain\models\Domain;
 use yii\base\Widget;
