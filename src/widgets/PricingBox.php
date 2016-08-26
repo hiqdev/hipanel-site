@@ -13,7 +13,7 @@ namespace hipanel\hipanelsite\widgets;
 
 use yii\base\Widget;
 
-class PricingboxWidget extends Widget
+class PricingBox extends Widget
 {
     public function init()
     {

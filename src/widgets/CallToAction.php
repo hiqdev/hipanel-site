@@ -13,7 +13,7 @@ namespace hipanel\hipanelsite\widgets;
 
 use yii\base\Widget;
 
-class NewPlansWidget extends Widget
+class CallToAction extends Widget
 {
     public function init()
     {

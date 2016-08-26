@@ -13,7 +13,7 @@ namespace hipanel\hipanelsite\widgets;
 
 use yii\base\Widget;
 
-class OurAppWidget extends Widget
+class OurApp extends Widget
 {
     public function init()
     {

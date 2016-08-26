@@ -14,7 +14,7 @@ namespace hipanel\hipanelsite\widgets;
 use Yii;
 use yii\base\Widget;
 
-class DomainAvailabilityWidget extends Widget
+class DomainAvailability extends Widget
 {
     public $backgroundImageEn = 'https://ahnames.com/www/flat.skin/images/banner/afilias/en.jpg';
 
