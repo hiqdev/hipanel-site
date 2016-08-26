@@ -49,7 +49,8 @@
         "hiqdev/yii2-language": "<2.0 || dev-master",
         "hiqdev/yii2-theme-flat": "<2.0 || dev-master",
         "hiqdev/yii2-theme-dataserv": "<2.0 || dev-master",
-        "hiqdev/yii2-theme-original": "<2.0 || dev-master"
+        "hiqdev/yii2-theme-original": "<2.0 || dev-master",
+        "hiqdev/hipanel-module-domain": "*@dev"
     },
     "require-dev": {
         "hiqdev/hidev-php": "<2.0 || dev-master",

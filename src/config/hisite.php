@@ -13,6 +13,9 @@ return [
     'components' => [
         'themeManager' => [
             'defaultTheme' => 'dataserv',
+            'pathDirs' => [
+                '@hipanel/site',
+            ],
         ],
         'menuManager' => [
             'menus' => [

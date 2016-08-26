@@ -28,7 +28,7 @@ class DomainAvailability extends Widget
     public function run()
     {
         $view = Yii::$app->view;
-        $internationalizationImage = 'backgroundImage' . ucfirst(Yii::$app->language);
+        $internationalizationImage = 'backgroundImage' . ucfirst(substr(Yii::$app->language, 0, 2));
         $view->registerCss(sprintf('.domainavailability { background-image: url(%s); }', $this->$internationalizationImage));
 
         return $this->render((new\ReflectionClass($this))->getShortName(), []);
