@@ -9,11 +9,12 @@
  * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hipanel\site\widgets;
+namespace hipanel\hipanelsite\widgets;
 
 use hipanel\modules\domain\models\Domain;
+use yii\base\Widget;
 
-class DomainSearchForm extends \yii\base\Widget
+class DomainSearchForm extends Widget
 {
     public $model;
 

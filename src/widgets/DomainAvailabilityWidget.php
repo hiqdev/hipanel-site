@@ -9,11 +9,12 @@
  * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hipanel\site\widgets;
+namespace hipanel\hipanelsite\widgets;
 
 use Yii;
+use yii\base\Widget;
 
-class DomainAvailabilityWidget extends \uii\base\Widget
+class DomainAvailabilityWidget extends Widget
 {
     public $backgroundImageEn = 'https://ahnames.com/www/flat.skin/images/banner/afilias/en.jpg';
 

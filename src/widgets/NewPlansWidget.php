@@ -9,9 +9,11 @@
  * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hipanel\site\widgets;
+namespace hipanel\hipanelsite\widgets;
 
-class NewPlansWidget extends \yii\base\Widget
+use yii\base\Widget;
+
+class NewPlansWidget extends Widget
 {
     public function init()
     {
