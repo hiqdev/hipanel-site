@@ -10,6 +10,14 @@
  */
 
 return [
+    'controllerNamespace' => 'hipanel\site\controllers',
+    'aliases' => [
+        '@bill' => '/finance/bill',
+        '@purse' => '/finance/purse',
+        '@tariff' => '/finance/tariff',
+        '@pay' => '/merchant/pay',
+        '@cart' => '/cart/cart',
+    ],
     'components' => [
         'themeManager' => [
             'defaultTheme' => 'dataserv',
@@ -23,5 +31,11 @@ return [
                 'footer' => \hipanel\site\FooterMenu::class,
             ],
         ],
+        'authClientCollection' => [
+            'class' => 'hiam\authclient\Collection',
+            'clients' => [
+                'hiam' => $params['hiam'],
+            ],
+        ]
     ],
 ];
