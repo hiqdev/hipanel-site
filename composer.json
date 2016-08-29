@@ -51,6 +51,7 @@
         "hiqdev/yii2-theme-dataserv": "<2.0 || dev-master",
         "hiqdev/yii2-theme-original": "<2.0 || dev-master",
         "hiqdev/hipanel-module-domain": "<2.0 || dev-master",
+        "hiqdev/hipanel-domain-checker": "*@dev",
         "hiqdev/hipanel-module-dns": "<2.0 || dev-master"
     },
     "require-dev": {
