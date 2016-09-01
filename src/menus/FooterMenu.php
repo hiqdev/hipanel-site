@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hipanel\site;
+namespace hipanel\site\menus;
 
 use Yii;
 

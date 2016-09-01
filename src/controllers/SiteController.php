@@ -2,12 +2,37 @@
 
 namespace hipanel\site\controllers;
 
-use yii\web\Controller;
+use hisite\actions\RenderAction;
 
-class SiteController extends Controller
+class SiteController extends \hisite\controllers\SiteController
 {
-    public function actionIndex()
+    public function actions()
     {
-        return $this->render('index');
+        return [
+            'index' => [
+                'class' => RenderAction::class,
+            ],
+            'vds' => [
+                'class' => RenderAction::class,
+            ],
+            'domains' => [
+                'class' => RenderAction::class,
+            ],
+            'transfer' => [
+                'class' => RenderAction::class,
+            ],
+            'dns' => [
+                'class' => RenderAction::class,
+            ],
+            'help' => [
+                'class' => RenderAction::class,
+            ],
+            'faq' => [
+                'class' => RenderAction::class,
+            ],
+            'rules' => [
+                'class' => RenderAction::class,
+            ],
+        ];
     }
 }
