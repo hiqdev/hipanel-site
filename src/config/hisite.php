@@ -61,8 +61,8 @@ return [
     'components' => [
         'themeManager' => [
             'defaultTheme' => 'dataserv',
-            'pathDirs' => [
-                '@hipanel/site',
+            'viewPaths' => [
+                '@hipanel/site/views',
             ],
         ],
         'menuManager' => [
