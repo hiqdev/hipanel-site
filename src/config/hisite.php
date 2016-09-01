@@ -59,6 +59,14 @@ return [
         ]
     ],
     'components' => [
+        'hiart' => [
+            'class' => \hiqdev\hiart\Connection::class,
+            'disabledAuth' => true,
+            'config' => [
+                'api_url' => $params['api_base_uri'],
+                'base_uri' => $params['api_base_uri'],
+            ],
+        ],
         'themeManager' => [
             'defaultTheme' => 'dataserv',
             'viewPaths' => [
