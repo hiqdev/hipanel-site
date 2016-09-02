@@ -2,7 +2,12 @@
 
 namespace hipanel\site\controllers;
 
+use hipanel\modules\domain\cart\DomainRegistrationProduct;
+use hipanel\modules\server\helpers\ServerHelper;
+use hipanel\modules\server\cart\Tariff;
+use hiqdev\yii2\cart\actions\AddToCartAction;
 use hisite\actions\RenderAction;
+use hipanel\modules\server\cart\ServerOrderProduct;
 
 class SiteController extends \hisite\controllers\SiteController
 {
@@ -14,18 +19,13 @@ class SiteController extends \hisite\controllers\SiteController
             ],
             'vds' => [
                 'class' => RenderAction::class,
-                'data' => function ($action) {
+                'data' => function () {
                     $xenPackages = ServerHelper::getAvailablePackages(Tariff::TYPE_SVDS);
                     $openvzPackages = ServerHelper::getAvailablePackages(Tariff::TYPE_OVDS);
-                    $tariffTypes = [
-                        Tariff::TYPE_SVDS => 'XenSSD',
-                        Tariff::TYPE_OVDS => 'OpenVZ',
-                    ];
 
                     return [
                         'xenPackages' => $xenPackages,
                         'openvzPackages' => $openvzPackages,
-                        'tariffTypes' => $tariffTypes,
                     ];
                 }
             ],
@@ -44,9 +44,17 @@ class SiteController extends \hisite\controllers\SiteController
             'faq' => [
                 'class' => RenderAction::class,
             ],
-            'rules' => [
+            'terms-and-conditions' => [
                 'class' => RenderAction::class,
             ],
+            'add-to-cart-registration' => [
+                'class' => AddToCartAction::class,
+                'productClass' => DomainRegistrationProduct::class,
+            ],
+            'add-to-cart' => [
+                'class' => AddToCartAction::class,
+                'productClass' => ServerOrderProduct::class
+            ]
         ];
     }
 }

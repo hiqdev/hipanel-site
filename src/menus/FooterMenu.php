@@ -11,12 +11,15 @@
 
 namespace hipanel\site\menus;
 
+use Yii;
+
 class FooterMenu extends \hiqdev\menumanager\Menu
 {
     protected $_addTo = 'footer';
 
     public function items()
     {
-        return [];
+        return [
+        ];
     }
 }

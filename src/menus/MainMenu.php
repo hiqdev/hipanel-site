@@ -22,11 +22,10 @@ class MainMenu extends \hiqdev\menumanager\Menu
         return [
             ['label' => Yii::t('hisite', 'VDS'), 'url' => ['/site/vds']],
             ['label' => Yii::t('hisite', 'Domains'), 'url' => ['/site/domains']],
-            ['label' => Yii::t('hisite', 'Transfer'), 'url' => ['/site/transfer']],
+            ['label' => Yii::t('hisite', 'Transfer'), 'url' => ['/domainchecker/transfer/index']],
             ['label' => Yii::t('hisite', 'DNS'), 'url' => ['/site/dns']],
             ['label' => Yii::t('hisite', 'Contact'), 'url' => ['/site/contact']],
             ['label' => Yii::t('hisite', 'FAQ'), 'url' => ['/site/faq']],
-            ['label' => Yii::t('hisite', 'Rules'), 'url' => ['/site/rules']],
         ];
     }
 }
