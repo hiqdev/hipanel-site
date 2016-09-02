@@ -53,7 +53,8 @@
         "hiqdev/hipanel-module-domain": "<2.0 || dev-master",
         "hiqdev/hipanel-domain-checker": "*@dev",
         "hiqdev/hipanel-module-dns": "<2.0 || dev-master",
-        "hiqdev/hipanel-module-finance": "<2.0 || dev-master"
+        "hiqdev/hipanel-module-finance": "<2.0 || dev-master",
+        "hiqdev/hipanel-module-server": "<2.0 || dev-master"
     },
     "require-dev": {
         "hiqdev/hidev-php": "<2.0 || dev-master",

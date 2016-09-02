@@ -72,4 +72,90 @@ class SiteHelper
 
         return $_resources;
     }
+
+    /**
+     * @param string $type (svds|ovds)
+     * @param integer $tariff_id
+     * @throws NotFoundHttpException
+     * @throws UnprocessableEntityHttpException
+     * @return Package|array
+     */
+    public static function getAvailablePackages($type = null, $tariff_id = null)
+    {
+        $part_ids = [];
+        $parts = [];
+        /** @var Calculation[] $calculations */
+        $calculations = [];
+
+        $cacheKeys = [
+            Yii::$app->params['seller'],
+            Yii::$app->user->id,
+            $type,
+            $tariff_id,
+        ];
+
+        /** @var Tariff[] $tariffs */
+        $tariffs = Yii::$app->getCache()->getTimeCached(3600, $cacheKeys, function ($seller, $client_id, $type, $tariff_id) {
+            return Tariff::find(['scenario' => 'get-available-info'])
+                ->joinWith('resources')
+                ->where(['seller' => $seller])
+                ->andFilterWhere(['id' => $tariff_id])
+                ->andFilterWhere(['type' => $type])
+                ->all();
+        });
+
+        foreach ($tariffs as $tariff) {
+            $part_ids = ArrayHelper::merge($part_ids, array_filter(ArrayHelper::getColumn($tariff->resources, 'object_id')));
+            $calculations[] = $tariff->getCalculationModel();
+        }
+
+        if (!empty($part_ids)) {
+            $parts = Part::find()->where(['id' => $part_ids])->indexBy('id')->all();
+        }
+
+        $calculationData = [];
+        foreach ((array) $calculations as $calculation) {
+            $calculationData[$calculation->getPrimaryKey()] = $calculation->getAttributes();
+        }
+
+        try {
+            $prices = Calculation::perform('CalcValue', $calculationData, true);
+        } catch (ErrorResponseException $e) {
+            $prices = $e->errorInfo['response'];
+        } catch (\Exception $e) {
+            throw new UnprocessableEntityHttpException('Failed to calculate tariff value', 0, $e);
+        }
+
+        $packages = [];
+
+        foreach ($tariffs as $tariff) {
+            $tariffParts = [];
+            $tariffPartsIds = array_filter(ArrayHelper::getColumn($tariff->resources, 'object_id'));
+
+            foreach ($parts as $id => $part) {
+                if (in_array($id, $tariffPartsIds)) {
+                    $tariffParts[$id] = $part;
+                }
+            }
+
+            $packages[] = Yii::createObject([
+                'class' => static::buildPackageClass($tariff),
+                'tariff' => $tariff,
+                'parts' => $tariffParts,
+                'calculation' => $prices[$tariff->id],
+            ]);
+        }
+
+        ArrayHelper::multisort($packages, 'price', SORT_ASC, SORT_NUMERIC);
+
+        if (empty($packages)) {
+            throw new NotFoundHttpException('Requested tariff is not available');
+        }
+
+        if (isset($tariff_id) && !is_array($tariff_id)) {
+            return reset($packages);
+        }
+
+        return $packages;
+    }
 }

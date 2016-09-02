@@ -14,6 +14,20 @@ class SiteController extends \hisite\controllers\SiteController
             ],
             'vds' => [
                 'class' => RenderAction::class,
+                'data' => function ($action) {
+                    $xenPackages = ServerHelper::getAvailablePackages(Tariff::TYPE_SVDS);
+                    $openvzPackages = ServerHelper::getAvailablePackages(Tariff::TYPE_OVDS);
+                    $tariffTypes = [
+                        Tariff::TYPE_SVDS => 'XenSSD',
+                        Tariff::TYPE_OVDS => 'OpenVZ',
+                    ];
+
+                    return [
+                        'xenPackages' => $xenPackages,
+                        'openvzPackages' => $openvzPackages,
+                        'tariffTypes' => $tariffTypes,
+                    ];
+                }
             ],
             'domains' => [
                 'class' => RenderAction::class,
