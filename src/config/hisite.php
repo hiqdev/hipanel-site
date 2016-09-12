@@ -56,7 +56,13 @@ return [
         'news' => [
             'class' => \hisite\modules\news\Module::class,
             'viewPath' => '@app/themes/dataserv/modules'
-        ]
+        ],
+        'pages' => [
+            'storage' => [
+                'class' => \creocoder\flysystem\LocalFilesystem::class,
+                'path'  => '@hipanel/site/site/pages',
+            ],
+        ],
     ],
     'components' => [
         'hiart' => [

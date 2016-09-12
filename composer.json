@@ -43,6 +43,7 @@
     ],
     "require": {
         "codemix/yii2-localeurls": "^1.4",
+        "creocoder/yii2-flysystem": "^0.8.1",
         "hiqdev/hisite-core": "<2.0 || dev-master",
         "hiqdev/hisite-module-news": "<2.0 || dev-master",
         "hiqdev/yii2-cart": "<2.0 || dev-master",
