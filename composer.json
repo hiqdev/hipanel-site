@@ -53,8 +53,9 @@
         "hiqdev/yii2-theme-original": "<2.0 || dev-master",
         "hiqdev/yii2-module-pages": "<2.0 || dev-master",
         "hiqdev/hipanel-module-domain": "<2.0 || dev-master",
-        "hiqdev/hipanel-domain-checker": "*@dev",
+        "hiqdev/hipanel-domain-checker": "<2.0 || dev-master",
         "hiqdev/hipanel-module-dns": "<2.0 || dev-master",
+        "hiqdev/hipanel-module-stock": "<2.0 || dev-master",
         "hiqdev/hipanel-module-finance": "<2.0 || dev-master",
         "hiqdev/hipanel-module-server": "<2.0 || dev-master"
     },

@@ -20,12 +20,12 @@ class MainMenu extends \hiqdev\menumanager\Menu
     public function items()
     {
         return [
-            ['label' => Yii::t('hisite', 'VDS'), 'url' => ['/site/vds']],
-            ['label' => Yii::t('hisite', 'Domains'), 'url' => ['/site/domains']],
-            ['label' => Yii::t('hisite', 'Transfer'), 'url' => ['/domainchecker/transfer/index']],
-            ['label' => Yii::t('hisite', 'DNS'), 'url' => ['/site/dns']],
-            ['label' => Yii::t('hisite', 'Contact'), 'url' => ['/site/contact']],
-            ['label' => Yii::t('hisite', 'FAQ'), 'url' => ['/site/faq']],
+            ['label' => Yii::t('hisite', 'VDS'),        'url' => ['/pages/vds']],
+            ['label' => Yii::t('hisite', 'Domains'),    'url' => ['/pages/domains']],
+            ['label' => Yii::t('hisite', 'Transfer'),   'url' => ['/domainchecker/transfer/index']],
+            ['label' => Yii::t('hisite', 'DNS'),        'url' => ['/pages/dns']],
+            ['label' => Yii::t('hisite', 'Contact'),    'url' => ['/site/contact']],
+            ['label' => Yii::t('hisite', 'FAQ'),        'url' => ['/pages/faq']],
         ];
     }
 }

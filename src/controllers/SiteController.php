@@ -29,21 +29,6 @@ class SiteController extends \hisite\controllers\SiteController
                     ];
                 }
             ],
-            'domains' => [
-                'class' => RenderAction::class,
-            ],
-            'transfer' => [
-                'class' => RenderAction::class,
-            ],
-            'dns' => [
-                'class' => RenderAction::class,
-            ],
-            'help' => [
-                'class' => RenderAction::class,
-            ],
-            'faq' => [
-                'class' => RenderAction::class,
-            ],
             'terms-and-conditions' => [
                 'class' => RenderAction::class,
             ],

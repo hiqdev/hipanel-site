@@ -60,7 +60,7 @@ return [
         'pages' => [
             'storage' => [
                 'class' => \creocoder\flysystem\LocalFilesystem::class,
-                'path'  => '@hipanel/site/site/pages',
+                'path'  => '@hipanel/site/pages',
             ],
         ],
     ],

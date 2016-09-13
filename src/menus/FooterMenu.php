@@ -20,6 +20,8 @@ class FooterMenu extends \hiqdev\menumanager\Menu
     public function items()
     {
         return [
+            ['label' => Yii::t('hisite', 'Terms of use'),   'url' => ['/pages/rules']],
+            ['label' => Yii::t('hisite', 'Privacy policy'), 'url' => ['/pages/rules#privacyPolicy']],
         ];
     }
 }
