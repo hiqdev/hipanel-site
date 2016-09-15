@@ -46,6 +46,7 @@
         "creocoder/yii2-flysystem": "^0.8.1",
         "hiqdev/hisite-core": "<2.0 || dev-master",
         "hiqdev/hisite-module-news": "<2.0 || dev-master",
+        "hiqdev/yii2-hiam-authclient": "<2.0 || dev-master",
         "hiqdev/yii2-cart": "<2.0 || dev-master",
         "hiqdev/yii2-language": "<2.0 || dev-master",
         "hiqdev/yii2-theme-flat": "<2.0 || dev-master",
