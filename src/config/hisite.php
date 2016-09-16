@@ -63,17 +63,6 @@ return [
                 'path'  => '@hipanel/site/pages',
             ],
         ],
-        'authClientCollection' => [
-            'class' => \hiam\authclient\Collection::class,
-            'clients' => [
-                'hiam' => [
-                    'class' => \hiam\authclient\HiamClient::class,
-                    'site' => $params['hiam_site'],
-                    'clientId' => $params['hiam_client_id'],
-                    'clientSecret' => $params['hiam_client_secret'],
-                ],
-            ],
-        ],
     ],
     'components' => [
         'hiart' => [
@@ -97,10 +86,15 @@ return [
             ],
         ],
         'authClientCollection' => [
-            'class' => 'hiam\authclient\Collection',
+            'class' => \hiam\authclient\Collection::class,
             'clients' => [
-                'hiam' => $params['hiam'],
+                'hiam' => [
+                    'class' => \hiam\authclient\HiamClient::class,
+                    'site' => $params['hiam_site'],
+                    'clientId' => $params['hiam_client_id'],
+                    'clientSecret' => $params['hiam_client_secret'],
+                ],
             ],
-        ]
+        ],
     ],
 ];

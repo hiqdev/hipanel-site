@@ -1,4 +1,5 @@
 <?php
+
 namespace hipanel\site\widgets;
 
 use hipanel\modules\domain\models\Domain;
