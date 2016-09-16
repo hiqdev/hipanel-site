@@ -102,7 +102,7 @@ return [
                 'hipanel/pages' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'sourceLanguage' => 'en-US',
-                    'basePath' => '@hipanel/messages',
+                    'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
                         'hipanel/pages' => 'pages.php',
                     ],
