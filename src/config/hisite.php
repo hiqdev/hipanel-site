@@ -96,5 +96,18 @@ return [
                 ],
             ],
         ],
+        'i18n' => [
+            'class' => \yii\i18n\I18N::class,
+            'translations' => [
+                'hipanel/pages' => [
+                    'class' => \yii\i18n\PhpMessageSource::class,
+                    'sourceLanguage' => 'en-US',
+                    'basePath' => '@hipanel/messages',
+                    'fileMap' => [
+                        'hipanel/pages' => 'pages.php',
+                    ],
+                ],
+            ],
+        ],
     ],
 ];
