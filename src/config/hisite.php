@@ -65,6 +65,9 @@ return [
         ],
     ],
     'components' => [
+        'response' => [
+            'class' => \yii\web\Response::class,
+        ],
         'hiart' => [
             'class' => \hiqdev\hiart\Connection::class,
             'disabledAuth' => true,
