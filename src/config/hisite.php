@@ -11,13 +11,6 @@
 
 return [
     'controllerNamespace' => 'hipanel\site\controllers',
-    'aliases' => [
-        '@bill' => '/finance/bill',
-        '@purse' => '/finance/purse',
-        '@tariff' => '/finance/tariff',
-        '@pay' => '/merchant/pay',
-        '@cart' => '/cart/cart',
-    ],
     'modules' => [
         'domainchecker' => [
             'class' => \hipanel\modules\domainchecker\Module::class,
