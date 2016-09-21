@@ -8,7 +8,7 @@ use yii\helpers\Html;
 <table id="tld-table" class="tablesaw" data-tablesaw-mode="stack">
     <thead>
     <tr>
-        <th><?= Yii::t('hisite', 'Domain sones') ?></th>
+        <th><?= Yii::t('hisite', 'Zone') ?></th>
         <th><?= Yii::t('hisite', 'Registration') ?></th>
         <th><?= Yii::t('hisite', 'Renewal') ?></th>
         <th><?= Yii::t('hisite', 'Transfer') ?></th>
@@ -21,7 +21,7 @@ use yii\helpers\Html;
             foreach ($domains['zone:.' . $zone] as $v) if (floatval($v['price']) == 0) $hide = true; ?>
             <?php if (!$hide) : ?>
                 <tr>
-                    <td><?= Html::tag('span', $zone, ['class' => '']) ?></td>
+                    <td><?= Html::tag('span', '.' . $zone, ['class' => '']) ?></td>
                     <td>
                         <b><?= Yii::$app->formatter->asCurrency($domains['zone:.' . $zone]['dregistration']['price'], 'usd') ?></b>
                         / <?= Yii::t('hisite', 'year') ?></td>
