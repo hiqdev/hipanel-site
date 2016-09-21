@@ -6,6 +6,23 @@ $this->title = Yii::t('hisite', 'Terms & Conditions');
 <?php
 $this->title = Yii::t('hipanel/pages', 'Rules');
 $this->registerCss(".vps-features-tabs .tabs-left-vertical > .nav-tabs > li > a { font-size: 12px; }");
+$this->registerJs("
+// It adds tab href to url + opens tab based on hash on page load
+var hash = window.location.hash;
+hash && $('ul.nav a[href=\"' + hash + '\"]').tab('show');
+$('.nav-tabs a:not(.external)').click(function (e) {
+    $(this).tab('show');
+    var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+    window.location.hash = this.hash;
+    $('html,body').scrollTop(scrollmem);
+});
+// Handle external tabs
+$('.nav-tabs a.external').on('show.bs.tab', function (e) {
+    e.preventDefault();
+    var url = this.getAttribute('href'); 
+    window.open(url);
+});
+");
 ?>
 <div class="vps-features-tabs">
     <div class="row">
@@ -16,7 +33,7 @@ $this->registerCss(".vps-features-tabs .tabs-left-vertical > .nav-tabs > li > a 
 
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#termsOfUse"
-                                          data-toggle="tab"><?= Yii::t('hipanel/pages', 'Domains terms of use') ?></a>
+                                          data-toggle="tab"><?= Yii::t('hipanel/pages', 'Terms of use') ?></a>
                     </li>
                     <li><a href="#privacyPolicy" data-toggle="tab"><?= Yii::t('hipanel/pages', 'Privacy Policy') ?></a>
                     </li>
@@ -26,12 +43,25 @@ $this->registerCss(".vps-features-tabs .tabs-left-vertical > .nav-tabs > li > a 
                     <li><a href="#domainRemovalAndAutoRenewalPolicy"
                            data-toggle="tab"><?= Yii::t('hipanel/pages', 'Domain removal and auto renewal Policy') ?></a>
                     </li>
+
+                    <li>
+                        <a href="https://www.icann.org/resources/pages/responsibilities-2014-03-14-en" data-toggle="tab"
+                           class="external">
+                            <i class="fa fa-external-link-square lightblue"></i><?= Yii::t('hipanel/pages', 'Registrant rights and responsibilities') ?>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="http://afilias.info/policies" data-toggle="tab" class="external">
+                            <i class="fa fa-external-link-square lightblue"></i><?= Yii::t('hipanel/pages', 'Afilias Domain Anti-Abuse Policy') ?>
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
 
                     <div class="tab-pane fade in active" id="termsOfUse">
-                        <h4><?= Yii::t('hipanel/pages', 'Domains terms of use') ?></h4>
+                        <h4><?= Yii::t('hipanel/pages', 'Terms of use') ?></h4>
                         <hr class="small"/>
                         <?= $this->render('_terms_of_use'); ?>
                     </div>
@@ -62,9 +92,3 @@ $this->registerCss(".vps-features-tabs .tabs-left-vertical > .nav-tabs > li > a 
         </div>
     </div>
 </div>
-
-<a href="https://www.icann.org/resources/pages/responsibilities-2014-03-14-en" target="_blank" data-toggle="tab"><i
-        class="fa fa-check-square-o lightblue"></i><?= Yii::t('hipanel/pages', 'Registrant rights and responsibilities') ?>
-</a>
-<a href="http://afilias.info/policies" target="_blank" data-toggle="tab"><i
-        class="fa fa-gratipay orange"></i><?= Yii::t('hipanel/pages', 'Afilias Domain Anti-Abuse Policy') ?></a>
