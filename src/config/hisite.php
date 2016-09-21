@@ -79,7 +79,10 @@ return [
             'menus' => [
                 'main' => \hipanel\site\menus\MainMenu::class,
                 'footer' => \hipanel\site\menus\FooterMenu::class,
-                'navbar' => \hipanel\site\menus\NavBarMenu::class,
+                'navbar' => [
+                    'class' => \hipanel\site\menus\NavBarMenu::class,
+                    'hipanelUrl' => $params['hipanelUrl'],
+                ],
             ],
         ],
         'authClientCollection' => [

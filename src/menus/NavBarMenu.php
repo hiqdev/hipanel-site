@@ -11,6 +11,8 @@ class NavBarMenu extends \hiqdev\menumanager\Menu
 {
     protected $_addTo = 'navbar';
 
+    public $hipanelUrl;
+
     public function items()
     {
         return [
@@ -28,8 +30,16 @@ class NavBarMenu extends \hiqdev\menumanager\Menu
                     'class' => 'dropdown notifications-menu'
                 ]
             ],
-            ['label' => Yii::t('hisite', 'Login'), 'url' => ['/site/login'], 'visible' => Yii::$app->user->isGuest],
-            ['label' => Yii::t('hisite', 'Panel'), 'url' => '#', 'visible' => !Yii::$app->user->isGuest],
+            [
+                'label' => Yii::t('hisite', 'Login'),
+                'url' => ['/site/login'],
+                'visible' => Yii::$app->user->isGuest,
+            ],
+            [
+                'label' => Yii::t('hisite', 'Panel'),
+                'url' => $this->hipanelUrl,
+                'visible' => !Yii::$app->user->isGuest,
+            ],
             [
                 'label' => $this->getGravatar() . '&nbsp;&nbsp;' . Yii::$app->user->identity->username . ' (' . Yii::t('hisite', 'Logout') . ')',
                 'url' => ['/site/logout'],
