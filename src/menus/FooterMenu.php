@@ -15,13 +15,17 @@ use Yii;
 
 class FooterMenu extends \hiqdev\menumanager\Menu
 {
-    protected $_addTo = 'footer';
-
     public function items()
     {
         return [
-            ['label' => Yii::t('hisite', 'Terms of use'),   'url' => ['/pages/rules']],
-            ['label' => Yii::t('hisite', 'Privacy policy'), 'url' => ['/pages/rules#privacyPolicy']],
+            [
+                'label' => Yii::t('hisite', 'Terms of use'),
+                'url' => ['/pages/rules'],
+            ],
+            [
+                'label' => Yii::t('hisite', 'Privacy policy'),
+                'url' => ['/pages/rules#privacyPolicy'],
+            ],
         ];
     }
 }

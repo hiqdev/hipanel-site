@@ -15,8 +15,6 @@ use Yii;
 
 class MainMenu extends \hiqdev\menumanager\Menu
 {
-    protected $_addTo = 'main';
-
     public function items()
     {
         return [

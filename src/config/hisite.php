@@ -76,7 +76,7 @@ return [
             ],
         ],
         'menuManager' => [
-            'menus' => [
+            'items' => [
                 'main' => \hipanel\site\menus\MainMenu::class,
                 'footer' => \hipanel\site\menus\FooterMenu::class,
                 'navbar' => [
