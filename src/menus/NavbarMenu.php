@@ -7,7 +7,7 @@ use hiqdev\yii2\cart\widgets\PanelTopCart;
 use hiqdev\yii2\language\widgets\LanguageMenu;
 use Yii;
 
-class NavBarMenu extends \hiqdev\menumanager\Menu
+class NavbarMenu extends \hiqdev\menumanager\Menu
 {
     protected $_addTo = 'navbar';
 

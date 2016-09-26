@@ -80,7 +80,7 @@ return [
                 'main' => \hipanel\site\menus\MainMenu::class,
                 'footer' => \hipanel\site\menus\FooterMenu::class,
                 'navbar' => [
-                    'class' => \hipanel\site\menus\NavBarMenu::class,
+                    'class' => \hipanel\site\menus\NavbarMenu::class,
                     'hipanelUrl' => $params['hipanelUrl'],
                 ],
             ],
