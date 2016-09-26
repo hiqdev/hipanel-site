@@ -97,7 +97,7 @@ $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"
                 </tr>
                 <tr>
                     <?php
-                    echo Html::tag('td', Yii::t('hipanel/server/order', 'Locations'));
+                    echo Html::tag('td', Yii::t('hipanel/server/order', 'Location'));
 
                     foreach ($packages as $package) {
                         echo Html::tag('td', $package->getLocations()[2]);

@@ -43,4 +43,16 @@ class SiteController extends \hipanel\controllers\SiteController
         ]);
     }
 
+    public function actionOrder($id)
+    {
+        $package = ServerHelper::getAvailablePackages(null, $id);
+        $osImages = ServerHelper::getOsimages($package->tariff->type);
+
+        return $this->render('order', [
+            'package' => $package,
+            'product' => new ServerOrderProduct(['tariff_id' => $package->tariff->id]),
+            'groupedOsimages' => ServerHelper::groupOsimages($osImages),
+            'panels' => ServerHelper::getPanels(),
+        ]);
+    }
 }
