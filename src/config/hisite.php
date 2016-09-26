@@ -14,7 +14,7 @@ return [
     'modules' => [
         'domainchecker' => [
             'class' => \hipanel\modules\domainchecker\Module::class,
-            'viewPath' => '@app/themes/dataserv/modules'
+            'viewPath' => '@vendor/hiqdev/hipanel-site/src/views/domainchecker'
         ],
         'finance' => [
             'class' => \hipanel\modules\finance\Module::class,

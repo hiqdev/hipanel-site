@@ -18,7 +18,7 @@ class MainMenu extends \hiqdev\menumanager\Menu
     public function items()
     {
         return [
-            ['label' => Yii::t('hisite', 'VDS'),        'url' => ['/pages/vds']],
+            ['label' => Yii::t('hisite', 'VDS'),        'url' => ['/site/vds']],
             ['label' => Yii::t('hisite', 'Domains'),    'url' => ['/pages/domains']],
             ['label' => Yii::t('hisite', 'Transfer'),   'url' => ['/domainchecker/transfer/index']],
             ['label' => Yii::t('hisite', 'DNS'),        'url' => ['/pages/dns']],
