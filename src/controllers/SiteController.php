@@ -3,8 +3,8 @@
 namespace hipanel\site\controllers;
 
 use hipanel\modules\domain\cart\DomainRegistrationProduct;
+use hipanel\modules\finance\models\Tariff;
 use hipanel\modules\server\helpers\ServerHelper;
-use hipanel\modules\server\cart\Tariff;
 use hipanel\modules\server\cart\ServerOrderProduct;
 use hiqdev\yii2\cart\actions\AddToCartAction;
 use hisite\actions\RenderAction;
@@ -20,8 +20,8 @@ class SiteController extends \hipanel\controllers\SiteController
             'vds' => [
                 'class' => RenderAction::class,
                 'data' => function () {
-                    $xenPackages = ServerHelper::getAvailablePackages(Tariff::TYPE_SVDS);
-                    $openvzPackages = ServerHelper::getAvailablePackages(Tariff::TYPE_OVDS);
+                    $xenPackages = ServerHelper::getAvailablePackages(Tariff::TYPE_XEN);
+                    $openvzPackages = ServerHelper::getAvailablePackages(Tariff::TYPE_OPENVZ);
 
                     return [
                         'xenPackages' => $xenPackages,
