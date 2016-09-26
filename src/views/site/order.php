@@ -6,6 +6,7 @@
  * @var array $groupedOsimages
  * @var array $panels
  */
+use hipanel\modules\server\models\Package;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -61,7 +62,7 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                             </dd>
                             <dt><?= Yii::t('hipanel/server/order', 'Location') ?></dt>
                             <dd>
-                                <?= $package->getLocations()[2] ?>
+                                <?= $package->getStubResource('location')->decorator()->displayShortenLocations() ?>
                             </dd>
                             <dt><?= Yii::t('hipanel/server/order', 'Purpose') ?></dt>
                             <dd>
@@ -86,7 +87,7 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                     </span>
                         <div class="list-group-item">
                             <div class="list-group-item-text os-list">
-                                <?= $form->field($product, 'cluster_id')->dropDownList($package->getLocations(), ['name' => 'cluster_id'])->label(false) ?>
+                                <?= $form->field($product, 'cluster_id')->dropDownList($package->getStubResource('location')->decorator()->prepaidAmountType()->getOptions(), ['name' => 'cluster_id'])->label(false) ?>
                             </div>
                         </div>
                     </div>
