@@ -97,7 +97,6 @@ return [
             ],
         ],
         'i18n' => [
-            'class' => \yii\i18n\I18N::class,
             'translations' => [
                 'hipanel/pages' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
