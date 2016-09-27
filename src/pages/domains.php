@@ -1,7 +1,13 @@
 <?php
 use hipanel\site\widgets\DomainPriceTable;
+use hipanel\site\widgets\DomainSearchForm;
 
 $this->title = Yii::t('hisite', 'Domain names search and register');
+$this->registerJs("
+$('#showdomainsearch').click(function() {
+    $('.domainform').slideToggle(\"slow\");
+});
+");
 ?>
 
 <div class="domaintlds">
@@ -26,6 +32,23 @@ $this->title = Yii::t('hisite', 'Domain names search and register');
 <div class="domain-prices">
     <div class="row">
         <?= DomainPriceTable::widget() ?>
+    </div>
+</div>
+
+<div class="domainsearch">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="text-center"><?= Yii::t('hisite', 'START BY REGISTERING YOUR DOMAIN NAME') ?></h3>
+            <button class="mtr-btn button-circle button-fab ripple" id="showdomainsearch">+</button>
+        </div>
+    </div>
+</div>
+
+<div class="domainform">
+    <div class="row">
+        <div class="col-sm-12">
+            <?= DomainSearchForm::widget() ?>
+        </div>
     </div>
 </div>
 

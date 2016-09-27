@@ -14,14 +14,14 @@ return [
     'modules' => [
         'domainchecker' => [
             'class' => \hipanel\modules\domainchecker\Module::class,
-            'viewPath' => '@vendor/hiqdev/hipanel-site/src/views/domainchecker'
+            'viewPath' => '@vendor/hiqdev/hipanel-site/src/views'
         ],
         'finance' => [
             'class' => \hipanel\modules\finance\Module::class,
         ],
         'cart' => [
             'class' => \hiqdev\yii2\cart\Module::class,
-            'viewPath' => '@app/themes/dataserv/modules',
+            'viewPath' => '@vendor/hiqdev/hipanel-site/src/views',
             'termsPage' => $params['organizationUrl'] . 'rules',
             'orderPage' => '/finance/cart/select',
             /*'orderButton'    => function ($module) {
