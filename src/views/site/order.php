@@ -6,12 +6,14 @@
  * @var array $groupedOsimages
  * @var array $panels
  */
+use hipanel\modules\server\assets\OsSelectionAsset;
 use hipanel\modules\server\models\Package;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\web\View;
 
+OsSelectionAsset::register($this);
 $this->title = Yii::t('hipanel/server/order', 'Order creating');
 $this->blocks['subTitle'] = Yii::t('hisite', 'customise your server'); // todo: we need a good text
 $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/dataserv/assets');
