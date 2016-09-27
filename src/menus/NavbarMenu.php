@@ -3,7 +3,7 @@
 namespace hipanel\site\menus;
 
 use hipanel\widgets\Gravatar;
-use hiqdev\yii2\cart\widgets\PanelTopCart;
+use hiqdev\yii2\cart\widgets\CartTeaser;
 use hiqdev\yii2\language\widgets\LanguageMenu;
 use Yii;
 
@@ -24,10 +24,10 @@ class NavbarMenu extends \hiqdev\menumanager\Menu
                 ]
             ],
             [
-                'label' => PanelTopCart::widget(),
+                'label' => CartTeaser::widget(),
                 'encode' => false,
                 'options' => [
-                    'class' => 'dropdown notifications-menu'
+                    'class' => 'dropdown notifications-menu notifications-cart'
                 ]
             ],
             [

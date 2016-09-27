@@ -8,7 +8,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 /** @var array $line */
-$addToCartPath = '/add-to-cart-registration';
+$addToCartPath = '/site/add-to-cart-registration';
 $topcartUrl = '/cart/cart/topcart';
 ?>
 
