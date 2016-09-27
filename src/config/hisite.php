@@ -16,36 +16,6 @@ return [
             'class' => \hipanel\modules\domainchecker\Module::class,
             'viewPath' => '@vendor/hiqdev/hipanel-site/src/views'
         ],
-        'finance' => [
-            'class' => \hipanel\modules\finance\Module::class,
-        ],
-        'cart' => [
-            'class' => \hiqdev\yii2\cart\Module::class,
-            'viewPath' => '@vendor/hiqdev/hipanel-site/src/views',
-            'termsPage' => $params['organizationUrl'] . 'rules',
-            'orderPage' => '/finance/cart/select',
-            /*'orderButton'    => function ($module) {
-                return Yii::$app->getView()->render('@hipanel/modules/finance/views/cart/order-button', [
-                    'module' => $module,
-                ]);
-            },*/
-            'paymentMethods' => function () {
-                return \Yii::$app->getView()->render('@hipanel/modules/finance/views/cart/payment-methods', [
-                    'merchants' => \Yii::$app->getModule('merchant')->getCollection([])->getItems(),
-                ]);
-            },
-            'shoppingCartOptions' => [
-                'on cartChange' => ['hipanel\modules\finance\cart\CartCalculator', 'execute'],
-            ],
-        ],
-        'merchant' => [
-            'class' => \hiqdev\yii2\merchant\Module::class,
-            'returnPage' => '/finance/pay/return',
-            'notifyPage' => '/finance/pay/notify',
-            'finishPage' => '/finance/bill',
-            'depositClass' => 'hipanel\modules\finance\merchant\Deposit',
-            'collectionClass' => 'hipanel\modules\finance\merchant\Collection',
-        ],
         'news' => [
             'class' => \hisite\modules\news\Module::class,
             'viewPath' => '@app/themes/dataserv/modules'
@@ -62,12 +32,7 @@ return [
             'class' => \yii\web\Response::class,
         ],
         'hiart' => [
-            'class' => \hiqdev\hiart\Connection::class,
             'disabledAuth' => true,
-            'config' => [
-                'api_url' => $params['api_base_uri'],
-                'base_uri' => $params['api_base_uri'],
-            ],
         ],
         'themeManager' => [
             'defaultTheme' => 'dataserv',
