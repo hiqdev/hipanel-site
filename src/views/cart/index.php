@@ -5,7 +5,7 @@ use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\helpers\Html;
 
-$this->title = Yii::t('cart', 'Cart');
+$this->title = Yii::t('cart', 'Checkout');
 $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter->asDate(new DateTime());
 
 /**
