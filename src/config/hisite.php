@@ -36,7 +36,7 @@ return [
         ],
         'themeManager' => [
             'defaultTheme' => 'dataserv',
-            'viewPaths' => [
+            'themedPaths' => [
                 '@hipanel/site/views',
             ],
         ],
