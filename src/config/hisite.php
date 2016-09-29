@@ -63,9 +63,15 @@ return [
         ],
         'i18n' => [
             'translations' => [
+                'hipanel/site' => [
+                    'class' => \yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@hipanel/site/messages',
+                    'fileMap' => [
+                        'hipanel/site' => 'site.php',
+                    ],
+                ],
                 'hipanel/pages' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
-                    'sourceLanguage' => 'en-US',
                     'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
                         'hipanel/pages' => 'pages.php',
