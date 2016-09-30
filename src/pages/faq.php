@@ -56,7 +56,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion"
                                             href="#collapse1"><?= Yii::t('hisite', 'NS Server installation') ?></a>
                                     </h4>
@@ -73,7 +73,7 @@ $('.faq-categories li a').click(function(){
                                                             <div class="panel panel-default">
                                                                 <div class="panel-heading">
                                                                     <h4 class="panel-title"><i
-                                                                            class="indicator fa fa-minus-square-o pull-left"></i><a
+                                                                            class="indicator fa fa-plus-square-o pull-left"></i><a
                                                                             data-toggle="collapse"
                                                                             data-parent="#subAccording1"
                                                                             href="#collapse112">Installing third-party
@@ -98,7 +98,7 @@ $('.faq-categories li a').click(function(){
                                                             <div class="panel panel-default">
                                                                 <div class="panel-heading">
                                                                     <h4 class="panel-title"><i
-                                                                            class="indicator fa fa-minus-square-o pull-left"></i><a
+                                                                            class="indicator fa fa-plus-square-o pull-left"></i><a
                                                                             data-toggle="collapse"
                                                                             data-parent="#subAccording1"
                                                                             href="#collapse113">ahnames.com NS-server
@@ -123,7 +123,7 @@ $('.faq-categories li a').click(function(){
                                                             <div class="panel panel-default">
                                                                 <div class="panel-heading">
                                                                     <h4 class="panel-title"><i
-                                                                            class="indicator fa fa-minus-square-o pull-left"></i><a
+                                                                            class="indicator fa fa-plus-square-o pull-left"></i><a
                                                                             data-toggle="collapse"
                                                                             data-parent="#subAccording1"
                                                                             href="#collapse114">Creating subsidiary
@@ -157,7 +157,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion" href="#collapse2">HOW TO
                                             TRANSFER EMAIL ACCOUNTS AND MESSAGES BETWEEN CPANEL SERVERS?</a></h4>
                                 </div>
@@ -176,7 +176,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion" href="#collapse3">PARKED VS
                                             ADDON DOMAINS</a></h4>
                                 </div>
@@ -192,7 +192,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion" href="#collapse4">HOW TO
                                             OPTIMIZE A MYSQL DATABASE</a></h4>
                                 </div>
@@ -212,7 +212,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion" href="#collapse5">HOW TO
                                             CHANGE THE LANGUAGE FOR CPANEL?</a></h4>
                                 </div>
@@ -238,7 +238,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion2" href="#collapse6">WHAT IS
                                             APACHE?</a></h4>
                                 </div>
@@ -255,7 +255,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion2" href="#collapse7">WHY AM I
                                             GETTING SERVER RESTART MESSAGES PERIODICALLY, WHEN I DID NOT RESTART THE
                                             SERVER?</a></h4>
@@ -275,7 +275,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion2" href="#collapse8">WHY
                                             DOESN'T MOD_INFO LIST ANY DIRECTIVES?</a></h4>
                                 </div>
@@ -291,7 +291,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion2" href="#collapse9">HOW CAN I
                                             CHANGE THE INFORMATION THAT APACHE RETURNS ABOUT ITSELF IN THE HEADERS?</a>
                                     </h4>
@@ -312,7 +312,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion2" href="#collapse10">HOW DO I
                                             ENABLE SSI (PARSED HTML)?</a></h4>
                                 </div>
@@ -331,7 +331,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion2" href="#collapse11">CAN I
                                             USE ACTIVE SERVER PAGES (ASP) WITH APACHE?</a></h4>
                                 </div>
@@ -357,7 +357,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion3" href="#collapse12">WHAT IS
                                             DNS?</a></h4>
                                 </div>
@@ -374,7 +374,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion3" href="#collapse13">CAN I
                                             USE DNS TO HOST MY DOMAIN NAME OR WEBSITE?</a></h4>
                                 </div>
@@ -393,7 +393,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion3" href="#collapse14">WHERE
                                             ARE YOUR SERVERS CURRENTLY LOCATED?</a></h4>
                                 </div>
@@ -409,7 +409,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion3" href="#collapse15">HOW DOES
                                             DNS HANDLE LOOKUPS WHICH FAIL DNSSEC VALIDATION?</a></h4>
                                 </div>
@@ -429,7 +429,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion3" href="#collapse16">WHAT IS
                                             A DOMAIN NAME?</a></h4>
                                 </div>
@@ -448,7 +448,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion3" href="#collapse17">WHAT IS
                                             AN IP?</a></h4>
                                 </div>
@@ -467,7 +467,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion3" href="#collapse18">HOW LONG
                                             DO DNS CHANGES TAKE TO PROPAGATE?</a></h4>
                                 </div>
@@ -486,7 +486,7 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-minus-square-o pull-left"></i><a
+                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
                                             data-toggle="collapse" data-parent="#accordion3" href="#collapse19">WHAT IS
                                             THE WEBSITE’S IP ADDRESS?</a></h4>
                                 </div>
