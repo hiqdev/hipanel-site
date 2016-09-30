@@ -1,29 +1,34 @@
 <?php
 
+use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
-use yii\widgets\ActiveForm;
 
-/* @var $model \hipanel\modules\domain\models\Domain */
+/** @var \hipanel\modules\domain\models\Whois $model */
 
-$form = ActiveForm::begin([
-    'id' => 'check-domain',
+?>
+
+
+<?php $form = ActiveForm::begin([
+    'id' => 'whois-lookup',
+    'action' => Url::toRoute('whois/index'),
     'method' => 'get',
-    'action' => Url::toRoute('/domain/check/check-domain'),
     'options' => [
-        'class' => 'material'
+        'data-pjax' => false,
+        'class' => 'material',
     ],
     'fieldConfig' => [
         'template' => "{input}\n{hint}\n{error}",
     ],
 ]) ?>
 <div class="row">
-    <input type="hidden" name="direct" value="true"/>
     <div class="col-sm-11">
         <?= $form->field($model, 'domain')->textInput([
-            'placeholder' => Yii::t('app', 'Domain Search'),
+            'placeholder' => Yii::t('hipanel/domain', 'Domain name'),
+            'class' => 'form-control',
             'name' => 'domain',
             'id' => 'domain',
-            'autocomplete' => 'off'
+            'autocomplete' => 'off',
+            'value' => Yii::$app->request->get('domain')
         ]) ?>
     </div>
     <div class="col-sm-1">
