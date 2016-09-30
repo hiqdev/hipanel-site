@@ -1,6 +1,8 @@
 <?php
 use hipanel\modules\domain\assets\DomainCheckPluginAsset;
 use hipanel\modules\domain\models\Domain;
+use hipanel\site\widgets\DomainSearchForm;
+use yii\helpers\Html;
 
 DomainCheckPluginAsset::register($this);
 
@@ -148,6 +150,18 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
 
 ?>
 
+<?php $this->beginBlock('subHeader') ?>
+    <div class="domainavailability">
+        <div class="row">
+            <div class="col-sm-12 col-md-9 center-block">
+                <?= Html::tag('h1', $this->title, ['class' => 'text-center']) ?>
+                <div class="domain-form-container">
+                    <?= DomainSearchForm::widget() ?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php $this->endBlock() ?>
 <!-- Blog -->
 <div class="blog">
     <div class="row">
