@@ -2,52 +2,54 @@
 
 /** @var string $domain */
 /** @var array $availableZones */
-/** @var \hipanel\modules\domain\models\Domain $model */
+/** @var \hipanel\modules\domain\models\Whois $model */
+/** @var \yii\web\View $this */
 
 use hipanel\modules\domain\assets\WhoisAsset;
+use hipanel\site\widgets\WhoisLookupForm;
 use hipanel\widgets\ArraySpoiler;
-use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Html;
-use yii\helpers\Url;
 
-$this->title = Yii::t('hipanel/domain', 'Whois lookup');
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::t('hipanel/domain', 'WHOIS lookup');
 
+$this->registerCss("
+#whois-lookup h2 {
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 15px;
+}
+");
 if ($model->domain !== null) {
     WhoisAsset::register($this);
     $this->registerJs("$('#whois').whois({domain: '{$model->domain}'});");
 }
 ?>
+
+<?php $this->beginBlock('subHeader') ?>
+    <div id="whois-lookup" class="domainavailability">
+        <div class="row">
+            <div class="col-sm-12 col-md-9 center-block">
+                <?= Html::tag('h1', $this->title, ['class' => 'text-center']) ?>
+                <div class="domain-form-container">
+                    <?= WhoisLookupForm::widget(['model' => $model]) ?>
+                </div>
+                <div class="clearfix"></div>
+                <?= Html::tag('h2', Yii::t('hipanel/domain', 'Available zones') .
+                    ': ' .
+                    ArraySpoiler::widget(['data' => $availableZones, 'visibleCount' => count($availableZones)])) ?>
+            </div>
+        </div>
+    </div>
+<?php $this->endBlock() ?>
+
 <div class="row">
     <div class="col-md-3 col-sm-12 col-xs-12">
         <div class="box box-solid">
             <div class="box-body">
-                <?php $form = ActiveForm::begin([
-                    'id' => 'whois-lookup',
-                    'action' => Url::toRoute('whois/index'),
-                    'method' => 'get',
-                    'options' => [
-                        'data-pjax' => false,
-                    ],
-                    'fieldConfig' => [
-                        'template' => "{beginWrapper}\n{input}\n{hint}\n{error}\n{endWrapper}",
-                    ],
-                ]) ?>
-
-                <?= $form->field($model, 'domain')->textInput([
-                    'placeholder' => Yii::t('hipanel/domain', 'Domain name'),
-                    'class' => 'form-control',
-                    'name' => 'domain',
-                ]) ?>
-
-                <?= Html::submitButton('<i class="fa fa-search"></i>&nbsp;&nbsp;' . Yii::t('hipanel/domain', 'Search'), ['class' => 'btn btn-info btn-flat btn-block']) ?>
-                <?php ActiveForm::end() ?>
                 <div class="bg-warning md-mt-10" style="padding: 5px 7px">
                     <span class="text-bold"><?= Yii::t('hipanel/domain', 'Available zones') ?>:</span><br>
-                    <?= ArraySpoiler::widget([
-                        'data' => $availableZones,
-                        'visibleCount' => count($availableZones),
-                    ]) ?>
                 </div>
                 <p class="md-mt-20">
                     <?= Yii::t('hipanel/domain', 'WHOIS isn’t an acronym, though it may look like one. In fact, it is the system that provides information, who is responsible for a domain name.') ?>
