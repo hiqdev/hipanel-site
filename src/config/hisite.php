@@ -16,6 +16,10 @@ return [
             'class' => \hipanel\modules\domainchecker\Module::class,
             'viewPath' => '@vendor/hiqdev/hipanel-site/src/views'
         ],
+        'domain' => [
+            'class' => \hipanel\modules\domain\Module::class,
+            'viewPath' => '@vendor/hiqdev/hipanel-site/src/views'
+        ],
         'news' => [
             'class' => \hisite\modules\news\Module::class,
             'viewPath' => '@app/themes/dataserv/modules'
