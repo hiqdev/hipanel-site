@@ -28,7 +28,6 @@ use yii\helpers\Url;
             'name' => 'domain',
             'id' => 'domain',
             'autocomplete' => 'off',
-            'value' => Yii::$app->request->get('domain')
         ]) ?>
     </div>
     <div class="col-sm-1">
