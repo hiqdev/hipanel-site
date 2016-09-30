@@ -20,7 +20,7 @@ class MainMenu extends \hiqdev\menumanager\Menu
         return [
             ['label' => Yii::t('hipanel/site', 'VDS'),        'url' => ['/site/vds']],
             ['label' => Yii::t('hipanel/site', 'Domains'),    'url' => ['/pages/domains']],
-            ['label' => Yii::t('hipanel/site', 'Transfer'),   'url' => ['/domainchecker/transfer/index']],
+            ['label' => Yii::t('hipanel/site', 'Transfer'),   'url' => ['/domain/transfer/index']],
             ['label' => Yii::t('hipanel/site', 'DNS'),        'url' => ['/pages/dns']],
             ['label' => Yii::t('hipanel/site', 'Contact'),    'url' => ['/site/contact']],
             ['label' => Yii::t('hipanel/site', 'FAQ'),        'url' => ['/pages/faq']],
