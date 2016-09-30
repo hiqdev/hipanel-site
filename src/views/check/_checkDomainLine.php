@@ -60,7 +60,7 @@ $topcartUrl = '/cart/cart/topcart';
                     'data-topcart' => Url::toRoute([$topcartUrl]),
                 ]) ?>
             <?php elseif ($line['isAvailable'] === false) : ?>
-                <?= Html::a('<i class="fa fa-search"></i>&nbsp; ' . Yii::t('hipanel/domainchecker', 'WHOIS'), 'https://ahnames.com/ru/search/whois/#' . $line['fqdn'], ['target' => '_blank', 'class' => 'btn btn-default btn-flat']) ?>
+                <?= Html::a('<i class="fa fa-search"></i>&nbsp; ' . Yii::t('hipanel/domainchecker', 'WHOIS'), ['/domain/whois/index', 'domain' => $line['fqdn']], ['target' => '_blank', 'class' => 'btn btn-default btn-flat']) ?>
             <?php endif; ?>
         </div>
     </div>
