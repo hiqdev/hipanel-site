@@ -40,6 +40,16 @@ return [
         ],
         'themeManager' => [
             'defaultTheme' => 'dataserv',
+            'dataserv' => [
+                'pathMap' => [
+                    '$themedViewPaths' => ['@hipanel/site/themes/dataserv'],
+                ],
+            ],
+            'original' => [
+                'pathMap' => [
+                    '$themedViewPaths' => ['@hipanel/site/themes/original'],
+                ],
+            ],
             'pathMap' => [
                 '$themedViewPaths' => ['@hipanel/site/views'],
             ],
