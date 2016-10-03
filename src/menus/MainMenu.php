@@ -17,7 +17,6 @@ class MainMenu extends \hiqdev\menumanager\Menu
 {
     public function items()
     {
-        $request = Yii::$app->request;
         return [
             ['label' => Yii::t('hipanel/site', 'VDS'),        'url' => ['/site/vds']],
             ['label' => Yii::t('hipanel/site', 'Domains'),    'url' => ['/pages/render/index', 'page' => 'domains']],
