@@ -14,9 +14,6 @@ $this->registerCss("
     width: 520px;
     height: 325px;
 }
-.padding {
-    padding: 1em;
-}
 ");
 ?>
 <?php if ($model->ip) : ?>
@@ -88,7 +85,7 @@ $this->registerCss("
         </div>
     </div>
 <?php else: ?>
-    <div class="bg-danger text-center padding">
+    <div class="alert alert-danger text-center">
         <?= Yii::t('hipanel/domain', 'You have entered wrong domain name or domain name with unsupported zone.') ?>
     </div>
 <?php endif ?>
