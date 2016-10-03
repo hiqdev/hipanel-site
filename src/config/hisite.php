@@ -12,10 +12,6 @@
 return [
     'controllerNamespace' => 'hipanel\site\controllers',
     'modules' => [
-        'domainchecker' => [
-            'class' => \hipanel\modules\domainchecker\Module::class,
-            'viewPath' => '@vendor/hiqdev/hipanel-site/src/views'
-        ],
         'domain' => [
             'class' => \hipanel\modules\domain\Module::class,
             'viewPath' => '@vendor/hiqdev/hipanel-site/src/views'
