@@ -3,6 +3,7 @@
 /** @var string $sShotSrc */
 /** @var \hipanel\modules\domain\models\Domain $model */
 
+use hipanel\modules\domain\widgets\WhoisData;
 use hipanel\widgets\ArraySpoiler;
 use toriphes\lazyload\LazyLoad;
 use yii\widgets\DetailView;
@@ -12,6 +13,9 @@ $this->registerCss("
     background-color: #f4f4f4;
     width: 520px;
     height: 325px;
+}
+.padding {
+    padding: 1em;
 }
 ");
 ?>
@@ -80,11 +84,11 @@ $this->registerCss("
     </div>
     <div class="row">
         <div class="col-md-12" style="font-family: monospace">
-            <div class="well well-sm"><?= \hipanel\modules\domain\widgets\WhoisData::widget(['data' => $model->rawdata]) ?></div>
+            <div class="well well-sm"><?= WhoisData::widget(['data' => $model->rawdata]) ?></div>
         </div>
     </div>
 <?php else: ?>
-    <div class="bg-danger text-center">
+    <div class="bg-danger text-center padding">
         <?= Yii::t('hipanel/domain', 'You have entered wrong domain name or domain name with unsupported zone.') ?>
     </div>
 <?php endif ?>
