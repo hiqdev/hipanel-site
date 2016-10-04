@@ -80,39 +80,39 @@ return [
                         'hipanel/site' => 'site.php',
                     ],
                 ],
-                'hipanel/pages' => [
+                'hipanel/site/pages' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
-                        'hipanel/pages' => 'pages.php',
+                        'hipanel/site/pages' => 'pages.php',
                     ],
                 ],
-                'hipanel/dns' => [
+                'hipanel/site/dns' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
-                        'hipanel/dns' => 'dns.php',
+                        'hipanel/site/dns' => 'dns.php',
                     ],
                 ],
-                'hipanel/vds' => [
+                'hipanel/site/vds' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
-                        'hipanel/vds' => 'vds.php',
+                        'hipanel/site/vds' => 'vds.php',
                     ],
                 ],
-                'hipanel/domain' => [
+                'hipanel/site/domain' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
-                        'hipanel/domain' => 'domain.php',
+                        'hipanel/site/domain' => 'domain.php',
                     ],
                 ],
-                'hipanel/faq' => [
+                'hipanel/site/faq' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
-                        'hipanel/faq' => 'faq.php',
+                        'hipanel/site/faq' => 'faq.php',
                     ],
                 ],
             ],
