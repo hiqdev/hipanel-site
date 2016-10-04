@@ -11,7 +11,8 @@ $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"
 <div class="shared-table">
     <div class="row spacing-25">
         <div class="col-sm-12">
-            <table class="products-table responsive">
+            <div class="tablesaw-bar mode-stack"></div>
+            <table class="products-table responsive tablesaw tablesaw-stack">
                 <thead>
                 <tr>
                     <th></th>
