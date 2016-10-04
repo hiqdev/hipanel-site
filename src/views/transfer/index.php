@@ -7,7 +7,7 @@ use yii\grid\GridView;
 use yii\helpers\Url;
 
 $this->title = Yii::t('hipanel/domain', 'Domain transfer');
-
+$this->blocks['subHeaderClass'] = 'shared';
 
 $this->registerCss('
 .step {
@@ -81,7 +81,7 @@ $id = $model->id ?: 0;
                         <?= $form->field($model, "[$id]domains")->textarea(['rows' => 7]); ?>
                     </div>
                     <div class="col-md-12 lg-mt-20 md-mt-20 sm-mt-20">
-                        <p class="help-block">
+                        <p class="help-block bg-info" style="padding: 1em;">
                             <?= Yii::t('hipanel/domain', 'For separation of the domain and code use a space, a comma or a semicolon.') ?>
                             <?= Yii::t('hipanel/domain', 'Example') ?>:<br>
                             <b>yourdomain.com uGt6shlad</b><br>
@@ -176,4 +176,57 @@ $id = $model->id ?: 0;
         </div>
         <?= Html::endForm(); ?>
     <?php endif; ?>
+</div>
+<div class="about-descr">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 center-block">
+            <h3><?= Yii::t('hipanel/site/transfer', 'What is a domain transfer?') ?></h3>
+            <div class="titleborder centered">
+                <div class="titleborder_left"></div>
+                <div class="titleborder_sign"></div>
+                <div class="titleborder_right"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row spacing-25">
+        <div class="col-md-12">
+            <p class="topspacing">
+                <?= Yii::t('hipanel/site/transfer', 'Domain Transfer - is an operation associated with the transfer of domain services to another registrar. When you transfer a domain, it is automatically extended for one year.') ?>
+                <br>
+                <?= Yii::t('hipanel/site/transfer', 'The operation of transferring a domain is free of charge. You only pay for the extension of the domain for 1 year.') ?>
+            </p>
+            <p>
+                <?= Yii::t('hipanel/site/transfer', 'When completing a domain transfer, it is carried out automatically, subject to the following rules: The domain must have a status of "OK" or «ACTIVE» and should be more than 60 days from the date of registration.') ?>
+                <br>
+                <?= Yii::t('hipanel/site/transfer', 'Check all the components of this rule on this page: {url}', ['url' => Html::a(Yii::t('hipanel/domain', 'WHOIS lookup'), ['/domain/whois/index'])]) ?>
+            </p>
+            <p>
+                <?= Yii::t('hipanel/site/transfer', 'To start the domain transfer procedure you should ask for your current registrar domain secret code (for different registrars, it may be called differently: auth-code, epp domain code, secret authorization code).') ?>
+            </p>
+            <p>
+                <?= Yii::t('hipanel/site/transfer', 'Once you get the necessary data, add them to the appropriate form on the top of the page.') ?>
+            </p>
+            <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                <h4><?= Yii::t('hipanel/site/transfer', 'Attention!') ?></h4>
+                <p>
+                    <?= Yii::t('hipanel/site/transfer', 'Domain transfer procedure was changed according to ICANN requirements.') ?>
+                    <br>
+                    <strong><?= Yii::t('hipanel/site/transfer', 'Transfer will not start until you approve the request.') ?></strong>
+                    <br>
+                    <?= Yii::t('hipanel/site/transfer', 'To proceed with the transfer you have to approve the transfer by following the link in the mail which was sent to email listed as Registered Name Holder or Administrative contact for this domain in the WHOIS database!') ?>
+                    <br>
+                    <?= Yii::t('hipanel/site/transfer', 'If you don\'t receive the mail from us, please check WHOIS information of the corresponding domain and actualize contact data or disable WHOIS-protect if needed.') ?>
+                    <br>
+                    <?= Yii::t('hipanel/site/transfer', 'More information on domain transfer process can be found on <a href="http://www.icann.org/en/resources/registrars/transfers">ICANN site</a> and especially in <a href="http://www.icann.org/en/resources/registrars/transfers/policy">Policy on Transfer of Registrations between Registrars</a>.') ?>
+                </p>
+            </div>
+            <p>
+                <?= Yii::t('hipanel/site/transfer', 'If the domain is one of the reseller registrar: EvoNames, the transfer of the domain inside the panel will be by means of the operation "push". ') ?>
+            </p>
+            <p class="text-muted">
+                <b>*</b> <?= Yii::t('hipanel/site/transfer', 'Some registrars impose additional conditions to carry out the transfer. If you have carried out all of the suggested activities, but the domain transfer has not been initiated, please contact our technical support team for more assistance.') ?>
+            </p>
+        </div>
+    </div>
 </div>
