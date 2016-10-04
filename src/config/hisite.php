@@ -87,6 +87,34 @@ return [
                         'hipanel/pages' => 'pages.php',
                     ],
                 ],
+                'hipanel/dns' => [
+                    'class' => \yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@hipanel/site/messages',
+                    'fileMap' => [
+                        'hipanel/dns' => 'dns.php',
+                    ],
+                ],
+                'hipanel/vds' => [
+                    'class' => \yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@hipanel/site/messages',
+                    'fileMap' => [
+                        'hipanel/vds' => 'vds.php',
+                    ],
+                ],
+                'hipanel/domain' => [
+                    'class' => \yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@hipanel/site/messages',
+                    'fileMap' => [
+                        'hipanel/domain' => 'domain.php',
+                    ],
+                ],
+                'hipanel/faq' => [
+                    'class' => \yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@hipanel/site/messages',
+                    'fileMap' => [
+                        'hipanel/faq' => 'faq.php',
+                    ],
+                ],
             ],
         ],
     ],

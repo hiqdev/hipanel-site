@@ -1,0 +1,22 @@
+.h1-name-xen, .h1-name-openvz {
+    font-size: 35px;
+    color: #0074c4;
+}
+
+.h1-name-openvz:before {
+    content: '';
+    background: url(../img/openvz-logo.png) 0 0 no-repeat;
+    height: 60px;
+    width: 66px;
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+.h1-name-xen:before {
+    content: '';
+    background: url(../img/xen-logo.png) 0 0 no-repeat;
+    height: 36px;
+    width: 81px;
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
