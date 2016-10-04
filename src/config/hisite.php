@@ -115,6 +115,13 @@ return [
                         'hipanel/site/faq' => 'faq.php',
                     ],
                 ],
+                'hipanel/site/transfer' => [
+                    'class' => \yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@hipanel/site/messages',
+                    'fileMap' => [
+                        'hipanel/site/transfer' => 'transfer.php',
+                    ],
+                ],
             ],
         ],
     ],
