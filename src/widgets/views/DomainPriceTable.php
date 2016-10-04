@@ -8,10 +8,10 @@ use yii\helpers\Html;
 <table id="tld-table" class="tablesaw" data-tablesaw-mode="stack">
     <thead>
     <tr>
-        <th><?= Yii::t('hisite', 'Zone') ?></th>
-        <th><?= Yii::t('hisite', 'Registration') ?></th>
-        <th><?= Yii::t('hisite', 'Renewal') ?></th>
-        <th><?= Yii::t('hisite', 'Transfer') ?></th>
+        <th><?= Yii::t('hipanel/domain', 'Zone') ?></th>
+        <th><?= Yii::t('hipanel/domain', 'Registration') ?></th>
+        <th><?= Yii::t('hipanel/domain', 'Renewal') ?></th>
+        <th><?= Yii::t('hipanel/domain', 'Transfer') ?></th>
     </tr>
     </thead>
     <tbody>
@@ -24,9 +24,9 @@ use yii\helpers\Html;
                     <td><?= Html::tag('span', '.' . $zone, ['class' => '']) ?></td>
                     <td>
                         <b><?= Yii::$app->formatter->asCurrency($domains['zone:.' . $zone]['dregistration']['price'], 'usd') ?></b>
-                        / <?= Yii::t('hisite', 'year') ?></td>
+                        / <?= Yii::t('hipanel/site', 'year') ?></td>
                     <td><?= Yii::$app->formatter->asCurrency($domains['zone:.' . $zone]['drenewal']['price'], 'usd') ?>
-                        / <?= Yii::t('hisite', 'year') ?></td>
+                        / <?= Yii::t('hipanel/site', 'year') ?></td>
                     <td>
                         <b><?= Yii::$app->formatter->asCurrency($domains['zone:.' . $zone]['dtransfer']['price'], 'usd') ?></b>
                     </td>
