@@ -3,7 +3,7 @@
 return [
     'sourcePath' => '@hipanel/site',
     'languages' => ['ru'],
-    'removeUnused' => true,
+    'removeUnused' => false,
     'markUnused' => false,
     'sort' => true,
     'messagePath' => '@hipanel/site/messages',
