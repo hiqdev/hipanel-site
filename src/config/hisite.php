@@ -32,7 +32,10 @@ return [
             'class' => \yii\web\Response::class,
         ],
         'hiart' => [
-            'disabledAuth' => true,
+            'class' => \hipanel\site\components\Connection::class
+        ],
+        'cache' => [
+            'class' => \hipanel\components\Cache::class
         ],
         'themeManager' => [
             'defaultTheme' => 'dataserv',
