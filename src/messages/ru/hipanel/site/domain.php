@@ -20,7 +20,7 @@ return [
     'Domain names search and register' => '',
     'Domain pricing' => '',
     'PAYMENT METHODS' => '',
-    'START BY REGISTERING YOUR DOMAIN NAME' => '',
+    'START BY REGISTERING YOUR DOMAIN NAME' => '@@@@',
     'Today our company, offers the most competitive and fair prices for domain registration services. Due to the large number of domains that are in our care, we get a significant discount from our registrar. This creates a very positive impact on the price of domain names offered to you!' => '',
     'We accept the following automatic payment methods' => '',
     'as well as PayPal payments from your Visa and MasterCard' => '',

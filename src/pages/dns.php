@@ -76,7 +76,7 @@ $data = SiteHelper::getDnsData();
             </div>
 
             <div class="col-md-9 col-sm-12 center-block md-mt-50">
-                <h3 class="text-center"><?= Yii::t('hipanel/site/dns', 'Terms of Use for "Premium Package".') ?></h3>
+                <h4 class="text-center"><?= Yii::t('hipanel/site/dns', 'Terms of Use for "Premium Package".') ?></h4>
                 <div class="newplans_box"></div>
                 <p class="text-center">
                     <?= Yii::t('hipanel/site/dns', 'Please note that if you have previously activated the "Premium Package", but do not want to pay for this feature, all previously made settings for domains will remain and will continue to function normally, but you will not be able to change or delete records.') ?>

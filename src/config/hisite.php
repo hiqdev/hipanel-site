@@ -77,7 +77,7 @@ return [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
-                        'hipanel/site' => 'site.php',
+                        'site' => 'site.php',
                     ],
                 ],
                 'hipanel/site/pages' => [
@@ -90,9 +90,9 @@ return [
                 'hipanel/site/dns' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
-                    'fileMap' => [
-                        'hipanel/site/dns' => 'dns.php',
-                    ],
+//                    'fileMap' => [
+//                        'hipanel/site/dns' => 'dns.php',
+//                    ],
                 ],
                 'hipanel/site/vds' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
