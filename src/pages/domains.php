@@ -2,6 +2,7 @@
 
 use hipanel\site\widgets\DomainPriceTable;
 use hipanel\site\widgets\DomainSearchForm;
+use yii\helpers\Html;
 
 $this->title = Yii::t('hipanel/site/domain', 'Domain names search and register');
 $this->registerJs("
@@ -10,7 +11,18 @@ $('#showdomainsearch').click(function() {
 });
 ");
 ?>
-
+<?php $this->beginBlock('subHeader') ?>
+    <div class="domainavailability">
+        <div class="row">
+            <div class="col-sm-12 col-md-9 center-block">
+                <?= Html::tag('h1', $this->title, ['class' => 'text-center']) ?>
+                <div class="domain-form-container">
+                    <?= DomainSearchForm::widget() ?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php $this->endBlock() ?>
 <div class="domaintlds">
     <div class="row">
         <div class="col-sm-12">
@@ -29,23 +41,6 @@ $('#showdomainsearch').click(function() {
 <div class="domain-prices">
     <div class="row">
         <?= DomainPriceTable::widget() ?>
-    </div>
-</div>
-
-<div class="domainsearch">
-    <div class="row">
-        <div class="col-sm-12">
-            <h3 class="text-center"><?= Yii::t('hipanel/site/domain', 'START BY REGISTERING YOUR DOMAIN NAME') ?></h3>
-            <button class="mtr-btn button-circle button-fab ripple" id="showdomainsearch">+</button>
-        </div>
-    </div>
-</div>
-
-<div class="domainform">
-    <div class="row">
-        <div class="col-sm-12">
-            <?= DomainSearchForm::widget() ?>
-        </div>
     </div>
 </div>
 
