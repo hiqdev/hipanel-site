@@ -32,7 +32,10 @@ $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter
                     [
                         'attribute' => 'no',
                         'label' => '#',
-                        'value' => function ($model) { static $no;return ++$no; },
+                        'value' => function ($model) {
+                            static $no;
+                            return ++$no;
+                        },
                         'headerOptions' => ['width' => '4%', 'style' => 'text-align: center'],
                         'contentOptions' => ['style' => 'text-align: center; vertical-align: middle;'],
                     ],
@@ -120,22 +123,27 @@ $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter
         <div class="col-xs-8"><span class="pull-right">
             <?php if ($module->termsPage) : ?>
                 <?php $this->registerJs("
-                        jQuery('input').iCheck({
-                            checkboxClass: 'icheckbox_minimal-blue',
-                            radioClass: 'iradio_minimal'
-                        }).on('ifToggled', function() {
-                            jQuery('#make-order-button').toggleClass('disabled');
-                        });"); ?>
+                    var element = $('input');
+                    element.iCheck({
+                        checkboxClass: 'icheckbox_minimal-blue',
+                        radioClass: 'iradio_minimal'
+                    }).on('ifChecked', function() {
+                        jQuery('#make-order-button').removeClass('disabled');
+                    }).on('ifUnchecked', function() {
+                        jQuery('#make-order-button').addClass('disabled');
+                    });
+                    element.iCheck('uncheck');
+                "); ?>
                 <label>
                     <input type="checkbox" id="term-of-use">
                     &nbsp;<?= Yii::t('cart', 'I have read and agree to the') ?> <?= Html::a(Yii::t('cart', 'terms of use'), $module->termsPage) ?>
                 </label> &nbsp; &nbsp;
             <?php endif ?>
-            <?php if ($module->orderButton) : ?>
-                <?= $module->orderButton ?>
-            <?php else : ?>
-                <?= Html::a('<i class="fa fa-credit-card"></i> ' . Yii::t('cart', 'Make order'), $module->orderPage, ['id' => 'make-order-button', 'class' => ($module->termsPage) ? 'btn btn-success no-radius btn-lg used disabled' : 'btn btn-success no-radius btn-lg used']); ?>
-            <?php endif ?>
+                <?php if ($module->orderButton) : ?>
+                    <?= $module->orderButton ?>
+                <?php else : ?>
+                    <?= Html::a('<i class="fa fa-credit-card"></i> ' . Yii::t('cart', 'Make order'), $module->orderPage, ['id' => 'make-order-button', 'class' => ($module->termsPage) ? 'btn btn-success no-radius btn-lg used disabled' : 'btn btn-success no-radius btn-lg used']); ?>
+                <?php endif ?>
         </span></div>
     </div>
 </section>
