@@ -1,1 +1,4 @@
-<?= app\widgets\PanelTopCart::widget(); ?>
+<?php
+/** @var string $widgetClass */
+print $widgetClass::widget();
+?>
