@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 
+use hiqdev\thememanager\widgets\FancyPanel;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
@@ -17,44 +18,42 @@ $this->registerCss(".help-block { font-size: 12px; }");
 <!-- CONTACT FORM -->
 <div class="contact-elements">
     <div class="row">
-        <div class="col-sm-3">
-            <div class="contactmethod darkgray">
-                <h5><?= Yii::t('hisite', 'Complaints / Abuse reports') ?></h5>
-                <p><?= Yii::t('hisite', 'Notifications about spam, breaches of trademark, illegal or immoral activities of our clients: {0}', ['<br>' . Html::mailto('abuse@ahnames.com', 'abuse@ahnames.com')]) ?></p>
-            </div>
+        <div class="col-sm-4">
+            <?php $panel = FancyPanel::begin([
+                'title' => Yii::t('hisite', 'Complaints / Abuse reports'),
+            ]) ?>
+            <?php $panel->beginBody() ?>
+            <?= Yii::t('hisite', 'Notifications about spam, breaches of trademark, illegal or immoral activities of our clients: {0}', ['<br>' . Html::mailto('abuse@ahnames.com', 'abuse@ahnames.com')]) ?>
+            <?php $panel->endBody() ?>
+            <?php FancyPanel::end() ?>
         </div>
 
-        <div class="col-sm-3">
-            <div class="contactmethod blue">
-                <h5><?= Yii::t('hisite', 'Mailing Address') ?></h5>
-                <p>
-                    <?= Yii::$app->params['mailingAddress'] ?>
-                </p>
-            </div>
+        <div class="col-sm-4">
+            <?php $panel = FancyPanel::begin([
+                'color' => 'blue',
+                'title' => Yii::t('hisite', 'Complaints / Abuse reports'),
+            ]) ?>
+            <?php $panel->beginBody() ?>
+            <?= Yii::$app->params['mailingAddress'] ?>
+            <?php $panel->endBody() ?>
+            <?php FancyPanel::end() ?>
         </div>
 
-        <div class="col-sm-3">
-            <div class="contactmethod green">
-                <h5><?= Yii::t('hisite', 'Billing address') ?></h5>
-                <p>
-                    <?= Yii::$app->params['billingAddress'] ?>
-                </p>
-            </div>
-        </div>
+        <div class="col-sm-4">
+            <?php $panel = FancyPanel::begin([
+                'color' => 'purple',
+                'title' => Yii::t('hisite', 'Other contact information'),
+            ]) ?>
+            <?php $panel->beginBody() ?>
+            <?= Yii::t('hisite', 'Sales') ?>: <?= Html::mailto('sales@ahnames.com', 'sales@ahnames.com') ?><br>
+            <?= Yii::t('hisite', 'Technical Support') ?>
+            : <?= Html::mailto('support@ahnames.com', 'support@ahnames.com') ?><br>
 
-        <div class="col-sm-3">
-            <div class="contactmethod purple">
-                <h5><?= Yii::t('hisite', 'Other contact information') ?></h5>
-                <p>
-                    <?= Yii::t('hisite', 'Sales') ?>: <?= Html::mailto('sales@ahnames.com', 'sales@ahnames.com') ?><br>
-                    <?= Yii::t('hisite', 'Technical Support') ?>
-                    : <?= Html::mailto('support@ahnames.com', 'support@ahnames.com') ?><br>
-
-                    <?= Yii::t('hisite', 'Fast communication') ?>:<br>
-                    <b>ICQ:</b> 593-341-721 <br>
-                    <b>Skype:</b> ah.andre
-                </p>
-            </div>
+            <?= Yii::t('hisite', 'Fast communication') ?>:<br>
+            <b>ICQ:</b> 593-341-721 <br>
+            <b>Skype:</b> ah.andre
+            <?php $panel->endBody() ?>
+            <?php FancyPanel::end() ?>
         </div>
     </div>
     <div class="spacing-75"></div>
@@ -90,10 +89,14 @@ $this->registerCss(".help-block { font-size: 12px; }");
             <?php else: ?>
                 <div id="contactform">
                     <form method="post" action="sendmail.php" class="material">
-                        <p><input type="text" class="form-control" name="name" id="name" placeholder="Name" tabindex="1" /></p>
-                        <p><input type="text" class="form-control" name="email" id="email" placeholder="Email" tabindex="2" /></p>
-                        <p><textarea class="form-control" name="comments" id="comments" cols="12" rows="6" placeholder="Message" tabindex="3"></textarea></p>
-                        <p><input type="button" name="submit" id="submit" class="mtr-btn button-fab ripple" value="Send"/></p>
+                        <p><input type="text" class="form-control" name="name" id="name" placeholder="Name"
+                                  tabindex="1"/></p>
+                        <p><input type="text" class="form-control" name="email" id="email" placeholder="Email"
+                                  tabindex="2"/></p>
+                        <p><textarea class="form-control" name="comments" id="comments" cols="12" rows="6"
+                                     placeholder="Message" tabindex="3"></textarea></p>
+                        <p><input type="button" name="submit" id="submit" class="mtr-btn button-fab ripple"
+                                  value="Send"/></p>
                     </form>
                 </div>
             <?php endif; ?>
