@@ -44,7 +44,8 @@ $this->registerCss(".help-block { font-size: 12px; }");
                 'title' => Yii::t('hipanel/site/pages', 'Other contact information'),
             ]) ?>
             <?php $panel->beginBody() ?>
-            <?= Yii::t('hipanel/site/pages', 'Sales') ?>: <?= Html::mailto('sales@ahnames.com', 'sales@ahnames.com') ?><br>
+            <?= Yii::t('hipanel/site/pages', 'Sales') ?>: <?= Html::mailto('sales@ahnames.com', 'sales@ahnames.com') ?>
+            <br>
             <?= Yii::t('hipanel/site/pages', 'Technical Support') ?>
             : <?= Html::mailto('support@ahnames.com', 'support@ahnames.com') ?><br>
 
@@ -103,3 +104,4 @@ $this->registerCss(".help-block { font-size: 12px; }");
     </div>
     <!-- END OF CONTACT FORM -->
     <div class="spacing-75"></div>
+</div>
