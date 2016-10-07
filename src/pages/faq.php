@@ -1,47 +1,52 @@
 <?php
 
+use hipanel\site\widgets\Faq;
+
 $this->title = Yii::t('hipanel/site/faq', 'FAQ');
 
-$this->registerJs("
-$('.collapse').on('show.bs.collapse', function(event){
-    var i = $(this).siblings().find('i').eq(0);
-    i.toggleClass('fa-plus-square-o fa-minus-square-o');
-    event.stopPropagation();
-}).on('hide.bs.collapse', function(event){
-    var i = $(this).siblings().find('i').eq(0);
-    i.toggleClass('fa-minus-square-o fa-plus-square-o');
-    event.stopPropagation();
-});
-
-$('.faq-categories li a').click(function(){
-    $('.panel-collapse.in').collapse('hide');
-});
-");
 ?>
 
-<!-- FAQ TABS -->
-<div class="faq-tabs">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="faq-categories">
-                <ul>
-                    <li class="active"><a href="#dns" data-toggle="tab"><?= Yii::t('hipanel/site/faq', 'DNS Server setup') ?>
-                            <span class="badge">3</span></a></li>
-                    <li><a href="#transfer" data-toggle="tab"><?= Yii::t('hipanel/site/faq', 'Transfer') ?> <span
-                                class="badge">4</span></a></li>
-                    <li><a href="#reseller" data-toggle="tab"><?= Yii::t('hipanel/site/faq', 'For resellers') ?> <span
-                                class="badge">1</span></a></li>
-                    <li><a href="#hosting" data-toggle="tab"><?= Yii::t('hipanel/site/faq', 'Hosting') ?> <span class="badge">3</span></a>
-                    </li>
-                    <li><a href="#verification" data-toggle="tab"><?= Yii::t('hipanel/site/faq', 'Verification') ?> <span
-                                class="badge">2</span></a></li>
-                    <li><a href="#other" data-toggle="tab"><?= Yii::t('hipanel/site/faq', 'Other') ?> <span
-                                class="badge">7</span></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+<?= Faq::widget([
+    'items' => [
+        'dns' => [
+            'label' => 'DNS Server setup',
+            'items' => [
+                'ns' => [
+                    'label' => 'NS Server installation',
+                    'items' => [
+                        'installing' => [
+                            'label' => 'Installing third-party NS-servers',
+                            'view' => '',
+                        ],
+                        'evo' => [
+                            'label' => 'evo.ru-tld.ru NS-server installation',
+                            'view' => '',
+                        ],
+                        'creating' => [
+                            'label' => 'Creating subsidiary NS-servers',
+                            'view' => '',
+                        ],
+                    ]
+                ],
+                'setting' => [
+                    'label' => 'Setting a DNS in evo.ru-tld.ru panel',
+                ],
+                'errors' => [
+                    'label' => 'Errors and Problems',
+                ]
+            ],
+
+        ],
+        'transfer' => [
+            'label' => 'Transfer',
+
+        ],
+        'hosting' => [
+            'label' => 'Hosting',
+
+        ],
+    ],
+]) ?>
 
 <div class="faq-tabs-white">
     <div class="row">
@@ -56,9 +61,11 @@ $('.faq-categories li a').click(function(){
                             <!-- QUESTION -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="indicator fa fa-plus-square-o pull-left"></i><a
-                                            data-toggle="collapse" data-parent="#accordion"
-                                            href="#collapse1"><?= Yii::t('hisite', 'NS Server installation') ?></a>
+                                    <h4 class="panel-title">
+                                        <i class="indicator fa fa-plus-square-o pull-left"></i>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                            <?= Yii::t('hisite', 'NS Server installation') ?>
+                                        </a>
                                     </h4>
                                 </div>
                                 <div id="collapse1" class="panel-collapse collapse">
