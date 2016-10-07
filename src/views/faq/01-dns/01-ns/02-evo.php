@@ -1,0 +1,1 @@
+To configure a DNS in the evo.ru-tld.ru panel, go to "DNS control" section and click on the "change DNS" button by highlighting the domain check box. The system will offer to install our NS-servers. You'll need to paste NS-server info into specific lines after clicking on "install our NS" button.
