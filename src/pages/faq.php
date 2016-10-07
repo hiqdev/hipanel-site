@@ -1,6 +1,6 @@
 <?php
 
-$this->title = Yii::t('hisite', 'FAQ');
+$this->title = Yii::t('hipanel/site/faq', 'FAQ');
 
 $this->registerJs("
 $('.collapse').on('show.bs.collapse', function(event){
@@ -25,17 +25,17 @@ $('.faq-categories li a').click(function(){
         <div class="col-sm-12">
             <div class="faq-categories">
                 <ul>
-                    <li class="active"><a href="#dns" data-toggle="tab"><?= Yii::t('hisite', 'DNS Server setup') ?>
+                    <li class="active"><a href="#dns" data-toggle="tab"><?= Yii::t('hipanel/site/faq', 'DNS Server setup') ?>
                             <span class="badge">3</span></a></li>
-                    <li><a href="#transfer" data-toggle="tab"><?= Yii::t('hisite', 'Transfer') ?> <span
+                    <li><a href="#transfer" data-toggle="tab"><?= Yii::t('hipanel/site/faq', 'Transfer') ?> <span
                                 class="badge">4</span></a></li>
-                    <li><a href="#reseller" data-toggle="tab"><?= Yii::t('hisite', 'For resellers') ?> <span
+                    <li><a href="#reseller" data-toggle="tab"><?= Yii::t('hipanel/site/faq', 'For resellers') ?> <span
                                 class="badge">1</span></a></li>
-                    <li><a href="#hosting" data-toggle="tab"><?= Yii::t('hisite', 'Hosting') ?> <span class="badge">3</span></a>
+                    <li><a href="#hosting" data-toggle="tab"><?= Yii::t('hipanel/site/faq', 'Hosting') ?> <span class="badge">3</span></a>
                     </li>
-                    <li><a href="#verification" data-toggle="tab"><?= Yii::t('hisite', 'Verification') ?> <span
+                    <li><a href="#verification" data-toggle="tab"><?= Yii::t('hipanel/site/faq', 'Verification') ?> <span
                                 class="badge">2</span></a></li>
-                    <li><a href="#other" data-toggle="tab"><?= Yii::t('hisite', 'Other') ?> <span
+                    <li><a href="#other" data-toggle="tab"><?= Yii::t('hipanel/site/faq', 'Other') ?> <span
                                 class="badge">7</span></a></li>
                 </ul>
             </div>
