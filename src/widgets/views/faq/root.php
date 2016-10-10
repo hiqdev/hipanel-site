@@ -50,7 +50,7 @@ $('.faq-tabs .faq-categories li:eq(0) a').tab('show');
                 <div class="tab-content">
                     <?php foreach ($items as $tabId => $tab) : ?>
                         <div class="tab-pane fade" id="<?= $tabId ?>">
-                            <div id="accordion-<?= $tabId ?>" class="panel-group spacing-40">
+                            <div id="<?= $tabId ?>" class="panel-group spacing-40">
                                 <?php foreach ($tab['items'] as $itemId => $item) : ?>
                                     <?= $this->render('node', ['item' => $item, 'itemId' => $itemId, 'parentId' => $tabId]) ?>
                                 <?php endforeach; ?>

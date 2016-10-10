@@ -10,13 +10,14 @@ use yii\helpers\Html;
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <?= Html::a('<i class="indicator fa fa-plus-square-o pull-left"></i>' . $item['label'], '#' . 'collapse-' . $itemId, [
+            <?= Html::a('<i class="indicator fa fa-plus-square-o pull-left"></i>' . $item['label'], '#' . $itemId, [
+                'role' => 'button',
                 'data-toggle' => 'collapse',
-                'data-parent' => '#' . 'accordion-' . $parentId,
+                'data-parent' => '#' . $parentId,
             ]) ?>
         </h4>
     </div>
-    <div id="collapse-<?= $itemId ?>" class="panel-collapse collapse">
+    <div id="<?= $itemId ?>" class="panel-collapse collapse">
         <div class="panel-body">
             <?php if (isset($item['items'])) : ?>
                 <div class="row">
