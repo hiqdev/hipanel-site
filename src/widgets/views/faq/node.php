@@ -11,7 +11,6 @@ use yii\helpers\Html;
     <div class="panel-heading">
         <h4 class="panel-title">
             <?= Html::a('<i class="indicator fa fa-plus-square-o pull-left"></i>' . $item['label'], '#' . $itemId, [
-                'role' => 'button',
                 'data-toggle' => 'collapse',
                 'data-parent' => '#' . $parentId,
             ]) ?>

@@ -18,9 +18,9 @@ $('.collapse').on('show.bs.collapse', function(event){
     event.stopPropagation();
 });
 
-$('.faq-categories li a').click(function(){
-    $('.panel-collapse.in').collapse('hide');
-});
+//$('.faq-categories li a').click(function(){
+//    $('.panel-collapse.in').collapse('hide');
+//});
 
 //  Select first tab
 $('.faq-tabs .faq-categories li:eq(0) a').tab('show');
@@ -34,7 +34,7 @@ $('.faq-tabs .faq-categories li:eq(0) a').tab('show');
                 <ul>
                     <?php foreach ($items as $tabId => $tab): ?>
                         <li>
-                            <?= Html::a(sprintf('%s<span class="badge">%d</span>', $tab['label'], count($tab['items'])), '#' . $tabId, ['data-toggle' => 'tab']) ?>
+                            <?= Html::a(sprintf('%s<span class="badge">%d</span>', $tab['label'], count($tab['items'])), '#tab-' . $tabId, ['data-toggle' => 'tab']) ?>
                         </li>
                     <?php endforeach; ?>
                 </ul>
@@ -49,7 +49,7 @@ $('.faq-tabs .faq-categories li:eq(0) a').tab('show');
             <div class="tabbable tabs-top-horizontal">
                 <div class="tab-content">
                     <?php foreach ($items as $tabId => $tab) : ?>
-                        <div class="tab-pane fade" id="<?= $tabId ?>">
+                        <div class="tab-pane fade" id="<?= 'tab-' . $tabId ?>">
                             <div id="<?= $tabId ?>" class="panel-group spacing-40">
                                 <?php foreach ($tab['items'] as $itemId => $item) : ?>
                                     <?= $this->render('node', ['item' => $item, 'itemId' => $itemId, 'parentId' => $tabId]) ?>
