@@ -1,24 +1,34 @@
 <?php
 
+/** @var string $parentId */
+/** @var string $itemId */
+/** @var array $item */
+
 use yii\helpers\Html;
 
 ?>
-
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <i class="indicator fa fa-plus-square-o pull-left"></i>
-            <?= Html::a($collapse['label'], '#' . 'collapse-' . $collapseId, [
+            <?= Html::a('<i class="indicator fa fa-plus-square-o pull-left"></i>' . $item['label'], '#' . 'collapse-' . $itemId, [
                 'data-toggle' => 'collapse',
-                'data-parent' => '#' . 'accordion-' . $tabId,
+                'data-parent' => '#' . 'accordion-' . $parentId,
             ]) ?>
         </h4>
     </div>
-</div>
-<div id="collapse-<?= $collapseId ?>" class="panel-collapse collapse">
-    <?php if (isset($collapse['items'])) : ?>
-        <?= $this->render('node', []) ?>
-    <?php else: ?>
-        <?= $this->render('leaf', []) ?>
-    <?php endif; ?>
+    <div id="collapse-<?= $itemId ?>" class="panel-collapse collapse">
+        <div class="panel-body">
+            <?php if (isset($item['items'])) : ?>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <?php foreach ($item['items'] as $subItemId => $subItem) : ?>
+                            <?= $this->render('node', ['item' => $subItem, 'itemId' => $subItemId, 'parentId' => $itemId]) ?>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php else: ?>
+                <?= $item['content'] ?>
+            <?php endif; ?>
+        </div>
+    </div>
 </div>

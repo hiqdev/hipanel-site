@@ -14,14 +14,4 @@ class Faq extends Widget
             'items' => $this->items,
         ]);
     }
-
-    public function getTabs($items)
-    {
-        return [];
-    }
-
-    public function getCollapses($items)
-    {
-        return [];
-    }
 }

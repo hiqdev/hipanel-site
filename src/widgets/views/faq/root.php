@@ -21,6 +21,9 @@ $('.collapse').on('show.bs.collapse', function(event){
 $('.faq-categories li a').click(function(){
     $('.panel-collapse.in').collapse('hide');
 });
+
+//  Select first tab
+$('.faq-tabs .faq-categories li:eq(0) a').tab('show');
 ");
 ?>
 
@@ -29,8 +32,10 @@ $('.faq-categories li a').click(function(){
         <div class="col-sm-12">
             <div class="faq-categories">
                 <ul>
-                    <?php foreach ($this->context->getTabs($items) as $tabId => $tab): ?>
-                        <li><?= Html::a($tab['label'], '#' . $tabId, ['data-toggle' => 'tab']) ?></li>
+                    <?php foreach ($items as $tabId => $tab): ?>
+                        <li>
+                            <?= Html::a(sprintf('%s<span class="badge">%d</span>', $tab['label'], count($tab['items'])), '#' . $tabId, ['data-toggle' => 'tab']) ?>
+                        </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
@@ -43,29 +48,11 @@ $('.faq-categories li a').click(function(){
         <div class="col-md-12">
             <div class="tabbable tabs-top-horizontal">
                 <div class="tab-content">
-                    <?php foreach ($this->context->getTabs($items) as $tabId => $tab) : ?>
-                        <?= $this->render('node', []) ?>
+                    <?php foreach ($items as $tabId => $tab) : ?>
                         <div class="tab-pane fade" id="<?= $tabId ?>">
                             <div id="accordion-<?= $tabId ?>" class="panel-group spacing-40">
-                                <?php foreach ($this->context->getCollapses() as $collapseId => $collapse) : ?>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <i class="indicator fa fa-plus-square-o pull-left"></i>
-                                                <?= Html::a($collapse['label'], '#' . 'collapse-' . $collapseId, [
-                                                    'data-toggle' => 'collapse',
-                                                    'data-parent' => '#' . 'accordion-' . $tabId,
-                                                ]) ?>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div id="collapse-<?= $collapseId ?>" class="panel-collapse collapse">
-                                        <?php if (isset($collapse['items'])) : ?>
-                                            <?= $this->render('node', []) ?>
-                                        <?php else: ?>
-                                            <?= $this->render('leaf', []) ?>
-                                        <?php endif; ?>
-                                    </div>
+                                <?php foreach ($tab['items'] as $itemId => $item) : ?>
+                                    <?= $this->render('node', ['item' => $item, 'itemId' => $itemId, 'parentId' => $tabId]) ?>
                                 <?php endforeach; ?>
                             </div>
                         </div>
