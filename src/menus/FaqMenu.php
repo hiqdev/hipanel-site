@@ -11,6 +11,7 @@
 
 namespace hipanel\site\menus;
 
+use hipanel\helpers\FileHelper;
 use Yii;
 
 class FaqMenu extends \hiqdev\menumanager\Menu
@@ -19,7 +20,8 @@ class FaqMenu extends \hiqdev\menumanager\Menu
 
     public function items()
     {
-        return [
+        $items = $this->crawl($this->path);
+        $data =  [
             'dns' => [
                 'label' => 'DNS Server setup',
                 'items' => [
@@ -78,5 +80,29 @@ class FaqMenu extends \hiqdev\menumanager\Menu
                 'items' => [],
             ],
         ];
+
+        return $items;
+    }
+
+    private function crawl($path)
+    {
+        $out = [];
+//        $view = Yii::$app->view;
+//        foreach ($this->find($path) as $file) {
+//            if (is_dir(str_replace('.php', '', $file))) {
+//
+//            } else {
+//
+//            }
+//            $content = $view->renderFile($file);
+//            $label = $view->title;
+//        }
+
+        return $out;
+    }
+
+    private function find($path)
+    {
+        return ''; // FileHelper::findFiles(Yii::getAlias($path), ['recursive' => false]);
     }
 }
