@@ -61,6 +61,10 @@ return [
                     'class' => \hipanel\site\menus\NavbarMenu::class,
                     'hipanelUrl' => $params['hipanelUrl'],
                 ],
+                'faq' => [
+                    'class' => \hipanel\site\menus\FaqMenu::class,
+                    'path' => '@hipanel/site/views/faq',
+                ]
             ],
         ],
         'authClientCollection' => [
