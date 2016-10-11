@@ -11,17 +11,23 @@
 
 namespace hipanel\site\menus;
 
-use hipanel\helpers\FileHelper;
 use Yii;
 
 class FaqMenu extends \hiqdev\menumanager\Menu
 {
     public $path;
 
+    public function getView()
+    {
+        return Yii::$app->view;
+    }
+
     public function items()
     {
+        $title = $this->view->title;
         $data = $this->crawlDir(Yii::getAlias($this->path));
-        #echo "<pre>";echo var_export($data); die();
+        $this->view->title = $title;
+
         return $data['items'];
     }
 
@@ -45,10 +51,9 @@ class FaqMenu extends \hiqdev\menumanager\Menu
 
     private function readFile($path)
     {
-        $view = Yii::$app->view;
         return [
-            'content' => $view->renderFile($path),
-            'label'   => $view->title,
+            'content' => $this->view->renderFile($path),
+            'label' => $this->view->title,
         ];
     }
 
