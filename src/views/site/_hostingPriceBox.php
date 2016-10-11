@@ -12,7 +12,7 @@ $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"
     <div class="row spacing-25">
         <div class="col-sm-12">
             <div class="tablesaw-bar mode-stack"></div>
-            <table class="products-table responsive tablesaw tablesaw-stack">
+            <table class="products-table responsive tablesaw tablesaw-stack" data-tablesaw-mode="stack">
                 <thead>
                 <tr>
                     <th></th>
