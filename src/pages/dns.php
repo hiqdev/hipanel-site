@@ -5,6 +5,7 @@ use yii\helpers\Html;
 
 $this->title = Yii::t('hipanel/site/dns', 'DNS management packs');
 $this->blocks['subTitle'] = Yii::t('hipanel/site/dns', 'Comparing the basic and premium DNS management pack');
+$this->blocks['subHeaderClass'] = 'contact';
 $data = SiteHelper::getDnsData();
 ?>
 

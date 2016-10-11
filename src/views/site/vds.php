@@ -10,6 +10,7 @@ HipanelSiteAsset::register($this);
 
 $this->title = Yii::t('hipanel/site/vds', 'VDS Pricing');
 $this->blocks['subTitle'] = Yii::t('hipanel/site/vds', 'Hosting by {name} is an optimal and reliable solution for any project at affordable price.', ['name' => Yii::$app->params['organizationName']]);
+$this->blocks['subHeaderClass'] = 'dedicated-servers';
 
 $this->registerCss(".products-table { display: table; }");
 $this->registerJs("$('.shared-table [data-toggle=\"popover\"]').popover();");

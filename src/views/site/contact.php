@@ -9,7 +9,7 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = Yii::t('hipanel/site/pages', 'Help and feedback');
 
-$this->blocks['subHeaderClass'] = 'contact';
+$this->blocks['subHeaderClass'] = 'about';
 $this->blocks['subTitle'] = Yii::t('hipanel/site/pages', 'Our friendly Support Team is available to help you 24 hours a day');
 $this->registerCss(".help-block { font-size: 12px; }");
 ?>
