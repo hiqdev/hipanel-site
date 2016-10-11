@@ -37,6 +37,11 @@ return [
         'cache' => [
             'class' => \hipanel\components\Cache::class
         ],
+        'urlManager' => [
+            'class' => \codemix\localeurls\UrlManager::class,
+            'languages' => ['ru', 'en'],
+            'enableDefaultLanguageUrlCode' => true,
+        ],
         'themeManager' => [
             'defaultTheme' => 'dataserv',
             'dataserv' => [
