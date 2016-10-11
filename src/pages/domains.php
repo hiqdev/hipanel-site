@@ -4,7 +4,7 @@ use hipanel\site\widgets\DomainPriceTable;
 use hipanel\site\widgets\DomainSearchForm;
 use yii\helpers\Html;
 
-$this->title = Yii::t('hipanel/site/domain', 'Domain names search and register');
+$this->title = Yii::t('hipanel/site/domain', 'Domain names search and registration');
 $this->registerJs("
 $('#showdomainsearch').click(function() {
     $('.domainform').slideToggle(\"slow\");
