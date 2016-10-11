@@ -1,9 +1,11 @@
 <?php
+
 use hipanel\site\widgets\DomainPriceTable;
 use hipanel\site\widgets\DomainSearchForm;
 use hisite\modules\news\widgets\NewsRotatorWidget;
 use yii\helpers\Html;
 
+$this->title = Yii::t('hipanel/domainchecker', 'Domain names search and register');
 ?>
 <?php $this->beginBlock('subHeader') ?>
     <div class="domainavailability">
