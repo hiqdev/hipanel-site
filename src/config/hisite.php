@@ -18,7 +18,6 @@ return [
         ],
         'news' => [
             'class' => \hisite\modules\news\Module::class,
-            'viewPath' => '@app/themes/dataserv/modules'
         ],
         'pages' => [
             'storage' => [
