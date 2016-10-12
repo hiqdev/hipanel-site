@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 
+use hipanel\helpers\Url;
 use hiqdev\thememanager\widgets\FancyPanel;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -22,7 +23,8 @@ $this->registerCss(".help-block { font-size: 12px; }");
                 'title' => Yii::t('hipanel:site:pages', 'Complaints / Abuse reports'),
             ]) ?>
             <?php $panel->beginBody() ?>
-            <?= Yii::t('hipanel:site:pages', 'Notifications about spam, breaches of trademark, illegal or immoral activities of our clients: {0}', ['<br>' . Html::mailto('abuse@ahnames.com', 'abuse@ahnames.com')]) ?>
+            <?= Yii::t('hipanel:site:pages', 'Notifications about spam, breaches of trademark, illegal or immoral activities of our clients:') ?><br>
+            <?= Html::mailto(Yii::$app->params['abuseEmail'], Yii::$app->params['abuseEmail']) ?>
             <?php $panel->endBody() ?>
             <?php FancyPanel::end() ?>
         </div>
@@ -30,10 +32,10 @@ $this->registerCss(".help-block { font-size: 12px; }");
         <div class="col-sm-4">
             <?php $panel = FancyPanel::begin([
                 'color' => 'blue',
-                'title' => Yii::t('hipanel:site:pages', 'Complaints / Abuse reports'),
+                'title' => Yii::t('hipanel:site:pages', 'Support information'),
             ]) ?>
             <?php $panel->beginBody() ?>
-            <?= Yii::$app->params['mailingAddress'] ?>
+            <?= Html::mailto(Yii::$app->params['supportEmail'], Yii::$app->params['supportEmail']) ?>
             <?php $panel->endBody() ?>
             <?php FancyPanel::end() ?>
         </div>
@@ -41,17 +43,10 @@ $this->registerCss(".help-block { font-size: 12px; }");
         <div class="col-sm-4">
             <?php $panel = FancyPanel::begin([
                 'color' => 'purple',
-                'title' => Yii::t('hipanel:site:pages', 'Other contact information'),
+                'title' => Yii::t('hipanel:site:pages', 'Sales'),
             ]) ?>
             <?php $panel->beginBody() ?>
-            <?= Yii::t('hipanel:site:pages', 'Sales') ?>: <?= Html::mailto('sales@ahnames.com', 'sales@ahnames.com') ?>
-            <br>
-            <?= Yii::t('hipanel:site:pages', 'Technical Support') ?>
-            : <?= Html::mailto('support@ahnames.com', 'support@ahnames.com') ?><br>
-
-            <?= Yii::t('hipanel:site:pages', 'Fast communication') ?>:<br>
-            <b>ICQ:</b> 593-341-721 <br>
-            <b>Skype:</b> ah.andre
+            <?= Html::mailto(Yii::$app->params['salesEmail'], Yii::$app->params['salesEmail']) ?>
             <?php $panel->endBody() ?>
             <?php FancyPanel::end() ?>
         </div>
@@ -68,9 +63,7 @@ $this->registerCss(".help-block { font-size: 12px; }");
             </div>
             <h4><?= Yii::t('hipanel:site:pages', 'Have questions?') ?></h4>
             <p>
-                <?= Yii::t('hipanel:site:pages', 'Please note If you are already our customer and you require technical support, please open a support ticket in your {0}.', [
-                    Html::a(Yii::t('hipanel:site:pages', 'control panel'), '#', ['target' => '_blank'])
-                ]) ?>
+                <?= Yii::t('hipanel:site:pages', 'Please review the list of <a href="{url}">frequently asked questions</a> before contacting customer support.', ['url' => Url::to(['/pages/faq'])]) ?>
             </p>
         </div>
 
