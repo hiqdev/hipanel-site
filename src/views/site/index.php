@@ -30,5 +30,3 @@ $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registrati
         </div>
     </div>
 </div>
-
-<?= NewsRotatorWidget::widget() ?>
