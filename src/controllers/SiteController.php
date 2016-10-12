@@ -9,6 +9,7 @@ use hipanel\modules\server\cart\ServerOrderProduct;
 use hipanel\site\models\Thread;
 use hiqdev\yii2\cart\actions\AddToCartAction;
 use hisite\actions\RenderAction;
+use Yii;
 
 class SiteController extends \hipanel\controllers\SiteController
 {
@@ -61,6 +62,12 @@ class SiteController extends \hipanel\controllers\SiteController
     {
         $thread = new Thread();
         $thread->scenario = Thread::SCENARIO_SUBMIT;
+
+        if (Yii::$app->request->isPost) {
+            Yii::$app->session->setFlash('contactFormSubmitted', 1);
+            $thread->load(Yii::$app->request->post(), '');
+            $thread->save();
+        }
 
         return $this->render('contact', [
             'thread' => $thread,

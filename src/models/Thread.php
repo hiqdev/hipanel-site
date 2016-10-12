@@ -6,14 +6,14 @@ use Yii;
 
 class Thread extends \hipanel\base\Model
 {
-    const SCENARIO_SUBMIT = 'submit';
+    const SCENARIO_SUBMIT = 'create';
 
     /**
      * {@inheritdoc}
      */
     public function attributes()
     {
-        return ['anonym_email', 'anonym_name', 'anonym_seller', 'subject', 'message'];
+        return ['id', 'anonym_email', 'anonym_name', 'anonym_seller', 'subject', 'message'];
     }
 
     /**
