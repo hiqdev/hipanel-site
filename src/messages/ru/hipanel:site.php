@@ -17,11 +17,13 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Domains'  => 'Домены',
-    'Transfer' => 'Трансфер',
-    'Contact'  => 'Контакты',
-    'year' => 'год',
+    'Contact' => 'Контакты',
     'DNS' => '',
+    'Domains' => 'Домены',
     'FAQ' => '',
+    'Login' => 'Войти',
+    'Panel' => 'Панель',
+    'Transfer' => 'Трансфер',
     'VDS' => '',
+    'year' => 'год',
 ];
