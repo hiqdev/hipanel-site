@@ -15,7 +15,6 @@ return [
         'hipanel/server/os',
         'hipanel/domain',
         'hipanel/domainchecker',
-        'hipanel/site',
         'hipanel/pages',
         'hipanel/vds',
     ]
