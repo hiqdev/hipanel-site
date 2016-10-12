@@ -31,12 +31,12 @@ class NavbarMenu extends \hiqdev\menumanager\Menu
                 ]
             ],
             [
-                'label' => Yii::t('hisite', 'Login'),
+                'label' => Yii::t('hipanel:site', 'Login'),
                 'url' => ['/site/login'],
                 'visible' => Yii::$app->user->isGuest,
             ],
             [
-                'label' => Yii::t('hisite', 'Panel'),
+                'label' => Yii::t('hipanel:site', 'Panel'),
                 'url' => $this->hipanelUrl,
                 'visible' => !Yii::$app->user->isGuest,
             ],
