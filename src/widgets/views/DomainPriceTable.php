@@ -24,9 +24,9 @@ use yii\helpers\Html;
                     <td><?= Html::tag('span', '.' . $zone, ['class' => '']) ?></td>
                     <td>
                         <b><?= Yii::$app->formatter->asCurrency($domains['zone:.' . $zone]['dregistration']['price'], 'usd') ?></b>
-                        / <?= Yii::t('hipanel/site', 'year') ?></td>
+                        / <?= Yii::t('hipanel:site', 'year') ?></td>
                     <td><?= Yii::$app->formatter->asCurrency($domains['zone:.' . $zone]['drenewal']['price'], 'usd') ?>
-                        / <?= Yii::t('hipanel/site', 'year') ?></td>
+                        / <?= Yii::t('hipanel:site', 'year') ?></td>
                     <td>
                         <b><?= Yii::$app->formatter->asCurrency($domains['zone:.' . $zone]['dtransfer']['price'], 'usd') ?></b>
                     </td>

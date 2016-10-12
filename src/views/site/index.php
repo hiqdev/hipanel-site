@@ -5,7 +5,8 @@ use hipanel\site\widgets\DomainSearchForm;
 use hisite\modules\news\widgets\NewsRotatorWidget;
 use yii\helpers\Html;
 
-$this->title = Yii::t('hipanel/site/domain', 'Domain names search and registration');
+$this->title = Yii::t('hipanel:site:domain', 'Domain names search and registration');
+
 ?>
 <?php $this->beginBlock('subHeader') ?>
     <div class="domainavailability">

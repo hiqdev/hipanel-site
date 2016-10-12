@@ -1,4 +1,4 @@
 <?php
 
-$this->title = Yii::t('hipanel/site/faq', 'Errors and problems');
+$this->title = Yii::t('hipanel:site:faq', 'Errors and problems');
 ?>

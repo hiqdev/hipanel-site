@@ -166,70 +166,70 @@ class SiteHelper
     {
         $data = [
             [
-                'label' => Yii::t('hipanel/site/dns', 'Free DNS-servers located in different data - centers: the Netherlands (NL) and the U.S. (US).'),
+                'label' => Yii::t('hipanel:site:dns', 'Free DNS-servers located in different data - centers: the Netherlands (NL) and the U.S. (US).'),
                 'value' => [
                     'basic' => '<i class="fa fa-check text-success"></i>',
                     'premium' => '<i class="fa fa-check text-success"></i>',
                 ],
             ],
             [
-                'label' => Yii::t('hipanel/site/dns', 'Types of records available for editing: A, AAAA, MX, CNAME, TXT, NS.'),
+                'label' => Yii::t('hipanel:site:dns', 'Types of records available for editing: A, AAAA, MX, CNAME, TXT, NS.'),
                 'value' => [
                     'basic' => '<i class="fa fa-check text-success"></i>',
                     'premium' => '<i class="fa fa-check text-success"></i>',
                 ],
             ],
             [
-                'label' => Yii::t('hipanel/site/dns', 'Preinstalled settings for Google Apps'),
+                'label' => Yii::t('hipanel:site:dns', 'Preinstalled settings for Google Apps'),
                 'value' => [
                     'basic' => '<i class="fa fa-check text-success"></i>',
                     'premium' => '<i class="fa fa-check text-success"></i>',
                 ],
             ],
             [
-                'label' => Yii::t('hipanel/site/dns', 'Domain auto renewal option'),
+                'label' => Yii::t('hipanel:site:dns', 'Domain auto renewal option'),
                 'value' => [
                     'basic' => '<i class="fa fa-check text-success"></i>',
                     'premium' => '<i class="fa fa-check text-success"></i>',
                 ],
             ],
             [
-                'label' => Yii::t('hipanel/site/dns', 'Working with subdomains'),
+                'label' => Yii::t('hipanel:site:dns', 'Working with subdomains'),
                 'value' => [
                     'basic' => '<i class="fa fa-check text-success"></i>',
                     'premium' => '<i class="fa fa-check text-success"></i>',
                 ],
             ],
             [
-                'label' => Yii::t('hipanel/site/dns', 'The total number of A and CName records'),
+                'label' => Yii::t('hipanel:site:dns', 'The total number of A and CName records'),
                 'value' => [
                     'basic' => '<span class="text-danger">5</span>',
                     'premium' => '<span class="text-success">1000</span>',
                 ],
             ],
             [
-                'label' => Yii::t('hipanel/site/dns', 'URL and E-mail forwarding'),
+                'label' => Yii::t('hipanel:site:dns', 'URL and E-mail forwarding'),
                 'value' => [
                     'basic' => '<i class="fa fa-times text-danger"></i>',
                     'premium' => '<i class="fa fa-check text-success"></i>',
                 ],
             ],
             [
-                'label' => Yii::t('hipanel/site/dns', 'Editing of SOA record'),
+                'label' => Yii::t('hipanel:site:dns', 'Editing of SOA record'),
                 'value' => [
                     'basic' => '<i class="fa fa-times text-danger"></i>',
                     'premium' => '<i class="fa fa-check text-success"></i>',
                 ],
             ],
             [
-                'label' => Yii::t('hipanel/site/dns', 'Editing of TTL values'),
+                'label' => Yii::t('hipanel:site:dns', 'Editing of TTL values'),
                 'value' => [
                     'basic' => '<i class="fa fa-times text-danger"></i>',
                     'premium' => '<i class="fa fa-check text-success"></i>',
                 ],
             ],
             [
-                'label' => Yii::t('hipanel/site/dns', 'Domain parking'),
+                'label' => Yii::t('hipanel:site:dns', 'Domain parking'),
                 'value' => [
                     'basic' => '<i class="fa fa-times text-danger"></i>',
                     'premium' => '<i class="fa fa-check text-success"></i>',

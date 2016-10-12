@@ -1,6 +1,6 @@
 <?php
 
-$this->title = Yii::t('hipanel/site/faq', 'Installing third-party NS-servers');
+$this->title = Yii::t('hipanel:site:faq', 'Installing third-party NS-servers');
 ?>
 
 If you have an NS server that is issued by the hosting provider,

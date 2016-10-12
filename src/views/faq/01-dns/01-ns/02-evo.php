@@ -2,7 +2,7 @@
 
 $host = Yii::$app->request->hostName;
 
-$this->title = Yii::t('hipanel/site/faq', '{host} NS-server installation', compact('host'));
+$this->title = Yii::t('hipanel:site:faq', '{host} NS-server installation', compact('host'));
 ?>
 
 To configure a DNS in the <b><?= $host ?></b> panel,

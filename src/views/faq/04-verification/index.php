@@ -1,3 +1,3 @@
 <?php
 
-$this->title = Yii::t('hipanel/site/faq', 'Verification');
+$this->title = Yii::t('hipanel:site:faq', 'Verification');
