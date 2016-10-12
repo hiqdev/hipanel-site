@@ -85,53 +85,53 @@ return [
         ],
         'i18n' => [
             'translations' => [
-                'hipanel/site' => [
+                'hipanel:site' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
                         'site' => 'site.php',
                     ],
                 ],
-                'hipanel/site/pages' => [
+                'hipanel:site:pages' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
                         'hipanel/site/pages' => 'pages.php',
                     ],
                 ],
-                'hipanel/site/dns' => [
+                'hipanel:site:dns' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
 //                    'fileMap' => [
-//                        'hipanel/site/dns' => 'dns.php',
+//                        'hipanel:site:dns' => 'dns.php',
 //                    ],
                 ],
-                'hipanel/site/vds' => [
+                'hipanel:site:vds' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
-                        'hipanel/site/vds' => 'vds.php',
+                        'hipanel:site:vds' => 'vds.php',
                     ],
                 ],
-                'hipanel/site/domain' => [
+                'hipanel:site:domain' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
-                        'hipanel/site/domain' => 'domain.php',
+                        'hipanel:site:domain' => 'domain.php',
                     ],
                 ],
-                'hipanel/site/faq' => [
+                'hipanel:site:faq' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
-                        'hipanel/site/faq' => 'faq.php',
+                        'hipanel:site:faq' => 'faq.php',
                     ],
                 ],
-                'hipanel/site/transfer' => [
+                'hipanel:site:transfer' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
                     'fileMap' => [
-                        'hipanel/site/transfer' => 'transfer.php',
+                        'hipanel:site:transfer' => 'transfer.php',
                     ],
                 ],
             ],
