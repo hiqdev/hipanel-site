@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $thread \hipanel\site\models\Thread */
 /* @var $form yii\bootstrap\ActiveForm */
 
 use hipanel\helpers\Url;
@@ -23,7 +24,8 @@ $this->registerCss(".help-block { font-size: 12px; }");
                 'title' => Yii::t('hipanel:site:pages', 'Complaints / Abuse reports'),
             ]) ?>
             <?php $panel->beginBody() ?>
-            <?= Yii::t('hipanel:site:pages', 'Notifications about spam, breaches of trademark, illegal or immoral activities of our clients:') ?><br>
+            <?= Yii::t('hipanel:site:pages', 'Notifications about spam, breaches of trademark, illegal or immoral activities of our clients:') ?>
+            <br>
             <?= Html::mailto(Yii::$app->params['abuseEmail'], Yii::$app->params['abuseEmail']) ?>
             <?php $panel->endBody() ?>
             <?php FancyPanel::end() ?>
@@ -81,16 +83,38 @@ $this->registerCss(".help-block { font-size: 12px; }");
                 </div>
             <?php else: ?>
                 <div id="contactform">
-                    <form method="post" action="sendmail.php" class="material">
-                        <p><input type="text" class="form-control" name="name" id="name" placeholder="Name"
-                                  tabindex="1"/></p>
-                        <p><input type="text" class="form-control" name="email" id="email" placeholder="Email"
-                                  tabindex="2"/></p>
-                        <p><textarea class="form-control" name="comments" id="comments" cols="12" rows="6"
-                                     placeholder="Message" tabindex="3"></textarea></p>
-                        <p><input type="button" name="submit" id="submit" class="mtr-btn button-fab ripple"
-                                  value="Send"/></p>
-                    </form>
+                    <?php $form = ActiveForm::begin([
+                        'id' => 'submit-ticket',
+                        'action' => Url::toRoute('/site/ticket-submit'),
+                        'options' => [
+                            'class' => 'material'
+                        ],
+                        'fieldConfig' => [
+                            'template' => "{input}\n{hint}\n{error}",
+                        ],
+                    ]) ?>
+                    <?= $form->field($thread, 'anonym_name')->textInput([
+                        'name' => 'anonym_name',
+                        'id' => 'anonym_name',
+                        'placeholder' => $thread->getAttributeLabel('anonym_name'),
+                    ]) ?>
+                    <?= $form->field($thread, 'anonym_email')->textInput([
+                        'name' => 'anonym_email',
+                        'id' => 'anonym_email',
+                        'placeholder' => $thread->getAttributeLabel('anonym_email'),
+                    ]) ?>
+                    <?= $form->field($thread, 'subject')->textInput([
+                        'name' => 'subject',
+                        'id' => 'subject',
+                        'placeholder' => $thread->getAttributeLabel('subject'),
+                    ]) ?>
+                    <?= $form->field($thread, 'message')->textarea([
+                        'name' => 'message',
+                        'id' => 'message',
+                        'placeholder' => $thread->getAttributeLabel('message'),
+                    ]) ?>
+                    <?= Html::submitButton(Yii::t('hipanel:site:pages', 'Submit'), ['id' => 'submit', 'class' => 'mtr-btn button-fab ripple']) ?>
+                    <?php ActiveForm::end() ?>
                 </div>
             <?php endif; ?>
         </div>
