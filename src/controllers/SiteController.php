@@ -6,6 +6,7 @@ use hipanel\modules\domain\cart\DomainRegistrationProduct;
 use hipanel\modules\finance\models\Tariff;
 use hipanel\modules\server\helpers\ServerHelper;
 use hipanel\modules\server\cart\ServerOrderProduct;
+use hipanel\site\models\Thread;
 use hiqdev\yii2\cart\actions\AddToCartAction;
 use hisite\actions\RenderAction;
 
@@ -53,6 +54,16 @@ class SiteController extends \hipanel\controllers\SiteController
             'product' => new ServerOrderProduct(['tariff_id' => $package->tariff->id]),
             'groupedOsimages' => ServerHelper::groupOsimages($osImages),
             'panels' => ServerHelper::getPanels(),
+        ]);
+    }
+
+    public function actionContact()
+    {
+        $thread = new Thread();
+        $thread->scenario = Thread::SCENARIO_SUBMIT;
+
+        return $this->render('contact', [
+            'thread' => $thread,
         ]);
     }
 }
