@@ -17,12 +17,19 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Domain names search and register' => '@@@@',
-    'Domain names search and registration' => '',
-    'Domain pricing' => '',
-    'PAYMENT METHODS' => '',
-    'START BY REGISTERING YOUR DOMAIN NAME' => '@@@@',
-    'Today our company, offers the most competitive and fair prices for domain registration services. Due to the large number of domains that are in our care, we get a significant discount from our registrar. This creates a very positive impact on the price of domain names offered to you!' => '',
-    'We accept the following automatic payment methods' => '',
-    'as well as PayPal payments from your Visa and MasterCard' => '',
+    'Creating subsidiary NS-servers' => '',
+    'DNS Server setup' => '',
+    'Errors and problems' => '',
+    'FAQ' => '',
+    'Find answers to the common questions asked about our services' => '',
+    'Hosting' => '',
+    'Installing third-party NS-servers' => '',
+    'NS Server installation' => '',
+    'Other' => '',
+    'Transfer' => '',
+    'Transferring domain to other registrar' => '',
+    'Transferring domain to other user' => '',
+    'Transferring domain to {host}' => '',
+    'Verification' => '',
+    '{host} NS-server installation' => '',
 ];

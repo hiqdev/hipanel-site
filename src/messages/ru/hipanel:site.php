@@ -17,12 +17,11 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Domain names search and register' => '@@@@',
-    'Domain names search and registration' => '',
-    'Domain pricing' => '',
-    'PAYMENT METHODS' => '',
-    'START BY REGISTERING YOUR DOMAIN NAME' => '@@@@',
-    'Today our company, offers the most competitive and fair prices for domain registration services. Due to the large number of domains that are in our care, we get a significant discount from our registrar. This creates a very positive impact on the price of domain names offered to you!' => '',
-    'We accept the following automatic payment methods' => '',
-    'as well as PayPal payments from your Visa and MasterCard' => '',
+    'Domains'  => 'Домены',
+    'Transfer' => 'Трансфер',
+    'Contact'  => 'Контакты',
+    'year' => 'год',
+    'DNS' => '',
+    'FAQ' => '',
+    'VDS' => '',
 ];
