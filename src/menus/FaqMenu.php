@@ -39,8 +39,7 @@ class FaqMenu extends \hiqdev\menumanager\Menu
     private function crawlDir($path)
     {
         $items = [];
-        $dirs = $this->scanDir($path);
-        foreach ($dirs as $key => $file) {
+        foreach ($this->scanDir($path) as $key => $file) {
             if (is_dir($file)) {
                 $items[$key] = $this->crawlDir($file);
             } else {
@@ -57,7 +56,7 @@ class FaqMenu extends \hiqdev\menumanager\Menu
 
     private function readFile($path)
     {
-        $content = $this->view->renderFile($path, ['opt' => $this->opt]);
+        $content = $this->view->renderFile($path, ['opt' => $this->additionalOptions()]);
         $label = $this->view->title;
 
         return compact('content', 'label');
@@ -77,7 +76,7 @@ class FaqMenu extends \hiqdev\menumanager\Menu
         return $res;
     }
 
-    public function getOpt()
+    public function additionalOptions()
     {
         return [
             'host' => Yii::$app->request->hostName,
