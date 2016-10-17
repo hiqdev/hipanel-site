@@ -1,3 +1,3 @@
 <?php
 
-$this->title = 'Transfer';
+$this->title = 'Трансфер';
