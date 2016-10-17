@@ -11,12 +11,17 @@
 
 namespace hipanel\site\menus;
 
+use hipanel\helpers\StringHelper;
 use Yii;
+use yii\web\View;
 
 class FaqMenu extends \hiqdev\menumanager\Menu
 {
     public $path;
 
+    /**
+     * @return \yii\base\View|View
+     */
     public function getView()
     {
         return Yii::$app->view;
@@ -34,7 +39,8 @@ class FaqMenu extends \hiqdev\menumanager\Menu
     private function crawlDir($path)
     {
         $items = [];
-        foreach ($this->scanDir($path) as $key => $file) {
+        $dirs = $this->scanDir($path);
+        foreach ($dirs as $key => $file) {
             if (is_dir($file)) {
                 $items[$key] = $this->crawlDir($file);
             } else {
@@ -51,22 +57,30 @@ class FaqMenu extends \hiqdev\menumanager\Menu
 
     private function readFile($path)
     {
-        return [
-            'content' => $this->view->renderFile($path),
-            'label' => $this->view->title,
-        ];
+        $content = $this->view->renderFile($path, ['opt' => $this->opt]);
+        $label = $this->view->title;
+
+        return compact('content', 'label');
     }
 
     private function scanDir($path)
     {
         $res = [];
         foreach (scandir($path) as $file) {
-            if ($file[0] === '.' || $file === 'index.php') {
+            // and ignore lang folder todo: need improve
+            if ($file[0] === '.' || $file === 'index.php' || StringHelper::endsWith($file, 'ru')) {
                 continue;
             }
             $info = pathinfo($file);
             $res[$info['filename']] = $path . '/' . $file;
         }
         return $res;
+    }
+
+    public function getOpt()
+    {
+        return [
+            'host' => Yii::$app->request->hostName,
+        ];
     }
 }
