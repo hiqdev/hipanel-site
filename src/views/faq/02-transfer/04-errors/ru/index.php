@@ -1,5 +1,5 @@
 <?php
-$this->title = 'Errors and problems';
+$this->title = 'Ошибки и проблемы';
 ?>
 
 

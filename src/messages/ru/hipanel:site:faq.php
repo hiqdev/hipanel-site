@@ -17,19 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Creating subsidiary NS-servers' => '',
-    'DNS Server setup' => '',
-    'Errors and problems' => '',
+    'Errors and Problems' => '',
     'FAQ' => '',
-    'Find answers to the common questions asked about our services' => '',
-    'Hosting' => '',
-    'Installing third-party NS-servers' => '',
-    'NS Server installation' => '',
-    'Other' => '',
-    'Transfer' => '',
-    'Transferring domain to other registrar' => '',
-    'Transferring domain to other user' => '',
-    'Transferring domain to {host}' => '',
-    'Verification' => '',
-    '{host} NS-server installation' => '',
+    'Find answers to the common questions asked about our services' => 'Найдите ответы на общие вопросы, задаваемые о наших услугах',
 ];
