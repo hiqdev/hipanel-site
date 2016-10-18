@@ -33,7 +33,7 @@ $this->title = 'От GoDaddy';
         <p><img src="/www/img/help/transfer_from/godaddy/ru/6.png" width="700"></p>
     </li>
     <li>
-        <p class="list">Войдите в панель управления доменами в панели evo.ru-tld.ru.</p>
+        <p class="list">Войдите в панель управления доменами в панели <?= $opt['host'] ?>.</p>
         <p><img src="/www/img/help/transfer_from/oursite/ru/1.png" width="800"></p>
     </li>
     <li>

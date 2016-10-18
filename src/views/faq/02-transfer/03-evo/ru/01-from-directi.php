@@ -29,7 +29,7 @@ $this->title = 'От Directi';
         <p><img src="/www/img/help/transfer_from/directi/ru/7.png" width="800"></p>
     </li>
     <li>
-        <p class="list">Войдите в панель управления доменами в панели evo.ru-tld.ru.</p>
+        <p class="list">Войдите в панель управления доменами в панели <?= $opt['host'] ?>.</p>
         <p><img src="/www/img/help/transfer_from/oursite/ru/1.png" width="800"></p>
     </li>
     <li>
