@@ -56,7 +56,7 @@ class FaqMenu extends \hiqdev\menumanager\Menu
 
     private function readFile($path)
     {
-        $content = $this->view->renderFile($path, ['opt' => $this->additionalOptions()]);
+        $content = $this->view->renderFile($path, ['options' => $this->additionalOptions()]);
         $label = $this->view->title;
 
         return compact('content', 'label');
@@ -73,6 +73,7 @@ class FaqMenu extends \hiqdev\menumanager\Menu
             $info = pathinfo($file);
             $res[$info['filename']] = $path . '/' . $file;
         }
+
         return $res;
     }
 
@@ -80,6 +81,7 @@ class FaqMenu extends \hiqdev\menumanager\Menu
     {
         return [
             'host' => Yii::$app->request->hostName,
+            'imgDir' => Yii::$app->assetManager->getPublishedUrl('@hipanel/site/assets/img'),
         ];
     }
 }
