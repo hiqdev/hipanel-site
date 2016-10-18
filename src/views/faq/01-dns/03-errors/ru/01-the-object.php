@@ -1,11 +1,7 @@
 <?php
-$this->title = 'The "Object does not exist" error during NS-server installation';
+$this->title = 'Ошибка "Object does not exist" при установке NS-серверов';
 ?>
 
-<p>This error means that you want to write values for subsidiary servers that are not yet created. </p>
-
-<p> To create subsidiary servers, please read the
-    <a href="#01-ns#03-creating">"Creating a subsidiary NS-server" guide</a>.
+<p>Эта ошибка означает, что вы хотите прописать дочерние NS-сервера, но они еще не созданы.</p>
+<p>Для создания дочерних серверов ознакомьтесь с: <a href="#01-dns#01-ns#03-creating">Создание дочерних NS-серверов</a>.
 </p>
-
-

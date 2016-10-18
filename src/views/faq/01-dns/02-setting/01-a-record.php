@@ -3,7 +3,7 @@ $host = Yii::$app->request->hostName;
 $this->title = 'A-record';
 ?>
 
-<p>You need to install our NS-servers to configure the A-record in the ahnames.com panel.</p>
+<p>You need to install our NS-servers to configure the A-record in the <?= $opt['host'] ?> panel.</p>
 <p><a href="#01-ns#01-installing">Installing <?= $opt['host'] ?> NS-servers</a>.</p>
 <p>After selecting the A-record type, specify the correct IP address in the line that is shown on the
     screenshot. </p>

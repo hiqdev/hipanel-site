@@ -1,14 +1,16 @@
 <?php
-$this->title = 'MX-record';
+$this->title = 'МХ-запись';
 ?>
 
-<p>You need to install our NS-servers to configure the MX-record in ahnames.com panel.</p>
-<p><a href="#01-ns#01-installing">Installing <?= $opt['host'] ?> NS-servers</a>.</p>
-<p>After the A-type record is selected, specify the subdomain name, that the record will use and specify the correct
-    IP-address. Next, when selecting the "MX" type record, specify MX priority for the created domain. As a rule, the
-    following priority values are specified for postal server: 10, 20, 30, 40, 50.
-    The closer the value is to 0, the higher its priority is. Mail is processed by a server that has higher priority
-    value.
-    If this server is unavailable, mail will be processed by a server with lower priority.
-</p>
-<p><img src="/www/img/help/dns/setup/en/mx_1.png"></p>
+<p>Чтобы настроить МХ-запись <?= $opt['host'] ?>, следует установить наши NS-сервера.</p>
+<p><a href="#01-ns#01-installing">Установка NS-серверов <?= $opt['host'] ?></a>.</p>
+
+<p>Далее, выбрав тип записи «А», следует указать поддомен (например, mail, как на скриншоте), который будет
+    использоваться для этой записи,
+    и указать ее правильный IP-адрес.</p>
+<p>После, выбрав тип записи «МХ», следует указать созданный поддомен и приоритет МХ. Как правило, для почтового сервера
+    указывают
+    следующие значения приоритета: 10, 20, 30, 40, 50. Чем ближе к 0, тем выше значение приоритета. Почта обрабатывается
+    сервером с наивысшим
+    значением приоритета. В случае его недоступности, почта будет обработана с более низким приоритетом.</p><p>
+    <img src="/www/img/help/dns/setup/ru/mx_1.jpg"></p>

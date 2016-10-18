@@ -2,7 +2,7 @@
 $this->title = 'MX-record';
 ?>
 
-<p>You need to install our NS-servers to configure the MX-record in ahnames.com panel.</p>
+<p>You need to install our NS-servers to configure the MX-record in <?= $opt['host'] ?>.</p>
 <p><a href="#01-ns#01-installing">Installing <?= $opt['host'] ?> NS-servers</a>.</p>
 <p>After the A-type record is selected, specify the subdomain name, that the record will use and specify the correct
     IP-address. Next, when selecting the "MX" type record, specify MX priority for the created domain. As a rule, the

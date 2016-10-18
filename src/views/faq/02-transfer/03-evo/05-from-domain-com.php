@@ -25,7 +25,7 @@ $this->title = 'From Domain.com';
         <p><img src="/www/img/help/transfer_from/domain/en/5.png" width="700"></p>
     </li>
     <li>
-        <p class="list">Log into evo.ru-tld.ru domain control panel.</p>
+        <p class="list">Log into <?= $opt['host'] ?> domain control panel.</p>
         <p><img src="/www/img/help/transfer_from/oursite/en/1.png" width="800"></p>
     </li>
     <li>

@@ -2,7 +2,7 @@
 $this->title = 'URL forwarding';
 ?>
 
-<p>You need to install our NS-servers to configure URL forwarding in ahnames.com panel.</p>
+<p>You need to install our NS-servers to configure URL forwarding in <?= $opt['host'] ?> panel.</p>
 <p><a href="#01-ns#01-installing">Installing <?= $opt['host'] ?> servers</a>.</p>
 <p>Activate "URL forwarding" option for specific domain In the "Manage DNS" section.
     Select one or several domains and choose the necessary option in the dropdown window. </p>

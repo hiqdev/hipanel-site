@@ -1,3 +1,3 @@
 <?php
 
-$this->title = 'Premium package';
+$this->title = 'Премиум пакет';

@@ -1,15 +1,11 @@
 <?php
-$this->title = 'A-record';
+$this->title = 'А-запись';
 ?>
 
-<p>You need to install our NS-servers to configure the A-record in the ahnames.com panel.</p>
-<p><a href="#01-ns#01-installing">Installing <?= $opt['host'] ?> NS-servers</a>.</p>
-<p>After selecting the A-record type, specify the correct IP address in the line that is shown on the
-    screenshot. </p>
-<p><img src="/www/img/help/dns/setup/en/a_1.png"></p>
-<p>You can also specify IP addresses for Subdomain names if necessary. To do that, the Subdomain name should be
-    indicated
-    as prefix in the specific field. If you need to specify only one IP address for all Subdomain names, write "*"
-    symbol in
-    the "Subdomain name" field.
-</p>
+<p>Чтобы настроить А-запись в панеле <?= $opt['host'] ?>, следует установить наши NS-сервера.</p>
+<p><a href="#01-ns#01-installing">Установка NS-серверов <?= $opt['host'] ?></a>.</p>
+<p>Далее, выбрав тип записи «А», следует указать правильный IP-адрес в строке, показанной на скриншоте.</p>
+<p><img src="/www/img/help/dns/setup/ru/a_1.jpg"></p>
+<p>Также при необходимости можно задать IP адреса для поддоменов. В этом случае его имя указывается в качестве префикса
+    в специальном поле.
+    Если надо для всех поддоменов указать один IP, то в поле «Имя поддомена» следует прописать сивол «*».</p>

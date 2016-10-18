@@ -1,17 +1,15 @@
 <?php
-$this->title = 'URL forwarding';
+$this->title = 'URL переадресация';
 ?>
 
-<p>You need to install our NS-servers to configure URL forwarding in ahnames.com panel.</p>
-<p><a href="#01-ns#01-installing">Installing <?= $opt['host'] ?> servers</a>.</p>
-<p>Activate "URL forwarding" option for specific domain In the "Manage DNS" section.
-    Select one or several domains and choose the necessary option in the dropdown window. </p>
-<p><img src="/www/img/help/dns/setup/en/url_redirect_1.png"></p>
-
-<p>Now you can configure forwarding from your domain to any other website. You can also configure forwarding for
-    Subdomain names or
-    use "*" symbol to indicate any Subdomain name."Forwarding address" allows entering get urls that look like this:
-    http://name/.</p>
-<p><img src="/www/img/help/dns/setup/en/url_redirect_2.png"></p>
-<p>The following settings can also be used to forward an URL: 301 — transferred permanently, 302 — transferred
-    temporarily.</p>
+<p>Чтобы настроить URL переадресацию в панеле <?= $opt['host'] ?>, следует установить наши NS-сервера.</p>
+<p><a href="#01-ns#01-installing">Установка NS-серверов <?= $opt['host'] ?></a>.</p>
+<p>В разделе «Управление DNS» активируйте опцию «Перенаправление URL» для требуемого домена.</p>
+<p>Отметьте один или несколько доменов галочкой, и в выпадающем меню выберите соответствующий пункт.</p>
+<p><img src="/www/img/help/dns/setup/ru/url_redirect_1.png"></p>
+<p>Теперь Вы можете настроить перенаправление со своего домена на любой существующий сайт.
+    Также можно настроить перенаправление для поддоменов, или использовать символ «*» для обозначения поддомена.
+    «Адрес перенаправления» поддерживает ввод get ссылки вида http://name/.</p>
+<p><img src="/www/img/help/dns/setup/ru/url_redirect_2.png"></p>
+<p>Для переадресации URL также доступна настройка типа перенаправления: 301 — перемещён постоянно, 302 — перемещён
+    временно.</p>

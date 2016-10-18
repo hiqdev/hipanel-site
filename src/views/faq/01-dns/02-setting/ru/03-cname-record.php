@@ -1,10 +1,10 @@
 <?php
-$host = Yii::$app->request->hostName;
-$this->title = 'CNAME-record';
+$this->title = 'CNAME-запись';
 ?>
 
-<p>You need to install our servers to configure the CNAME-record in the ahnames.com panel.</p>
-<p><a href="#01-ns#01-installing">Installing <?= $opt['host'] ?> NS-servers</a>.</p>
-<p>When CNAME-record is selected, specify the domain that will be used to refer to main domain name or the specified
-    Subdomain name.</p>
-<p><img src="/www/img/help/dns/setup/en/cname_1.png"></p>
+<p>Чтобы настроить CNAME-запись в панеле <?= $opt['host'] ?>, следует установить наши NS-сервера.</p>
+<p><a href="#01-ns#01-installing">Установка NS-серверов <?= $opt['host'] ?></a>.</p>
+
+<p>Далее, выбрав тип записи «CNAME», следует указать домен, на который будет ссылаться основное доменное имя или
+    указанный поддомен.</p>
+<p><img src="/www/img/help/dns/setup/ru/cname_1.jpg"></p>

@@ -2,7 +2,7 @@
 $this->title = 'E-mail forwarding';
 ?>
 
-<p>You need to install our servers to configure E-mail forwarding in ahnames.com panel.
+<p>You need to install our servers to configure E-mail forwarding in <?= $opt['host'] ?> panel.
 </p><p><a href="#01-ns#01-installing">Installing <?= $opt['host'] ?> NS servers</a></p>
 <p>Activate the "Mail forwarding" option for necessary domain in the "Manage DNS" section.</p>
 <p>Now you can configure mail forwarding from your domain to any existing email address.

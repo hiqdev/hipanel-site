@@ -1,13 +1,12 @@
 <?php
-
-$this->title = 'Parking page';
+$this->title = 'Парковочная страница';
 ?>
 
-<p>Activate the "Parking page" option for selected domain in the "Manage DNS" section. </p>
-<p><img src="/www/img/help/dns/setup/en/parking_page_1.png"></p>
-</p><p><a href="#01-ns#01-installing">Installing <?= $opt['host'] ?> NS servers</a></p>
-<p>
-    Now you can create a parking page. Three design options are available, as well as the possibility
-    to edit the header, title and text from the page (up to four lines).
-</p>
-<p><img src="/www/img/help/dns/setup/en/parking_page_2.png"></p>
+<p>Для того, что бы настроить E-mail переадресацию в панеле <?= $opt['host'] ?> следует установить наши NS-сервера.</p>
+<p><a href="#01-ns#01-installing">Установка NS-серверов <?= $opt['host'] ?></a></p>
+<p>В разделе «Управление DNS» активируйте опцию «Парковочная страница» для требуемого домена.</p>
+<p><img src="/www/img/help/dns/setup/ru/parking_page_1.png"></p>
+<p>Теперь Вы можете создать парковочную страницу. Доступно три варианта дизайна, а также возможность редактирования
+    заголовка,
+    названия и текста страницы (максимум четыре строки).</p>
+<p><img src="/www/img/help/dns/setup/ru/parking_page_2.png"></p>

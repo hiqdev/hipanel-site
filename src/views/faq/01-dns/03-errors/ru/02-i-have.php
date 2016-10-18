@@ -1,7 +1,7 @@
 <?php
-$this->title = 'I have specified NS-servers but my website doesn’t work';
+$this->title = 'Я прописал NS-сервера, но сайт не открывается';
 ?>
 
-<p>Please check if domain name is pinging. To do so, write: ping yourdomain.com in the command line.
-    If your server sends answers with correct IP-address, the problem is with your hosting provider.
-</p>
+<p>Проверьте, пингуется ли доменное имя. Для этого в командной строке нужно прописать: ping yourdomain.com.
+    В случае, если ответы приходят от сервера с правильным IP-адресом, то проблема находится на стороне
+    хостинг-провайдера.</p>

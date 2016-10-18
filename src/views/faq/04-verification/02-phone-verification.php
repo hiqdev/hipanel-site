@@ -2,7 +2,7 @@
 $this->title = 'Phone verification';
 ?>
 
-<p>To verify the phone number, (please) go to the control panel on ahnames.com and navigate to "Domains"(1), then
+<p>To verify the phone number, (please) go to the control panel on <?= $opt['host'] ?> and navigate to "Domains"(1), then
     "Contact"(2).
     Click on your main contact(3).</p>
 <img style="display:inline-block; margin:10px 0" src="/www/img/faq/panelAHnames/tel.verfy_eng1.png" border="0">

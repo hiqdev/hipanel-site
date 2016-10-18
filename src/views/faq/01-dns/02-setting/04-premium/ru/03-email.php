@@ -1,12 +1,13 @@
 <?php
-$this->title = 'E-mail forwarding';
+$this->title = 'E-mail переадресация';
 ?>
 
-<p>You need to install our servers to configure E-mail forwarding in ahnames.com panel.
-</p><p><a href="#01-ns#01-installing">Installing <?= $opt['host'] ?> NS servers</a></p>
-<p>Activate the "Mail forwarding" option for necessary domain in the "Manage DNS" section.</p>
-<p>Now you can configure mail forwarding from your domain to any existing email address.
-    It is possible to forward mail from a specific user as well as all mail. Use "*" symbol as user’s name to forward
-    all mail.</p>
-<p><img src="/www/img/help/dns/setup/en/email_redirect_1.png"></p>
-<p><img src="/www/img/help/dns/setup/en/email_redirect_2.png"></p>
+<p>Чтобы настроить E-mail переадресацию в панеле <?= $opt['host'] ?>, следует установить наши NS-сервера.</p>
+<p><a href="#01-ns#01-installing">Установка NS-серверов <?= $opt['host'] ?></a></p>
+<p>В разделе «Управление DNS» активируйте опцию «Перенаправление почты» для требуемого домена.</p>
+<p>Теперь Вы можете настроить перенаправление почты для вашего домена на любой существующий почтовый адрес.
+    Возможно перенаправлять почту как для конкретного указанного пользователя, так и всю почту — для этого в качестве
+    имени пользователя
+    укажите символ «*».</p>
+<p><img src="/www/img/help/dns/setup/ru/email_redirect_1.png"></p>
+<p><img src="/www/img/help/dns/setup/ru/email_redirect_2.png"></p>

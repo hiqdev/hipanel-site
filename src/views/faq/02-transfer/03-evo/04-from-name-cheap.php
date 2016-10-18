@@ -40,7 +40,7 @@ $this->title = 'From Name Cheap';
         <p><img src="/www/img/faq_namecheap/namecheap_07&amp;08.gif" width="800" height="400"></p>
     </li>
     <li>
-        <p class="list">Log into evo.ru-tld.ru domain control panel.</p>
+        <p class="list">Log into <?= $opt['host'] ?> domain control panel.</p>
         <p><img src="/www/img/help/transfer_from/oursite/en/1.png" width="800"></p>
     </li>
     <li>
