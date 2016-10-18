@@ -41,5 +41,5 @@ $this->title = 'What is Whois Protect';
 <p>Whois Protect option is activated automatically when you register or transfer a domain.
     Deactivating this service is easy — all you have to do is unchecking the "Whois" checkbox.</p>
 
-<p><img src="/www/img/faq/faq-eng-new/whois_protect.png"></p>
+<p><img src="<?= $options['imgDir'] ?>/faq/faq-eng-new/whois_protect.png"></p>
 

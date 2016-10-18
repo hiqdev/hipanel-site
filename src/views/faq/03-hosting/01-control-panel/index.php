@@ -1,3 +1,3 @@
 <?php
 
-$this->title = $opt['host'] . ' control panel. Fast start';
+$this->title = $options['host'] . ' control panel. Fast start';

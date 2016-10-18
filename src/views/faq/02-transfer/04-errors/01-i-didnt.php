@@ -9,5 +9,5 @@ $this->title = 'I didn’t receive the transfer authorization letter (FOA)';
     deactivated the
     Whois Protect service offered by your current registrar. Deactivate the Whois Protect and wait for 10-15 minutes.
     Then click on "send FOA again" link</p>
-<p><img src="/www/img/faq/faq-eng-new/foa.png"></p>
+<p><img src="<?= $options['imgDir'] ?>/faq/faq-eng-new/foa.png"></p>
 <p>If the status shows your email address, check your spam folder or wait for 5-7 minutes.</p>

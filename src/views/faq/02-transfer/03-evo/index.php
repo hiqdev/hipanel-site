@@ -1,4 +1,4 @@
 <?php
-$this->title = 'Transferring domain to ' . $opt['host'];
+$this->title = 'Transferring domain to ' . $options['host'];
 ?>
 

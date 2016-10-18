@@ -5,7 +5,7 @@ $this->title = 'Создание почтовых ящиков';
 <p>Выберите пункт «Почта» в списке «Хостинг панель» панели управления.
     Нажмите кнопку «Создать почту» в панели действий для создания нового почтового ящика.
 </p>
-<img style="display:inline-block; margin:0 0 10px 0; display:block" src="/www/img/faq/panelAHnames/qs7_ru.png"
+<img style="display:inline-block; margin:0 0 10px 0; display:block" src="<?= $options['imgDir'] ?>/faq/panelAHnames/qs7_ru.png"
      border="0">
 
 <p>В открывшемся окне создания почтового ящика, выберите необходимые значения в выпадающих списках «Сервер» и «Аккаунт».
@@ -16,7 +16,7 @@ $this->title = 'Создание почтовых ящиков';
     В поле «Действия для спама» выберите наиболее подходящее Вам действие.<br>
     Заполните поле «Текст автоответчика», если это необходимо.<br>
     После заполнения всех необходимых полей, нажмите кнопку «Сохранить» в панели действий для создания ящика.</p>
-<img style="display:inline-block; margin:0 0 10px 0; display:block" src="/www/img/faq/panelAHnames/qs77_ru.png"
+<img style="display:inline-block; margin:0 0 10px 0; display:block" src="<?= $options['imgDir'] ?>/faq/panelAHnames/qs77_ru.png"
      border="0">
 
 <p>Обращаем внимание, что почтовые ящики можно создать только для подключенных Вами доменов.

@@ -2,9 +2,9 @@
 $this->title = 'CNAME-запись';
 ?>
 
-<p>Чтобы настроить CNAME-запись в панеле <?= $opt['host'] ?>, следует установить наши NS-сервера.</p>
-<p><a href="#01-ns#01-installing">Установка NS-серверов <?= $opt['host'] ?></a>.</p>
+<p>Чтобы настроить CNAME-запись в панеле <?= $options['host'] ?>, следует установить наши NS-сервера.</p>
+<p><a href="#01-ns#01-installing">Установка NS-серверов <?= $options['host'] ?></a>.</p>
 
 <p>Далее, выбрав тип записи «CNAME», следует указать домен, на который будет ссылаться основное доменное имя или
     указанный поддомен.</p>
-<p><img src="/www/img/help/dns/setup/ru/cname_1.jpg"></p>
+<p><img src="<?= $options['imgDir'] ?>/help/dns/setup/ru/cname_1.jpg"></p>

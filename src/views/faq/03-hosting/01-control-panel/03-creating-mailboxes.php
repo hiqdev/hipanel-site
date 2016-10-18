@@ -5,7 +5,7 @@ $this->title = 'Creating mailboxes';
 <p>Select "Mail" section in the "Hosting panel" menu of your control panel. To create new mailbox, click on "Create
     mail" button.
 </p>
-<img style="display:block; margin:0 0 10px 0;" src="/www/img/faq/panelAHnames/qs7_en.png" border="0">
+<img style="display:block; margin:0 0 10px 0;" src="<?= $options['imgDir'] ?>/faq/panelAHnames/qs7_en.png" border="0">
 
 <p>Select the necessary values from "Server" and "Account" dropdown lists. <br>
     Specify the mailbox name in the "Address" field. <br>
@@ -15,7 +15,7 @@ $this->title = 'Creating mailboxes';
     Fill in the "Auto reply text" if necessary. <br>
     Click "Save" after filling all the necessary fields.
 </p>
-<img style="display:block; margin:0 0 10px 0;" src="/www/img/faq/panelAHnames/qs77_en.png" border="0">
+<img style="display:block; margin:0 0 10px 0;" src="<?= $options['imgDir'] ?>/faq/panelAHnames/qs77_en.png" border="0">
 
 <p>Please note that you can create mailboxes for connected domains only.
     Use the following pop and smtp parameters to connect mailboxes to mail clients:

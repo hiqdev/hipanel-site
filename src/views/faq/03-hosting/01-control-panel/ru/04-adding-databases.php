@@ -4,7 +4,7 @@ $this->title = 'Добавление базы данных';
 
 <p>Выберите пункт «БД» в списке «Хостинг панель» панели управления. В открывшемся окне в панели действий нажмите кнопку
     «Создать БД».</p>
-<img style="display:inline-block; margin:0 0 10px 0; display:block" src="/www/img/faq/panelAHnames/qs8_ru.png"
+<img style="display:inline-block; margin:0 0 10px 0; display:block" src="<?= $options['imgDir'] ?>/faq/panelAHnames/qs8_ru.png"
      border="0">
 
 <p>В открывшемся окне создания базы данных выберите нужные параметры в выпадающих списках «Сервер» и «Аккаунт».<br>
@@ -14,6 +14,6 @@ $this->title = 'Добавление базы данных';
     После заполнения необходимых полей нажмите кнопку «Сохранить» в панели действий сверху. <br>
     БД будет создана автоматически, о чем Вас известит всплывающее сообщение с уведомлением об успешном создании БД.
 </p>
-<img style="display:inline-block; margin:0 0 10px 0; display:block" src="/www/img/faq/panelAHnames/qs9_ru.png"
+<img style="display:inline-block; margin:0 0 10px 0; display:block" src="<?= $options['imgDir'] ?>/faq/panelAHnames/qs9_ru.png"
      border="0">
 

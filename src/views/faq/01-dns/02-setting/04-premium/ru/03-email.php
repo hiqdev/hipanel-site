@@ -2,12 +2,12 @@
 $this->title = 'E-mail переадресация';
 ?>
 
-<p>Чтобы настроить E-mail переадресацию в панеле <?= $opt['host'] ?>, следует установить наши NS-сервера.</p>
-<p><a href="#01-ns#01-installing">Установка NS-серверов <?= $opt['host'] ?></a></p>
+<p>Чтобы настроить E-mail переадресацию в панеле <?= $options['host'] ?>, следует установить наши NS-сервера.</p>
+<p><a href="#01-ns#01-installing">Установка NS-серверов <?= $options['host'] ?></a></p>
 <p>В разделе «Управление DNS» активируйте опцию «Перенаправление почты» для требуемого домена.</p>
 <p>Теперь Вы можете настроить перенаправление почты для вашего домена на любой существующий почтовый адрес.
     Возможно перенаправлять почту как для конкретного указанного пользователя, так и всю почту — для этого в качестве
     имени пользователя
     укажите символ «*».</p>
-<p><img src="/www/img/help/dns/setup/ru/email_redirect_1.png"></p>
-<p><img src="/www/img/help/dns/setup/ru/email_redirect_2.png"></p>
+<p><img src="<?= $options['imgDir'] ?>/help/dns/setup/ru/email_redirect_1.png"></p>
+<p><img src="<?= $options['imgDir'] ?>/help/dns/setup/ru/email_redirect_2.png"></p>

@@ -4,7 +4,7 @@ $this->title = 'Добавление домена';
 
 <p>Выберите пункт «Домены» в списке «Хостинг панель» панели управления и в открывшемся окне нажмите кнопку «Добавить
     домен» в панели действий.</p>
-<img style="display:inline-block; margin:0 0 10px 0; display:block" src="/www/img/faq/panelAHnames/qs5_ru.png"
+<img style="display:inline-block; margin:0 0 10px 0; display:block" src="<?= $options['imgDir'] ?>/faq/panelAHnames/qs5_ru.png"
      border="0">
 
 <p>В появившемся окне выберите необходимые значения в полях «Сервер» и «Аккаунт».<br>
@@ -21,7 +21,7 @@ $this->title = 'Добавление домена';
     В нижней строке в выпадающем списке выберите параметры бекапа домена.<br>
     После выбора всех необходимых параметров нажмите кнопку «Сохранить» в панели действий.
 </p>
-<img style="display:inline-block; margin:0 0 10px 0; display:block" src="/www/img/faq/panelAHnames/qs6_ru.png"
+<img style="display:inline-block; margin:0 0 10px 0; display:block" src="<?= $options['imgDir'] ?>/faq/panelAHnames/qs6_ru.png"
      border="0">
 
 <p>После успешного добавления доменов все они появятся в списке под панелью действий.

@@ -7,10 +7,10 @@ $this->title = 'Пинкод';
     действий,
     наиболее влияющих на безопасность вашего аккаунта и каждого домена.
 </p>
-<p><img src="/www/img/faq/pincode.png"></p>
-<p><img src="/www/img/faq/pincode1.png"></p>
+<p><img src="<?= $options['imgDir'] ?>/faq/pincode.png"></p>
+<p><img src="<?= $options['imgDir'] ?>/faq/pincode1.png"></p>
 <p>При активации данной опции внимательно ознакомьтесь с описанием и условиями.
     Если вы забудете пинкод, мы будем вынуждены потребовать у вас скан-копии паспорта для верификации владельца
     аккаунта.
 </p>
-<p><img src="/www/img/faq/pincode2.png"></p>
+<p><img src="<?= $options['imgDir'] ?>/faq/pincode2.png"></p>

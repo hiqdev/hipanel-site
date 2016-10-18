@@ -45,4 +45,4 @@ $this->title = 'Что такое Whois Protect';
 <p>Услуга Whois Protect включается автоматически при выполнении регистрации или трансфера домена.
     Отключить сервис очень просто — достаточно снять галочку «включить Whois Protect».
 </p>
-<img src="/www/flat.skin/images/whois_faq_ru.png">
+<img src="<?= $options['imgDir'] ?>/whois_faq_ru.png">

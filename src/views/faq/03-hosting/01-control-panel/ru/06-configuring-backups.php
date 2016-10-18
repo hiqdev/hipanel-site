@@ -6,6 +6,6 @@ $this->title = 'Настройки бэкапов';
     В открывшемся окне будет выведен список всех объектов, для которых была включена опция бэкапа.
     В случае необходимости объекты можно исключить из списка бэкапов, выбрав их и нажав кнопку «Удалить» в панели
     действий сверху.</p>
-<img style="display:inline-block; margin:0 0 10px 0; display:block" src="/www/img/faq/panelAHnames/qs11_ru.png"
+<img style="display:inline-block; margin:0 0 10px 0; display:block" src="<?= $options['imgDir'] ?>/faq/panelAHnames/qs11_ru.png"
      border="0">
 
