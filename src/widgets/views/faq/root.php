@@ -20,10 +20,13 @@ $('.collapse').on('show.bs.collapse', function(event){
 
 //  Select first tab
 $('.faq-tabs .faq-categories li:eq(0) a').tab('show');
+
+// Init FAQ plugin
+$('#faq').faq();
 ");
 ?>
 
-<div class="faq-tabs">
+<div id="faq" class="faq-tabs">
     <div class="row">
         <div class="col-sm-12">
             <div class="faq-categories">

@@ -27,7 +27,7 @@ use yii\helpers\Html;
                     </div>
                 </div>
             <?php else: ?>
-                <?= $item['content'] ?>
+                <?= Html::tag('div', $item['content'], ['class' => 'panel-body-content']) ?>
             <?php endif; ?>
         </div>
     </div>

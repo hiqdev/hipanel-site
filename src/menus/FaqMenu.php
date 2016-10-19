@@ -81,7 +81,7 @@ class FaqMenu extends \hiqdev\menumanager\Menu
     {
         return [
             'host' => Yii::$app->request->hostName,
-            'imgDir' => 'https://cdn.hiqdev.com/hipanel', /// Yii::$app->assetManager->getPublishedUrl('@hipanel/site/assets/img'),
+            'imgDir' => 'https://cdn.hiqdev.com/hipanel',
         ];
     }
 }
