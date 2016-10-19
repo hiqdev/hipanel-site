@@ -17,6 +17,11 @@ class NavbarMenu extends \hiqdev\menumanager\Menu
     {
         return [
             [
+                'label' => '<i class="fa fa-user"></i>&nbsp;' . Yii::$app->user->identity->username,
+                'encode' => false,
+                'visible' => !Yii::$app->user->isGuest,
+            ],
+            [
                 'label' => LanguageMenu::widget(),
                 'encode' => false,
                 'options' => [
@@ -41,7 +46,7 @@ class NavbarMenu extends \hiqdev\menumanager\Menu
                 'visible' => !Yii::$app->user->isGuest,
             ],
             [
-                'label' => $this->getGravatar() . '&nbsp;&nbsp;' . Yii::$app->user->identity->username . ' (' . Yii::t('hisite', 'Logout') . ')',
+                'label' => Yii::t('hipanel:site', 'Logout'),
                 'url' => ['/site/logout'],
                 'visible' => !Yii::$app->user->isGuest,
                 'encode' => false,
