@@ -24,12 +24,21 @@
                 $('html,body').scrollTop(scrollmem);
             });
             $('.panel-body-content a[href^="#"]').click(function (e) {
+                e.preventDefault();
+                var el = [];
                 var id = this.getAttribute('href');
                 var se = $(id).prev().get(0);
-                $(id).collapse('show');
                 $(id).parents('.collapse').each(function (i, elem) {
+                    el.push(elem.getAttribute('id'));
                     $(elem).collapse('show');
                 });
+                $(id).collapse('show');
+                var scrl = $(id).offset().top;
+                $('html, body').animate({
+                    scrollTop: scrl - 100
+                }, 600);
+
+                return false;
             });
         }
     };
