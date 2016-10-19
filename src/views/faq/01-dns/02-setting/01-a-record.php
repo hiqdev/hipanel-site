@@ -4,7 +4,7 @@ $this->title = 'A-record';
 ?>
 
 <p>You need to install our NS-servers to configure the A-record in the <?= $options['host'] ?> panel.</p>
-<p><a href="#01-ns#01-installing">Installing <?= $options['host'] ?> NS-servers</a>.</p>
+<p><a href="#01-installing">Installing <?= $options['host'] ?> NS-servers</a>.</p>
 <p>After selecting the A-record type, specify the correct IP address in the line that is shown on the
     screenshot. </p>
 <p><img src="<?= $options['imgDir'] ?>/help/dns/setup/en/a_1.png"></p>
