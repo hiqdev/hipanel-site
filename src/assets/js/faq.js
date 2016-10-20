@@ -17,7 +17,7 @@
             var _this = this;
             var hash = window.location.hash;
             hash && $('ul a[href=\"' + hash + '\"]').tab('show');
-            $('ul li a').click(function (e) {
+            $('.faq-categories ul li a').click(function (e) {
                 $(this).tab('show');
                 var scrollmem = $('body').scrollTop() || $('html').scrollTop();
                 window.location.hash = this.hash;
@@ -27,7 +27,6 @@
                 e.preventDefault();
                 var el = [];
                 var id = this.getAttribute('href');
-                var se = $(id).prev().get(0);
                 $(id).parents('.collapse').each(function (i, elem) {
                     el.push(elem.getAttribute('id'));
                     $(elem).collapse('show');
