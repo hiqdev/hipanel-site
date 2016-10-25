@@ -19,11 +19,11 @@ class FooterMenu extends \hiqdev\menumanager\Menu
     {
         return [
             [
-                'label' => Yii::t('hisite', 'Terms of use'),
+                'label' => Yii::t('hipanel:site', 'Terms of use'),
                 'url' => ['/pages/rules'],
             ],
             [
-                'label' => Yii::t('hisite', 'Privacy policy'),
+                'label' => Yii::t('hipanel:site', 'Privacy policy'),
                 'url' => ['/pages/rules#privacyPolicy'],
             ],
         ];
