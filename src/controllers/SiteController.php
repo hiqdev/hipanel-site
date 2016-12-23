@@ -58,7 +58,7 @@ class SiteController extends \hipanel\controllers\SiteController
         ]);
     }
 
-    public function actionContact()
+    public function actionFeedback()
     {
         $thread = new Thread();
         $thread->scenario = Thread::SCENARIO_SUBMIT;
