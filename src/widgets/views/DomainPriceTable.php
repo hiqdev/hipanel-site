@@ -8,10 +8,10 @@ use yii\helpers\Html;
 <table id="tld-table" class="tablesaw" data-tablesaw-mode="stack">
     <thead>
     <tr>
-        <th><?= Yii::t('hipanel/domain', 'Zone') ?></th>
-        <th><?= Yii::t('hipanel/domain', 'Registration') ?></th>
-        <th><?= Yii::t('hipanel/domain', 'Renewal') ?></th>
-        <th><?= Yii::t('hipanel/domain', 'Transfer') ?></th>
+        <th><?= Yii::t('hipanel:domain', 'Zone') ?></th>
+        <th><?= Yii::t('hipanel:domain', 'Registration') ?></th>
+        <th><?= Yii::t('hipanel:domain', 'Renewal') ?></th>
+        <th><?= Yii::t('hipanel:domain', 'Transfer') ?></th>
     </tr>
     </thead>
     <tbody>

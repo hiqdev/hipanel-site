@@ -23,7 +23,7 @@ use yii\helpers\Url;
 <div class="row">
     <div class="col-sm-11">
         <?= $form->field($model, 'domain')->textInput([
-            'placeholder' => Yii::t('hipanel/domain', 'Domain name'),
+            'placeholder' => Yii::t('hipanel:domain', 'Domain name'),
             'class' => 'form-control',
             'name' => 'domain',
             'id' => 'domain',

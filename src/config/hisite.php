@@ -57,20 +57,20 @@ return [
                 '$themedViewPaths' => ['@hipanel/site/views'],
             ],
         ],
-        'menuManager' => [
-            'items' => [
-                'main' => \hipanel\site\menus\MainMenu::class,
-                'footer' => \hipanel\site\menus\FooterMenu::class,
-                'navbar' => [
-                    'class' => \hipanel\site\menus\NavbarMenu::class,
-                    'hipanelUrl' => $params['hipanelUrl'],
-                ],
-                'faq' => [
-                    'class' => \hipanel\site\menus\FaqMenu::class,
-                    'path' => '@hipanel/site/views/faq',
-                ]
-            ],
-        ],
+//        'menuManager' => [
+//            'items' => [
+//                'main' => \hipanel\site\menus\MainMenu::class,
+//                'footer' => \hipanel\site\menus\FooterMenu::class,
+//                'navbar' => [
+//                    'class' => \hipanel\site\menus\NavbarMenu::class,
+//                    'hipanelUrl' => $params['hipanelUrl'],
+//                ],
+//                'faq' => [
+//                    'class' => \hipanel\site\menus\FaqMenu::class,
+//                    'path' => '@hipanel/site/views/faq',
+//                ]
+//            ],
+//        ],
         'authClientCollection' => [
             'class' => \hiam\authclient\Collection::class,
             'clients' => [
