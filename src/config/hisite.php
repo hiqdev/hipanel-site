@@ -133,6 +133,10 @@ return [
                         'hipanel:site:transfer' => 'hipanel:site:transfer.php',
                     ],
                 ],
+                'hipanel:pages' => [
+                    'class' => \yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@hipanel/site/messages',
+                ],
             ],
         ],
     ],
