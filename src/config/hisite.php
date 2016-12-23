@@ -136,4 +136,17 @@ return [
             ],
         ],
     ],
+    'container' => [
+        'definitions' => [
+            \hiqdev\thememanager\menus\AbstractMainMenu::class => [
+                'class' => \hipanel\site\menus\MainMenu::class,
+            ],
+            \hiqdev\thememanager\menus\AbstractNavbarMenu::class => [
+                'class' => \hipanel\site\menus\NavbarMenu::class,
+            ],
+            \hiqdev\thememanager\menus\AbstractFooterMenu::class => [
+                'class' => \hipanel\site\menus\FooterMenu::class,
+            ],
+        ],
+    ],
 ];
