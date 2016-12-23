@@ -68,7 +68,7 @@ $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"
                     $overuse = Html::tag('span', $info, ['class' => 'pull-right', 'data' => [
                         'trigger' => 'hover',
                         'toggle' => 'popover',
-                        'content' => Yii::t('hipanel/server/order', 'Overuse {price}/{unit}', [
+                        'content' => Yii::t('hipanel:server:order', 'Overuse {price}/{unit}', [
                             'price' => $packages[0]->getResourceByType('server_traf_max')->decorator()->displayOverusePrice(),
                             'unit' => $packages[0]->getResourceByType('server_traf_max')->decorator()->displayUnit(),
                         ]),
@@ -85,7 +85,7 @@ $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"
                     $overuse = Html::tag('span', $info, ['class' => 'pull-right', 'data' => [
                         'trigger' => 'hover',
                         'toggle' => 'popover',
-                        'content' => Yii::t('hipanel/server/order', 'Overuse {price}/{unit}', [
+                        'content' => Yii::t('hipanel:server:order', 'Overuse {price}/{unit}', [
                             'price' => $packages[0]->getResourceByType('backup_du')->decorator()->displayOverusePrice(),
                             'unit' => $packages[0]->getResourceByType('backup_du')->decorator()->displayUnit(),
                         ]),
@@ -98,7 +98,7 @@ $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"
                 </tr>
                 <tr>
                     <?php
-                    echo Html::tag('td', Yii::t('hipanel/server/order', 'Location'));
+                    echo Html::tag('td', Yii::t('hipanel:server:order', 'Location'));
 
                     foreach ($packages as $package) {
                         echo Html::tag('td', $package->getStubResource('location')->decorator()->displayShortenLocations());
@@ -117,7 +117,7 @@ $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"
 
                 <tr>
                     <?php
-                    echo Html::tag('td', Yii::t('hipanel/server/order', 'Purpose'));
+                    echo Html::tag('td', Yii::t('hipanel:server:order', 'Purpose'));
 
                     foreach ($packages as $package) {
                         echo Html::tag('td', Yii::t('hipanel:site:vds', $package->getTariff()->label), ['style' => 'font-size: smaller;']);
@@ -127,7 +127,7 @@ $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"
                 <tr>
                     <td></td>
                     <?php foreach ($packages as $package) {
-                        $button = Html::a(Yii::t('hipanel/server/order', 'ORDER NOW'), [
+                        $button = Html::a(Yii::t('hipanel:server:order', 'ORDER NOW'), [
                             'order',
                             'id' => $package->tariff->id,
                         ], ['class' => 'mtr-btn button-fab ripple btn-sm']);
