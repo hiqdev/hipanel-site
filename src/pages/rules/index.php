@@ -4,7 +4,7 @@ $this->title = Yii::t('hisite', 'Terms & Conditions');
 
 ?>
 <?php
-$this->title = Yii::t('hipanel/pages', 'Rules');
+$this->title = Yii::t('hipanel:pages', 'Rules');
 $this->registerCss(".vps-features-tabs .tabs-left-vertical > .nav-tabs > li > a { font-size: 12px; }");
 $this->registerJs("
 // It adds tab href to url + opens tab based on hash on page load
@@ -33,27 +33,27 @@ $('.nav-tabs a.external').on('show.bs.tab', function (e) {
 
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#termsOfUse"
-                                          data-toggle="tab"><?= Yii::t('hipanel/pages', 'Terms of use') ?></a>
+                                          data-toggle="tab"><?= Yii::t('hipanel:pages', 'Terms of use') ?></a>
                     </li>
-                    <li><a href="#privacyPolicy" data-toggle="tab"><?= Yii::t('hipanel/pages', 'Privacy Policy') ?></a>
+                    <li><a href="#privacyPolicy" data-toggle="tab"><?= Yii::t('hipanel:pages', 'Privacy Policy') ?></a>
                     </li>
                     <li><a href="#cancelationPolicy"
-                           data-toggle="tab"><?= Yii::t('hipanel/pages', 'Cancelation policy') ?></a>
+                           data-toggle="tab"><?= Yii::t('hipanel:pages', 'Cancelation policy') ?></a>
                     </li>
                     <li><a href="#domainRemovalAndAutoRenewalPolicy"
-                           data-toggle="tab"><?= Yii::t('hipanel/pages', 'Domain removal and auto renewal Policy') ?></a>
+                           data-toggle="tab"><?= Yii::t('hipanel:pages', 'Domain removal and auto renewal Policy') ?></a>
                     </li>
 
                     <li>
                         <a href="https://www.icann.org/resources/pages/responsibilities-2014-03-14-en" data-toggle="tab"
                            class="external">
-                            <i class="fa fa-external-link-square lightblue"></i><?= Yii::t('hipanel/pages', 'Registrant rights and responsibilities') ?>
+                            <i class="fa fa-external-link-square lightblue"></i><?= Yii::t('hipanel:pages', 'Registrant rights and responsibilities') ?>
                         </a>
                     </li>
 
                     <li>
                         <a href="http://afilias.info/policies" data-toggle="tab" class="external">
-                            <i class="fa fa-external-link-square lightblue"></i><?= Yii::t('hipanel/pages', 'Afilias Domain Anti-Abuse Policy') ?>
+                            <i class="fa fa-external-link-square lightblue"></i><?= Yii::t('hipanel:pages', 'Afilias Domain Anti-Abuse Policy') ?>
                         </a>
                     </li>
                 </ul>
@@ -61,27 +61,27 @@ $('.nav-tabs a.external').on('show.bs.tab', function (e) {
                 <div class="tab-content">
 
                     <div class="tab-pane fade in active" id="termsOfUse">
-                        <h4><?= Yii::t('hipanel/pages', 'Terms of use') ?></h4>
+                        <h4><?= Yii::t('hipanel:pages', 'Terms of use') ?></h4>
                         <hr class="small"/>
                         <?= $this->render('_terms_of_use'); ?>
                     </div>
 
                     <div class="tab-pane fade" id="privacyPolicy">
-                        <h4><?= Yii::t('hipanel/pages', 'Privacy Policy') ?></h4>
+                        <h4><?= Yii::t('hipanel:pages', 'Privacy Policy') ?></h4>
                         <hr class="small"/>
                         <?= $this->render('_privacy_policy'); ?>
                     </div>
 
                     <div class="tab-pane fade" id="cancelationPolicy">
-                        <h4><?= Yii::t('hipanel/pages', 'Cancelation & Refunds') ?></h4>
+                        <h4><?= Yii::t('hipanel:pages', 'Cancelation & Refunds') ?></h4>
                         <hr class="small"/>
                         <?= $this->render('_cancelation_policy'); ?>
                     </div>
 
                     <div class="tab-pane fade" id="domainRemovalAndAutoRenewalPolicy">
-                        <h4><?= Yii::t('hipanel/pages', 'Domain removal and auto renewal Policy') ?></h4>
+                        <h4><?= Yii::t('hipanel:pages', 'Domain removal and auto renewal Policy') ?></h4>
                         <hr class="small"/>
-                        <p class="subtitle"><?= Yii::t('hipanel/pages', 'Capacity building insurmountable challenges, Andrew Carnegie rural development') ?></p>
+                        <p class="subtitle"><?= Yii::t('hipanel:pages', 'Capacity building insurmountable challenges, Andrew Carnegie rural development') ?></p>
                         <?= $this->render('_removal_and_auto_renewal'); ?>
                     </div>
 
