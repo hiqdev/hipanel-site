@@ -17,11 +17,11 @@ use yii\web\View;
 
 class FaqMenu extends \hiqdev\yii2\menus\Menu
 {
-    public $path;
-
     public $widgetConfig = [
         'class' => \hiqdev\thememanager\widgets\Faq::class,
     ];
+
+    public $path = '@hipanel/site/views/faq';
 
     /**
      * @return \yii\base\View|View
