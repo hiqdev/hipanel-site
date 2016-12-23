@@ -1,21 +1,21 @@
 <?php
 
 return [
-    'sourcePath' => '@hipanel/site',
+    'sourcePath' => dirname(__DIR__),
+    'messagePath' => dirname(__DIR__) . '/messages',
     'languages' => ['ru'],
-    'removeUnused' => false,
-    'markUnused' => false,
+    'removeUnused' => true,
+    'markUnused' => true,
     'sort' => true,
-    'messagePath' => '@hipanel/site/messages',
     'ignoreCategories' => [
         'app',
         'cart',
         'hisite',
-        'hipanel/server/order',
-        'hipanel/server/os',
-        'hipanel/domain',
-        'hipanel/domainchecker',
-        'hipanel/pages',
-        'hipanel/vds',
+        'hipanel:server:order',
+        'hipanel:server:os',
+        'hipanel:domain',
+        'hipanel:domainchecker',
+        'hipanel:pages',
+        'hipanel:vds',
     ]
 ];
