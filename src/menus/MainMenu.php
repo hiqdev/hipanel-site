@@ -12,9 +12,14 @@
 namespace hipanel\site\menus;
 
 use Yii;
+use yii\widgets\Menu;
 
-class MainMenu extends \hiqdev\menumanager\Menu
+class MainMenu extends \hiqdev\yii2\menus\Menu
 {
+    public $widgetConfig = [
+        'class' => Menu::class
+    ];
+
     public function items()
     {
         return [

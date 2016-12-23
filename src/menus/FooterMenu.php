@@ -13,7 +13,7 @@ namespace hipanel\site\menus;
 
 use Yii;
 
-class FooterMenu extends \hiqdev\menumanager\Menu
+class FooterMenu extends \hiqdev\yii2\menus\Menu
 {
     public function items()
     {

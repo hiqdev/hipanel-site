@@ -4,10 +4,10 @@ namespace hipanel\site\menus;
 
 use hipanel\widgets\Gravatar;
 use hiqdev\yii2\cart\widgets\CartTeaser;
-use hiqdev\yii2\language\widgets\LanguageMenu;
+use hiqdev\yii2\language\menus\LanguageMenu;
 use Yii;
 
-class NavbarMenu extends \hiqdev\menumanager\Menu
+class NavbarMenu extends \hiqdev\yii2\menus\Menu
 {
     protected $_addTo = 'navbar';
 

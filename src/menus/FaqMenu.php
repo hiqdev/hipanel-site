@@ -15,9 +15,13 @@ use hipanel\helpers\StringHelper;
 use Yii;
 use yii\web\View;
 
-class FaqMenu extends \hiqdev\menumanager\Menu
+class FaqMenu extends \hiqdev\yii2\menus\Menu
 {
     public $path;
+
+    public $widgetConfig = [
+        'class' => \hiqdev\thememanager\widgets\Faq::class,
+    ];
 
     /**
      * @return \yii\base\View|View
