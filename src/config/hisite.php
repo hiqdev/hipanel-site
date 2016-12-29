@@ -76,9 +76,9 @@ return [
             'clients' => [
                 'hiam' => [
                     'class' => \hiam\authclient\HiamClient::class,
-                    'site' => $params['hiam_site'],
-                    'clientId' => $params['hiam_client_id'],
-                    'clientSecret' => $params['hiam_client_secret'],
+                    'site' => $params['hiam.site'],
+                    'clientId' => $params['hiam.client_id'],
+                    'clientSecret' => $params['hiam.client_secret'],
                 ],
             ],
         ],
@@ -147,6 +147,7 @@ return [
             ],
             \hiqdev\thememanager\menus\AbstractNavbarMenu::class => [
                 'class' => \hipanel\site\menus\NavbarMenu::class,
+                'hipanelUrl' => $params['hipanelUrl'],
             ],
             \hiqdev\thememanager\menus\AbstractFooterMenu::class => [
                 'class' => \hipanel\site\menus\FooterMenu::class,
