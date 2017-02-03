@@ -11,11 +11,11 @@ class DomainPriceTable extends Widget
 {
     public function run()
     {
-        $domains = array_shift(Tariff::perform('GetAvailableInfo', [
+        $domains = array_shift(Tariff::batchPerform('GetAvailableInfo', [
             'seller' => SiteHelper::getSeller(),
             'type' => 'domain',
-        ], true));
-        $domainZones = Domain::perform('GetZones', [], true);
+        ]));
+        $domainZones = Domain::batchPerform('GetZones', []);
         $domains = SiteHelper::domain($domains['resources'], $domainZones);
         $promotion = Tariff::perform('GetInfo', ['id' => 7312138]);
 
