@@ -27,14 +27,11 @@ return [
         ],
     ],
     'components' => [
+        'user' => [
+            'isGuestAllowed' => true,
+        ],
         'response' => [
             'class' => \yii\web\Response::class,
-        ],
-        'hiart' => [
-            'class' => \hipanel\site\components\Connection::class
-        ],
-        'cache' => [
-            'class' => \hipanel\components\Cache::class
         ],
         'urlManager' => [
             'class' => \codemix\localeurls\UrlManager::class,
@@ -43,34 +40,10 @@ return [
         ],
         'themeManager' => [
             'defaultTheme' => 'dataserv',
-            'dataserv' => [
-                'pathMap' => [
-                    '$themedViewPaths' => ['@hipanel/site/themes/dataserv'],
-                ],
-            ],
-            'original' => [
-                'pathMap' => [
-                    '$themedViewPaths' => ['@hipanel/site/themes/original'],
-                ],
-            ],
             'pathMap' => [
                 '$themedViewPaths' => ['@hipanel/site/views'],
             ],
         ],
-//        'menuManager' => [
-//            'items' => [
-//                'main' => \hipanel\site\menus\MainMenu::class,
-//                'footer' => \hipanel\site\menus\FooterMenu::class,
-//                'navbar' => [
-//                    'class' => \hipanel\site\menus\NavbarMenu::class,
-//                    'hipanelUrl' => $params['hipanelUrl'],
-//                ],
-//                'faq' => [
-//                    'class' => \hipanel\site\menus\FaqMenu::class,
-//                    'path' => '@hipanel/site/views/faq',
-//                ]
-//            ],
-//        ],
         'authClientCollection' => [
             'class' => \hiam\authclient\Collection::class,
             'clients' => [
