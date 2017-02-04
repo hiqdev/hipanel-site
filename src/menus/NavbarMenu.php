@@ -52,21 +52,4 @@ class NavbarMenu extends \hiqdev\yii2\menus\Menu
             ],
         ];
     }
-
-    private function getGravatar()
-    {
-        $out = '';
-        $email = @Yii::$app->user->identity->email;
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $out = Gravatar::widget([
-                'size' => 18,
-                'email' => $email,
-                'options' => [
-                    'alt' => Yii::$app->user->identity->username,
-                ],
-            ]);
-        }
-
-        return $out;
-    }
 }
