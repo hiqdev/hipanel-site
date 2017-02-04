@@ -43,7 +43,6 @@ class NavbarMenu extends \hiqdev\yii2\menus\Menu
             [
                 'label' => Yii::t('hipanel:site', 'Panel'),
                 'url' => $this->hipanelUrl,
-                'visible' => !Yii::$app->user->isGuest,
             ],
             [
                 'label' => Yii::t('hipanel:site', 'Logout'),
