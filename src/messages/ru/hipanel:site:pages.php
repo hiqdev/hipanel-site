@@ -21,7 +21,7 @@ return [
     'Complaints / Abuse reports' => 'Жалобы',
     'E-mail' => '',
     'Fast communication' => '@@@@',
-    'GET IN TOUCH' => 'ОРАТНАЯ СВЯЗЬ',
+    'GET IN TOUCH' => 'ОБРАТНАЯ СВЯЗЬ',
     'Have questions?' => 'Есть вопросы?',
     'Help and feedback' => 'Помощь и обратная связь',
     'Message' => 'Сообщение',
