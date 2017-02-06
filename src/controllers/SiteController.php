@@ -3,9 +3,11 @@
 namespace hipanel\site\controllers;
 
 use hipanel\modules\domain\cart\DomainRegistrationProduct;
+use hipanel\modules\domain\models\Domain;
 use hipanel\modules\finance\models\Tariff;
 use hipanel\modules\server\helpers\ServerHelper;
 use hipanel\modules\server\cart\ServerOrderProduct;
+use hipanel\site\helpers\SiteHelper;
 use hipanel\site\models\Thread;
 use hiqdev\yii2\cart\actions\AddToCartAction;
 use hisite\actions\RenderAction;
@@ -18,6 +20,9 @@ class SiteController extends \hipanel\controllers\SiteController
         return array_merge(parent::actions(), [
             'index' => [
                 'class' => RenderAction::class,
+                'data' => function () {
+                    return $this->getDomainPriceTableData();
+                }
             ],
             'vds' => [
                 'class' => RenderAction::class,
@@ -72,5 +77,33 @@ class SiteController extends \hipanel\controllers\SiteController
         return $this->render('contact', [
             'thread' => $thread,
         ]);
+    }
+
+    protected function getDomainPriceTableData()
+    {
+        $domains = array_shift(Tariff::batchPerform('GetAvailableInfo', [
+            'seller' => SiteHelper::getSeller(),
+            'type' => 'domain',
+        ]));
+        $domainZones = Domain::batchPerform('GetZones', []);
+        $domains = SiteHelper::domain($domains['resources'], $domainZones);
+        $promotion = Tariff::perform('GetInfo', ['id' => 7312138]);
+
+        foreach (['domains', 'promotion'] as $price) {
+            $zones = $$price;
+
+            if (is_array($zones)) {
+                foreach ($zones as &$zone) {
+                    if (is_array($zone)) {
+                        foreach ($zone as $operation => $info) {
+                            if (!in_array($operation, ['dregistration', 'drenewal', 'dtransfer'])) unset($zone[$operation]);
+                        }
+                    }
+                }
+            }
+            $$price = $zones;
+        }
+
+        return compact('domains', 'promotion', 'domainZones');
     }
 }
