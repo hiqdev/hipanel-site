@@ -9,6 +9,7 @@ use hipanel\site\HipanelSiteAsset;
 HipanelSiteAsset::register($this);
 
 $this->title = Yii::t('hipanel:site:vds', 'VDS Pricing');
+$this->params['breadcrumbs'][] = $this->title;
 $this->blocks['subTitle'] = Yii::t('hipanel:site:vds', 'Hosting by {name} is an optimal and reliable solution for any project at affordable price.', ['name' => Yii::$app->params['organizationName']]);
 $this->blocks['subHeaderClass'] = 'dedicated-servers';
 

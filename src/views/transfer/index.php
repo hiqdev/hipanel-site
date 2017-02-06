@@ -7,6 +7,7 @@ use yii\grid\GridView;
 use yii\helpers\Url;
 
 $this->title = Yii::t('hipanel:domain', 'Domain transfer');
+$this->params['breadcrumbs'][] = $this->title;
 $this->blocks['subHeaderClass'] = 'shared';
 
 $this->registerCss('
