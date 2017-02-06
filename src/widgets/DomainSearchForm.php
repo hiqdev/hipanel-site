@@ -21,12 +21,17 @@ class DomainSearchForm extends Widget
 
     public $dropDownZonesOptions;
 
+    public $template = '{field}';
+
     public function run()
     {
         $model = $this->model ?: new Domain(['scenario' => 'check-domain']);
         $model->domain = empty($model->domain) ? Yii::$app->request->get('domain') : $model->domain;
         $model->zone = empty($model->zone) ? Yii::$app->request->get('zone') : $model->zone;
 
-        return $this->render((new\ReflectionClass($this))->getShortName(), compact('model'));
+        return $this->render((new\ReflectionClass($this))->getShortName(), [
+            'model' => $model,
+            'template' => $this->template,
+        ]);
     }
 }
