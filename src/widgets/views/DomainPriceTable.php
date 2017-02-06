@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /** @var $domains array */
 
 ?>
-<table id="tld-table" class="tablesaw" data-tablesaw-mode="stack">
+<table <?= Html::renderTagAttributes($tableOptions)?> >
     <thead>
     <tr>
         <th><?= Yii::t('hipanel:domain', 'Zone') ?></th>
