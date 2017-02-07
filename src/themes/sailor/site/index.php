@@ -53,4 +53,34 @@ $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registrati
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="solidline">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <h2><?= Yii::t('hipanel:site:domain', 'PAYMENT METHODS') ?></h2>
+                    <p><?= Yii::t('hipanel:site:domain', 'We accept the following automatic payment methods') ?>:
+                        <noindex>
+                            <a rel="nofollow" target="_blank" href="http://www.webmoney.ru/">WebMoney</a>,
+                            <a rel="nofollow" target="_blank"
+                               href="https://www.paypal.com/nl/webapps/mpp/home">PayPal</a>,
+                            <a rel="nofollow" target="_blank" href="http://epayservices.com/">ePayService</a>,
+                            <a rel="nofollow" target="_blank" href="http://ecoin.cc/">eCoin</a>,
+                            <a rel="nofollow"
+                               href="https://www.paxum.com/payment/index.php?view=views/index.xsl">Paxum</a>,
+                            <a rel="nofollow" target="_blank" href="https://www.interkassa.com/">InterKassa</a>
+                        </noindex>
+                        <?= Yii::t('hipanel:site:domain', 'as well as PayPal payments from your Visa and MasterCard') ?>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
