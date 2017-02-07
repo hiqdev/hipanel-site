@@ -24,6 +24,9 @@ class SiteController extends \hipanel\controllers\SiteController
                     return $this->getDomainPriceTableData();
                 }
             ],
+            'dns' => [
+                'class' => RenderAction::class,
+            ],
             'vds' => [
                 'class' => RenderAction::class,
                 'data' => function () {
