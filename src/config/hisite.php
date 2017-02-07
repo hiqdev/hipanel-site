@@ -14,7 +14,7 @@ return [
     'modules' => [
         'domain' => [
             'class' => \hipanel\modules\domain\Module::class,
-            'viewPath' => '@vendor/hiqdev/hipanel-site/src/views'
+//            'viewPath' => '@vendor/hiqdev/hipanel-site/src/views'
         ],
         'news' => [
             'class' => \hisite\modules\news\Module::class,
@@ -39,7 +39,7 @@ return [
             'enableDefaultLanguageUrlCode' => true,
         ],
         'themeManager' => [
-            'defaultTheme' => 'dataserv',
+            'defaultTheme' => 'sailor',
             'pathMap' => [
                 '$themedViewPaths' => ['@hipanel/site/views'],
             ],

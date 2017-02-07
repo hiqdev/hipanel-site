@@ -26,9 +26,9 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
             ['label' => Yii::t('hipanel:site', 'Domains'),    'url' => ['/site/index']],
             ['label' => Yii::t('hipanel:site', 'VDS'),        'url' => ['/site/vds']],
             ['label' => Yii::t('hipanel:site', 'Transfer'),   'url' => ['/domain/transfer/index']],
-            ['label' => Yii::t('hipanel:site', 'DNS'),        'url' => ['/pages/render/index', 'page' => 'dns']],
+            ['label' => Yii::t('hipanel:site', 'DNS'),        'url' => ['/site/dns']],
             ['label' => Yii::t('hipanel:site', 'Contact'),    'url' => ['/site/feedback']],
-            ['label' => Yii::t('hipanel:site', 'FAQ'),        'url' => ['/pages/render/index', 'page' => 'faq']],
+            ['label' => Yii::t('hipanel:site', 'FAQ'),        'url' => ['/site/faq']],
         ];
     }
 }
