@@ -27,6 +27,9 @@ class SiteController extends \hipanel\controllers\SiteController
             'dns' => [
                 'class' => RenderAction::class,
             ],
+            'faq' => [
+                'class' => RenderAction::class,
+            ],
             'vds' => [
                 'class' => RenderAction::class,
                 'data' => function () {
