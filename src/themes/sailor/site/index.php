@@ -5,18 +5,26 @@ use hipanel\site\widgets\DomainSearchForm;
 
 $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registration');
 ?>
-<section class="callaction">
+
+<?php $this->beginBlock('subHeader') ?>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="text-center">
                     <h2><?= $this->title ?></h2>
                 </div>
-                <?= DomainSearchForm::widget() ?>
+                <?= DomainSearchForm::widget([
+                    'template' => sprintf('<div class="form-group multiple-form-group input-group">
+                            {input}
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-theme btn-add">%s</button>
+                            </span>
+                        </div>{error}', Yii::t('hipanel:site:domain', 'Search domain')),
+                ]) ?>
             </div>
         </div>
     </div>
-</section>
+<?php $this->endBlock() ?>
 
 <section id="content">
     <div class="container">
