@@ -22,7 +22,7 @@ return [
         'pages' => [
             'storage' => [
                 'class' => \creocoder\flysystem\LocalFilesystem::class,
-                'path'  => '@hipanel/site/pages',
+                'path' => '@hipanel/site/pages',
             ],
         ],
     ],
@@ -41,7 +41,9 @@ return [
         'themeManager' => [
             'defaultTheme' => 'sailor',
             'pathMap' => [
-                '$themedViewPaths' => ['@hipanel/site/views'],
+                '$themedViewPaths' => [
+                    '@hipanel/site/views',
+                ],
             ],
         ],
         'authClientCollection' => [
