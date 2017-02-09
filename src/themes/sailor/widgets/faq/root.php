@@ -42,26 +42,21 @@ $this->registerCss("
 ");
 ?>
 
-<?php $this->beginBlock('subHeader') ?>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div id="faq" class="faq-tabs">
-                    <div class="faq-categories">
-                        <ul>
-                            <?php foreach ($items as $tabId => $tab): ?>
-                                <li>
-                                    <?= Html::a(sprintf('%s<span class="badge">%d</span>', $tab['label'], count($tab['items'])), '#tab-' . $tabId, ['data-toggle' => 'tab']) ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                </div>
+<div class="row">
+    <div class="col-md-12">
+        <div id="faq" class="faq-tabs">
+            <div class="faq-categories">
+                <ul>
+                    <?php foreach ($items as $tabId => $tab): ?>
+                        <li>
+                            <?= Html::a(sprintf('%s<span class="badge">%d</span>', $tab['label'], count($tab['items'])), '#tab-' . $tabId, ['data-toggle' => 'tab']) ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
         </div>
     </div>
-<?php $this->endBlock() ?>
-
+</div>
 <div class="faq-tabs-white">
     <div class="row">
         <div class="col-md-12">
