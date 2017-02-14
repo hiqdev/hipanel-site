@@ -58,7 +58,8 @@
         "hiqdev/hipanel-module-dns": "<2.0 || dev-master",
         "hiqdev/hipanel-module-stock": "<2.0 || dev-master",
         "hiqdev/hipanel-module-finance": "<2.0 || dev-master",
-        "hiqdev/hipanel-module-server": "<2.0 || dev-master"
+        "hiqdev/hipanel-module-server": "<2.0 || dev-master",
+        "hiqdev/yii2-asset-icheck": "~1.0.2.5"
     },
     "require-dev": {
         "hiqdev/hidev-php": "<2.0 || dev-master",
