@@ -14,7 +14,7 @@ use yii\helpers\Json;
 use yii\web\View;
 
 OsSelectionAsset::register($this);
-$this->title = Yii::t('hipanel/server/order', 'Order creating');
+$this->title = Yii::t('hipanel:server:order', 'Order creating');
 $this->blocks['subTitle'] = Yii::t('hisite', 'customise your server'); // todo: we need a good text
 $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/dataserv/assets');
 ?>
@@ -26,7 +26,7 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                     <div class="block-grid-item" data-wow-duration="500ms" data-wow-delay="100ms">
                         <h5><?= $package->getName() ?></h5>
                         <div id="odometer_price" class="odometer">
-                            <?= Yii::t('hipanel/server/order', '{price}/mo', ['price' => Yii::$app->formatter->asCurrency($package->getPrice(), Yii::$app->params['currency'])]) ?>
+                            <?= Yii::t('hipanel:server:order', '{price}/mo', ['price' => Yii::$app->formatter->asCurrency($package->getPrice(), Yii::$app->params['currency'])]) ?>
                         </div>
                         <div class="graphicline"><img src="<?= $themeAssetPath ?>/images/shared-apps-line4.png" alt="">
                         </div>
@@ -42,33 +42,33 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                                 <dt><?= $package->getResourceByType($item)->decorator()->displayTitle() ?></dt>
                                 <dd><?= $package->getResourceByType($item)->decorator()->displayPrepaidAmount() ?></dd>
                             <?php endforeach ?>
-                            <dt><?= Yii::t('hipanel/server/order', 'Traffic overuse') ?></dt>
+                            <dt><?= Yii::t('hipanel:server:order', 'Traffic overuse') ?></dt>
                             <dd>
-                                <?= Yii::t('hipanel/server/order', '{price}/{unit}', [
+                                <?= Yii::t('hipanel:server:order', '{price}/{unit}', [
                                     'price' => $package->getResourceByType('server_traf_max')->decorator()->displayOverusePrice(),
                                     'unit' => $package->getResourceByType('server_traf_max')->decorator()->displayUnit(),
                                 ]) ?>
                             </dd>
-                            <dt><?= Yii::t('hipanel/server/order', 'Remote backup') ?></dt>
+                            <dt><?= Yii::t('hipanel:server:order', 'Remote backup') ?></dt>
                             <dd>
-                                <?= Yii::t('hipanel/server/order', '{unit}', [
+                                <?= Yii::t('hipanel:server:order', '{unit}', [
                                     'unit' => $package->getResourceByType('backup_du')->decorator()->displayPrepaidAmount(),
                                 ]) ?>
                             </dd>
-                            <dt><?= Yii::t('hipanel/server/order', 'Backup overuse') ?></dt>
+                            <dt><?= Yii::t('hipanel:server:order', 'Backup overuse') ?></dt>
                             <dd>
-                                <?= Yii::t('hipanel/server/order', '{price}/{unit}', [
+                                <?= Yii::t('hipanel:server:order', '{price}/{unit}', [
                                     'price' => $package->getResourceByType('backup_du')->decorator()->displayOverusePrice(),
                                     'unit' => $package->getResourceByType('backup_du')->decorator()->displayUnit(),
                                 ]) ?>
                             </dd>
-                            <dt><?= Yii::t('hipanel/server/order', 'Location') ?></dt>
+                            <dt><?= Yii::t('hipanel:server:order', 'Location') ?></dt>
                             <dd>
-                                <?= $package->getStubResource('location')->decorator()->displayShortenLocations() ?>
+                                <?= $package->getResourceByModelType('location')->decorator()->displayShortenLocations() ?>
                             </dd>
-                            <dt><?= Yii::t('hipanel/server/order', 'Purpose') ?></dt>
+                            <dt><?= Yii::t('hipanel:server:order', 'Purpose') ?></dt>
                             <dd>
-                                <?= Yii::t('hipanel/server/order/purpose', $package->getTariff()->label) ?>
+                                <?= Yii::t('hipanel:server:order:purpose', $package->getTariff()->label) ?>
                             </dd>
                         </dl>
                     </div>
@@ -85,11 +85,11 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                 <div class="col-md-3">
                     <div class="list-group">
                     <span class="list-group-item disabled">
-                        <h5 class="list-group-item-heading"><?= Yii::t('hipanel/server/order', 'Location') ?></h5>
+                        <h5 class="list-group-item-heading"><?= Yii::t('hipanel:server:order', 'Location') ?></h5>
                     </span>
                         <div class="list-group-item">
                             <div class="list-group-item-text os-list">
-                                <?= $form->field($product, 'cluster_id')->dropDownList($package->getStubResource('location')->decorator()->prepaidAmountType()->getOptions(), ['name' => 'cluster_id'])->label(false) ?>
+                                <?= $form->field($product, 'cluster_id')->dropDownList($package->getResourceByModelType('location')->decorator()->prepaidAmountType()->getOptions(), ['name' => 'cluster_id'])->label(false) ?>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                 <div class="col-md-3">
                     <div class="list-group">
                     <span class="list-group-item disabled">
-                        <h5 class="list-group-item-heading"><?= Yii::t('hipanel/server/os', 'OS') ?></h5>
+                        <h5 class="list-group-item-heading"><?= Yii::t('hipanel:server:os', 'OS') ?></h5>
                     </span>
                         <?php
                         foreach ($groupedOsimages['vendors'] as $vendor) { ?>
@@ -121,7 +121,7 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                 <div class="col-md-3">
                     <div class="list-group">
                     <span class="list-group-item disabled">
-                        <h5 class="list-group-item-heading"><?= Yii::t('hipanel/server/order', 'Panel and software') ?></h5>
+                        <h5 class="list-group-item-heading"><?= Yii::t('hipanel:server:order', 'Panel and software') ?></h5>
                     </span>
                         <?php foreach ($panels as $panel => $panel_name) {
                             if (empty($groupedOsimages['softpacks'][$panel])) {
@@ -129,7 +129,7 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                             } ?>
 
                             <div class="list-group-item soft-list" data-panel="<?= $panel ?>">
-                                <h5 class="list-group-item-heading"><?= Yii::t('hipanel/server/panel', $panel_name) ?></h5>
+                                <h5 class="list-group-item-heading"><?= Yii::t('hipanel:server:panel', $panel_name) ?></h5>
 
                                 <div class="list-group-item-text">
                                     <?php foreach ($groupedOsimages['softpacks'][$panel] as $softpack) { ?>
@@ -144,7 +144,7 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                                                 ]) ?>
                                                 <strong><?= $softpack['name'] ?></strong>
                                                 <small style="font-weight: normal">
-                                                    <?= Yii::t('hipanel/server/os', $softpack['description']) ?>
+                                                    <?= Yii::t('hipanel:server:os', $softpack['description']) ?>
                                                 </small>
                                                 <a class="softinfo-bttn glyphicon glyphicon-info-sign" href="#"></a>
 
@@ -161,7 +161,7 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                 <div class="col-md-3">
                     <div class="list-group">
                         <div class="list-group-item disabled">
-                            <h5 class="list-group-item-heading"><?= Yii::t('hipanel/server/order', 'Information') ?></h5>
+                            <h5 class="list-group-item-heading"><?= Yii::t('hipanel:server:order', 'Information') ?></h5>
                         </div>
                         <div class="list-group-item">
                             <?= $form->field($product, 'purpose')->textInput(['name' => 'purpose']) ?>
