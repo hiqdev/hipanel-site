@@ -101,7 +101,7 @@ $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"
                     echo Html::tag('td', Yii::t('hipanel:server:order', 'Location'));
 
                     foreach ($packages as $package) {
-                        echo Html::tag('td', $package->getStubResource('location')->decorator()->displayShortenLocations());
+                        echo Html::tag('td', $package->getResourceByModelType('location')->decorator()->displayShortenLocations());
                     }
                     ?>
                 </tr>
