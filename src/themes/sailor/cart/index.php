@@ -8,7 +8,12 @@ use yii\helpers\Html;
 $this->title = Yii::t('cart', 'Checkout');
 $this->params['breadcrumbs'][] = $this->title;
 $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter->asDate(new DateTime());
-
+\hiqdev\assets\icheck\iCheckAsset::register($this);
+$this->registerCss("
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    vertical-align: middle;
+}
+");
 /**
  * @var \yii\data\ActiveDataProvider $dataProvider
  * @var \hiqdev\yii2\cart\ShoppingCart $cart
@@ -16,7 +21,7 @@ $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter
 ?>
 <section class="invoice">
     <!-- Table row ---->
-    <div class="row md-pt-50">
+    <div class="row">
         <div class="col-xs-12 table-responsive">
             <?php
             echo GridView::widget([
