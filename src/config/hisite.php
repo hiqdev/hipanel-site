@@ -10,6 +10,9 @@
  */
 
 return [
+    'aliases' => [
+        '@ticket/create' => '/site/feadback',
+    ],
     'controllerNamespace' => 'hipanel\site\controllers',
     'modules' => [
         'domain' => [
