@@ -51,6 +51,7 @@ class SiteController extends \hipanel\controllers\SiteController
             ],
             'add-to-cart' => [
                 'class' => AddToCartAction::class,
+                'redirectToCart' => true,
                 'productClass' => ServerOrderProduct::class
             ]
         ]);
