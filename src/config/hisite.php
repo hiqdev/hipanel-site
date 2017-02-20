@@ -47,6 +47,7 @@ return [
                 '$themedViewPaths' => [
                     '@hipanel/site/views',
                 ],
+                '@hipanel/site/widgets/views' => '$themedWidgetPaths',
             ],
         ],
         'authClientCollection' => [
