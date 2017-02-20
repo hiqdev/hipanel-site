@@ -11,7 +11,7 @@
 
 namespace hipanel\site\widgets;
 
-use hipanel\modules\domain\models\Domain;
+use hipanel\modules\domain\forms\CheckForm;
 use Yii;
 use yii\base\Widget;
 
@@ -25,9 +25,8 @@ class DomainSearchForm extends Widget
 
     public function run()
     {
-        $model = $this->model ?: new Domain(['scenario' => 'check-domain']);
-        $model->domain = empty($model->domain) ? Yii::$app->request->get('domain') : $model->domain;
-        $model->zone = empty($model->zone) ? Yii::$app->request->get('zone') : $model->zone;
+        $model = $this->model ?: new CheckForm();
+        $model->fqdn = empty($model->fqdn) ? Yii::$app->request->get('fqdn') : $model->fqdn;
 
         return $this->render((new\ReflectionClass($this))->getShortName(), [
             'model' => $model,
