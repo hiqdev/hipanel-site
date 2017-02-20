@@ -1,20 +1,26 @@
 <?php
+use hipanel\assets\IsotopeAsset;
 use hipanel\modules\domain\assets\DomainCheckPluginAsset;
 use hipanel\modules\domain\models\Domain;
-use hipanel\site\widgets\DomainSearchForm;
-use yii\helpers\Html;
 
 DomainCheckPluginAsset::register($this);
+IsotopeAsset::register($this);
 
 $this->registerJs(/** @lang text/javascript */
     <<<'JS'
+    function updateCart(topcartUrl, callback) {
+        $('#top-cart i').replaceWith('<i class="fa fa-refresh fa-spin"></i>');
+        $.post(topcartUrl, function(data) {
+            $('#top-cart').replaceWith( data );
+        }).done(callback());
+    }
     // DOMAIN CHECK
     $(document).on('click', 'a.add-to-cart-button', function(event) {
         event.preventDefault();
         var addToCartElem = $(this);
         addToCartElem.button('loading');
         $.post(addToCartElem.data('domain-url'), function() {
-            Hisite.updateCart(addToCartElem.data('topcart'), function() {
+            updateCart(addToCartElem.data('topcart'), function() {
                 addToCartElem.button('complete');
                 setTimeout(function () {
                     addToCartElem.addClass('disabled');
@@ -144,6 +150,31 @@ $this->registerJs(/** @lang text/javascript */
 JS
 );
 
+$this->registerCss('
+/* Check domain styles */
+
+.domain-iso-line {
+    width: 100%;
+    clear: both;
+}
+.domain-iso-line .domain-line {
+    border-bottom: 1px solid #f2f2f2;
+    line-height: 59px;
+    height: 60px;
+    font-size: 18px;
+    -webkit-transition: border 0.25s;
+    -moz-transition: border 0.25s;
+    -o-transition: border 0.25s;
+    transition: border 0.25s;
+    width: 100%;
+}
+
+.filter-nav .active a {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+');
 $this->title = Yii::t('hipanel:domain', 'Domain check');
 $this->blocks['subHeaderClass'] = 'domainavailability';
 $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
@@ -157,8 +188,8 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
 <div class="row">
     <div class="col-sm-8">
         <div class="domain-list">
-            <?php foreach ($results as $line) : ?>
-                <?= $this->render('_checkDomainLine', ['line' => $line, 'requestedDomain' => $requestedDomain]) ?>
+            <?php foreach ($results as $model) : ?>
+                <?= $this->render('_checkDomainItem', ['model' => $model]) ?>
             <?php endforeach; ?>
         </div>
     </div>
@@ -196,43 +227,43 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
                 <ul class="cat filter-nav" data-filter-group="status">
                     <li class="active">
                         <a href="#" data-filter=""><?= Yii::t('hipanel/domainchecker', 'All') ?></a>
-                        <span><?= count($results) ?></span>
+                        <span>(<?= count($results) ?>)</span>
                     </li>
                     <li>
                         <a href="#" data-filter=".adult"><?= Yii::t('hipanel/domainchecker', 'Adult') ?></a>
-                        <span><?= Domain::getCategoriesCount('adult', $results) ?></span>
+                        <span>(<?= Domain::getCategoriesCount('adult', $results) ?>)</span>
                     </li>
                     <li>
                         <a href="#" data-filter=".geo"><?= Yii::t('hipanel/domainchecker', 'GEO') ?></a>
-                        <span><?= Domain::getCategoriesCount('geo', $results) ?></span>
+                        <span>((<?= Domain::getCategoriesCount('geo', $results) ?>)</span>
                     </li>
                     <li>
                         <a href="#" data-filter=".general"><?= Yii::t('hipanel/domainchecker', 'General') ?></a>
-                        <span><?= Domain::getCategoriesCount('general', $results) ?></span>
+                        <span>(<?= Domain::getCategoriesCount('general', $results) ?>)</span>
                     </li>
                     <li>
                         <a href="#" data-filter=".nature"><?= Yii::t('hipanel/domainchecker', 'Nature') ?></a>
-                        <span><?= Domain::getCategoriesCount('nature', $results) ?></span>
+                        <span>(<?= Domain::getCategoriesCount('nature', $results) ?>)</span>
                     </li>
                     <li>
                         <a href="#" data-filter=".internet"><?= Yii::t('hipanel/domainchecker', 'Internet') ?></a>
-                        <span><?= Domain::getCategoriesCount('internet', $results) ?></span>
+                        <span>(<?= Domain::getCategoriesCount('internet', $results) ?>)</span>
                     </li>
                     <li>
                         <a href="#" data-filter=".sport"><?= Yii::t('hipanel/domainchecker', 'Sport') ?></a>
-                        <span><?= Domain::getCategoriesCount('sport', $results) ?></span>
+                        <span>(<?= Domain::getCategoriesCount('sport', $results) ?>)</span>
                     </li>
                     <li>
                         <a href="#" data-filter=".society"><?= Yii::t('hipanel/domainchecker', 'Society') ?></a>
-                        <span><?= Domain::getCategoriesCount('society', $results) ?></span>
+                        <span>(<?= Domain::getCategoriesCount('society', $results) ?>)</span>
                     </li>
                     <li>
                         <a href="#" data-filter=".audio_music"><?= Yii::t('hipanel/domainchecker', 'Audio&Music') ?></a>
-                        <span><?= Domain::getCategoriesCount('audio_music', $results) ?></span>
+                        <span>(<?= Domain::getCategoriesCount('audio_music', $results) ?>)</span>
                     </li>
                     <li>
                         <a href="#" data-filter=".home_gifts"><?= Yii::t('hipanel/domainchecker', 'Home&Gifts') ?></a>
-                        <span><?= Domain::getCategoriesCount('home_gifts', $results) ?></span>
+                        <span>(<?= Domain::getCategoriesCount('home_gifts', $results) ?>)</span>
                     </li>
                 </ul>
             </div>
