@@ -11,25 +11,19 @@
 
 namespace hipanel\site\widgets;
 
-use hipanel\modules\domain\forms\CheckForm;
-use Yii;
 use yii\base\Widget;
 
 class DomainSearchForm extends Widget
 {
     public $model;
 
-    public $dropDownZonesOptions;
-
     public $template = '{field}';
 
     public function run()
     {
-        $model = $this->model ?: new CheckForm();
-        $model->fqdn = empty($model->fqdn) ? Yii::$app->request->get('fqdn') : $model->fqdn;
 
         return $this->render((new\ReflectionClass($this))->getShortName(), [
-            'model' => $model,
+            'model' => $this->model,
             'template' => $this->template,
         ]);
     }
