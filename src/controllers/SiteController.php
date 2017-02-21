@@ -3,6 +3,7 @@
 namespace hipanel\site\controllers;
 
 use hipanel\modules\domain\cart\DomainRegistrationProduct;
+use hipanel\modules\domain\repositories\DomainTariffRepository;
 use hipanel\modules\domain\models\Domain;
 use hipanel\modules\finance\models\Tariff;
 use hipanel\modules\server\helpers\ServerHelper;
@@ -12,16 +13,36 @@ use hipanel\site\models\Thread;
 use hiqdev\yii2\cart\actions\AddToCartAction;
 use hisite\actions\RenderAction;
 use Yii;
+use hipanel\modules\domain\forms\CheckForm;
 
 class SiteController extends \hipanel\controllers\SiteController
 {
+
+    /**
+     *
+     * @var DomainTariffRepository
+     */
+    protected $domainTariffRepository;
+
+    public function __construct($id, $module, DomainTariffRepository $domainTariffRepository, array $config = [])
+    {
+        $this->domainTariffRepository = $domainTariffRepository;
+        parent::__construct($id, $module, $config);
+    }
+
     public function actions()
     {
         return array_merge(parent::actions(), [
             'index' => [
                 'class' => RenderAction::class,
                 'data' => function () {
-                    return $this->getDomainPriceTableData();
+                    $zones = $this->domainTariffRepository->getAvailableZones();
+                    $model = new CheckForm(array_keys($zones));
+                    $model->fqdn = empty($model->fqdn) ? Yii::$app->request->get('fqdn') : $model->fqdn;
+                    $out = $this->getDomainPriceTableData();
+                    $out['model'] = $model;
+
+                    return $out;
                 }
             ],
             'dns' => [
