@@ -23,11 +23,11 @@ $topcartUrl = '/cart/cart/topcart';
         <div class="row">
             <div class="col-md-5 col-sm-6 col-xs-6">
                 <?php if (isset($model->isAvailable)) : ?>
-                    <span class="domain-img"><i class="fa fa-globe fa-lg"></i></span>
+                    <span class="domain-img"><i class="fa fa-globe"></i></span>
                 <?php else : ?>
-                    <span class="domain-img"><i class="fa fa-circle-o-notch fa-spin fa-lg"></i></span>
+                    <span class="domain-img"><i class="fa fa-circle-o-notch fa-spin"></i></span>
                 <?php endif; ?>
-
+                &nbsp;&nbsp;
                 <?php if ($model->isAvailable === true) : ?>
                     <span class="domain-name"><?= $model->getDomain() ?></span><span
                             class="domain-zone">.<?= $model->getZone() ?></span>
