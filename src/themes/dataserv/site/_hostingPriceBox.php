@@ -120,7 +120,7 @@ $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"
                     echo Html::tag('td', Yii::t('hipanel:server:order', 'Purpose'));
 
                     foreach ($packages as $package) {
-                        echo Html::tag('td', Yii::t('hipanel:site:vds', $package->getTariff()->label), ['style' => 'font-size: smaller;']);
+                        echo Html::tag('td', Yii::t('hipanel:server:order:purpose', $package->getTariff()->label), ['style' => 'font-size: smaller;']);
                     } ?>
                 </tr>
 
