@@ -21,7 +21,7 @@ print $form->field($model, 'fqdn', ['template' => $template])->textInput([
     'name' => 'fqdn',
     'id' => 'domain',
     'value' => $model->domain,
-    'autocomplete' => 'off'
+    'autocomplete' => 'off',
 ]);
 ActiveForm::end();
 ?>
