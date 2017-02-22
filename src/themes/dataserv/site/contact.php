@@ -24,11 +24,9 @@ $this->registerCss(".help-block { font-size: 12px; }");
             <?php $panel = FancyPanel::begin([
                 'title' => Yii::t('hipanel:site:pages', 'Complaints / Abuse reports'),
             ]) ?>
-            <?php $panel->beginBody() ?>
             <?= Yii::t('hipanel:site:pages', 'Notifications about spam, breaches of trademark, illegal or immoral activities of our clients:') ?>
             <br>
             <?= Html::mailto(Yii::$app->params['abuseEmail'], Yii::$app->params['abuseEmail']) ?>
-            <?php $panel->endBody() ?>
             <?php FancyPanel::end() ?>
         </div>
 
@@ -37,9 +35,7 @@ $this->registerCss(".help-block { font-size: 12px; }");
                 'color' => 'blue',
                 'title' => Yii::t('hipanel:site:pages', 'Support information'),
             ]) ?>
-            <?php $panel->beginBody() ?>
             <?= Html::mailto(Yii::$app->params['supportEmail'], Yii::$app->params['supportEmail']) ?>
-            <?php $panel->endBody() ?>
             <?php FancyPanel::end() ?>
         </div>
 
@@ -48,9 +44,7 @@ $this->registerCss(".help-block { font-size: 12px; }");
                 'color' => 'purple',
                 'title' => Yii::t('hipanel:site:pages', 'Sales'),
             ]) ?>
-            <?php $panel->beginBody() ?>
             <?= Html::mailto(Yii::$app->params['salesEmail'], Yii::$app->params['salesEmail']) ?>
-            <?php $panel->endBody() ?>
             <?php FancyPanel::end() ?>
         </div>
     </div>
