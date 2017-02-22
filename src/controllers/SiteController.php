@@ -96,10 +96,10 @@ class SiteController extends \hipanel\controllers\SiteController
         $thread = new Thread();
         $thread->scenario = Thread::SCENARIO_SUBMIT;
 
-        if (Yii::$app->request->isPost) {
+        if (Yii::$app->request->isPost && $thread->load(Yii::$app->request->post(), '')) { //  && $thread->save()
             Yii::$app->session->setFlash('contactFormSubmitted', 1);
-            $thread->load(Yii::$app->request->post(), '');
-            $thread->save();
+
+            return $this->redirect(['/site/feedback', '#' => 'sendstatus']);
         }
 
         return $this->render('contact', [
