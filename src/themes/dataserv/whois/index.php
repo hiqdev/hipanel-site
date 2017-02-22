@@ -10,7 +10,7 @@ use hipanel\site\widgets\WhoisLookupForm;
 use hipanel\widgets\ArraySpoiler;
 use yii\bootstrap\Html;
 
-$this->title = Yii::t('hipanel/domain', 'WHOIS lookup');
+$this->title = Yii::t('hipanel:domain', 'WHOIS lookup');
 
 $this->registerCss("
 #whois-lookup h2 {
@@ -39,7 +39,7 @@ if ($model->domain !== null) {
                 <?= WhoisLookupForm::widget(['model' => $model]) ?>
             </div>
             <div class="clearfix"></div>
-            <?= Html::tag('h2', Yii::t('hipanel/domain', 'Available zones') .
+            <?= Html::tag('h2', Yii::t('hipanel:domain', 'Available zones') .
                 ': ' .
                 ArraySpoiler::widget(['data' => $availableZones, 'visibleCount' => count($availableZones)])) ?>
         </div>
