@@ -83,7 +83,7 @@ $this->registerCss(".help-block { font-size: 12px; }");
                 <div id="contactform">
                     <?php $form = ActiveForm::begin([
                         'id' => 'submit-ticket',
-                        'action' => Url::toRoute('/site/contact'),
+                        'action' => Url::toRoute('/site/feedback'),
                         'options' => [
                             'class' => 'material'
                         ],
