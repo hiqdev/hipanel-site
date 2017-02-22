@@ -17,11 +17,10 @@ class DomainSearchForm extends Widget
 {
     public $model;
 
-    public $template = '{field}';
+    public $template = '{input}';
 
     public function run()
     {
-
         return $this->render((new\ReflectionClass($this))->getShortName(), [
             'model' => $this->model,
             'template' => $this->template,
