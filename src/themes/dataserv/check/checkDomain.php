@@ -151,16 +151,7 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
 ?>
 
 <?php $this->beginBlock('subHeader') ?>
-    <div class="domainavailability">
-        <div class="row">
-            <div class="col-sm-12 col-md-9 center-block">
-                <?= Html::tag('h1', $this->title, ['class' => 'text-center']) ?>
-                <div class="domain-form-container">
-                    <?= DomainSearchForm::widget() ?>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?= $this->render('//site/_domainSearchForm', ['model' => $model]) ?>
 <?php $this->endBlock() ?>
 <!-- Blog -->
 <div class="blog">
@@ -169,8 +160,8 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
             <article>
                 <div class="post-content">
                     <div class="domain-list">
-                        <?php foreach ($results as $line) : ?>
-                            <?= $this->render('_checkDomainLine', ['line' => $line, 'requestedDomain' => $requestedDomain]) ?>
+                        <?php foreach ($results as $model) : ?>
+                            <?= $this->render('_checkDomainItem', ['model' => $model]) ?>
                         <?php endforeach; ?>
                     </div>
                 </div>
