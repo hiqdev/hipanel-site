@@ -22,6 +22,14 @@ $('.nav-tabs a.external').on('show.bs.tab', function (e) {
     var url = this.getAttribute('href'); 
     window.open(url);
 });
+// Footer link fix
+$(document).on('click', '.social .text-center a', function(e) {
+	var hash = this.hash;  
+	if (hash) {
+        $('ul.nav a[href=\"' + hash + '\"]').tab('show');
+	    $('html, body').animate({scrollTop: 0}, 600);
+	}
+});
 ");
 ?>
 <div class="vps-features-tabs">
@@ -87,7 +95,7 @@ $('.nav-tabs a.external').on('show.bs.tab', function (e) {
 
                 </div>
             </div>
-            <!-- END OF TABS -->
+	        <!-- END OF TABS -->
 
         </div>
     </div>

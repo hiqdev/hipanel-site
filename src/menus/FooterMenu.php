@@ -24,7 +24,7 @@ class FooterMenu extends \hiqdev\yii2\menus\Menu
             ],
             [
                 'label' => Yii::t('hipanel:site', 'Privacy policy'),
-                'url' => ['/pages/rules/index#privacyPolicy'],
+                'url' => ['/pages/rules/index', '#' => 'privacyPolicy'],
             ],
         ];
     }
