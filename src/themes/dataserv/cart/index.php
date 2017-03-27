@@ -14,7 +14,7 @@ $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter
  */
 ?>
 
-<section class="invoice">
+<section class="invoice" style="padding-top: 50px;">
     <!-- Table row ---->
     <div class="row md-pt-50">
         <div class="col-xs-12 table-responsive">
