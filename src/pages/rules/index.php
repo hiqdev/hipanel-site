@@ -89,7 +89,6 @@ $(document).on('click', '.social .text-center a', function(e) {
                     <div class="tab-pane fade" id="domainRemovalAndAutoRenewalPolicy">
                         <h4><?= Yii::t('hipanel:pages', 'Domain removal and auto renewal Policy') ?></h4>
                         <hr class="small"/>
-                        <p class="subtitle"><?= Yii::t('hipanel:pages', 'Capacity building insurmountable challenges, Andrew Carnegie rural development') ?></p>
                         <?= $this->render('_removal_and_auto_renewal'); ?>
                     </div>
 
