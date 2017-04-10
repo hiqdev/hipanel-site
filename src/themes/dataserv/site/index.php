@@ -1,8 +1,9 @@
 <?php
 
+use hipanel\modules\finance\widgets\AvailableMerchants;
 use hipanel\site\widgets\DomainPriceTable;
-use hipanel\site\widgets\DomainSearchForm;
-use yii\helpers\Html;
+
+/** @var array $availableMerchants */
 
 $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registration');
 ?>
@@ -41,15 +42,9 @@ $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registrati
             <h4><?= Yii::t('hipanel:site:domain', 'PAYMENT METHODS') ?></h4>
         </div>
         <div class="col-sm-6">
-            <p><?= Yii::t('hipanel:site:domain', 'We accept the following automatic payment methods') ?>:
-                <noindex>
-                    <a rel="nofollow" target="_blank" href="http://www.webmoney.ru/">WebMoney</a>,
-                    <a rel="nofollow" target="_blank" href="https://www.paypal.com/nl/webapps/mpp/home">PayPal</a>,
-                    <a rel="nofollow" target="_blank" href="http://epayservices.com/">ePayService</a>,
-                    <a rel="nofollow" target="_blank" href="http://ecoin.cc/">eCoin</a>,
-                    <a rel="nofollow" href="https://www.paxum.com/payment/index.php?view=views/index.xsl">Paxum</a>,
-                    <a rel="nofollow" target="_blank" href="https://www.interkassa.com/">InterKassa</a>
-                </noindex>
+            <p class="text-justify">
+	            <?= Yii::t('hipanel:site:domain', 'We accept the following automatic payment methods') ?>:
+	            <?= AvailableMerchants::widget(['merchants' => $availableMerchants]) ?>
                 <?= Yii::t('hipanel:site:domain', 'as well as PayPal payments from your Visa and MasterCard') ?>
             </p>
         </div>

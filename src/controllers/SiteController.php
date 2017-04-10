@@ -41,9 +41,11 @@ class SiteController extends \hipanel\controllers\SiteController
                     $model->fqdn = empty($model->fqdn) ? Yii::$app->request->get('fqdn') : $model->fqdn;
                     $out = $this->getDomainPriceTableData();
                     $out['model'] = $model;
+                    $availableMerchants = Yii::$app->hasModule('merchant') ? Yii::$app->getModule('merchant')->getCollection()->getItems() : [];
+                    $out['availableMerchants'] = $availableMerchants;
 
                     return $out;
-                }
+                },
             ],
             'dns' => [
                 'class' => RenderAction::class,
@@ -61,7 +63,7 @@ class SiteController extends \hipanel\controllers\SiteController
                         'xenPackages' => $xenPackages,
                         'openvzPackages' => $openvzPackages,
                     ];
-                }
+                },
             ],
             'terms-and-conditions' => [
                 'class' => RenderAction::class,
@@ -73,8 +75,8 @@ class SiteController extends \hipanel\controllers\SiteController
             'add-to-cart' => [
                 'class' => AddToCartAction::class,
                 'redirectToCart' => true,
-                'productClass' => ServerOrderProduct::class
-            ]
+                'productClass' => ServerOrderProduct::class,
+            ],
         ]);
     }
 
