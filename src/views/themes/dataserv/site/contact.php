@@ -9,6 +9,8 @@ use hiqdev\thememanager\widgets\FancyPanel;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
+$panelUrl = Yii::$app->params['hipanelUrl'];
+
 $this->title = Yii::t('hipanel:site:pages', 'Help and feedback');
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -60,10 +62,10 @@ $this->registerCss(".help-block { font-size: 12px; }");
             </div>
             <h4><?= Yii::t('hipanel:site:pages', 'Have questions?') ?></h4>
             <p>
-                <?= Yii::t('hipanel:site:pages', 'Please review the list of <a href="{url}">frequently asked questions</a> before contacting customer support.', ['url' => Url::to(['/pages/faq'])]) ?>
+                <?= Yii::t('hipanel:site:pages', 'Please review the list of <a href="{url}">frequently asked questions</a> before contacting customer support.', ['url' => Url::to(['/site/faq'])]) ?>
             </p>
             <p>
-               <?= Yii::t('hipanel:site:pages', 'Please note If you are already our customer and you require technical support, please open a support ticket in your <a href="{url}">control panel</a>.', ['url' => Url::to('#')]) ?>
+               <?= Yii::t('hipanel:site:pages', 'Please note If you are already our customer and you require technical support, please open a support ticket in your <a href="{url}">control panel</a>.', ['url' => $panelUrl]) ?>
             </p>
         </div>
 
