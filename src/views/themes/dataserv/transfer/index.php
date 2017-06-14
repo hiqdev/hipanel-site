@@ -52,12 +52,12 @@ $id = $model->id ?: 0;
                 </div>
                 <div class="row">
                     <div class="col-md-1 step">2.</div>
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <?= $form->field($model, "[$id]domain"); ?>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <div class="form-group">
                             <?= $form->field($model, "[$id]password"); ?>
                         </div>
