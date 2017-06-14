@@ -43,8 +43,8 @@ $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registrati
         </div>
         <div class="col-sm-6">
             <p class="text-justify">
-	            <?= Yii::t('hipanel:site:domain', 'We accept the following automatic payment methods') ?>:
-	            <?= AvailableMerchants::widget(['merchants' => $availableMerchants]) ?>
+                <?= Yii::t('hipanel:site:domain', 'We accept the following automatic payment methods') ?>:
+                <?= AvailableMerchants::widget(['merchants' => $availableMerchants]) ?>
                 <?= Yii::t('hipanel:site:domain', 'as well as PayPal payments from your Visa and MasterCard') ?>
             </p>
         </div>
