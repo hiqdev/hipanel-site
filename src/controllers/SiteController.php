@@ -41,6 +41,7 @@ class SiteController extends \hipanel\controllers\SiteController
                     $model->fqdn = empty($model->fqdn) ? Yii::$app->request->get('fqdn') : $model->fqdn;
                     $out = $this->getDomainPriceTableData();
                     $out['model'] = $model;
+                    $h = Yii::$app->getModule('merchant')->getCollection();
                     $availableMerchants = Yii::$app->hasModule('merchant') ? Yii::$app->getModule('merchant')->getCollection()->getItems() : [];
                     $out['availableMerchants'] = $availableMerchants;
 
@@ -66,6 +67,9 @@ class SiteController extends \hipanel\controllers\SiteController
                 },
             ],
             'terms-and-conditions' => [
+                'class' => RenderAction::class,
+            ],
+            'test' => [
                 'class' => RenderAction::class,
             ],
             'add-to-cart-registration' => [
