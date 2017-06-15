@@ -69,9 +69,6 @@ class SiteController extends \hipanel\controllers\SiteController
             'terms-and-conditions' => [
                 'class' => RenderAction::class,
             ],
-            'test' => [
-                'class' => RenderAction::class,
-            ],
             'add-to-cart-registration' => [
                 'class' => AddToCartAction::class,
                 'productClass' => DomainRegistrationProduct::class,
