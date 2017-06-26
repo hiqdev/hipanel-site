@@ -9,7 +9,7 @@ use \yii\helpers\Html;
 <p>
     By using AHnames.com, you agree to accept the practices described in this Privacy Policy.
     This Privacy Policy is subject to AHnames’ Terms &amp; Conditions. If you have any questions concerning the Privacy Policy, please
-        <?= Html::a(Yii::t('hipanel:pages', 'Contact Us'), ['/site/feedback']) ?>
+        <?= Html::a(Yii::t('hipanel:pages', 'Contact Us'), ['/site/contact']) ?>
 </p>
 
 <h5>Automatically Collected Information</h5>

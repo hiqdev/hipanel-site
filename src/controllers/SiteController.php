@@ -12,6 +12,7 @@ use hipanel\site\helpers\SiteHelper;
 use hipanel\site\models\Thread;
 use hiqdev\yii2\cart\actions\AddToCartAction;
 use hisite\actions\RenderAction;
+use hisite\actions\RedirectAction;
 use Yii;
 use hipanel\modules\domain\forms\CheckForm;
 
@@ -32,7 +33,7 @@ class SiteController extends \hipanel\controllers\SiteController
 
     public function actions()
     {
-        return array_merge(parent::actions(), [
+        return array_filter(array_merge(parent::actions(), [
             'index' => [
                 'class' => RenderAction::class,
                 'data' => function () {
@@ -53,6 +54,10 @@ class SiteController extends \hipanel\controllers\SiteController
             ],
             'faq' => [
                 'class' => RenderAction::class,
+            ],
+            'feedback' => [
+                'class' => RedirectAction::class,
+                'url'   => ['site/contact'],
             ],
             'vds' => [
                 'class' => RenderAction::class,
@@ -78,7 +83,8 @@ class SiteController extends \hipanel\controllers\SiteController
                 'redirectToCart' => true,
                 'productClass' => ServerOrderProduct::class,
             ],
-        ]);
+            'contact' => null,
+        ]));
     }
 
     public function actionOrder($id)
@@ -94,7 +100,7 @@ class SiteController extends \hipanel\controllers\SiteController
         ]);
     }
 
-    public function actionFeedback()
+    public function actionContact()
     {
         $thread = new Thread();
         $thread->scenario = Thread::SCENARIO_SUBMIT;
@@ -102,7 +108,7 @@ class SiteController extends \hipanel\controllers\SiteController
         if (Yii::$app->request->isPost && $thread->load(Yii::$app->request->post(), '')) { //  && $thread->save()
             Yii::$app->session->setFlash('contactFormSubmitted', 1);
 
-            return $this->redirect(['/site/feedback', '#' => 'sendstatus']);
+            return $this->redirect(['/site/contact', '#' => 'sendstatus']);
         }
 
         return $this->render('contact', [
