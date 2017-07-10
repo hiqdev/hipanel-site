@@ -39,10 +39,8 @@ class SiteController extends \hipanel\controllers\SiteController
                 'data' => function () {
                     $zones = $this->domainTariffRepository->getAvailableZones();
                     $model = new BulkCheckForm(array_keys($zones));
-                    $model->fqdns = empty($model->fqdns) ? Yii::$app->request->get('fqdns') : $model->fqdns;
                     $out = $this->getDomainPriceTableData();
                     $out['model'] = $model;
-                    $h = Yii::$app->getModule('merchant')->getCollection();
                     $availableMerchants = Yii::$app->hasModule('merchant') ? Yii::$app->getModule('merchant')->getCollection()->getItems() : [];
                     $out['availableMerchants'] = $availableMerchants;
 
