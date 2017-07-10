@@ -14,7 +14,7 @@ use hiqdev\yii2\cart\actions\AddToCartAction;
 use hisite\actions\RenderAction;
 use hisite\actions\RedirectAction;
 use Yii;
-use hipanel\modules\domain\forms\CheckForm;
+use hipanel\modules\domain\forms\BulkCheckForm;
 
 class SiteController extends \hipanel\controllers\SiteController
 {
@@ -38,8 +38,8 @@ class SiteController extends \hipanel\controllers\SiteController
                 'class' => RenderAction::class,
                 'data' => function () {
                     $zones = $this->domainTariffRepository->getAvailableZones();
-                    $model = new CheckForm(array_keys($zones));
-                    $model->fqdn = empty($model->fqdn) ? Yii::$app->request->get('fqdn') : $model->fqdn;
+                    $model = new BulkCheckForm(array_keys($zones));
+                    $model->fqdns = empty($model->fqdns) ? Yii::$app->request->get('fqdns') : $model->fqdns;
                     $out = $this->getDomainPriceTableData();
                     $out['model'] = $model;
                     $h = Yii::$app->getModule('merchant')->getCollection();

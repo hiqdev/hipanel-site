@@ -16,11 +16,11 @@ $form = ActiveForm::begin([
         'template' => "{input}\n{hint}\n{error}",
     ],
 ]);
-print $form->field($model, 'fqdn', ['template' => $template])->textInput([
+print $form->field($model, 'fqdns', ['template' => $template])->textInput([
     'placeholder' => Yii::t('hipanel:domain', 'Domain search'),
-    'name' => 'fqdn',
+    'name' => 'fqdns',
     'id' => 'domain',
-    'value' => $model->domain,
+    'value' => $model->fqdnsInline,
     'autocomplete' => 'off',
 ]);
 ActiveForm::end();
