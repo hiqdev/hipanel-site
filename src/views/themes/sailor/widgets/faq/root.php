@@ -6,25 +6,6 @@ use yii\helpers\Html;
 /** @var \yii\web\View $this */
 /** @var \hipanel\site\widgets\Faq $this ->context */
 
-$this->registerJs("
-// Switch signs plus and minus on collapse
-$('.collapse').on('show.bs.collapse', function(event){
-    var i = $(this).siblings().find('i').eq(0);
-    i.toggleClass('fa-plus-square-o fa-minus-square-o');
-    event.stopPropagation();
-}).on('hide.bs.collapse', function(event){
-    var i = $(this).siblings().find('i').eq(0);
-    i.toggleClass('fa-minus-square-o fa-plus-square-o');
-    event.stopPropagation();
-});
-
-//  Select first tab
-$('.faq-tabs .faq-categories li:eq(0) a').tab('show');
-
-// Init FAQ plugin
-$('#faq').faq();
-");
-
 $this->registerCss("
 .faq-tabs-white {
     padding: 0;
