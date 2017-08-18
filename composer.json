@@ -59,7 +59,8 @@
         "hiqdev/hipanel-module-stock": "<2.0 || dev-master",
         "hiqdev/hipanel-module-finance": "<2.0 || dev-master",
         "hiqdev/hipanel-module-server": "<2.0 || dev-master",
-        "hiqdev/yii2-asset-icheck": "~1.0.2.5"
+        "hiqdev/yii2-asset-icheck": "~1.0.2.5",
+        "hiqdev/hipanel-faq": "<2.0 || dev-master"
     },
     "require-dev": {
         "hiqdev/hidev-php": "<2.0 || dev-master",
