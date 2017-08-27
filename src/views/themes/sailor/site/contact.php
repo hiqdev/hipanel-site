@@ -61,7 +61,7 @@ $this->registerCss(".help-block { font-size: 12px; }");
             </div>
             <h4><?= Yii::t('hipanel:site:pages', 'Have questions?') ?></h4>
             <p>
-                <?= Yii::t('hipanel:site:pages', 'Please review the list of <a href="{url}">frequently asked questions</a> before contacting customer support.', ['url' => Url::to(['/pages/faq'])]) ?>
+                <?= Yii::t('hipanel:site:pages', 'Please review the list of <a href="{url}">frequently asked questions</a> before contacting customer support.', ['url' => Url::to(['/faq/faq'])]) ?>
             </p>
             <p>
                <?= Yii::t('hipanel:site:pages', 'Please note If you are already our customer and you require technical support, please open a support ticket in your <a href="{url}">control panel</a>.', ['url' => Url::to('#')]) ?>
