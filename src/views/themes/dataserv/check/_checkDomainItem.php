@@ -23,7 +23,7 @@ $canBuyDomain = Yii::$app->user->isGuest || Yii::$app->user->can('domain.pay');
             class="domain-line <?= $model->isAvailable ? 'checked' : '' ?>"
             data-domain="<?= $model->fqdn ?>">
         <div class="row">
-            <div class="col-md-5 col-sm-6 col-xs-6">
+            <div class="col-md-5 col-sm-12 col-xs-12">
                 <?php if (isset($model->isAvailable)) : ?>
                     <span class="domain-img"><i class="fa fa-globe fa-lg"></i></span>
                 <?php else : ?>
@@ -37,7 +37,7 @@ $canBuyDomain = Yii::$app->user->isGuest || Yii::$app->user->can('domain.pay');
                             class="domain-zone muted">.<?= $model->getZone() ?></span>
                 <?php endif; ?>
             </div>
-            <div class="col-md-4 col-sm-6 col-xs-6">
+            <div class="col-md-4 col-sm-6 col-xs-6 text-center">
                 <span class="domain-price">
                     <?php if ($model->isAvailable) : ?>
                         <b><?= Yii::$app->formatter->format($model->resource->price, ['currency', $model->resource->currency]) ?></b>
@@ -50,7 +50,7 @@ $canBuyDomain = Yii::$app->user->isGuest || Yii::$app->user->can('domain.pay');
                     <?php endif; ?>
                 </span>
             </div>
-            <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="col-md-3 col-sm-6 col-xs-6">
                 <?php if ($model->isAvailable && $canBuyDomain) : ?>
                     <?= Html::a('<i class="fa fa-cart-plus fa-lg"></i>&nbsp; ' . Yii::t('hipanel:domain', 'Add to cart'), ['add-to-cart-registration', 'name' => $model->fqdn], [
                         'data-pjax' => 0,
