@@ -69,6 +69,9 @@ class FaqMenu extends \hiqdev\yii2\menus\Menu
     private function scanDir($path)
     {
         $res = [];
+        if (!is_dir($path)) {
+            return $res;
+        }
         foreach (scandir($path) as $file) {
             // and ignore lang folder todo: need improve
             if ($file[0] === '.' || $file === 'index.php' || StringHelper::endsWith($file, 'ru')) {
