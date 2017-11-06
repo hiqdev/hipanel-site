@@ -3,12 +3,12 @@ use \yii\helpers\Html;
 ?>
 <p>
     We guarantee confidentiality when storing and processing the obtained personal information.
-    The following rules describe how AHnames.com collects, uses and discloses the personal and non-personal information you provide while using the "Site".
+    The following rules describe how <?= Yii::$app->params['organization.name'] ?> collects, uses and discloses the personal and non-personal information you provide while using the "Site".
 </p>
 
 <p>
-    By using AHnames.com, you agree to accept the practices described in this Privacy Policy.
-    This Privacy Policy is subject to AHnames’ Terms &amp; Conditions. If you have any questions concerning the Privacy Policy, please
+    By using <?= Yii::$app->params['organization.name'] ?>, you agree to accept the practices described in this Privacy Policy.
+    This Privacy Policy is subject to <?= Yii::$app->params['organization.name'] ?>’ Terms &amp; Conditions. If you have any questions concerning the Privacy Policy, please
         <?= Html::a(Yii::t('hipanel:pages', 'Contact Us'), ['/site/contact']) ?>
 </p>
 
@@ -23,7 +23,7 @@ use \yii\helpers\Html;
 <h5>Information Disclosure</h5>
 
 <p>
-    AHnames.com may disclose your personal information as reasonably required by the rules, policies, procedures, and
+    <?= Yii::$app->params['organization.name'] ?> may disclose your personal information as reasonably required by the rules, policies, procedures, and
     guidelines (including domain name dispute policies and rules) adopted and amended by domain name registration
     authorities (such as the Internet Corporation for Assigned Names and Numbers and the Canadian Internet Registration
     Authority), including making certain of your personal information publicly available on searchable databases
@@ -49,7 +49,7 @@ use \yii\helpers\Html;
 </ul>
 
 <p>
-    AHnames.com has no control over, and no responsibility or liability for the use or disclosure of your personal
+    <?= Yii::$app->params['organization.name'] ?> has no control over, and no responsibility or liability for the use or disclosure of your personal
     information disclosed to comply with the rules, policies, procedures, and guidelines of domain name registration
     authorities, and that use and disclosure is not subject to this Policy.
 </p>
@@ -68,7 +68,7 @@ use \yii\helpers\Html;
 <h5>Other Information</h5>
 <p>
     We collect and store certain types of information whenever you communicate with us, or the Site. For example, our
-    servers track the type of Web browser you are using, and the page from which you link to AHnames.com.
+    servers track the type of Web browser you are using, and the page from which you link to <?= Yii::$app->params['organization.name'] ?>.
 </p>
 <p>
     Additionally, we log IP addresses (a unique number assigned to every computer on the Internet) in order to improve
@@ -99,7 +99,7 @@ use \yii\helpers\Html;
 
 <h5>Cookies</h5>
 <p>
-    The AHnames.com site uses Cookie technology for user’s convenience and enhanced operation of other functions.
+    The <?= Yii::$app->params['organization.name'] ?> site uses Cookie technology for user’s convenience and enhanced operation of other functions.
     Cookies are text files that are commonly deposited by web sites on a user\'s hard drive when the user visits a web
     site. The file identifies a user\'s computer and allows record the user\'s preferences and other data about the user\'s
     site visit.
