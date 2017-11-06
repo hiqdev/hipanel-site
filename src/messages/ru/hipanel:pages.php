@@ -27,4 +27,5 @@ return [
     'Registrant rights and responsibilities' => 'Права и обязаности регистранта',
     'Rules' => 'Правила',
     'Terms of use' => 'Правила использования',
+    'Domain Name Registration Agreement' => 'Соглашение о регистрации доменных имен',
 ];

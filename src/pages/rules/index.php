@@ -51,6 +51,9 @@ $(document).on('click', '.social .text-center a', function(e) {
                     <li><a href="#domainRemovalAndAutoRenewalPolicy"
                            data-toggle="tab"><?= Yii::t('hipanel:pages', 'Domain removal and auto renewal Policy') ?></a>
                     </li>
+                    <li><a href="#domainNameRegistrationAgreement"
+                        data-toggle="tab"><?= Yii::t('hipanel:pages', 'Domain Name Registration Agreement') ?></a>
+                    </li>
 
                     <li>
                         <a href="https://www.icann.org/resources/pages/responsibilities-2014-03-14-en" data-toggle="tab"
@@ -91,7 +94,12 @@ $(document).on('click', '.social .text-center a', function(e) {
                         <hr class="small"/>
                         <?= $this->render('_removal_and_auto_renewal'); ?>
                     </div>
-
+                    
+                    <div class="tab-pane fade" id="domainNameRegistrationAgreement">
+                        <h4><?= Yii::t('hipanel:pages', 'Domain Name Registration Agreement') ?></h4>
+                        <hr class="small"/>
+                        <?= $this->render('_registration_agreement'); ?>
+                    </div>
                 </div>
             </div>
 	        <!-- END OF TABS -->
