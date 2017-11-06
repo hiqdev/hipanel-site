@@ -1,5 +1,5 @@
 <p>
-    All AHnames.com services are operating on a prepay basis. AHnames.com customers may decide to cancel their accounts at any time.
+    All <?= Yii::$app->params['organization.name'] ?> services are operating on a prepay basis. <?= Yii::$app->params['organization.name'] ?> customers may decide to cancel their accounts at any time.
 </p>
 
 <p>
@@ -15,7 +15,7 @@
 <h5>Money-back guarantee policy</h5>
 
 <p>
-    AHnames.com offers a 5-day money back guarantee.
+    <?= Yii::$app->params['organization.name'] ?> offers a 5-day money back guarantee.
 </p>
 
 <p>
@@ -26,5 +26,5 @@
 
 <ul>
     <li>All upgrades and additional services (ip, traffic).</li>
-    <li>Domain registrations, renewals and transfers, purchased from AHnames Control Panel.</li>
+    <li>Domain registrations, renewals and transfers, purchased from <?= Yii::$app->params['organization.name'] ?> Control Panel.</li>
 </ul>
