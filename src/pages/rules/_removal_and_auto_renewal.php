@@ -2,28 +2,28 @@
 
 <p>
     We notify our clients about the ending date of their domain registration via email.
-    A notification email is sent to domain\'s owner several times before the prepaid period ends and one time after domain\'s expiration.
+    A notification email is sent to domain's owner several times before the prepaid period ends and one time after domain's expiration.
 </p>
 
 <p>
-    We will notify the clients 30, 14, 7 days and each following day prior to domain\'s expiration as well as one time
-    within 10 days after domain\'s expiration. The notification letter will include instructions about domain\'s
+    We will notify the clients 30, 14, 7 days and each following day prior to domain's expiration as well as one time
+    within 10 days after domain's expiration. The notification letter will include instructions about domain's
     renewal.
 </p>
 
 <p>
-    If the client won\'t renew the domain before its expiration date, domain can be deleted any time after the expiration date.
+    If the client won't renew the domain before its expiration date, domain can be deleted any time after the expiration date.
 </p>
 
 <p>
-    If the client has activated the "auto renewal" option, domain will be renewed for one year within 30 days before the prepaid period ends, considering there are enough funds on client\'s balance.
+    If the client has activated the "auto renewal" option, domain will be renewed for one year within 30 days before the prepaid period ends, considering there are enough funds on client's balance.
 </p>
 
 <p>
-    We tend to help our clients avoid accidental domain removing and because of that can but aren\'t obliged to offer AutoRenew Grace Period after the expiration of domain\'s renewal time.
+    We tend to help our clients avoid accidental domain removing and because of that can but aren't obliged to offer AutoRenew Grace Period after the expiration of domain's renewal time.
 </p>
 
-<p>AutoRenew Grace Period starts the next day after domain\'s expiration date.</p>
+<p>AutoRenew Grace Period starts the next day after domain's expiration date.</p>
 
 <p>At the moment we are trying to offer a grace period that lasts 35 days after domain expiration date. During this time clients can renew their domains.</p>
 
@@ -36,12 +36,12 @@
 </p>
 
 <p>
-    However, domain registrars may offer a service of restoring client\'s deleted domain. In our turn we can but are not obliged to offer our clients the possibility of restoring the deleted domain.
+    However, domain registrars may offer a service of restoring client's deleted domain. In our turn we can but are not obliged to offer our clients the possibility of restoring the deleted domain.
 </p>
 
 <p>
     Such Redemption Grace Period — RGP is not guaranteed or mandatory. At the moment, domain catalogues provide restoring
-    services for domains that are deleted not later than 30 days. If there\'s a technical possibility of restoring the
+    services for domains that are deleted not later than 30 days. If there's a technical possibility of restoring the
     domain name, the cost of such service is $100 plus the cost of one-year domain renewal according to current
     tariffs.
 </p>

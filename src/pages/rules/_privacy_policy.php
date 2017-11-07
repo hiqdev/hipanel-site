@@ -100,8 +100,8 @@ use \yii\helpers\Html;
 <h5>Cookies</h5>
 <p>
     The <?= Yii::$app->params['organization.name'] ?> site uses Cookie technology for user’s convenience and enhanced operation of other functions.
-    Cookies are text files that are commonly deposited by web sites on a user\'s hard drive when the user visits a web
-    site. The file identifies a user\'s computer and allows record the user\'s preferences and other data about the user\'s
+    Cookies are text files that are commonly deposited by web sites on a user's hard drive when the user visits a web
+    site. The file identifies a user's computer and allows record the user's preferences and other data about the user's
     site visit.
 </p>
 <p>
@@ -123,5 +123,5 @@ use \yii\helpers\Html;
     Specified email and postal addresses may be used to send you information or offers.
 </p>
 <p>
-    If you provide your name for a promotional offer, to enter a sweepstakes or contest, and win a prize, we will post a winner\'s list online, and will file your name with state agencies if required by law.
+    If you provide your name for a promotional offer, to enter a sweepstakes or contest, and win a prize, we will post a winner's list online, and will file your name with state agencies if required by law.
 </p>
