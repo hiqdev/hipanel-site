@@ -1,9 +1,7 @@
 <?php
 use yii\helpers\Html;
 
-/**
- * @var \hipanel\modules\server\models\Package[]
- */
+/** @var \hipanel\modules\server\models\Package[] $dataProvider */
 $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"></i>'
 ?>
 

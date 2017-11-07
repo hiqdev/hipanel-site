@@ -8,10 +8,8 @@ use yii\helpers\Html;
 $this->title = Yii::t('cart', 'Checkout');
 $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter->asDate(new DateTime());
 
-/**
- * @var \yii\data\ActiveDataProvider
- * @var \hiqdev\yii2\cart\ShoppingCart $cart
- */
+/** @var \yii\data\ActiveDataProvider $dataProvider */
+/** @var \hiqdev\yii2\cart\ShoppingCart $cart */
 ?>
 
 <section class="invoice" style="padding-top: 50px;">
