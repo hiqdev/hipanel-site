@@ -5,11 +5,11 @@ use yii\helpers\Html;
 
 $this->title = Yii::t('merchant', 'Select payment method');
 $this->params['breadcrumbs'][] = $this->title;
-$this->registerCss("
+$this->registerCss('
 .products-list .product-description {
     font-size: 12px;
 }
-");
+');
 ?>
 
 <div class="row">

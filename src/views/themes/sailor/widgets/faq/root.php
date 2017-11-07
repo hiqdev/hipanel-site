@@ -5,8 +5,7 @@ use yii\helpers\Html;
 /** @var array $items */
 /** @var \yii\web\View $this */
 /** @var \hipanel\site\widgets\Faq $this ->context */
-
-$this->registerCss("
+$this->registerCss('
 .faq-tabs-white {
     padding: 0;
 }
@@ -24,7 +23,7 @@ $this->registerCss("
 .badge {
     border-radius: 4px;
 }
-");
+');
 ?>
 
 <div class="faq-tabs-white">

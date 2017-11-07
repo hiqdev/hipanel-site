@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 
-$this->registerCss("
+$this->registerCss('
 section#error-page {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -16,7 +16,7 @@ section#error-page {
 .header-lined {
     text-align: center;
 }
-");
+');
 ?>
 <section id="error-page" class="container">
     <div class="row">

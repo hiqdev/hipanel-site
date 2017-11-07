@@ -5,7 +5,6 @@ use yii\helpers\Html;
 /** @var array $items */
 /** @var \yii\web\View $this */
 /** @var \hipanel\site\widgets\Faq $this ->context */
-
 ?>
 <div id="faq" class="faq-tabs">
     <div class="row">

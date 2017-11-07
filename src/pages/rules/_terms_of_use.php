@@ -1,6 +1,5 @@
 <?php
 
-use yii\helpers\Html;
 
 ?>
 <h5>Domains terms of use</h5>

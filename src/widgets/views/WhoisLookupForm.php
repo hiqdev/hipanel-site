@@ -4,7 +4,6 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
 
 /** @var \hipanel\modules\domain\models\Whois $model */
-
 ?>
 
 

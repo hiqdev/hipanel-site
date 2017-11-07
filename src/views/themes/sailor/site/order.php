@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @var Package $package
+ * @var Package
  * @var \hipanel\modules\server\cart\ServerOrderProduct $product
  * @var array $groupedOsimages
  * @var array $panels
@@ -18,7 +18,7 @@ $this->title = Yii::t('hipanel:server:order', 'Order creating');
 $this->params['breadcrumbs'][] = $this->title;
 $this->blocks['subTitle'] = Yii::t('hisite', 'customise your server'); // todo: we need a good text
 $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/dataserv/assets');
-$this->registerCss("
+$this->registerCss('
 .summary-content {
     background-color: #EEF2F4;
 }
@@ -37,7 +37,7 @@ $this->registerCss("
     padding-bottom: 33px;
     color: #fff;
 }
-");
+');
 ?>
     <div class="row">
         <div class="col-md-8">
@@ -119,20 +119,22 @@ $this->registerCss("
                         <h5 class="list-group-item-heading"><?= Yii::t('hipanel:server:os', 'OS') ?></h5>
                     </span>
                     <?php
-                    foreach ($groupedOsimages['vendors'] as $vendor) { ?>
+                    foreach ($groupedOsimages['vendors'] as $vendor) {
+                        ?>
                         <div class="list-group-item">
                             <h5 class="list-group-item-heading"><?= $vendor['name'] ?></h5>
                             <div class="list-group-item-text os-list">
                                 <?php foreach ($vendor['oses'] as $system => $os) {
-                                    echo Html::tag('div', Html::radio('os', false, [
+                            echo Html::tag('div', Html::radio('os', false, [
                                         'label' => $os,
                                         'value' => $system,
                                         'class' => 'radio',
                                     ]), ['class' => 'radio']);
-                                } ?>
+                        } ?>
                             </div>
                         </div>
-                    <?php } ?>
+                    <?php
+                    } ?>
                 </div>
             </div>
 
@@ -150,13 +152,14 @@ $this->registerCss("
                             <h5 class="list-group-item-heading"><?= Yii::t('hipanel:server:panel', $panel_name) ?></h5>
 
                             <div class="list-group-item-text">
-                                <?php foreach ($groupedOsimages['softpacks'][$panel] as $softpack) { ?>
+                                <?php foreach ($groupedOsimages['softpacks'][$panel] as $softpack) {
+                            ?>
                                     <div class="radio">
                                         <label>
                                             <?= Html::radio('panel_soft', false, [
                                                 'data' => [
                                                     'panel-soft' => 'soft',
-                                                    'panel' => $panel
+                                                    'panel' => $panel,
                                                 ],
                                                 'value' => $softpack['name'],
                                             ]) ?>
@@ -169,10 +172,12 @@ $this->registerCss("
                                             <div class="soft-desc" style="display: none;"></div>
                                         </label>
                                     </div>
-                                <?php } ?>
+                                <?php
+                        } ?>
                             </div>
                         </div>
-                    <?php } ?>
+                    <?php
+                    } ?>
                 </div>
             </div>
 
@@ -196,8 +201,8 @@ $this->registerCss("
     </div>
 <?php $form->end(); ?>
 
-<?php $this->registerJs("
-    var osparams = " . Json::encode($groupedOsimages['oses']) . ";
+<?php $this->registerJs('
+    var osparams = ' . Json::encode($groupedOsimages['oses']) . ";
     $('.os-selector').osSelector({
         osparams: osparams
     });

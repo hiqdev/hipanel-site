@@ -1,9 +1,9 @@
 <?php
+
 use yii\helpers\Html;
 
 /** @var $domainZones array */
 /** @var $domains array */
-
 ?>
 <table <?= Html::renderTagAttributes($tableOptions)?> >
     <thead>
@@ -17,8 +17,12 @@ use yii\helpers\Html;
     <tbody>
     <?php if (!empty($domains)) : ?>
         <?php foreach ($domainZones as $zone) : ?>
-            <?php $hide = false;
-            foreach ($domains['zone:.' . $zone] as $v) if (floatval($v['price']) == 0) $hide = true; ?>
+            <?php $hide = false ?>
+            <?php foreach ($domains['zone:.' . $zone] as $v) {
+    if (floatval($v['price']) === 0) {
+        $hide = true;
+    }
+} ?>
             <?php if (!$hide) : ?>
                 <tr>
                     <td><?= Html::tag('span', '.' . $zone, ['class' => '']) ?></td>
@@ -31,8 +35,8 @@ use yii\helpers\Html;
                         <b><?= Yii::$app->formatter->asCurrency($domains['zone:.' . $zone]['dtransfer']['price'], 'usd') ?></b>
                     </td>
                 </tr>
-            <?php endif; ?>
+            <?php endif ?>
         <?php endforeach ?>
-    <?php endif; ?>
+    <?php endif ?>
     </tbody>
 </table>

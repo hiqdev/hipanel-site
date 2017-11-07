@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @var \hipanel\modules\server\models\Package[] $xenPackages
+ * @var \hipanel\modules\server\models\Package[]
  * @var \hipanel\modules\server\models\Package[] $openvzPackages
  */
 use hipanel\site\HipanelSiteAsset;
@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 $this->blocks['subTitle'] = Yii::t('hipanel:site:vds', 'Hosting by {name} is an optimal and reliable solution for any project at affordable price.', ['name' => Yii::$app->params['organizationName']]);
 $this->blocks['subHeaderClass'] = 'dedicated-servers';
 
-$this->registerCss(".products-table { display: table; }");
+$this->registerCss('.products-table { display: table; }');
 $this->registerJs("$('.shared-table [data-toggle=\"popover\"]').popover();");
 
 ?>

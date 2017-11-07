@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @var Package $package
+ * @var Package
  * @var \hipanel\modules\server\cart\ServerOrderProduct $product
  * @var array $groupedOsimages
  * @var array $panels
@@ -75,7 +75,7 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                 </div>
             </div>
         </div>
-        <?php $form = ActiveForm::begin(['action' => ['add-to-cart']]); ?>
+        <?php $form = ActiveForm::begin(['action' => ['add-to-cart']]) ?>
         <?= Html::activeHiddenInput($product, 'tariff_id', ['name' => 'tariff_id']) ?>
         <?= Html::hiddenInput('osimage', null, ['class' => 'reinstall-osimage']) ?>
         <?= Html::hiddenInput('panel', null, ['class' => 'reinstall-panel']) ?>
@@ -100,21 +100,20 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                     <span class="list-group-item disabled">
                         <h5 class="list-group-item-heading"><?= Yii::t('hipanel:server:os', 'OS') ?></h5>
                     </span>
-                        <?php
-                        foreach ($groupedOsimages['vendors'] as $vendor) { ?>
+                        <?php foreach ($groupedOsimages['vendors'] as $vendor) : ?>
                             <div class="list-group-item">
                                 <h5 class="list-group-item-heading"><?= $vendor['name'] ?></h5>
                                 <div class="list-group-item-text os-list">
-                                    <?php foreach ($vendor['oses'] as $system => $os) {
-                                        echo Html::tag('div', Html::radio('os', false, [
+                                    <?php foreach ($vendor['oses'] as $system => $os) : ?>
+                                        <?= Html::tag('div', Html::radio('os', false, [
                                             'label' => $os,
                                             'value' => $system,
                                             'class' => 'radio',
-                                        ]), ['class' => 'radio']);
-                                    } ?>
+                                        ]), ['class' => 'radio']) ?>
+                                    <?php endforeach ?>
                                 </div>
                             </div>
-                        <?php } ?>
+                        <?php endforeach ?>
                     </div>
                 </div>
 
@@ -123,22 +122,22 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                     <span class="list-group-item disabled">
                         <h5 class="list-group-item-heading"><?= Yii::t('hipanel:server:order', 'Panel and software') ?></h5>
                     </span>
-                        <?php foreach ($panels as $panel => $panel_name) {
-                            if (empty($groupedOsimages['softpacks'][$panel])) {
-                                continue;
-                            } ?>
+                        <?php foreach ($panels as $panel => $panel_name) : ?>
+                            <?php if (empty($groupedOsimages['softpacks'][$panel])) {
+                                            continue;
+                                        } ?>
 
                             <div class="list-group-item soft-list" data-panel="<?= $panel ?>">
                                 <h5 class="list-group-item-heading"><?= Yii::t('hipanel:server:panel', $panel_name) ?></h5>
 
                                 <div class="list-group-item-text">
-                                    <?php foreach ($groupedOsimages['softpacks'][$panel] as $softpack) { ?>
+                                    <?php foreach ($groupedOsimages['softpacks'][$panel] as $softpack) : ?>
                                         <div class="radio">
                                             <label>
                                                 <?= Html::radio('panel_soft', false, [
                                                     'data' => [
                                                         'panel-soft' => 'soft',
-                                                        'panel' => $panel
+                                                        'panel' => $panel,
                                                     ],
                                                     'value' => $softpack['name'],
                                                 ]) ?>
@@ -151,10 +150,10 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                                                 <div class="soft-desc" style="display: none;"></div>
                                             </label>
                                         </div>
-                                    <?php } ?>
+                                    <?php endforeach ?>
                                 </div>
                             </div>
-                        <?php } ?>
+                        <?php endforeach ?>
                     </div>
                 </div>
 
@@ -176,11 +175,11 @@ $themeAssetPath = Yii::$app->assetManager->getPublishedUrl('@hiqdev/themes/datas
                 </div>
             </div>
         </div>
-        <?php $form->end(); ?>
+        <?php $form->end() ?>
     </div>
 
-<?php $this->registerJs("
-    var osparams = " . Json::encode($groupedOsimages['oses']) . ";
+<?php $this->registerJs('
+    var osparams = ' . Json::encode($groupedOsimages['oses']) . ";
     $('.os-selector').osSelector({
         osparams: osparams
     });

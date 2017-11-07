@@ -8,12 +8,12 @@ $this->params['breadcrumbs'][] = $this->title;
 $this->blocks['subTitle'] = Yii::t('hipanel:site:dns', 'Comparing the basic and premium DNS management pack');
 $this->blocks['subHeaderClass'] = 'contact';
 $data = SiteHelper::getDnsData();
-$this->registerCss("
+$this->registerCss('
     .pricing-content ul li {
         text-align: left;
         padding: 15px 5px;
     }
-");
+');
 ?>
 
 <div class="container">

@@ -4,7 +4,6 @@
 /** @var array $availableZones */
 /** @var \hipanel\modules\domain\models\Whois $model */
 /** @var \yii\web\View $this */
-
 use hipanel\modules\domain\assets\WhoisAsset;
 use hipanel\site\widgets\WhoisLookupForm;
 use hipanel\widgets\ArraySpoiler;
@@ -13,7 +12,7 @@ use yii\bootstrap\Html;
 $this->title = Yii::t('hipanel:domain', 'WHOIS lookup');
 $this->params['breadcrumbs'][] = $this->title;
 
-$this->registerCss("
+$this->registerCss('
 #whois-lookup h2 {
     text-align: center;
     color: #fff;
@@ -24,7 +23,7 @@ $this->registerCss("
 .progress {
     height: 20px;
 }
-");
+');
 if ($model->domain !== null) {
     WhoisAsset::register($this);
     $this->registerJs("$('#whois').whois({domain: '{$model->domain}'});");

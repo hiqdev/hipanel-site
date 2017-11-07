@@ -1,8 +1,15 @@
 <?php
+/**
+ * Selling site for HiPanel
+ *
+ * @link      http://hipanel.com/
+ * @package   hipanel-site
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2016-2017, HiQDev (http://hiqdev.com/)
+ */
 
 namespace hipanel\site\menus;
 
-use hipanel\widgets\Gravatar;
 use hiqdev\yii2\cart\widgets\CartTeaser;
 use hiqdev\yii2\language\menus\LanguageMenu;
 use Yii;
@@ -26,14 +33,14 @@ class NavbarMenu extends \hiqdev\yii2\menus\Menu
                 'encode' => false,
                 'options' => [
                     'class' => 'dropdown language-menu',
-                ]
+                ],
             ],
             [
                 'label' => CartTeaser::widget(),
                 'encode' => false,
                 'options' => [
-                    'class' => 'dropdown notifications-menu notifications-cart'
-                ]
+                    'class' => 'dropdown notifications-menu notifications-cart',
+                ],
             ],
             [
                 'label' => Yii::t('hipanel:site', 'Login'),

@@ -5,7 +5,7 @@ $this->title = Yii::t('hisite', 'Terms & Conditions');
 ?>
 <?php
 $this->title = Yii::t('hipanel:pages', 'Rules');
-$this->registerCss(".vps-features-tabs .tabs-left-vertical > .nav-tabs > li > a { font-size: 12px; }");
+$this->registerCss('.vps-features-tabs .tabs-left-vertical > .nav-tabs > li > a { font-size: 12px; }');
 $this->registerJs("
 // It adds tab href to url + opens tab based on hash on page load
 var hash = window.location.hash;

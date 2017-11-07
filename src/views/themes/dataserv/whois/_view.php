@@ -2,7 +2,6 @@
 
 /** @var string $sShotSrc */
 /** @var \hipanel\modules\domain\models\Domain $model */
-
 use hipanel\modules\domain\models\Whois;
 use hipanel\modules\domain\widgets\WhoisData;
 use hipanel\widgets\ArraySpoiler;
@@ -10,13 +9,13 @@ use toriphes\lazyload\LazyLoad;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
-$this->registerCss("
+$this->registerCss('
 .shot-img {
     background-color: #f4f4f4;
     width: 520px;
     height: 325px;
 }
-");
+');
 ?>
 
 <?php switch ($model->availability) : ?>
@@ -129,7 +128,9 @@ $this->registerCss("
         </table>
         <?php break; ?>
 
-    <?php case Whois::REGISTRATION_UNSUPPORTED: ?>
+    <?php
+                        // no break
+                        case Whois::REGISTRATION_UNSUPPORTED: ?>
         <table class="table">
             <thead>
             <tr class="danger">

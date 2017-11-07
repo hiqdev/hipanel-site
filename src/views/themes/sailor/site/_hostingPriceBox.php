@@ -2,9 +2,8 @@
 use yii\helpers\Html;
 
 /**
- * @var \hipanel\modules\server\models\Package[] $packages
+ * @var \hipanel\modules\server\models\Package[]
  */
-
 $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"></i>';
 ?>
 
@@ -15,9 +14,9 @@ $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"
                 <thead>
                 <tr>
                     <th></th>
-                    <?php foreach ($packages as $package) {
-                        echo Html::tag('th', $package->name);
-                    } ?>
+                    <?php foreach ($packages as $package) : ?>
+                        <?= Html::tag('th', $package->name) ?>
+                    <?php endforeach ?>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,7 +42,6 @@ $info = '<i class="fa fa-info-circle" aria-hidden="true" style="color: #3E65BF;"
                     <?php
                     $title = $packages[0]->getResourceByModelType('hdd')->decorator()->displayTitle();
                     echo Html::tag('td', $title);
-
 
                     foreach ($packages as $package) {
                         echo Html::tag('td', $package->getResourceByModelType('hdd')->decorator()->displayPrepaidAmount());

@@ -9,7 +9,7 @@ $this->title = Yii::t('cart', 'Checkout');
 $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter->asDate(new DateTime());
 
 /**
- * @var \yii\data\ActiveDataProvider $dataProvider
+ * @var \yii\data\ActiveDataProvider
  * @var \hiqdev\yii2\cart\ShoppingCart $cart
  */
 ?>
@@ -23,7 +23,7 @@ $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter
                 'dataProvider' => $dataProvider,
                 'layout' => '{items}',
                 'tableOptions' => [
-                    'class' => 'table md-mb-50'
+                    'class' => 'table md-mb-50',
                 ],
                 'rowOptions' => function ($model, $key, $index, $grid) {
                     return $model->getRowOptions($key, $index, $grid);
@@ -34,6 +34,7 @@ $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter
                         'label' => '#',
                         'value' => function ($model) {
                             static $no;
+
                             return ++$no;
                         },
                         'headerOptions' => ['width' => '4%', 'style' => 'text-align: center'],

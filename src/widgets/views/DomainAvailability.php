@@ -1,5 +1,5 @@
 <?php
-use \hipanel\site\widgets\DomainSearchForm;
+use hipanel\site\widgets\DomainSearchForm;
 
 ?>
 <!-- DOMAIN SEARCH -->

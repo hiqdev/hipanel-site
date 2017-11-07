@@ -1,5 +1,6 @@
 <?php
-use \yii\helpers\Html;
+use yii\helpers\Html;
+
 ?>
 <p>
     We guarantee confidentiality when storing and processing the obtained personal information.

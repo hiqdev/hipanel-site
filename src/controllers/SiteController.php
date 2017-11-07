@@ -1,26 +1,32 @@
 <?php
+/**
+ * Selling site for HiPanel
+ *
+ * @link      http://hipanel.com/
+ * @package   hipanel-site
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2016-2017, HiQDev (http://hiqdev.com/)
+ */
 
 namespace hipanel\site\controllers;
 
 use hipanel\modules\domain\cart\DomainRegistrationProduct;
-use hipanel\modules\domain\repositories\DomainTariffRepository;
+use hipanel\modules\domain\forms\BulkCheckForm;
 use hipanel\modules\domain\models\Domain;
+use hipanel\modules\domain\repositories\DomainTariffRepository;
 use hipanel\modules\finance\models\Tariff;
-use hipanel\modules\server\helpers\ServerHelper;
 use hipanel\modules\server\cart\ServerOrderProduct;
+use hipanel\modules\server\helpers\ServerHelper;
 use hipanel\site\helpers\SiteHelper;
 use hipanel\site\models\Thread;
 use hiqdev\yii2\cart\actions\AddToCartAction;
-use hisite\actions\RenderAction;
 use hisite\actions\RedirectAction;
+use hisite\actions\RenderAction;
 use Yii;
-use hipanel\modules\domain\forms\BulkCheckForm;
 
 class SiteController extends \hipanel\controllers\SiteController
 {
-
     /**
-     *
      * @var DomainTariffRepository
      */
     protected $domainTariffRepository;
@@ -131,7 +137,9 @@ class SiteController extends \hipanel\controllers\SiteController
                 foreach ($zones as &$zone) {
                     if (is_array($zone)) {
                         foreach ($zone as $operation => $info) {
-                            if (!in_array($operation, ['dregistration', 'drenewal', 'dtransfer'])) unset($zone[$operation]);
+                            if (!in_array($operation, ['dregistration', 'drenewal', 'dtransfer'], true)) {
+                                unset($zone[$operation]);
+                            }
                         }
                     }
                 }

@@ -1,10 +1,15 @@
 <?php
+/**
+ * Selling site for HiPanel
+ *
+ * @link      http://hipanel.com/
+ * @package   hipanel-site
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2016-2017, HiQDev (http://hiqdev.com/)
+ */
 
 namespace hipanel\site\widgets;
 
-use hipanel\modules\domain\models\Domain;
-use hipanel\modules\finance\models\Tariff;
-use hipanel\site\helpers\SiteHelper;
 use yii\base\Widget;
 
 class DomainPriceTable extends Widget

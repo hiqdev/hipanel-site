@@ -9,13 +9,13 @@ $this->title = Yii::t('cart', 'Checkout');
 $this->params['breadcrumbs'][] = $this->title;
 $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter->asDate(new DateTime());
 \hiqdev\assets\icheck\iCheckAsset::register($this);
-$this->registerCss("
+$this->registerCss('
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     vertical-align: middle;
 }
-");
+');
 /**
- * @var \yii\data\ActiveDataProvider $dataProvider
+ * @var \yii\data\ActiveDataProvider
  * @var \hiqdev\yii2\cart\ShoppingCart $cart
  */
 ?>
@@ -28,7 +28,7 @@ $this->registerCss("
                 'dataProvider' => $dataProvider,
                 'layout' => '{items}',
                 'tableOptions' => [
-                    'class' => 'table md-mb-50'
+                    'class' => 'table md-mb-50',
                 ],
                 'rowOptions' => function ($model, $key, $index, $grid) {
                     return $model->getRowOptions($key, $index, $grid);
@@ -39,6 +39,7 @@ $this->registerCss("
                         'label' => '#',
                         'value' => function ($model) {
                             static $no;
+
                             return ++$no;
                         },
                         'headerOptions' => ['width' => '4%', 'style' => 'text-align: center'],

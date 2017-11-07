@@ -6,15 +6,15 @@
 
 use hipanel\helpers\Url;
 use hiqdev\thememanager\widgets\FancyPanel;
-use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
 
 $this->title = Yii::t('hipanel:site:pages', 'Help and feedback');
 $this->params['breadcrumbs'][] = $this->title;
 
 $this->blocks['subHeaderClass'] = 'about';
 $this->blocks['subTitle'] = Yii::t('hipanel:site:pages', 'Our friendly Support Team is available to help you 24 hours a day');
-$this->registerCss(".help-block { font-size: 12px; }");
+$this->registerCss('.help-block { font-size: 12px; }');
 ?>
 
 <!-- CONTACT FORM -->
@@ -86,7 +86,7 @@ $this->registerCss(".help-block { font-size: 12px; }");
                         'id' => 'submit-ticket',
                         'action' => Url::toRoute('/site/contact'),
                         'options' => [
-                            'class' => 'material'
+                            'class' => 'material',
                         ],
                         'fieldConfig' => [
                             'template' => "{input}\n{hint}\n{error}",

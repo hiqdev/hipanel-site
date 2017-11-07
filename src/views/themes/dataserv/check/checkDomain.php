@@ -1,7 +1,6 @@
 <?php
 use hipanel\modules\domain\assets\DomainCheckPluginAsset;
 use hipanel\modules\domain\models\Domain;
-use hipanel\site\widgets\DomainSearchForm;
 use yii\helpers\Html;
 
 DomainCheckPluginAsset::register($this);
