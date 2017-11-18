@@ -22,7 +22,10 @@ $this->registerCss('
 	                <ul class="products-list product-list-in-box">
                         <?php foreach ($requests as $request) : ?>
                             <li class="item">
-                                <?= PayButton::widget(compact('request')) ?>
+                                <?= PayButton::widget([
+                                    'request' => $request,
+                                    'depositForm' => $depositForm
+                                ]) ?>
                             </li>
                         <?php endforeach ?>
                     </ul>
