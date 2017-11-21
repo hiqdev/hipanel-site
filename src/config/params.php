@@ -11,4 +11,5 @@
 return [
     'organizationUrl' => null,
     'hipanelUrl' => null,
+    'hipanel.site.defaultTheme' => 'dataserv',
 ];

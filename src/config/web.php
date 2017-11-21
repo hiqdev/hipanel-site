@@ -40,7 +40,7 @@ return [
             'enableDefaultLanguageUrlCode' => true,
         ],
         'themeManager' => [
-            'defaultTheme' => 'dataserv',
+            'defaultTheme' => $params['hipanel.site.defaultTheme'],
             'pathMap' => [
                 '$themedViewPaths' => [
                     '@hipanel/site/views',
