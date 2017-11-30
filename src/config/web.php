@@ -26,6 +26,9 @@ return [
                 'path' => '@hipanel/site/pages',
             ],
         ],
+        'merchant' => [
+            'finishPage' => '/finance/cart/finish',
+        ]
     ],
     'components' => [
         'user' => [
