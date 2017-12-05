@@ -10,6 +10,8 @@ use yii\helpers\Url;
 /** @var array $line */
 $addToCartPath = '/site/add-to-cart-registration';
 $topcartUrl = '/cart/cart/topcart';
+
+$canBuyDomain = Yii::$app->user->isGuest || Yii::$app->user->can('domain.pay');
 ?>
 
 
@@ -50,7 +52,7 @@ $topcartUrl = '/cart/cart/topcart';
                 </span>
             </div>
             <div class="col-md-3 col-sm-12 col-xs-12">
-                <?php if ($model->isAvailable && Yii::$app->user->can('domain.pay')) : ?>
+                <?php if ($model->isAvailable && $canBuyDomain) : ?>
                     <?= Html::a('<i class="fa fa-cart-plus fa-lg"></i>&nbsp; ' . Yii::t('hipanel:domain', 'Add to cart'), ['add-to-cart-registration', 'name' => $model->fqdn], [
                         'data-pjax' => 0,
                         'class' => 'btn btn-theme add-to-cart-button',
