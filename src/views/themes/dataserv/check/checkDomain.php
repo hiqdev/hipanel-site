@@ -1,4 +1,5 @@
 <?php
+
 use hipanel\modules\domain\assets\DomainCheckPluginAsset;
 use hipanel\modules\domain\models\Domain;
 use yii\helpers\Html;
@@ -72,6 +73,12 @@ $this->registerJs(/** @lang text/javascript */
             var $parentElem = $(element).find("div[data-domain='" + domain + "']").parents('div.domain-iso-line').eq(0);
             $elem.replaceWith($(data).find('.domain-line'));
             $parentElem.attr('class', $(data).attr('class'));
+            
+            var activeFilters = $('.filters li.active a');
+            $('#domain-tabs a').on('shown.bs.tab', function (e) {
+                activeFilters.click();
+            });
+            activeFilters.click();
 
             return this;
         },
@@ -143,6 +150,13 @@ $this->registerJs(/** @lang text/javascript */
 JS
 );
 
+$this->registerCss("
+#domain-tabs li.active a {
+    border: 1px solid transparent;
+    box-shadow: -2px 0 3px -2px rgba(0, 0, 0, 0.2);
+}
+");
+
 $this->title = Yii::t('hipanel/domainchecker', 'Domain check');
 $this->blocks['subHeaderClass'] = 'domainavailability';
 $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
@@ -150,19 +164,45 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
 ?>
 
 <?php $this->beginBlock('subHeader') ?>
-    <?= $this->render('//site/_domainSearchForm', ['model' => $model]) ?>
+<?= $this->render('//site/_domainSearchForm', ['model' => $model]) ?>
 <?php $this->endBlock() ?>
 <!-- Blog -->
 <div class="blog">
     <div class="row">
         <div class="col-sm-8">
+
+            <ul id="domain-tabs" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#commons" aria-controls="home" role="tab" data-toggle="tab"><?= Yii::t('hipanel:domain', 'Exact search') ?></a>
+                </li>
+                <li role="presentation">
+                    <a href="#suggestions" aria-controls="profile" role="tab" data-toggle="tab"><?= Yii::t('hipanel:domain', 'Similar domains') ?></a>
+                </li>
+            </ul>
+
             <article>
+
                 <div class="post-content">
-                    <div class="domain-list">
-                        <?php foreach ($results as $model) : ?>
-                            <?= $this->render('_checkDomainItem', ['model' => $model]) ?>
-                        <?php endforeach; ?>
+
+                    <div class="domain-list tab-content">
+
+                        <div role="tabpanel" class="tab-pane active" id="commons">
+                            <?php foreach ($results as $model) : ?>
+                                <?php if (!$model->isSuggestion) : ?>
+                                    <?= $this->render('_checkDomainItem', ['model' => $model]) ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="suggestions">
+                            <?php foreach ($results as $model) : ?>
+                                <?php if ($model->isSuggestion) : ?>
+                                    <?= $this->render('_checkDomainItem', ['model' => $model]) ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+
                     </div>
+
                 </div>
             </article>
         </div>
