@@ -120,8 +120,6 @@ $this->registerJs(/** @lang text/javascript */
                 var filterValue = concatValues(filters);
                 // set filter for Isotope
                 grid.isotope({filter: filterValue});
-
-                $('html, body').animate({ scrollTop: $('.domain-form-container').offset().top }, 'fast');
             });
             // change is-checked class on buttons
             $('.filter-nav').each(function(i, buttonGroup) {
