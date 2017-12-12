@@ -242,23 +242,8 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
                             </a>
                         </li>
                         <li>
-                            <a href="#" data-filter=".adult"><?= Yii::t('hipanel/domainchecker', 'Adult') ?>
-                                <span class="badge"><?= Domain::getCategoriesCount('adult', $results) ?></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-filter=".geo"><?= Yii::t('hipanel/domainchecker', 'GEO') ?>
-                                <span class="badge"><?= Domain::getCategoriesCount('geo', $results) ?></span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="#" data-filter=".general"><?= Yii::t('hipanel/domainchecker', 'General') ?>
                                 <span class="badge"><?= Domain::getCategoriesCount('general', $results) ?></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-filter=".nature"><?= Yii::t('hipanel/domainchecker', 'Nature') ?>
-                                <span class="badge"><?= Domain::getCategoriesCount('nature', $results) ?></span>
                             </a>
                         </li>
                         <li>
@@ -277,6 +262,16 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
                             </a>
                         </li>
                         <li>
+                            <a href="#" data-filter=".geo"><?= Yii::t('hipanel/domainchecker', 'GEO') ?>
+                                <span class="badge"><?= Domain::getCategoriesCount('geo', $results) ?></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-filter=".nature"><?= Yii::t('hipanel/domainchecker', 'Nature') ?>
+                                <span class="badge"><?= Domain::getCategoriesCount('nature', $results) ?></span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="#" data-filter=".audio_music"><?= Yii::t('hipanel/domainchecker', 'Audio&Music') ?>
                                 <span class="badge"><?= Domain::getCategoriesCount('audio_music', $results) ?></span>
                             </a>
@@ -284,6 +279,11 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
                         <li>
                             <a href="#" data-filter=".home_gifts"><?= Yii::t('hipanel/domainchecker', 'Home&Gifts') ?>
                                 <span class="badge"><?= Domain::getCategoriesCount('home_gifts', $results) ?></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-filter=".adult"><?= Yii::t('hipanel/domainchecker', 'Adult') ?>
+                                <span class="badge"><?= Domain::getCategoriesCount('adult', $results) ?></span>
                             </a>
                         </li>
                     </ul>
