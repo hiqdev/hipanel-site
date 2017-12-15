@@ -30,7 +30,7 @@ $canBuyDomain = Yii::$app->user->isGuest || Yii::$app->user->can('domain.pay');
                     <span class="domain-img"><i class="fa fa-circle-o-notch fa-spin"></i></span>
                 <?php endif; ?>
                 &nbsp;&nbsp;
-                <?php if ($model->isAvailable === true) : ?>
+                <?php if ($model->isAvailable) : ?>
                     <span class="domain-name"><?= $model->getDomain() ?></span><span
                             class="domain-zone">.<?= $model->getZone() ?></span>
                 <?php else : ?>
