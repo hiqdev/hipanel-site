@@ -79,6 +79,12 @@ $this->registerJs(/** @lang text/javascript */
             var $parentElem = $(element).find("div[data-domain='" + domain + "']").parents('div.domain-iso-line').eq(0);
             $elem.replaceWith($(data).find('.domain-line'));
             $parentElem.attr('class', $(data).attr('class'));
+            
+            var activeFilters = $('.filters li.active a');
+            $('#domain-tabs a').on('shown.bs.tab', function (e) {
+                activeFilters.click();
+            });
+            activeFilters.click();
 
             return this;
         },
@@ -174,6 +180,19 @@ $this->registerCss('
     font-weight: bold;
 }
 
+.domain-list.tab-content > .tab-pane {
+    border: none!important;
+}
+
+div.action-button {
+    display: flex;
+    height: 59px;
+}
+div.action-button a {
+    flex-basis: 100%;
+    align-self: center;
+}
+
 ');
 $this->title = Yii::t('hipanel:domain', 'Domain check');
 $this->blocks['subHeaderClass'] = 'domainavailability';
@@ -187,10 +206,33 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
 
 <div class="row">
     <div class="col-sm-8">
-        <div class="domain-list">
-            <?php foreach ($results as $model) : ?>
-                <?= $this->render('_checkDomainItem', ['model' => $model]) ?>
-            <?php endforeach; ?>
+
+        <ul id="domain-tabs" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#commons" aria-controls="home" role="tab" data-toggle="tab"><?= Yii::t('hipanel:domain', 'Exact search') ?></a>
+            </li>
+            <li role="presentation">
+                <a href="#suggestions" aria-controls="profile" role="tab" data-toggle="tab"><?= Yii::t('hipanel:domain', 'Similar domains') ?></a>
+            </li>
+        </ul>
+
+        <div class="domain-list tab-content">
+
+            <div role="tabpanel" class="tab-pane active" id="commons">
+                <?php foreach ($results as $model) : ?>
+                    <?php if (!$model->isSuggestion) : ?>
+                        <?= $this->render('_checkDomainItem', ['model' => $model]) ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="suggestions">
+                <?php foreach ($results as $model) : ?>
+                    <?php if ($model->isSuggestion) : ?>
+                        <?= $this->render('_checkDomainItem', ['model' => $model]) ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+
         </div>
     </div>
 
