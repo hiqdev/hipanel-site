@@ -19,6 +19,7 @@ use hipanel\modules\server\cart\ServerOrderProduct;
 use hipanel\modules\server\helpers\ServerHelper;
 use hipanel\site\helpers\SiteHelper;
 use hipanel\site\models\Thread;
+use hipanel\logic\Impersonator;
 use hiqdev\yii2\cart\actions\AddToCartAction;
 use hisite\actions\RedirectAction;
 use hisite\actions\RenderAction;
@@ -31,10 +32,10 @@ class SiteController extends \hipanel\controllers\SiteController
      */
     protected $domainTariffRepository;
 
-    public function __construct($id, $module, DomainTariffRepository $domainTariffRepository, array $config = [])
+    public function __construct($id, $module, DomainTariffRepository $domainTariffRepository, Impersonator $impersonator, array $config = [])
     {
         $this->domainTariffRepository = $domainTariffRepository;
-        parent::__construct($id, $module, $config);
+        parent::__construct($id, $module, $impersonator, $config);
     }
 
     public function actions()
