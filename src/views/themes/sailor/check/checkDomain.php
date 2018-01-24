@@ -1,4 +1,5 @@
 <?php
+
 use hipanel\assets\IsotopeAsset;
 use hipanel\modules\domain\assets\DomainCheckPluginAsset;
 use hipanel\modules\domain\models\Domain;
@@ -201,7 +202,7 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
 ?>
 
 <?php $this->beginBlock('subHeader') ?>
-    <?= $this->render('//site/_domainSearchForm', ['model' => $model]) ?>
+<?= $this->render('//site/_domainSearchForm', ['model' => $model]) ?>
 <?php $this->endBlock() ?>
 
 <div class="row">
@@ -226,11 +227,19 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
                 <?php endforeach; ?>
             </div>
             <div role="tabpanel" class="tab-pane" id="suggestions">
-                <?php foreach ($results as $model) : ?>
-                    <?php if ($model->isSuggestion) : ?>
+                <?php $suggestions = array_filter($results, function (\hipanel\modules\domain\forms\CheckForm $model) {
+                    return $model->isSuggestion;
+                }) ?>
+
+                <?php if (count($suggestions) > 0) : ?>
+                    <?php foreach ($suggestions as $model) : ?>
                         <?= $this->render('_checkDomainItem', ['model' => $model]) ?>
-                    <?php endif; ?>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="bg-warning clearfix text-center" style="padding: 1rem;">
+                        <?= Yii::t('hipanel:domain', "We can't suggest you something similar to entered domain name.") ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
         </div>

@@ -180,7 +180,7 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
 
             <article>
 
-                <div class="post-content">
+                <div class="post-content" style="min-height: 120px">
 
                     <div class="domain-list tab-content">
 
@@ -192,11 +192,19 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
                             <?php endforeach; ?>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="suggestions">
-                            <?php foreach ($results as $model) : ?>
-                                <?php if ($model->isSuggestion) : ?>
+                            <?php $suggestions = array_filter($results, function (\hipanel\modules\domain\forms\CheckForm $model) {
+                                return $model->isSuggestion;
+                            }) ?>
+
+                            <?php if (count($suggestions) > 0) : ?>
+                                <?php foreach ($suggestions as $model) : ?>
                                     <?= $this->render('_checkDomainItem', ['model' => $model]) ?>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <div class="bg-warning clearfix text-center" style="padding: 1rem;">
+                                    <?= Html::tag('h6', Yii::t('hipanel:domain', "We can't suggest you something similar to entered domain name.")) ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
 
                     </div>
