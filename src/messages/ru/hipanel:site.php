@@ -10,6 +10,7 @@
 
 return [
     'Contact' => 'Контакты',
+    'SSL certificates' => 'SSL-сертификаты',
     'DNS' => '',
     'Domains' => 'Домены',
     'FAQ' => '',
