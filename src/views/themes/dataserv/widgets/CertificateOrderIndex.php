@@ -13,7 +13,7 @@ $this->registerCss(".certificate-order .label { font-size: 60%; }");
     <div class="row">
         <div class="col-md-8">
             <div id="filter-display" style="display: none"></div>
-            <article class="info-box hidden-xs">
+            <article class="info-box hidden-xs" style="margin-bottom: 15px">
                 <div class="info-box-content ca-header post-content">
                     <div class="sq">
                         <a href="#" class="ca-sort-link" data-sort-value="name">
