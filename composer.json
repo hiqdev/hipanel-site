@@ -54,6 +54,7 @@
         "hiqdev/yii2-theme-original": "<2.0 || dev-master",
         "hiqdev/yii2-theme-sailor": "<2.0 || dev-master",
         "hiqdev/yii2-module-pages": "<2.0 || dev-master",
+        "hiqdev/yii2-cookie-consent": "<2.0 || dev-master",
         "hiqdev/hipanel-module-domain": "<2.0 || dev-master",
         "hiqdev/hipanel-domain-checker": "<2.0 || dev-master",
         "hiqdev/hipanel-module-dns": "<2.0 || dev-master",
