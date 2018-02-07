@@ -9,7 +9,6 @@
  */
 
 return [
-    'organizationUrl' => null,
-    'hipanelUrl' => null,
+    'hipanel.notPanel' => true,
     'hipanel.site.defaultTheme' => 'dataserv',
 ];
