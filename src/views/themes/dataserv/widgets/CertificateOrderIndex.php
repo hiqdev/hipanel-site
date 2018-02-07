@@ -55,6 +55,7 @@ $this->registerCss(".certificate-order .label { font-size: 60%; }");
                     </ul>
                 </div>
                 <div class="widget">
+                    <h3 class="badge"><?= Yii::t('hipanel:certificate', 'SSL Features') ?></h3>
                     <ul class="nav nav-pills nav-stacked filter-type filter" data-filter-group="amountType">
                         <?php foreach ($amountProductFeatures as $key => $filter) : ?>
                             <li data-filter=".<?= $key ?>">
