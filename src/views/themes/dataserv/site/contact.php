@@ -1,8 +1,8 @@
 <?php
 
-/* @var $this yii\web\View */
-/* @var $thread \hipanel\site\models\Thread */
-/* @var $form yii\bootstrap\ActiveForm */
+/** @var yii\web\View $this */
+/** @var \hipanel\site\models\Thread $thread */
+/** @var yii\bootstrap\ActiveForm $form */
 
 use hipanel\helpers\Url;
 use hiqdev\thememanager\widgets\FancyPanel;
