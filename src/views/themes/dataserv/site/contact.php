@@ -9,7 +9,7 @@ use hiqdev\thememanager\widgets\FancyPanel;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
-$panelUrl = Yii::$app->params['hipanelUrl'];
+$panelUrl = Yii::$app->params['hipanel.url'];
 
 $this->title = Yii::t('hipanel:site:pages', 'Help and feedback');
 $this->params['breadcrumbs'][] = $this->title;
