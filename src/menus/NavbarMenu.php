@@ -18,7 +18,7 @@ class NavbarMenu extends \hiqdev\yii2\menus\Menu
 {
     protected $_addTo = 'navbar';
 
-    public $hipanelUrl;
+    public $panelUrl;
 
     public function items()
     {
@@ -49,7 +49,7 @@ class NavbarMenu extends \hiqdev\yii2\menus\Menu
             ],
             [
                 'label' => Yii::t('hipanel:site', 'Panel'),
-                'url' => $this->hipanelUrl,
+                'url' => $this->panelUrl,
             ],
             [
                 'label' => Yii::t('hipanel:site', 'Logout'),

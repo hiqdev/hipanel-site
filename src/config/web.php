@@ -127,7 +127,7 @@ return [
             ],
             \hiqdev\thememanager\menus\AbstractNavbarMenu::class => [
                 'class' => \hipanel\site\menus\NavbarMenu::class,
-                'hipanelUrl' => $params['hipanelUrl'],
+                'panelUrl' => $params['hipanel.url'],
             ],
             \hiqdev\thememanager\menus\AbstractFooterMenu::class => [
                 'class' => \hipanel\site\menus\FooterMenu::class,
