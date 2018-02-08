@@ -62,7 +62,7 @@ class SiteController extends \hipanel\controllers\SiteController
             ],
             'feedback' => [
                 'class' => RedirectAction::class,
-                'url'   => ['site/contact'],
+                'url' => ['site/contact'],
             ],
             'vds' => [
                 'class' => RenderAction::class,
@@ -123,13 +123,19 @@ class SiteController extends \hipanel\controllers\SiteController
 
     protected function getDomainPriceTableData()
     {
-        $domains = array_shift(Tariff::batchPerform('GetAvailableInfo', [
-            'seller' => SiteHelper::getSeller(),
-            'type' => 'domain',
-        ]));
-        $domainZones = Domain::batchPerform('GetZones', []);
+        $domains = Yii::$app->cache->getOrSet('GetAvailableInfo', function () {
+            return array_shift(Tariff::batchPerform('GetAvailableInfo', [
+                'seller' => SiteHelper::getSeller(),
+                'type' => 'domain',
+            ]));
+        }, 60);
+        $domainZones = Yii::$app->cache->getOrSet('GetZones', function () {
+            return Domain::batchPerform('GetZones', []);
+        }, 60);
         $domains = SiteHelper::domain($domains['resources'], $domainZones);
-        $promotion = Tariff::perform('GetInfo', ['id' => 7312138]);
+        $promotion = Yii::$app->cache->getOrSet('GetInfo', function () {
+            return Tariff::perform('GetInfo', ['id' => 7312138]);
+        }, 60);
 
         foreach (['domains', 'promotion'] as $price) {
             $zones = $$price;
