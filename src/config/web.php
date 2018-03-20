@@ -57,17 +57,6 @@ return [
                 '@hipanel/site/widgets/views' => '$themedWidgetPaths',
             ],
         ],
-        'authClientCollection' => [
-            'class' => \hiam\authclient\Collection::class,
-            'clients' => [
-                'hiam' => [
-                    'class' => \hiam\authclient\HiamClient::class,
-                    'site' => $params['hiam.site'],
-                    'clientId' => $params['hiam.client_id'],
-                    'clientSecret' => $params['hiam.client_secret'],
-                ],
-            ],
-        ],
         'i18n' => [
             'translations' => [
                 'hipanel:site' => [
