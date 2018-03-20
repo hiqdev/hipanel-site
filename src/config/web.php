@@ -28,7 +28,13 @@ return [
         ],
         'merchant' => [
             'finishPage' => '/finance/cart/finish',
-        ]
+        ],
+        'language' => [
+            'languages' => [
+                'en' => 'English',
+                'ru' => 'Русский',
+            ],
+        ],
     ],
     'components' => [
         'user' => [
