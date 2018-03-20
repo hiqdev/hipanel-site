@@ -10,7 +10,7 @@
 
 return [
     'aliases' => [
-        '@ticket/create' => '/site/feadback',
+        '@ticket/create' => '/site/feedback',
     ],
     'controllerNamespace' => 'hipanel\site\controllers',
     'modules' => [
