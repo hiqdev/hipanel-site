@@ -48,8 +48,7 @@ class SiteController extends \hipanel\controllers\SiteController
                     $model = new BulkCheckForm(array_keys($zones));
                     $out = $this->getDomainPriceTableData();
                     $out['model'] = $model;
-                    $availableMerchants = Yii::$app->hasModule('merchant') ? Yii::$app->getModule('merchant')->getPurchaseRequestCollection()->getItems() : [];
-                    $out['availableMerchants'] = $availableMerchants;
+                    $out['availableMerchants'] = $this->getAvailableMerchants();
 
                     return $out;
                 },
@@ -90,6 +89,15 @@ class SiteController extends \hipanel\controllers\SiteController
             ],
             'contact' => null,
         ]));
+    }
+
+    protected function getAvailableMerchants()
+    {
+        if (!Yii::$app->user->can('deposit') || !Yii::$app->hasModule('merchant')) {
+            return [];
+        }
+
+        return Yii::$app->getModule('merchant')->getPurchaseRequestCollection()->getItems();
     }
 
     public function actionOrder($id)
