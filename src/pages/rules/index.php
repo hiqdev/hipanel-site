@@ -58,7 +58,7 @@ $(document).on('click', '.social .text-center a', function(e) {
                     </li>
 
                     <li>
-                        <a href="https://www.icann.org/resources/pages/responsibilities-2014-03-14-en" data-toggle="tab"
+                        <a href="<?= Yii::$app->language === 'ru' ? "https://www.icann.org/resources/pages/benefits-2017-10-27-ru" : "https://www.icann.org/resources/pages/benefits-2013-09-16-en" ?>" data-toggle="tab"
                            class="external">
                             <i class="fa fa-external-link-square lightblue"></i><?= Yii::t('hipanel:pages', 'Registrant rights and responsibilities') ?>
                         </a>
