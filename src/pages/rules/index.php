@@ -45,6 +45,8 @@ $(document).on('click', '.social .text-center a', function(e) {
                     </li>
                     <li><a href="#privacyPolicy" data-toggle="tab"><?= Yii::t('hipanel:pages', 'Privacy Policy') ?></a>
                     </li>
+                    <li><a href="#GDPR" data-toggle="tab"><?= Yii::t('hipanel:pages', 'General Data Protection Regulation, GDPR') ?></a>
+                    </li>
                     <li><a href="#cancelationPolicy"
                            data-toggle="tab"><?= Yii::t('hipanel:pages', 'Cancelation policy') ?></a>
                     </li>
@@ -82,6 +84,13 @@ $(document).on('click', '.social .text-center a', function(e) {
                         <hr class="small"/>
                         <?= $this->render('_privacy_policy'); ?>
                     </div>
+
+                    <div class="tab-pane fade" id="GDPR">
+                        <h4><?= Yii::t('hipanel:pages', 'General Data Protection Regulation, GDPR') ?></h4>
+                        <hr class="small"/>
+                        <?= $this->render('_gdpr'); ?>
+                    </div>
+
 
                     <div class="tab-pane fade" id="cancelationPolicy">
                         <h4><?= Yii::t('hipanel:pages', 'Cancelation & Refunds') ?></h4>
