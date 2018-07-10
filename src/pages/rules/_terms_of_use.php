@@ -7,7 +7,7 @@
 <ul>
     <li>Distribution of child pornography (sites using "children images" are also prohibited) *;</li>
     <li>Distribution of all types of illegal pornography;</li>
-    <li>Distribution of materials (content) that violate copyright infringement;</li>
+    <li>Unlicensed materials distribution (content, torrent trackers, cinemas, etc.) that violate copyright infringement;</li>
     <li>Illegal mailing (SPAM);</li>
     <li>Illegal distribution of pharmaceutical drugs;</li>
     <li>Distribution of false / malicious programs;</li>
@@ -41,7 +41,7 @@
 <ul>
     <li>Distribution of child pornography (sites using "children images" are also prohibited) *;</li>
     <li>Distribution of all types of illegal pornography;</li>
-    <li>Distribution of materials (content) that violate copyright infringement;</li>
+    <li>Unlicensed materials distribution (content, torrent trackers, cinemas, etc.) that violate copyright infringement;</li>
     <li>Illegal mailing (SPAM);</li>
     <li>Illegal distribution of pharmaceutical drugs;</li>
     <li>Distribution of false / malicious programs;</li>

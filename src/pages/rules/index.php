@@ -45,6 +45,8 @@ $(document).on('click', '.social .text-center a', function(e) {
                     </li>
                     <li><a href="#privacyPolicy" data-toggle="tab"><?= Yii::t('hipanel:pages', 'Privacy Policy') ?></a>
                     </li>
+                    <li><a href="#GDPR" data-toggle="tab"><?= Yii::t('hipanel:pages', 'General Data Protection Regulation, GDPR') ?></a>
+                    </li>
                     <li><a href="#cancelationPolicy"
                            data-toggle="tab"><?= Yii::t('hipanel:pages', 'Cancelation policy') ?></a>
                     </li>
@@ -56,7 +58,7 @@ $(document).on('click', '.social .text-center a', function(e) {
                     </li>
 
                     <li>
-                        <a href="https://www.icann.org/resources/pages/responsibilities-2014-03-14-en" data-toggle="tab"
+                        <a href="<?= Yii::$app->language === 'ru' ? "https://www.icann.org/resources/pages/benefits-2017-10-27-ru" : "https://www.icann.org/resources/pages/benefits-2013-09-16-en" ?>" data-toggle="tab"
                            class="external">
                             <i class="fa fa-external-link-square lightblue"></i><?= Yii::t('hipanel:pages', 'Registrant rights and responsibilities') ?>
                         </a>
@@ -82,6 +84,13 @@ $(document).on('click', '.social .text-center a', function(e) {
                         <hr class="small"/>
                         <?= $this->render('_privacy_policy'); ?>
                     </div>
+
+                    <div class="tab-pane fade" id="GDPR">
+                        <h4><?= Yii::t('hipanel:pages', 'General Data Protection Regulation, GDPR') ?></h4>
+                        <hr class="small"/>
+                        <?= $this->render('_gdpr'); ?>
+                    </div>
+
 
                     <div class="tab-pane fade" id="cancelationPolicy">
                         <h4><?= Yii::t('hipanel:pages', 'Cancelation & Refunds') ?></h4>

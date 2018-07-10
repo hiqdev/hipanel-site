@@ -20,4 +20,5 @@ return [
     'Rules' => 'Правила',
     'Terms of use' => 'Правила использования',
     'Domain Name Registration Agreement' => 'Соглашение о регистрации доменных имен',
+    'General Data Protection Regulation, GDPR' => 'Общий регламент по защите данных (GDRP)',
 ];

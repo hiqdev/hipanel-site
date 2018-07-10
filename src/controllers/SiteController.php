@@ -90,6 +90,15 @@ class SiteController extends \hipanel\controllers\SiteController
         ]));
     }
 
+    protected function getAvailableMerchants()
+    {
+        if (!Yii::$app->user->can('deposit') || !Yii::$app->hasModule('merchant')) {
+            return [];
+        }
+
+        return Yii::$app->getModule('merchant')->getPurchaseRequestCollection()->getItems();
+    }
+
     public function actionOrder($id)
     {
         $package = ServerHelper::getAvailablePackages(null, $id);
