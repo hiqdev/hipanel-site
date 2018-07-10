@@ -4,7 +4,6 @@ use hipanel\modules\finance\widgets\AvailableMerchants;
 use hipanel\site\widgets\DomainPriceTable;
 use yii\helpers\Html;
 
-/** @var array $availableMerchants */
 $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registration');
 ?>
 
