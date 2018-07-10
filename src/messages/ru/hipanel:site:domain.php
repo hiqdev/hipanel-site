@@ -21,4 +21,5 @@ return [
     'We accept the following automatic payment methods' => 'Мы принимаем к оплате в автоматическом режиме следующие платежные системы',
     'Zone' => 'Доменные зоны',
     'as well as PayPal payments from your Visa and MasterCard' => 'а также платежные карты Visa и MasterCard, процессинг которых осуществляется через PayPal.',
+    'Refund policy' => 'Политика возврата средств',
 ];
