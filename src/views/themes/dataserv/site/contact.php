@@ -55,7 +55,7 @@ $this->registerCss('.help-block { font-size: 12px; }');
     <div class="row">
 
         <div class="col-sm-4">
-            <h3><?= Yii::t('hipanel:site:pages', 'CONTACT {0}', [Yii::$app->name]) ?></h3>
+            <h3><?= Yii::t('hipanel:site:pages', 'CONTACT {0}', [Yii::$app->params['organization.name']]) ?></h3>
             <div class="titleborder pink">
                 <div class="titleborder_left"></div>
                 <div class="titleborder_sign"></div>
