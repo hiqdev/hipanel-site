@@ -44,7 +44,7 @@ $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registrati
             <p class="text-justify">
                 <?= AvailableMerchants::widget() ?>
             </p>
-            <p><?= Html::a(Yii::t('hipanel:site:domain', 'Refund policy'),  ['@faq/index#tab-05-other'] ) ?></p>
+            <p><?= Html::a(Yii::t('hipanel:site:domain', 'Refund policy'),  ['@faq/index#tab-06-other#07-refund-policy'] ) ?></p>
         </div>
     </div>
 </div>
