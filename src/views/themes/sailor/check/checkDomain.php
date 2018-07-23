@@ -81,12 +81,6 @@ $this->registerJs(/** @lang text/javascript */
             $elem.replaceWith($(data).find('.domain-line'));
             $parentElem.attr('class', $(data).attr('class'));
             
-            var activeFilters = $('.filters li.active a');
-            $('#domain-tabs a').on('shown.bs.tab', function (e) {
-                activeFilters.click();
-            });
-            activeFilters.click();
-
             return this;
         },
         beforeQueryStart: function (item) {
@@ -146,6 +140,11 @@ $this->registerJs(/** @lang text/javascript */
 
                 return value;
             }
+            
+            var activeFilters = $('.filters li.active a');
+            $('#domain-tabs a').on('shown.bs.tab', function (e) {
+                activeFilters.click();
+            });
         }
     });
 
