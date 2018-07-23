@@ -54,7 +54,7 @@ $this->registerCss('.help-block { font-size: 12px; }');
     <div class="row">
 
         <div class="col-sm-4">
-            <h3><?= Yii::t('hipanel:site:pages', 'CONTACT {0}', [Yii::$app->name]) ?></h3>
+            <h3><?= Yii::t('hipanel:site:pages', 'CONTACT {0}', [Yii::$app->params['organization.name']]) ?></h3>
             <div class="titleborder pink">
                 <div class="titleborder_left"></div>
                 <div class="titleborder_sign"></div>
@@ -64,8 +64,14 @@ $this->registerCss('.help-block { font-size: 12px; }');
                 <?= Yii::t('hipanel:site:pages', 'Please review the list of <a href="{url}">frequently asked questions</a> before contacting customer support.', ['url' => Url::to(['/faq/faq'])]) ?>
             </p>
             <p>
-               <?= Yii::t('hipanel:site:pages', 'Please note If you are already our customer and you require technical support, please open a support ticket in your <a href="{url}">control panel</a>.', ['url' => Url::to('#')]) ?>
+                <?= Yii::t('hipanel:site:pages', 'Please note If you are already our customer and you require technical support, please open a support ticket in your <a href="{url}">control panel</a>.', ['url' => Url::to('#')]) ?>
             </p>
+            <?php if (!empty(Yii::$app->params['organization.contact'])) : ?>
+                <h4><?= Yii::t('hipanel:site:pages', 'Contact information') ?></h4>
+                <p>
+                    <?= nl2br(implode("\n", Yii::$app->params['organization.contact'])) ?>
+                </p>
+            <?php endif ?>
         </div>
 
         <div class="col-sm-8">

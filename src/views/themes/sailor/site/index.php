@@ -2,8 +2,8 @@
 
 use hipanel\modules\finance\widgets\AvailableMerchants;
 use hipanel\site\widgets\DomainPriceTable;
+use yii\helpers\Html;
 
-/** @var array $availableMerchants */
 $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registration');
 ?>
 
@@ -59,10 +59,10 @@ $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registrati
             <div class="text-center">
                 <h2><?= Yii::t('hipanel:site:domain', 'PAYMENT METHODS') ?></h2>
                 <p>
-	                <?= Yii::t('hipanel:site:domain', 'We accept the following automatic payment methods') ?>:
-                    <?= AvailableMerchants::widget(['merchants' => $availableMerchants]) ?>
-                    <?= Yii::t('hipanel:site:domain', 'as well as PayPal payments from your Visa and MasterCard') ?>
+                    <?= AvailableMerchants::widget() ?>
                 </p>
+
+                <p><?= Html::a(Yii::t('hipanel:site:domain', 'Refund policy'),  ['@faq/index#tab-06-other#07-refund-policy'] ) ?></p>
             </div>
         </div>
     </div>

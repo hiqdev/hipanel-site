@@ -32,4 +32,5 @@ return [
     'Technical Support' => '@@@@',
     'Thank you for contacting us. We will respond to you as soon as possible.' => 'Благодарим Вас за обращение к нам. Мы ответим вам как можно скорее.',
     'control panel' => '@@@@',
+    'Contact information' => 'Контактная информация',
 ];

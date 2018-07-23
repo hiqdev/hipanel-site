@@ -48,7 +48,6 @@ class SiteController extends \hipanel\controllers\SiteController
                     $model = new BulkCheckForm(array_keys($zones));
                     $out = $this->getDomainPriceTableData();
                     $out['model'] = $model;
-                    $out['availableMerchants'] = $this->getAvailableMerchants();
 
                     return $out;
                 },
