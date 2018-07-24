@@ -201,7 +201,7 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
 ?>
 
 <?php $this->beginBlock('subHeader') ?>
-<?= $this->render('//site/_domainSearchForm', ['model' => $model]) ?>
+<?= $this->render('//site/_domainSearchForm', ['model' => $model, 'zones' => $dropDownZonesOptions]) ?>
 <?php $this->endBlock() ?>
 
 <div class="row">

@@ -7,7 +7,7 @@ use yii\helpers\Html;
 $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registration');
 ?>
 <?php $this->beginBlock('subHeader') ?>
-    <?= $this->render('//site/_domainSearchForm', ['model' => $model]) ?>
+    <?= $this->render('//site/_domainSearchForm', compact('model', 'zones')) ?>
 <?php $this->endBlock() ?>
 
 <div class="domaintlds">
