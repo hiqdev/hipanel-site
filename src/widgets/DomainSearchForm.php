@@ -16,6 +16,8 @@ class DomainSearchForm extends Widget
 {
     public $model;
 
+    public $zones = [];
+
     public $template = '{input}';
 
     public function run()
@@ -23,6 +25,7 @@ class DomainSearchForm extends Widget
         return $this->render((new\ReflectionClass($this))->getShortName(), [
             'model' => $this->model,
             'template' => $this->template,
+            'zones' => $this->zones,
         ]);
     }
 }

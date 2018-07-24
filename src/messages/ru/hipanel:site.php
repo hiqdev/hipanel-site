@@ -22,4 +22,7 @@ return [
     'Logout' => 'Выйти',
     'Terms of use' => 'Правила использования',
     'Privacy policy' => 'Политика конфиденциальности',
+    'Mass search' => 'Массовый поиск',
+    'Simple search' => 'Простой поиск',
+    'Check all' => 'Выбрать все'
 ];

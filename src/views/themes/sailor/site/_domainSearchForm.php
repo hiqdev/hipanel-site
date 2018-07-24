@@ -11,6 +11,7 @@ use hipanel\site\widgets\DomainSearchForm;
                 </div>
                 <?= DomainSearchForm::widget([
                     'model' => $model,
+                    'zones' => $zones,
                     'template' => sprintf('<div class="form-group multiple-form-group input-group">
                             {input}
                             <span class="input-group-btn">

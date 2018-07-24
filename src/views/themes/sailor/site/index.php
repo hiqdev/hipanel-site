@@ -8,7 +8,7 @@ $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registrati
 ?>
 
 <?php $this->beginBlock('subHeader') ?>
-    <?= $this->render('//site/_domainSearchForm', ['model' => $model]) ?>
+    <?= $this->render('//site/_domainSearchForm', ['model' => $model, 'zones' => $domainZones]) ?>
 <?php $this->endBlock() ?>
 
 <div class="container">

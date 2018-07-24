@@ -24,6 +24,7 @@ use hiqdev\yii2\cart\actions\AddToCartAction;
 use hisite\actions\RedirectAction;
 use hisite\actions\RenderAction;
 use Yii;
+use yii\helpers\ArrayHelper;
 
 class SiteController extends \hipanel\controllers\SiteController
 {
@@ -48,6 +49,9 @@ class SiteController extends \hipanel\controllers\SiteController
                     $model = new BulkCheckForm(array_keys($zones));
                     $out = $this->getDomainPriceTableData();
                     $out['model'] = $model;
+                    $out['zones'] = ArrayHelper::map($zones, 'zone', function ($resource) {
+                        return '.' . $resource->zone;
+                    });
 
                     return $out;
                 },
