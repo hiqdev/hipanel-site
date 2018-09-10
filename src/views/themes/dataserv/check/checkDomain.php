@@ -5,6 +5,7 @@ use hipanel\modules\domain\models\Domain;
 use yii\helpers\Html;
 
 DomainCheckPluginAsset::register($this);
+\hipanel\site\HipanelSiteAsset::register($this);
 
 $this->registerJs(/** @lang text/javascript */
     <<<'JS'
@@ -152,6 +153,9 @@ $this->registerCss("
     border: 1px solid transparent;
     box-shadow: -2px 0 3px -2px rgba(0, 0, 0, 0.2);
 }
+#domain-tabs li {
+    background-color: #e4e4e4;
+}
 ");
 
 $this->title = Yii::t('hipanel/domainchecker', 'Domain check');
@@ -173,7 +177,10 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
                     <a href="#commons" aria-controls="home" role="tab" data-toggle="tab"><?= Yii::t('hipanel:domain', 'Exact search') ?></a>
                 </li>
                 <li role="presentation">
-                    <a href="#suggestions" aria-controls="profile" role="tab" data-toggle="tab"><?= Yii::t('hipanel:domain', 'Similar domains') ?></a>
+                    <a href="#suggestions" aria-controls="profile" role="tab" data-toggle="tab">
+                        <?= Yii::t('hipanel:domain', 'Similar domains') ?>
+                        <span class="menu-label menu-label-new">new</span>
+                    </a>
                 </li>
             </ul>
 

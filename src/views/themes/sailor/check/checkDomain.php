@@ -6,6 +6,7 @@ use hipanel\modules\domain\models\Domain;
 
 DomainCheckPluginAsset::register($this);
 IsotopeAsset::register($this);
+\hipanel\site\HipanelSiteAsset::register($this);
 
 $this->registerJs(/** @lang text/javascript */
     <<<'JS'
@@ -212,7 +213,10 @@ $this->blocks['dropDownZonesOptions'] = $dropDownZonesOptions;
                 <a href="#commons" aria-controls="home" role="tab" data-toggle="tab"><?= Yii::t('hipanel:domain', 'Exact search') ?></a>
             </li>
             <li role="presentation">
-                <a href="#suggestions" aria-controls="profile" role="tab" data-toggle="tab"><?= Yii::t('hipanel:domain', 'Similar domains') ?></a>
+                <a href="#suggestions" aria-controls="profile" role="tab" data-toggle="tab">
+                    <?= Yii::t('hipanel:domain', 'Similar domains') ?>
+                    <span class="menu-label menu-label-new">new</span>
+                </a>
             </li>
         </ul>
 
