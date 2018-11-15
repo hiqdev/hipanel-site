@@ -12,6 +12,7 @@ namespace hipanel\site\menus;
 
 use Yii;
 use yii\widgets\Menu;
+use hiqdev\yii2\cart\widgets\CartTeaser;
 
 class MainMenu extends \hiqdev\yii2\menus\Menu
 {
@@ -50,6 +51,14 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
             'faq' => [
                 'label' => Yii::t('hipanel:site', 'FAQ'),
                 'url' => ['@faq/index'],
+            ],
+            [
+                'label' => CartTeaser::widget(),
+                'encode' => false,
+                'options' => [
+                    'class' => 'dropdown notifications-menu notifications-cart',
+                    'style' => 'display: none',
+                ],
             ],
         ];
     }
