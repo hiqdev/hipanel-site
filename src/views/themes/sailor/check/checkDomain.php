@@ -11,9 +11,9 @@ IsotopeAsset::register($this);
 $this->registerJs(/** @lang text/javascript */
     <<<'JS'
     function updateCart(topcartUrl, callback) {
-        $('#top-cart i').replaceWith('<i class="fa fa-refresh fa-spin"></i>');
+        $('.top-cart i').replaceWith('<i class="fa fa-refresh fa-spin"></i>');
         $.post(topcartUrl, function(data) {
-            $('#top-cart').replaceWith( data );
+            $('.top-cart').replaceWith( data );
         }).done(callback());
     }
     // DOMAIN CHECK
