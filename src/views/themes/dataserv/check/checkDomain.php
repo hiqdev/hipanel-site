@@ -10,7 +10,7 @@ DomainCheckPluginAsset::register($this);
 $this->registerJs(/** @lang text/javascript */
     <<<'JS'
     // DOMAIN CHECK
-    $(document).on('click', 'a.add-to-cart-button', function(event) {
+    $(document).one('click', 'a.add-to-cart-button', function(event) {
         event.preventDefault();
         var addToCartElem = $(this);
         addToCartElem.button('loading');
@@ -18,7 +18,7 @@ $this->registerJs(/** @lang text/javascript */
             Hisite.updateCart(addToCartElem.data('topcart'), function() {
                 addToCartElem.button('complete');
                 setTimeout(function () {
-                    addToCartElem.addClass('disabled');
+                    addToCartElem.attr('href', '/cart/cart/index');
                 }, 0);
             });
         });

@@ -39,10 +39,6 @@ $this->registerCss('
     text-transform: lowercase;
 }
 
-.domain-search-form-container ul[role="tablist"] a:hover {
-    color: #FF4081;
-}
-
 .domain-search-form-container ul[role="tablist"] li.active {
     display: none;
 }
@@ -108,7 +104,6 @@ $this->registerCss('
                         'label' => Yii::t('hipanel:site', 'Check all'),
                         'class' => 'check-all',
                     ]) ?>
-
                 </div>
             </div>
 
@@ -121,11 +116,14 @@ $this->registerCss('
             <ul class="list-inline" role="tablist">
                 <li role="presentation" class="active">
                     <a href="#simple-search" aria-controls="simple-search" role="tab"
-                       data-toggle="tab"><?= Yii::t('hipanel:site', 'Simple search') ?></a>
+                       data-toggle="tab" class="btn btn-danger btn-sm">
+                        <?= Yii::t('hipanel:site', 'Simple search') ?>
+                    </a>
                 </li>
                 <li role="presentation">
                     <a href="#mass-search" aria-controls="mass-search" role="tab"
-                       data-toggle="tab"><?= Yii::t('hipanel:site', 'Mass search') ?>
+                       data-toggle="tab" class="btn btn-danger btn-sm">
+                        <?= Yii::t('hipanel:site', 'Mass search') ?>
                     </a>
                 </li>
             </ul>
