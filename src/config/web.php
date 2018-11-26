@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2016-2017, HiQDev (http://hiqdev.com/)
  */
 
-return [
+$params = [
     'aliases' => [
         '@ticket/create' => '/site/feedback',
     ],
@@ -130,3 +130,9 @@ return [
         ],
     ],
 ];
+
+if (class_exists(\ahnames\assets\ahnames\AhnamesAsset::class)) {
+    $params['components']['themeManager']['assets'][] = \ahnames\assets\ahnames\AhnamesAsset::class;
+}
+
+return $params;
