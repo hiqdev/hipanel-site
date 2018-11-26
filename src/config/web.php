@@ -8,6 +8,8 @@
  * @copyright Copyright (c) 2016-2017, HiQDev (http://hiqdev.com/)
  */
 
+use ahnames\assets\ahnames\AhnamesAsset;
+
 return [
     'aliases' => [
         '@ticket/create' => '/site/feedback',
@@ -56,6 +58,9 @@ return [
                 ],
                 '@hipanel/site/widgets/views' => '$themedWidgetPaths',
             ],
+            'assets' => array_filter([
+                class_exists(AhnamesAsset::class) ? AhnamesAsset::class : null,
+            ]),
         ],
         'i18n' => [
             'translations' => [
