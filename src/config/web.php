@@ -8,7 +8,9 @@
  * @copyright Copyright (c) 2016-2017, HiQDev (http://hiqdev.com/)
  */
 
-$params = [
+use ahnames\assets\ahnames\AhnamesAsset;
+
+return [
     'aliases' => [
         '@ticket/create' => '/site/feedback',
     ],
@@ -56,6 +58,9 @@ $params = [
                 ],
                 '@hipanel/site/widgets/views' => '$themedWidgetPaths',
             ],
+            'assets' => array_filter([
+                class_exists(AhnamesAsset::class) ? AhnamesAsset::class : null,
+            ]),
         ],
         'i18n' => [
             'translations' => [
@@ -130,9 +135,3 @@ $params = [
         ],
     ],
 ];
-
-if (class_exists(\ahnames\assets\ahnames\AhnamesAsset::class)) {
-    $params['components']['themeManager']['assets'][] = \ahnames\assets\ahnames\AhnamesAsset::class;
-}
-
-return $params;
