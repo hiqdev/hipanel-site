@@ -52,6 +52,10 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
                 'label' => Yii::t('hipanel:site', 'FAQ'),
                 'url' => ['@faq/index'],
             ],
+            'api' => [
+                'label' => Yii::t('hipanel:site', 'API'),
+                'url' => ['/pages/api/index'],
+            ],
             [
                 'label' => CartTeaser::widget(),
                 'encode' => false,

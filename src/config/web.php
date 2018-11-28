@@ -117,6 +117,10 @@ return [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'basePath' => '@hipanel/site/messages',
                 ],
+                'hipanel.site.api' => [
+                    'class' => \yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@hipanel/site/messages',
+                ],
             ],
         ],
     ],
