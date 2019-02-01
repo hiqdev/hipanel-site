@@ -69,6 +69,10 @@ class SiteController extends \hipanel\controllers\SiteController
             'vds' => [
                 'class' => RenderAction::class,
                 'data' => function () {
+                    if (!Yii::$app->user->can('server.pay') && !Yii::$app->user->isGuest) {
+                        return $this->redirect(['site']);
+                    }
+
                     $xenPackages = ServerHelper::getAvailablePackages(Tariff::TYPE_XEN);
                     $openvzPackages = ServerHelper::getAvailablePackages(Tariff::TYPE_OPENVZ);
 

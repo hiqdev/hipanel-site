@@ -22,6 +22,8 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
 
     public function items()
     {
+        $user = Yii::$app->user;
+
         return [
             'domains' => [
                 'label' => Yii::t('hipanel:site', 'Domains'),
@@ -30,6 +32,7 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
             'vds' => [
                 'label' => Yii::t('hipanel:site', 'VDS'),
                 'url' => ['/site/vds'],
+                'visible' => $user->can('server.pay') || $user->isGuest,
             ],
             'certificate' => [
                 'label' => Yii::t('hipanel:site', 'SSL certificates'),
