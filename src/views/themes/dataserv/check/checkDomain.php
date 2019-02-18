@@ -10,21 +10,28 @@ DomainCheckPluginAsset::register($this);
 $this->registerJs(/** @lang text/javascript */
     <<<'JS'
     // DOMAIN CHECK
-    $(document).one('click', 'a.add-to-cart-button', function(event) {
-        event.preventDefault();
+    var goToTheCartHandler = function(evt) {
+        evt.preventDefault();
+        window.location.replace($(this).prop('href'));
+        return false;
+    }
+    var addToCartHandler = function (evt) {
+        evt.preventDefault();
         var addToCartElem = $(this);
         addToCartElem.button('loading');
         $.post(addToCartElem.data('domain-url'), function() {
             Hisite.updateCart(addToCartElem.data('topcart'), function() {
                 addToCartElem.button('complete');
                 setTimeout(function () {
-                    addToCartElem.attr('href', '/cart/cart/index');
+                    addToCartElem.one('click', goToTheCartHandler);
                 }, 0);
             });
         });
 
         return false;
-    });
+    }
+
+    $(document).on('click', 'a.add-to-cart-button', addToCartHandler);
 
     $.fn.isOnScreen = function(x, y){
 
@@ -155,6 +162,9 @@ $this->registerCss("
 }
 #domain-tabs li {
     background-color: #e4e4e4;
+}
+.blog .sidebar .filter-nav li.active {
+    background-color: #efefef;
 }
 ");
 

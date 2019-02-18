@@ -52,11 +52,11 @@ $canBuyDomain = Yii::$app->user->isGuest || Yii::$app->user->can('domain.pay');
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6">
                 <?php if ($model->isAvailable && $canBuyDomain) : ?>
-                    <?= Html::a('<i class="fa fa-cart-plus fa-lg"></i>&nbsp; ' . Yii::t('hipanel:domain', 'Add to cart'), ['add-to-cart-registration', 'name' => $model->fqdn], [
+                    <?= Html::a('<i class="fa fa-cart-plus fa-lg"></i>&nbsp; ' . Yii::t('hipanel:domain', 'Add to cart'), ['/cart/cart/index'], [
                         'data-pjax' => 0,
                         'class' => 'btn btn-success no-radius add-to-cart-button',
                         'data-loading-text' => '<i class="fa fa-circle-o-notch fa-spin fa-lg"></i>&nbsp;&nbsp;' . Yii::t('hipanel:domain', 'Adding'),
-                        'data-complete-text' => '<i class="fa fa-check fa-lg"></i>&nbsp;&nbsp;' . Yii::t('hipanel:domain', 'In cart'),
+                        'data-complete-text' => Yii::t('hipanel:domain', 'Go to cart'),
                         'data-domain-url' => Url::to([$addToCartPath, 'name' => $model->fqdn]),
                         'data-topcart' => Url::toRoute([$topcartUrl]),
                     ]) ?>
