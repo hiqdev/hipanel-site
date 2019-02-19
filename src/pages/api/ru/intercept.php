@@ -41,7 +41,7 @@ $this->title = Yii::t('hipanel.site.api', 'API for intercepting dropping domains
             </ul>
 
             <h4>2. Подробные примеры</h4>
-            <table class="table table-bordered">
+            <table class="table table-bordered server-products-table">
                 <thead>
                 <tr>
                     <th width="15%">Команда</th>

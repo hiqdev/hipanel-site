@@ -5,6 +5,15 @@ use yii\helpers\Html;
 $this->title = Yii::t('hipanel.site.api', 'Reseller API');
 $this->blocks['subTitle'] = Yii::t('hipanel.site.api', 'We provide full featured HTTP API for all our resellers.');
 
+$this->registerCss("
+.server-products-table td {
+    text-align: left;
+}
+.server-products-table tbody th:first-child, .server-products-table thead th:first-child {
+    text-align: center
+}
+");
+
 $this->registerJs(<<<JS
     $('.collapse').on('show.bs.collapse', function() {
         var i = $(this).parent().find('i').toggleClass('fa-plus-square-o fa-minus-square-o');
