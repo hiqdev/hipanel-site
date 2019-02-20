@@ -23,6 +23,12 @@ $('.check-all').click(function() {
         $(this).trigger('click');
     });
 });
+
+// Synchronize both form values
+$('.domain-search-form-container li > a').click(function() {
+    var currentValue = $('.domain-search-form-container .tab-pane.active #fqdns').val();
+    $('.domain-search-form-container .tab-pane:not(.active) #fqdns').focus().val(currentValue);
+});
 ");
 
 $this->registerCss('
@@ -47,7 +53,15 @@ $this->registerCss('
     padding: 0px;
     border: none;
 }
-
+@media (max-width: 768px) {
+    .domainavailability .domain-form-container {
+        width: 93%;
+    }
+    .domain-search-form-container ul {
+        text-align: center;
+        margin-top: 1em;
+    }
+}
 ');
 
 ?>
@@ -72,6 +86,7 @@ $this->registerCss('
                 'id' => 'domain',
                 'value' => $model->fqdnsInline,
                 'autocomplete' => 'off',
+                'autofocus' => true,
             ]) ?>
 
             <?php $form::end() ?>
@@ -95,15 +110,23 @@ $this->registerCss('
                 'id' => 'domain',
                 'value' => $model->fqdnsInline,
                 'autocomplete' => 'off',
+                'autofocus' => true,
             ]) ?>
 
             <div class="row">
                 <div class="col-sm-12">
                     <?= $form->field($model, 'zones')->checkboxList($zones, ['name' => 'zones']) ?>
-                    <?= Html::checkbox(null, false, [
-                        'label' => Yii::t('hipanel:site', 'Check all'),
-                        'class' => 'check-all',
-                    ]) ?>
+                    <div class="row no-gutter">
+                        <div class="col-sm-10">
+                            <?= Html::checkbox(null, false, [
+                                'label' => Yii::t('hipanel:site', 'Check all'),
+                                'class' => 'check-all',
+                            ]) ?>
+                        </div>
+                        <div class="col-sm-2">
+                            <?= Html::submitButton(null, ['class' => 'mtr-btn button-fab fa fa-search hidden-xs hidden-sm']) ?>
+                        </div>
+                    </div>
                 </div>
             </div>
 
