@@ -43,8 +43,8 @@ $(document).on('click', '.social .text-center a', function(e) {
                     <li class="active"><a href="#termsOfUse"
                                           data-toggle="tab"><?= Yii::t('hipanel:pages', 'Terms of use') ?></a>
                     </li>
-                    <li><a href="#privacyPolicy" data-toggle="tab"><?= Yii::t('hipanel:pages', 'Privacy Policy') ?></a>
-                    </li>
+                    <li><a href="#privacyPolicy" data-toggle="tab"><?= Yii::t('hipanel:pages', 'Privacy Policy') ?></a></li>
+                    <li><a href="#vps_terms_of_use" data-toggle="tab"><?= Yii::t('hipanel:pages', 'VPS terms of use') ?></a></li>
                     <li><a href="#GDPR" data-toggle="tab"><?= Yii::t('hipanel:pages', 'General Data Protection Regulation, GDPR') ?></a>
                     </li>
                     <li><a href="#cancelationPolicy"
@@ -83,6 +83,12 @@ $(document).on('click', '.social .text-center a', function(e) {
                         <h4><?= Yii::t('hipanel:pages', 'Privacy Policy') ?></h4>
                         <hr class="small"/>
                         <?= $this->render('_privacy_policy'); ?>
+                    </div>
+
+                    <div class="tab-pane fade" id="vps_terms_of_use">
+                        <h4><?= Yii::t('hipanel:pages', 'VPS terms of use') ?></h4>
+                        <hr class="small"/>
+                        <?= $this->render('_vps_terms_of_use'); ?>
                     </div>
 
                     <div class="tab-pane fade" id="GDPR">
