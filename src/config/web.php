@@ -77,9 +77,8 @@ return [
                     'rules/privacy' => 'pages/rules/index#privacyPolicy',
                     'domain_registration' => 'pages/rules/index#domainNameRegistrationAgreement',
 
-//                    'resellers/wmoney' => '',
-//                    'pages/about' => '',
-//                    'rules/usage' => '',
+                    'pages/about' => 'site/about',
+                    'rules/usage' => 'pages/rules/index#vps_terms_of_use',
 
                     // not found
                     'domains/com' => 'site/index',
