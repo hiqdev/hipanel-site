@@ -44,6 +44,54 @@ return [
         ],
         'response' => [
             'class' => \yii\web\Response::class,
+            'as urlRedirect' => [
+                'class' => \hipanel\site\helpers\SEORedirectBehavior::class,
+                'redirectMap' => [
+                    'news/\d+' => 'site/index',
+
+                    'cart' => 'cart/cart/index',
+
+                    'login' => 'site/login',
+                    'login/remind' => 'site/login',
+
+                    'registration' => 'site/login',
+                    'domains' => 'site/index#tld-table',
+                    'transfer' => 'domain/transfer/index',
+                    'search/whois' => 'domain/whois/index',
+                    'search/bulk' => 'domain/check/check-domain',
+
+                    'dns' => 'site/dns',
+
+                    'vds' => 'site/vds',
+                    'vds/price' => 'site/vds',
+
+                    'help' => 'faq/faq/index',
+
+                    'rules' => 'pages/rules/index#termsOfUse',
+                    'pages/contact' => 'site/contact',
+                    'resellers' => 'pages/api/index',
+                    'resellers/intercept' => 'pages/api/intercept',
+
+                    'rules/cancelation_policy' => 'pages/rules/index#cancelationPolicy',
+                    'rules/deletion_policy' => 'pages/rules/index#domainRemovalAndAutoRenewalPolicy',
+                    'rules/privacy' => 'pages/rules/index#privacyPolicy',
+                    'domain_registration' => 'pages/rules/index#domainNameRegistrationAgreement',
+
+                    'pages/about' => 'site/about',
+                    'rules/usage' => 'pages/rules/index#vps_terms_of_use',
+
+                    // not found
+                    'domains/com' => 'site/index',
+                    'promotion' => 'site/index',
+                    'pages/loyalty' => 'site/index',
+                    'news' => 'site/index',
+                    'vds/pages/monitoring' => 'site/vds',
+                    'vds/pages/support' => 'site/vds',
+                    'vds/pages/equipment' => 'site/vds',
+                    'vds/pages/solutions' => 'site/vds',
+                    'domains/zones/april' => 'site/index',
+                ]
+            ]
         ],
         'urlManager' => [
             'class' => \codemix\localeurls\UrlManager::class,
