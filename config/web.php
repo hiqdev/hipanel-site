@@ -14,7 +14,7 @@ return [
     'aliases' => [
         '@ticket/create' => '/site/feedback',
     ],
-    'controllerNamespace' => 'hipanel\site\controllers',
+    'controllerNamespace' => \hipanel\site\controllers::class,
     'modules' => [
         'domain' => [
             'class' => \hipanel\modules\domain\Module::class,
