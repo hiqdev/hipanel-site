@@ -10,6 +10,6 @@
 
 require __DIR__ . '/../config/bootstrap.php';
 
-$config = require \hiqdev\composer\config\Builder::path('hisite');
+$config = require \hiqdev\composer\config\Builder::path('web');
 
 (new \yii\web\Application($config))->run();
