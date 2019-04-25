@@ -23,9 +23,12 @@ return [
             'class' => \hisite\modules\news\Module::class,
         ],
         'pages' => [
+            'pageSize' => 5,
             'storage' => [
-                'class' => \creocoder\flysystem\LocalFilesystem::class,
+                'class' => \hiqdev\yii2\modules\pages\storage\FileSystemStorage::class,
+                'fileSystem' => \creocoder\flysystem\LocalFilesystem::class,
                 'path' => '@hipanel/site/pages',
+
             ],
         ],
         'merchant' => [
