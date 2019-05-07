@@ -111,7 +111,7 @@ class SiteController extends \hipanel\controllers\SiteController
 
     public function actionOrder($id)
     {
-        return $this->redirectVDS();
+        return $this->redirectOutside();
 
         $package = ServerHelper::getAvailablePackages(null, $id);
         $osImages = ServerHelper::getOsimages($package->tariff->type);
@@ -142,7 +142,7 @@ class SiteController extends \hipanel\controllers\SiteController
 
     public function actionVds()
     {
-        return $this->redirectVDS();
+        return $this->redirectOutside();
     }
 
     protected function getDomainPriceTableData()
@@ -181,7 +181,7 @@ class SiteController extends \hipanel\controllers\SiteController
         return compact('domains', 'promotion', 'domainZones');
     }
 
-    protected function redirectVDS()
+    protected function redirectOutside()
     {
         $language = Yii::$app->language;
         $template = Yii::$app->params['module.server.redirect.url'];
