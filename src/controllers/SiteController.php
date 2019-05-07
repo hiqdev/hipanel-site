@@ -66,6 +66,7 @@ class SiteController extends \hipanel\controllers\SiteController
                 'class' => RedirectAction::class,
                 'url' => ['site/contact'],
             ],
+            /***
             'vds' => [
                 'class' => RenderAction::class,
                 'data' => function () {
@@ -82,6 +83,7 @@ class SiteController extends \hipanel\controllers\SiteController
                     ];
                 },
             ],
+            ***/
             'terms-and-conditions' => [
                 'class' => RenderAction::class,
             ],
@@ -109,6 +111,8 @@ class SiteController extends \hipanel\controllers\SiteController
 
     public function actionOrder($id)
     {
+        return $this->redirectVDS();
+
         $package = ServerHelper::getAvailablePackages(null, $id);
         $osImages = ServerHelper::getOsimages($package->tariff->type);
 
@@ -134,6 +138,11 @@ class SiteController extends \hipanel\controllers\SiteController
         return $this->render('contact', [
             'thread' => $thread,
         ]);
+    }
+
+    public function actionVds()
+    {
+        return $this->redirectVDS();
     }
 
     protected function getDomainPriceTableData()
@@ -170,5 +179,13 @@ class SiteController extends \hipanel\controllers\SiteController
         }
 
         return compact('domains', 'promotion', 'domainZones');
+    }
+
+    protected function redirectVDS()
+    {
+        $language = Yii::$app->language;
+        $template = Yii::$app->params['module.server.redirect.url'];
+        $url = preg_replace('/{language}/', $language, $template);
+        return $this->redirect($url);
     }
 }
