@@ -22,8 +22,8 @@ class SiteHelper
     public static function getSeller()
     {
         if (Yii::$app->user->isGuest) {
-            if (isset(Yii::$app->params['seller'])) {
-                $seller = Yii::$app->params['seller'];
+            if (isset(Yii::$app->params['user.seller'])) {
+                $seller = Yii::$app->params['user.seller'];
             } else {
                 throw new InvalidConfigException('"seller" param must be set');
             }
@@ -108,7 +108,7 @@ class SiteHelper
         $calculations = [];
 
         $cacheKeys = [
-            Yii::$app->params['seller'],
+            Yii::$app->params['user.seller'],
             Yii::$app->user->id,
             $type,
             $tariff_id,

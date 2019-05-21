@@ -57,7 +57,7 @@ class Thread extends \hipanel\base\Model
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
-            $this->anonym_seller = Yii::$app->params['seller'];
+            $this->anonym_seller = Yii::$app->params['user.seller'];
 
             return true;
         }
