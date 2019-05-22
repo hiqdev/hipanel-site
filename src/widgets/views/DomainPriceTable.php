@@ -18,21 +18,21 @@ use yii\helpers\Html;
     <?php if (!empty($domains)) : ?>
         <?php foreach ($domainZones as $zone) : ?>
             <?php $hide = false ?>
-            <?php foreach ($domains['zone:.' . $zone] as $v) {
-    if (floatval($v['price']) === 0) {
-        $hide = true;
-    }
-} ?>
+            <?php $name = 'zone:.' . $zone ?>
+            <?php if (empty($domains[$name])) continue ?>
+            <?php foreach ($domains[$name] as $v) : ?>
+                <?php if (empty($v['price'])) $hide = true ?>
+            <?php endforeach ?>
             <?php if (!$hide) : ?>
                 <tr>
                     <td><?= Html::tag('span', '.' . $zone, ['class' => '']) ?></td>
                     <td>
-                        <b><?= Yii::$app->formatter->asCurrency($domains['zone:.' . $zone]['dregistration']['price'], 'usd') ?></b>
+                        <b><?= Yii::$app->formatter->asCurrency($domains[$name]['dregistration']['price'], 'usd') ?></b>
                         / <?= Yii::t('hipanel:site', 'year') ?></td>
-                    <td><?= Yii::$app->formatter->asCurrency($domains['zone:.' . $zone]['drenewal']['price'], 'usd') ?>
+                    <td><?= Yii::$app->formatter->asCurrency($domains[$name]['drenewal']['price'], 'usd') ?>
                         / <?= Yii::t('hipanel:site', 'year') ?></td>
                     <td>
-                        <b><?= Yii::$app->formatter->asCurrency($domains['zone:.' . $zone]['dtransfer']['price'], 'usd') ?></b>
+                        <b><?= Yii::$app->formatter->asCurrency($domains[$name]['dtransfer']['price'], 'usd') ?></b>
                     </td>
                 </tr>
             <?php endif ?>
