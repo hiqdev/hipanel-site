@@ -157,9 +157,20 @@ class SiteController extends \hipanel\controllers\SiteController
             return Domain::batchPerform('GetZones', []);
         }, 60);
         $domains = SiteHelper::domain($domains['resources'], $domainZones);
-        $promotion = Yii::$app->cache->getOrSet('GetInfo', function () {
-            return Tariff::perform('GetInfo', ['id' => 7312138]);
-        }, 60);
+
+        $promoTariffId = Yii::$app->cache->getOrSet('promoTariffId', function () {
+            return Tariff::find()
+                ->andWhere(['seller' => Yii::$app->params['user.seller']])
+                ->andFilterWhere(['name' => 'client'])
+                ->one();
+        }, 60*60);
+        if ($promoTariffId) {
+            $promotion = Yii::$app->cache->getOrSet('GetInfo', function () {
+                return Tariff::perform('GetInfo', ['id' => $promoTariffId]);
+            }, 60);
+        } else {
+            $promotion = [];
+        }
 
         foreach (['domains', 'promotion'] as $price) {
             $zones = $$price;
