@@ -160,7 +160,7 @@ class SiteController extends \hipanel\controllers\SiteController
 
         $promoTariffId = Yii::$app->cache->getOrSet('promoTariffId', function () {
             return Tariff::find()
-                ->andWhere(['seller' => Yii::$app->params['user.seller']])
+                ->andWhere(['seller' => SiteHelper::getSeller())
                 ->andFilterWhere(['name' => 'client'])
                 ->one();
         }, 60*60);
