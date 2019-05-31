@@ -164,9 +164,10 @@ class SiteController extends \hipanel\controllers\SiteController
                 ->andFilterWhere(['name' => 'client'])
                 ->one();
         }, 60*60);
+
         if ($promoTariffId) {
-            $promotion = Yii::$app->cache->getOrSet('GetInfo', function () {
-                return Tariff::perform('GetInfo', ['id' => $promoTariffId]);
+            $promotion = Yii::$app->cache->getOrSet(['GetInfo', $promoTariffId->id], function () use ($promoTariffId) {
+                return Tariff::perform('GetInfo', ['id' => $promoTariffId->id]);
             }, 60);
         } else {
             $promotion = [];
