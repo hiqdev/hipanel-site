@@ -111,11 +111,11 @@
 <p>The only argument of "domains" command is a comma delimited list of domains. It is needed to check domain
     availability for registration.<br>* - an “asterisk” means that an argument is required. It's omission provokes an
     error.</p>
-<pre>https://demo-api.ahnames.com/domainsCheck?auth_login=demo&amp;auth_password=demo&amp;domains=test.com,adfwer234asdf.net</pre>
+<pre><?= Yii::$app->params['api.demo.url'] ?>/domainsCheck?auth_login=demo&amp;auth_password=demo&amp;domains=test.com,adfwer234asdf.net</pre>
 
 <h4>2.2. domainRegister</h4>
 <p>Be sure to type only a domain name. Other parameters provide defaults.</p>
-<pre>https://demo-api.ahnames.com/domainRegister?auth_login=demo&amp;auth_password=demo&amp;domain=test42345.com</pre>
+<pre><?= Yii::$app->params['api.demo.url'] ?>/domainRegister?auth_login=demo&amp;auth_password=demo&amp;domain=test42345.com</pre>
 
 <h4>2.3. domainsRegister</h4>
 <p>An example of bulk-operation conducted upon several objects at the same time. A word “array” is used in the
@@ -123,26 +123,26 @@
     for a stated operation. In our case it is domainRegister.</p>
 <p><b>sometimes the operation can take up to 10 minutes due to circumstances beyond our control. therefore set 10
         minutes timeout for the api response.</b></p>
-<pre>https://demo-api.ahnames.com/domainsRegister?auth_login=demo&amp;auth_password=demo&amp;0[domain]=test42345.com&amp;1[domain]=test123123.net</pre>
+<pre><?= Yii::$app->params['api.demo.url'] ?>/domainsRegister?auth_login=demo&amp;auth_password=demo&amp;0[domain]=test42345.com&amp;1[domain]=test123123.net</pre>
 
 <h4>2.4. domainGetInfo</h4>
 <p>It is very easy – here you need to transfer a name or ID of a domain. It sends back domain array of data.</p>
-<pre>https://demo-api.ahnames.com/domainGetInfo?auth_login=demo&amp;auth_password=demo&amp;domain=test42345.com</pre>
+<pre><?= Yii::$app->params['api.demo.url'] ?>/domainGetInfo?auth_login=demo&amp;auth_password=demo&amp;domain=test42345.com</pre>
 
 <h4>2.5. domainsGetInfo</h4>
 <p>Bulk-operation - upon several objects at the same time.</p>
-<pre>https://demo-api.ahnames.com/domainsGetInfo?auth_login=demo&amp;auth_password=demo&amp;0[domain]=test42345.com&amp;1[domain]=test.com</pre>
+<pre><?= Yii::$app->params['api.demo.url'] ?>/domainsGetInfo?auth_login=demo&amp;auth_password=demo&amp;0[domain]=test42345.com&amp;1[domain]=test.com</pre>
 
 <h4>2.6. domainSetNote</h4>
 <p>Blank or not indicated “note” – deletes any note.</p>
-<pre>https://demo-api.ahnames.com/domainSetNote?auth_login=demo&amp;auth_password=demo&amp;domain=test.com&amp;note=abc</pre>
+<pre><?= Yii::$app->params['api.demo.url'] ?>/domainSetNote?auth_login=demo&amp;auth_password=demo&amp;domain=test.com&amp;note=abc</pre>
 
 <h4>2.7. domainsSetNote</h4>
-<pre>https://demo-api.ahnames.com/domainsSetNote?auth_login=demo&amp;auth_password=demo&amp;0[domain]=test.com&amp;0[note]=abc&amp;1[domain]=test3.com&amp;1[note]=def</pre>
+<pre><?= Yii::$app->params['api.demo.url'] ?>/domainsSetNote?auth_login=demo&amp;auth_password=demo&amp;0[domain]=test.com&amp;0[note]=abc&amp;1[domain]=test3.com&amp;1[note]=def</pre>
 
 <h4>2.8. domainsSetDNS</h4>
-<pre>https://demo-api.ahnames.com/domainsSetDNS?auth_login=demo&amp;auth_password=demo&amp;5504202[1][type]=a&amp;5504202[1][value]=123.123.123.123&amp;5504202[1][no]=1&amp;5504202[1][ttl]=7200&amp;5504202[1][status]=new</pre>
+<pre><?= Yii::$app->params['api.demo.url'] ?>/domainsSetDNS?auth_login=demo&amp;auth_password=demo&amp;5504202[1][type]=a&amp;5504202[1][value]=123.123.123.123&amp;5504202[1][no]=1&amp;5504202[1][ttl]=7200&amp;5504202[1][status]=new</pre>
 
 <h4>2.9. serverBuy</h4>
-<pre>https://demo-api.ahnames.com/serverBuy?auth_login=demo&amp;auth_password=demo&amp;tariff=XENSSD%20VDS%204%20100+&amp;os=centos&amp;panel=isp&amp;cluster_id=1&amp;social=test&amp;purpose=test&amp;callback_url=http:\/\/my.domain.com\/page\/for\/callback</pre>
+<pre><?= Yii::$app->params['api.demo.url'] ?>/serverBuy?auth_login=demo&amp;auth_password=demo&amp;tariff=XENSSD%20VDS%204%20100+&amp;os=centos&amp;panel=isp&amp;cluster_id=1&amp;social=test&amp;purpose=test&amp;callback_url=http:\/\/my.domain.com\/page\/for\/callback</pre>
 

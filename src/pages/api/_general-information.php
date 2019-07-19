@@ -8,10 +8,10 @@
 </div>
 <ul>
     <li>API is available via HTTPS;</li>
-    <li>API test and run-time versions are available and can be found at <b>https://demo-api.ahnames.com</b> and <b>https://api.ahnames.com</b>
+    <li>API test and run-time versions are available and can be found at <b><?= Yii::$app->params['api.demo.url'] ?></b> and <b><?= Yii::$app->params['api.prod.url'] ?></b>
         respectively;
     </li>
-    <li>Requests are sent over <b>https://api.ahnames.com/apiCommand</b>. Request data are transferred via GET or
+    <li>Requests are sent over <b><?= Yii::$app->params['api.prod.url'] ?>/apiCommand</b>. Request data are transferred via GET or
         POST variables;
     </li>
     <li>There are variables such as auth_login and auth_password used for authorization;</li>
@@ -28,5 +28,5 @@
     </li>
 </ul>
 <b>Example:</b><br>
-<pre>https://demo-api.ahnames.com/domainsCheck?auth_login=demo&amp;auth_password=demo&amp;domains=test.com,adfwer234asdf.net</pre>
+<pre><?= Yii::$app->params['api.demo.url'] ?>/domainsCheck?auth_login=demo&amp;auth_password=demo&amp;domains=test.com,adfwer234asdf.net</pre>
 <p>This is a run-time example. You may copy URL, paste it in Web browser and see the errors.</p>
