@@ -22,7 +22,6 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
 
     public function items()
     {
-        $user = Yii::$app->user;
 
         return [
             'domains' => [
@@ -32,7 +31,7 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
             'vds' => [
                 'label' => Yii::t('hipanel:site', 'VDS'),
                 'url' => ['/site/vds'],
-                'visible' => $user->can('server.pay') || $user->isGuest,
+                'visible' => $this->canBuyVds(),
             ],
             'certificate' => [
                 'label' => Yii::t('hipanel:site', 'SSL certificates'),
@@ -68,5 +67,13 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
                 ],
             ],
         ];
+    }
+
+    private function canBuyVds()
+    {
+        $user = Yii::$app->user;
+        $params = Yii::$app->params;
+
+        return !empty($params['module.server.order.redirect.url']) && ($user->can('server.pay') || $user->isGuest);
     }
 }
