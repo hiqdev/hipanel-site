@@ -9,8 +9,9 @@
  */
 
 return [
-    'hipanel.notPanel' => true,
+    'hipanel.notPanel'          => true,
     'hipanel.site.defaultTheme' => 'dataserv',
+
     'api.demo.url'              => 'https://demo-api.ahnames.com',
     'api.prod.url'              => 'https://api.ahnames.com',
 ];
