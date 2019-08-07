@@ -27,12 +27,16 @@ use yii\helpers\Html;
                 <tr>
                     <td><?= Html::tag('span', '.' . $zone, ['class' => '']) ?></td>
                     <td>
-                        <b><?= Yii::$app->formatter->asCurrency($domains[$name]['dregistration']['price'], 'usd') ?></b>
+                        <?php $prices = $domains[$name] ?>
+                        <?php $registration = $prices['dregistration'] ?>
+                        <?php $renewal = $prices['drenewal'] ?>
+                        <?php $transfer = $prices['dtransfer'] ?>
+                        <b><?= Yii::$app->formatter->asCurrency($registration['price'], $registration['currency']) ?></b>
                         / <?= Yii::t('hipanel:site', 'year') ?></td>
-                    <td><?= Yii::$app->formatter->asCurrency($domains[$name]['drenewal']['price'], 'usd') ?>
+                    <td><?= Yii::$app->formatter->asCurrency($renewal['price'], $renewal['currency']) ?>
                         / <?= Yii::t('hipanel:site', 'year') ?></td>
                     <td>
-                        <b><?= Yii::$app->formatter->asCurrency($domains[$name]['dtransfer']['price'], 'usd') ?></b>
+                        <b><?= Yii::$app->formatter->asCurrency($transfer['price'], $transfer['currency']) ?></b>
                     </td>
                 </tr>
             <?php endif ?>
