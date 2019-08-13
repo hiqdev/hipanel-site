@@ -14,6 +14,8 @@ use hipanel\modules\domain\cart\DomainRegistrationProduct;
 use hipanel\modules\domain\forms\BulkCheckForm;
 use hipanel\modules\domain\models\Domain;
 use hipanel\modules\domain\repositories\DomainTariffRepository;
+use hipanel\modules\finance\helpers\PlanInternalsGrouper;
+use hipanel\modules\finance\models\Plan;
 use hipanel\modules\finance\models\Tariff;
 use hipanel\modules\server\cart\ServerOrderProduct;
 use hipanel\modules\server\helpers\ServerHelper;
@@ -147,16 +149,19 @@ class SiteController extends \hipanel\controllers\SiteController
 
     protected function getDomainPriceTableData()
     {
-        $domains = Yii::$app->cache->getOrSet('GetAvailableInfo', function () {
-            return array_shift(Tariff::batchPerform('GetAvailableInfo', [
-                'seller' => SiteHelper::getSeller(),
-                'type' => 'domain',
-            ]));
-        }, 60);
+        /** @var Plan $plan */
+        $plans = Yii::$app->cache->getOrSet('PlansGetAvailable', function () {
+            return array_shift(Plan::find()
+                ->action('get-available-info')
+                ->joinWithPrices()
+                ->where(['seller' => SiteHelper::getSeller()])
+                ->andFilterWhere(['type' => 'domain'])
+                ->all());
+        });
         $domainZones = Yii::$app->cache->getOrSet('GetZones', function () {
             return Domain::batchPerform('GetZones', []);
         }, 60);
-        $domains = SiteHelper::domain($domains['resources'], $domainZones);
+        $domain = SiteHelper::domain($plans['prices'], $domainZones);
 
         $promoTariffId = Yii::$app->cache->getOrSet('promoTariffId', function () {
             return Tariff::find()
@@ -173,14 +178,18 @@ class SiteController extends \hipanel\controllers\SiteController
             $promotion = [];
         }
 
-        foreach (['domains', 'promotion'] as $price) {
+        foreach (['domain', 'promotion'] as $price) {
             $zones = $$price;
 
             if (is_array($zones)) {
                 foreach ($zones as &$zone) {
                     if (is_array($zone)) {
+                        $types = array_map(function ($el) use ($price) {
+                            return $price . ',' . $el;
+                        }, ['dregistration', 'drenewal', 'dtransfer']);
+
                         foreach ($zone as $operation => $info) {
-                            if (!in_array($operation, ['dregistration', 'drenewal', 'dtransfer'], true)) {
+                            if (!in_array($operation, $types, true)) {
                                 unset($zone[$operation]);
                             }
                         }
@@ -189,7 +198,7 @@ class SiteController extends \hipanel\controllers\SiteController
             }
             $$price = $zones;
         }
-
+        $domains = $domain;
         return compact('domains', 'promotion', 'domainZones');
     }
 
