@@ -170,12 +170,12 @@ class SiteController extends \hipanel\controllers\SiteController
                 ->one();
         }, 60*60);
 
+        $promotion = [];
         if ($promoTariffId) {
+            // todo: create with Plans if needed
             $promotion = Yii::$app->cache->getOrSet(['GetInfo', $promoTariffId->id], function () use ($promoTariffId) {
                 return Tariff::perform('GetInfo', ['id' => $promoTariffId->id]);
             }, 60);
-        } else {
-            $promotion = [];
         }
 
         foreach (['domains', 'promotion'] as $price) {
