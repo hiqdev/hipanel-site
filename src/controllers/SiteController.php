@@ -149,15 +149,16 @@ class SiteController extends \hipanel\controllers\SiteController
 
     protected function getDomainPriceTableData()
     {
+        $seller = SiteHelper::getSeller();
         /** @var Plan $plan */
-        $plans = Yii::$app->cache->getOrSet('PlansGetAvailable', function () {
+        $plans = Yii::$app->cache->getOrSet('PlansGetAvailable'.$seller, function () use ($seller){
             return array_shift(Plan::find()
                 ->action('get-available-info')
                 ->joinWithPrices()
-                ->where(['seller' => SiteHelper::getSeller()])
+                ->where(['seller' => $seller])
                 ->andFilterWhere(['type' => 'domain'])
                 ->all());
-        });
+        }, 60);
         $domainZones = Yii::$app->cache->getOrSet('GetZones', function () {
             return Domain::batchPerform('GetZones', []);
         }, 60);
