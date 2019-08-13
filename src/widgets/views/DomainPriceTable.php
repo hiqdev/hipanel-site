@@ -34,9 +34,9 @@ use yii\helpers\Html;
                  * @var \hipanel\modules\finance\models\DomainZonePrice $transfer
                  */
                 $prices = $domains[$name];
-                $registration = $prices['domain,dregistration'];
-                $renewal = $prices['domain,drenewal'];
-                $transfer = $prices['domain,dtransfer'];
+                $registration = $prices['dregistration'];
+                $renewal = $prices['drenewal'];
+                $transfer = $prices['dtransfer'];
                 ?>
                 <tr>
                     <td><?= Html::tag('span', '.' . $zone, ['class' => '']) ?></td>
