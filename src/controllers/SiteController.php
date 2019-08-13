@@ -195,6 +195,7 @@ class SiteController extends \hipanel\controllers\SiteController
             }
             $$price = $zones;
         }
+
         return compact('domains', 'promotion', 'domainZones');
     }
 
