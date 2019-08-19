@@ -28,28 +28,39 @@ use yii\helpers\Html;
             <?php if (!$hide) : ?>
                 <?php
                 /**
+                 * 
                  * @var \hipanel\modules\finance\models\DomainZonePrice[] $prices
-                 * @var \hipanel\modules\finance\models\DomainZonePrice $registration
+                 * @var \hipanel\modules\finance\models\DomainZonePrice $registration // TODO: it's a Money\Money, not DomainZonePrice!
                  * @var \hipanel\modules\finance\models\DomainZonePrice $renewal
                  * @var \hipanel\modules\finance\models\DomainZonePrice $transfer
                  */
                 $prices = $domains[$name];
-                $registration = $prices['dregistration'];
-                $renewal = $prices['drenewal'];
-                $transfer = $prices['dtransfer'];
+                $registration = $prices['dregistration'] ?? null;
+                $renewal = $prices['drenewal'] ?? null;
+                $transfer = $prices['dtransfer'] ?? null;
                 ?>
                 <tr>
                     <td><?= Html::tag('span', '.' . $zone, ['class' => '']) ?></td>
                     <td>
-                        <b><?= ResourcePriceWidget::widget(['price' => $registration->getMoney()]) ?></b>
-                        / <?= Yii::t('hipanel:site', 'year') ?>
+                        <?php if ($registration): ?>
+                            <b><?= ResourcePriceWidget::widget(['price' => $registration]) ?></b> / <?= Yii::t('hipanel:site', 'year') ?>
+                        <?php else: ?>
+                            -
+                        <?php endif ?>
                     </td>
                     <td>
-                        <?= ResourcePriceWidget::widget(['price' => $renewal->getMoney()]) ?>
-                        / <?= Yii::t('hipanel:site', 'year') ?>
+                        <?php if ($renewal): ?>
+                            <?= ResourcePriceWidget::widget(['price' => $renewal]) ?> / <?= Yii::t('hipanel:site', 'year') ?>
+                        <?php else: ?>
+                            -
+                        <?php endif ?>
                     </td>
                     <td>
-                        <b><?= ResourcePriceWidget::widget(['price' => $transfer->getMoney()]) ?></b>
+                        <?php if ($transfer): ?>
+                            <b><?= ResourcePriceWidget::widget(['price' => $transfer]) ?></b>
+                        <?php else: ?>
+                            -
+                        <?php endif ?>
                     </td>
                 </tr>
             <?php endif ?>
