@@ -14,6 +14,7 @@ use hipanel\modules\domain\cart\DomainRegistrationProduct;
 use hipanel\modules\domain\forms\BulkCheckForm;
 use hipanel\modules\domain\models\Domain;
 use hipanel\modules\domain\repositories\DomainTariffRepository;
+use hipanel\modules\finance\models\Plan;
 use hipanel\modules\finance\models\Tariff;
 use hipanel\modules\server\cart\ServerOrderProduct;
 use hipanel\modules\server\helpers\ServerHelper;
@@ -147,16 +148,20 @@ class SiteController extends \hipanel\controllers\SiteController
 
     protected function getDomainPriceTableData()
     {
-        $domains = Yii::$app->cache->getOrSet('GetAvailableInfo', function () {
-            return array_shift(Tariff::batchPerform('GetAvailableInfo', [
-                'seller' => SiteHelper::getSeller(),
-                'type' => 'domain',
-            ]));
+        $seller = SiteHelper::getSeller();
+        /** @var Plan $plan */
+        $plans = Yii::$app->cache->getOrSet('PlansGetAvailable' . $seller, function () use ($seller) {
+            return array_shift(Plan::find()
+                ->action('get-available-info')
+                ->joinWithPrices()
+                ->where(['seller' => $seller])
+                ->andFilterWhere(['type' => 'domain'])
+                ->all());
         }, 60);
         $domainZones = Yii::$app->cache->getOrSet('GetZones', function () {
             return Domain::batchPerform('GetZones', []);
         }, 60);
-        $domains = SiteHelper::domain($domains['resources'], $domainZones);
+        $domains = SiteHelper::domain($plans['prices'], $domainZones);
 
         $promoTariffId = Yii::$app->cache->getOrSet('promoTariffId', function () {
             return Tariff::find()
@@ -165,25 +170,26 @@ class SiteController extends \hipanel\controllers\SiteController
                 ->one();
         }, 60*60);
 
+        $promotion = [];
         if ($promoTariffId) {
+            // todo: create with Plans if needed
             $promotion = Yii::$app->cache->getOrSet(['GetInfo', $promoTariffId->id], function () use ($promoTariffId) {
                 return Tariff::perform('GetInfo', ['id' => $promoTariffId->id]);
             }, 60);
-        } else {
-            $promotion = [];
         }
 
         foreach (['domains', 'promotion'] as $price) {
             $zones = $$price;
-
-            if (is_array($zones)) {
-                foreach ($zones as &$zone) {
-                    if (is_array($zone)) {
-                        foreach ($zone as $operation => $info) {
-                            if (!in_array($operation, ['dregistration', 'drenewal', 'dtransfer'], true)) {
-                                unset($zone[$operation]);
-                            }
-                        }
+            if (!is_array($zones)) {
+                continue;
+            }
+            foreach ($zones as &$zone) {
+                if (!is_array($zone)) {
+                    continue;
+                }
+                foreach ($zone as $operation => $info) {
+                    if (!in_array($operation, ['dregistration', 'drenewal', 'dtransfer'], true)) {
+                        unset($zone[$operation]);
                     }
                 }
             }

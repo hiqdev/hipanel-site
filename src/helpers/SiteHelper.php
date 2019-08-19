@@ -41,18 +41,29 @@ class SiteHelper
      */
     public static function domain($resources, $zones)
     {
-        if (is_array($resources)) {
-            foreach ($resources as $k => $v) {
-                if ($zones[$v['object_id']]) {
-                    $resource['zone:.' . $zones[$v['object_id']]][$v['type']] = $v;
-                }
-                if (preg_match('/^premium_dns/', $v['type'])) {
-                    $resource['ref:class,feature'][$v['type']] = $v;
-                }
+        if (!is_array($resources)) {
+            return null;
+        }
+        foreach ($resources as $k => $v) {
+            $type = static::prepareDomainType($v['type']);
+            if ($zones[$v['object_id']]) {
+                $resource['zone:.' . $zones[$v['object_id']]][$type] = $v;
+            }
+            if (preg_match('/^premium_dns/', $v['type'])) {
+                $resource['ref:class,feature'][$type] = $v;
             }
         }
 
         return $resource;
+    }
+
+    /**
+     * @param string $type Domain type to refactor
+     * @return string Refactored domain type
+     */
+    private static function prepareDomainType(string $type): string
+    {
+        return reset(array_filter(explode('domain,', $type)));
     }
 
     /**
