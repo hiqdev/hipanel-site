@@ -30,7 +30,7 @@ use yii\helpers\Html;
                 /**
                  * 
                  * @var \hipanel\modules\finance\models\DomainZonePrice[] $prices
-                 * @var \hipanel\modules\finance\models\DomainZonePrice $registration // TODO: it's a Money\Money, not DomainZonePrice!
+                 * @var \hipanel\modules\finance\models\DomainZonePrice $registration
                  * @var \hipanel\modules\finance\models\DomainZonePrice $renewal
                  * @var \hipanel\modules\finance\models\DomainZonePrice $transfer
                  */
