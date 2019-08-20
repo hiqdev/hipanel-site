@@ -43,21 +43,21 @@ use yii\helpers\Html;
                     <td><?= Html::tag('span', '.' . $zone, ['class' => '']) ?></td>
                     <td>
                         <?php if ($registration): ?>
-                            <b><?= ResourcePriceWidget::widget(['price' => $registration]) ?></b> / <?= Yii::t('hipanel:site', 'year') ?>
+                            <b><?= ResourcePriceWidget::widget(['price' => $registration->getMoney()]) ?></b> / <?= Yii::t('hipanel:site', 'year') ?>
                         <?php else: ?>
                             -
                         <?php endif ?>
                     </td>
                     <td>
                         <?php if ($renewal): ?>
-                            <?= ResourcePriceWidget::widget(['price' => $renewal]) ?> / <?= Yii::t('hipanel:site', 'year') ?>
+                            <?= ResourcePriceWidget::widget(['price' => $renewal->getMoney()]) ?> / <?= Yii::t('hipanel:site', 'year') ?>
                         <?php else: ?>
                             -
                         <?php endif ?>
                     </td>
                     <td>
                         <?php if ($transfer): ?>
-                            <b><?= ResourcePriceWidget::widget(['price' => $transfer]) ?></b>
+                            <b><?= ResourcePriceWidget::widget(['price' => $transfer->getMoney()]) ?></b>
                         <?php else: ?>
                             -
                         <?php endif ?>
