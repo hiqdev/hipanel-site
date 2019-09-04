@@ -1,5 +1,8 @@
 <?php
 
+use hiqdev\yii2\modules\pages\components\AdditionalPages;
+use yii\helpers\Html;
+
 $this->title = Yii::t('hisite', 'Terms & Conditions');
 $registrarName = isset(Yii::$app->params['registrar.organization.name']) ? Yii::$app->params['registrar.organization.name'] : 'Danesco Trading, Ltd.';
 $registrarUrl = isset(Yii::$app->params['registrar.organization.url']) ? Yii::$app->params['registrar.organization.url'] : 'www.danesconames.com';
@@ -58,9 +61,12 @@ $(document).on('click', '.social .text-center a', function(e) {
                     <li><a href="#domainRemovalAndAutoRenewalPolicy"
                            data-toggle="tab"><?= Yii::t('hipanel:pages', 'Domain removal and auto renewal Policy') ?></a>
                     </li>
-                    <li><a href="#domainNameRegistrationAgreement"
-                           data-toggle="tab"><?= Yii::t('hipanel:pages', 'Domain Name Registration Agreement') ?></a>
-                    </li>
+
+                    <?php foreach (AdditionalPages::getPages() as $page) : ?>
+                        <li>
+                            <?= Html::a($page->getLabel(), '#' . $page->getId(), ['data' => ['toggle' => 'tab']]) ?>
+                        </li>
+                    <?php endforeach ?>
 
                     <li>
                         <a href="<?= Yii::$app->language === 'ru' ? "https://www.icann.org/resources/pages/benefits-2017-10-27-ru" : "https://www.icann.org/resources/pages/benefits-2013-09-16-en" ?>"
@@ -75,6 +81,7 @@ $(document).on('click', '.social .text-center a', function(e) {
                             <i class="fa fa-external-link-square lightblue"></i><?= Yii::t('hipanel:pages', 'Afilias Domain Anti-Abuse Policy') ?>
                         </a>
                     </li>
+
                 </ul>
 
                 <div class="tab-content">
@@ -103,7 +110,6 @@ $(document).on('click', '.social .text-center a', function(e) {
                         <?= $this->render('_gdpr', compact('registrarName')) ?>
                     </div>
 
-
                     <div class="tab-pane fade" id="cancelationPolicy">
                         <h4><?= Yii::t('hipanel:pages', 'Cancelation & Refunds') ?></h4>
                         <hr class="small"/>
@@ -116,11 +122,14 @@ $(document).on('click', '.social .text-center a', function(e) {
                         <?= $this->render('_removal_and_auto_renewal') ?>
                     </div>
 
-                    <div class="tab-pane fade" id="domainNameRegistrationAgreement">
-                        <h4><?= Yii::t('hipanel:pages', 'Domain Name Registration Agreement') ?></h4>
-                        <hr class="small"/>
-                        <?= $this->render('_registration_agreement', compact('registrarName', 'registrarUrl')) ?>
-                    </div>
+                    <?php foreach (AdditionalPages::getPages() as $page) : ?>
+                        <div class="tab-pane fade" id="<?= $page->getId() ?>">
+                            <h4><?= $page->getLabel() ?></h4>
+                            <hr class="small"/>
+                            <?= $page->render() ?>
+                        </div>
+                    <?php endforeach ?>
+
                 </div>
             </div>
 
