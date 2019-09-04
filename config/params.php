@@ -15,11 +15,4 @@ return [
     'api.demo.url'                => 'https://demo-api.ahnames.com',
     'api.prod.url'                => 'https://api.ahnames.com',
 
-    'module.pages.additional.rules'      => [
-        'Domain Name Registration Agreement' => [
-            'path' => '@hipanel/site/pages/rules/_registration_agreement.php',
-            'dictionary' => 'hipanel:pages',
-            'params' => [],
-        ],
-    ],
 ];

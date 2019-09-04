@@ -181,12 +181,19 @@ return [
     ],
     'container' => [
         'definitions' => [
-            \hiqdev\yii2\modules\pages\components\AdditionalPages::class => array_filter([
-                'params' => [
-                    'registrarName' => $params['organization.name'],
-                    'registrarUrl' => $params['organization.url'],
+            'additional.rules' => [
+                'class' => \hiqdev\yii2\modules\pages\components\AdditionalPages::class,
+                'pages' => [
+                    'Domain Name Registration Agreement' => [
+                        'path' => '@hipanel/site/pages/rules/_registration_agreement.php',
+                        'dictionary' => 'hipanel:pages',
+                        'params' => [
+                            'registrarName' => $params['organization.name'],
+                            'registrarUrl' => $params['organization.url'],
+                        ],
+                    ],
                 ],
-            ]),
+            ],
             \hiqdev\thememanager\menus\AbstractMainMenu::class => [
                 'class' => \hipanel\site\menus\MainMenu::class,
             ],
