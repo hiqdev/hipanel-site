@@ -62,7 +62,7 @@ $(document).on('click', '.social .text-center a', function(e) {
                            data-toggle="tab"><?= Yii::t('hipanel:pages', 'Domain removal and auto renewal Policy') ?></a>
                     </li>
 
-                    <?php foreach (AdditionalPages::getPages() as $page) : ?>
+                    <?php foreach (AdditionalPages::instantiate()->getPages() as $page) : ?>
                         <li>
                             <?= Html::a($page->getLabel(), '#' . $page->getId(), ['data' => ['toggle' => 'tab']]) ?>
                         </li>
@@ -122,7 +122,7 @@ $(document).on('click', '.social .text-center a', function(e) {
                         <?= $this->render('_removal_and_auto_renewal') ?>
                     </div>
 
-                    <?php foreach (AdditionalPages::getPages() as $page) : ?>
+                    <?php foreach (AdditionalPages::instantiate()->getPages() as $page) : ?>
                         <div class="tab-pane fade" id="<?= $page->getId() ?>">
                             <h4><?= $page->getLabel() ?></h4>
                             <hr class="small"/>
