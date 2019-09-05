@@ -10,4 +10,5 @@ return [
     'Domain Name Registration Agreement' => 'Соглашение о регистрации доменных имен',
     'Registrant rights and responsibilities' => 'Права и обязаности регистранта',
     'Afilias Domain Anti-Abuse Policy' => 'Политика по борьбе со злоупотреблением Afilias',
+    '.UA Policy Information' => 'Информация о политике .UA',
 ];
