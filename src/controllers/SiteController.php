@@ -24,6 +24,7 @@ use hipanel\logic\Impersonator;
 use hiqdev\yii2\cart\actions\AddToCartAction;
 use hisite\actions\RedirectAction;
 use hisite\actions\RenderAction;
+use vintage\recaptcha\validators\InvisibleRecaptchaValidator;
 use Yii;
 use yii\helpers\ArrayHelper;
 
@@ -130,15 +131,16 @@ class SiteController extends \hipanel\controllers\SiteController
         $thread = new Thread();
         $thread->scenario = Thread::SCENARIO_SUBMIT;
 
-        if (Yii::$app->request->isPost && $thread->load(Yii::$app->request->post(), '') && $thread->save()) {
-            Yii::$app->session->setFlash('contactFormSubmitted', 1);
-
-            return $this->redirect(['/site/contact', '#' => 'sendstatus']);
+        if (!Yii::$app->request->isPost) {
+            return $this->render('contact', [
+                'thread' => $thread,
+            ]);
         }
-
-        return $this->render('contact', [
-            'thread' => $thread,
-        ]);
+        $validator = new InvisibleRecaptchaValidator(Yii::$app->getRequest()->post());
+        if ($validator->validate() && $thread->load(Yii::$app->request->post(), '') && $thread->save()) {
+            Yii::$app->session->setFlash('contactFormSubmitted', 1);
+        }
+        return $this->redirect(['/site/contact', '#' => 'sendstatus']);
     }
 
     public function actionVds()

@@ -35,6 +35,9 @@ class Thread extends \hipanel\base\Model
             [['anonym_email'], 'email', 'on' => self::SCENARIO_SUBMIT],
             [['subject'], 'string', 'max' => 200, 'on' => self::SCENARIO_SUBMIT],
             [['message'], 'string', 'max' => 3000, 'on' => self::SCENARIO_SUBMIT],
+//            [['captcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator2::class,
+//                'secret' => Yii::$app->params['reCaptcha.secretKey'],
+//                'uncheckedMessage' => Yii::t('hisite', 'Please confirm that you are not a bot.')],
         ], parent::rules());
     }
 

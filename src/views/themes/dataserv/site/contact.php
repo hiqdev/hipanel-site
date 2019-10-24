@@ -4,8 +4,10 @@
 /** @var \hipanel\site\models\Thread $thread */
 /** @var yii\bootstrap\ActiveForm $form */
 
+use himiklab\yii2\recaptcha\ReCaptcha2;
 use hipanel\helpers\Url;
 use hiqdev\thememanager\widgets\FancyPanel;
+use vintage\recaptcha\widgets\InvisibleRecaptcha;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
@@ -95,6 +97,8 @@ $this->registerCss('.help-block { font-size: 12px; }');
                         'options' => [
                             'class' => 'material',
                         ],
+                        'enableAjaxValidation' => false,
+                        'enableClientValidation' => true,
                         'fieldConfig' => [
                             'template' => "{input}\n{hint}\n{error}",
                         ],
@@ -119,6 +123,18 @@ $this->registerCss('.help-block { font-size: 12px; }');
                         'id' => 'message',
                         'placeholder' => $thread->getAttributeLabel('message'),
                     ]) ?>
+                    <?= InvisibleRecaptcha::widget([
+                        'formSelector' => '#submit-ticket',
+                    ]) ?>
+<!--                    --><?//= ReCaptcha2::widget([
+//                        'name' => 'captcha',
+//                        'siteKey' => Yii::$app->params['reCaptcha.siteKey'],
+//                        'widgetOptions' => [
+//                            'class' => 'form-group',
+//                            'data-badge' => 'inline',
+//                            'data-size' => 'invisible',
+//                        ],
+//                    ]) ?>
                     <?= Html::submitButton(Yii::t('hipanel:site:pages', 'Submit'), ['id' => 'submit', 'class' => 'mtr-btn button-fab ripple']) ?>
                     <?php ActiveForm::end() ?>
                 </div>
