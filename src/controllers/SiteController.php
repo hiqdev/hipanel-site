@@ -24,6 +24,7 @@ use hipanel\logic\Impersonator;
 use hiqdev\yii2\cart\actions\AddToCartAction;
 use hisite\actions\RedirectAction;
 use hisite\actions\RenderAction;
+use vintage\recaptcha\helpers\RecaptchaConfig;
 use vintage\recaptcha\validators\InvisibleRecaptchaValidator;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -136,11 +137,19 @@ class SiteController extends \hipanel\controllers\SiteController
                 'thread' => $thread,
             ]);
         }
-        $validator = new InvisibleRecaptchaValidator(Yii::$app->getRequest()->post());
-        if ($validator->validate() && $thread->load(Yii::$app->request->post(), '') && $thread->save()) {
+        if ($this->validateCaptha() && $thread->load(Yii::$app->request->post(), '') && $thread->save()) {
             Yii::$app->session->setFlash('contactFormSubmitted', 1);
         }
         return $this->redirect(['/site/contact', '#' => 'sendstatus']);
+    }
+
+    private function validateCaptha(): bool
+    {
+        if (empty(Yii::$app->params[RecaptchaConfig::SITE_KEY])) {
+            return true;
+        }
+        $validator = new InvisibleRecaptchaValidator(Yii::$app->getRequest()->post());
+        return (bool)$validator->validate();
     }
 
     public function actionVds()

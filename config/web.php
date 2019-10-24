@@ -204,22 +204,6 @@ return [
             \hiqdev\thememanager\menus\AbstractFooterMenu::class => [
                 'class' => \hipanel\site\menus\FooterMenu::class,
             ],
-            \himiklab\yii2\recaptcha\ReCaptcha2::class => function ($container, $params, $config) {
-                return new \himiklab\yii2\recaptcha\ReCaptcha2(
-                    Yii::$app->params['reCaptcha.siteKey'],
-                    '',
-                    $config
-                );
-            },
-            \himiklab\yii2\recaptcha\ReCaptchaValidator2::class => function ($container, $params, $config) {
-                return new \himiklab\yii2\recaptcha\ReCaptchaValidator2(
-                    Yii::$app->params['reCaptcha.secretKey'],
-                    '',
-                    null,
-                    null,
-                    $config
-                );
-            },
         ],
     ],
 ];
