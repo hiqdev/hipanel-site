@@ -97,8 +97,6 @@ $this->registerCss('.help-block { font-size: 12px; }');
                         'options' => [
                             'class' => 'material',
                         ],
-                        'enableAjaxValidation' => false,
-                        'enableClientValidation' => true,
                         'fieldConfig' => [
                             'template' => "{input}\n{hint}\n{error}",
                         ],
