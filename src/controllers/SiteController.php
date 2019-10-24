@@ -135,6 +135,7 @@ class SiteController extends \hipanel\controllers\SiteController
         if (!Yii::$app->request->isPost) {
             return $this->render('contact', [
                 'thread' => $thread,
+                'includeCaptcha' => !empty(Yii::$app->params[RecaptchaConfig::SITE_KEY]),
             ]);
         }
         if ($this->validateCaptha() && $thread->load(Yii::$app->request->post(), '') && $thread->save()) {
