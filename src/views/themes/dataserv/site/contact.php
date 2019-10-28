@@ -7,7 +7,6 @@
 
 use hipanel\helpers\Url;
 use hiqdev\thememanager\widgets\FancyPanel;
-use vintage\recaptcha\helpers\RecaptchaConfig;
 use vintage\recaptcha\widgets\InvisibleRecaptcha;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
