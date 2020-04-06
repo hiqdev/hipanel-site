@@ -36,7 +36,7 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
             'certificate' => [
                 'label' => Yii::t('hipanel:site', 'SSL certificates'),
                 'url' => ['/certificate/certificate-order/index'],
-                'visible' => Yii::getAlias('@certificate', false),
+                'visible' => $this->canBuyCertificates(),
             ],
             'transfer' => [
                 'label' => Yii::t('hipanel:site', 'Transfer'),
@@ -69,11 +69,19 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
         ];
     }
 
-    private function canBuyVds()
+    private function canBuyVds(): bool
     {
         $user = Yii::$app->user;
         $params = Yii::$app->params;
 
         return !empty($params['module.server.order.redirect.url']) && ($user->can('server.pay') || $user->isGuest);
+    }
+
+    private function canBuyCertificates(): bool
+    {
+        $params = Yii::$app->params;
+        $orderAllowed = isset($params['module.certificate.order.allowed']) && $params['module.certificate.order.allowed'] === true;
+
+        return $orderAllowed && Yii::getAlias('@certificate', false);
     }
 }
