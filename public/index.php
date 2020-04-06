@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2018, AHnames (https://ahnames.com/)
  */
 
-use hiqdev\composer\config\Builder;
+use Yiisoft\Composer\Config\Builder;
 use yii\web\Application;
 
 (function () {
