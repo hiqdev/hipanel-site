@@ -150,7 +150,7 @@ class SiteHelper
         }
 
         try {
-            $prices = Calculation::perform('CalcValue', $calculationData, true);
+            $prices = Calculation::perform('calcValue', $calculationData, true);
         } catch (ErrorResponseException $e) {
             $prices = $e->errorInfo['response'];
         } catch (\Exception $e) {

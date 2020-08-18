@@ -170,8 +170,8 @@ class SiteController extends \hipanel\controllers\SiteController
                 ->andFilterWhere(['type' => 'domain'])
                 ->all());
         }, 60);
-        $domainZones = Yii::$app->cache->getOrSet('GetZones', function () {
-            return Domain::batchPerform('GetZones', []);
+        $domainZones = Yii::$app->cache->getOrSet('getZones', function () {
+            return Domain::batchPerform('getZones', []);
         }, 60);
         $domains = SiteHelper::domain($plans['prices'], $domainZones);
 
