@@ -13,6 +13,7 @@ use ahnames\assets\ahnames\AhnamesAsset;
 return [
     'aliases' => [
         '@ticket/create' => '/site/feedback',
+        '@domain/add-to-cart-whois-protect' => '/site/add-to-cart-whois-protect',
     ],
     'controllerNamespace' => \hipanel\site\controllers::class,
     'modules' => [

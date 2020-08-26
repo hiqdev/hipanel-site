@@ -11,6 +11,7 @@
 namespace hipanel\site\controllers;
 
 use hipanel\modules\domain\cart\DomainRegistrationProduct;
+use hipanel\modules\domain\cart\WhoisProtectOrderProduct;
 use hipanel\modules\domain\forms\BulkCheckForm;
 use hipanel\modules\domain\models\Domain;
 use hipanel\modules\domain\repositories\DomainTariffRepository;
@@ -93,6 +94,10 @@ class SiteController extends \hipanel\controllers\SiteController
             'add-to-cart-registration' => [
                 'class' => AddToCartAction::class,
                 'productClass' => DomainRegistrationProduct::class,
+            ],
+            'add-to-cart-whois-protect' => [
+                'class' => AddToCartAction::class,
+                'productClass' => WhoisProtectOrderProduct::class,
             ],
             'add-to-cart' => [
                 'class' => AddToCartAction::class,
