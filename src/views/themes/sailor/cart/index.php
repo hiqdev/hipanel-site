@@ -8,7 +8,6 @@ use yii\helpers\Html;
 $this->title = Yii::t('cart', 'Checkout');
 $this->params['breadcrumbs'][] = $this->title;
 $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter->asDate(new DateTime());
-\hiqdev\assets\icheck\iCheckAsset::register($this);
 $this->registerCss('
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     vertical-align: middle;
@@ -128,20 +127,20 @@ $this->registerCss('
         </div>
         <div class="col-xs-8"><span class="pull-right">
             <?php if ($module->termsPage) : ?>
-                <?php $this->registerJs("
-                    var element = $('input');
-                    element.iCheck({
-                        checkboxClass: 'icheckbox_minimal-blue',
-                        radioClass: 'iradio_minimal'
-                    }).on('ifChecked', function() {
-                        jQuery('#make-order-button').removeClass('disabled');
-                    }).on('ifUnchecked', function() {
-                        jQuery('#make-order-button').addClass('disabled');
+                <?php $this->registerJs(<<<JS
+                    var termsCheckbox = document.getElementById('term-of-use');
+                    termsCheckbox.addEventListener('change', event => {
+                      const orderButton = document.getElementById('make-order-button');
+                      if (event.target.checked === true) {
+                          orderButton.classList.remove('disabled');
+                      } else {
+                          orderButton.classList.add('disabled');
+                      }
                     });
-                    element.iCheck('uncheck');
-                "); ?>
+JS
+                ); ?>
                 <label>
-                    <input type="checkbox" id="term-of-use">
+                    <?= Html::checkbox('term_of_use', false, ['id' => 'term-of-use']) ?>
                     &nbsp;<?= Yii::t('cart', 'I have read and agree to the') ?> <?= Html::a(Yii::t('cart', 'terms of use'), $module->termsPage) ?>
                 </label> &nbsp; &nbsp;
             <?php endif ?>

@@ -10,9 +10,32 @@ $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter
 
 /** @var \yii\data\ActiveDataProvider $dataProvider */
 /** @var \hiqdev\yii2\cart\ShoppingCart $cart */
+
+$this->registerCss(/** @lang CSS */ "
+.invoice-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+}
+.invoice-overlay > .fa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    color: #000;
+    font-size: 30px;
+}
+");
 ?>
 
 <section class="invoice" style="padding-top: 50px;">
+    <div class="invoice-overlay" style="display: none"><i class="fa fa-refresh fa-spin"></i></div>
     <!-- Table row ---->
     <div class="row md-pt-50">
         <div class="col-xs-12 table-responsive">
@@ -121,20 +144,20 @@ $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter
         </div>
         <div class="col-xs-8"><span class="pull-right">
             <?php if ($module->termsPage) : ?>
-                <?php $this->registerJs("
-                    var element = $('input');
-                    element.iCheck({
-                        checkboxClass: 'icheckbox_minimal-blue',
-                        radioClass: 'iradio_minimal'
-                    }).on('ifChecked', function() {
-                        jQuery('#make-order-button').removeClass('disabled');
-                    }).on('ifUnchecked', function() {
-                        jQuery('#make-order-button').addClass('disabled');
+                <?php $this->registerJs(<<<JS
+                    const termsCheckbox = document.getElementById('term-of-use');
+                    termsCheckbox.addEventListener('change', event => {
+                      const orderButton = document.getElementById('make-order-button');
+                      if (event.target.checked === true) {
+                          orderButton.classList.remove('disabled');
+                      } else {
+                          orderButton.classList.add('disabled');
+                      }
                     });
-                    element.iCheck('uncheck');
-                "); ?>
+JS
+); ?>
                 <label>
-                    <input type="checkbox" id="term-of-use">
+                    <?= Html::checkbox('term_of_use', false, ['id' => 'term-of-use']) ?>
                     &nbsp;<?= Yii::t('cart', 'I have read and agree to the') ?> <?= Html::a(Yii::t('cart', 'terms of use'), $module->termsPage) ?>
                 </label> &nbsp; &nbsp;
             <?php endif ?>
