@@ -1,5 +1,6 @@
 <?php
 
+use hiqdev\yii2\cart\grid\PriceColumn;
 use hiqdev\yii2\cart\widgets\QuantityCell;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
@@ -62,13 +63,8 @@ $this->registerCss('
                         'format' => 'raw',
                     ],
                     [
-                        'attribute' => 'price',
-                        'label' => Yii::t('cart', 'Price'),
-                        'contentOptions' => ['style' => 'vertical-align: middle;white-space: nowrap;'],
-                        'value' => function ($model) use ($cart) {
-                            return $cart->formatCurrency($model->cost);
-                        },
-                        'format' => 'raw',
+                        'class' => PriceColumn::class,
+                        'cart' => $cart,
                     ],
                     'actions' => [
                         'class' => ActionColumn::className(),

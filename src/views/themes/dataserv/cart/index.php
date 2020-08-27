@@ -1,6 +1,10 @@
 <?php
 
+use hiqdev\yii2\cart\CartPositionInterface;
+use hiqdev\yii2\cart\grid\PriceColumn;
+use hiqdev\yii2\cart\ShoppingCart;
 use hiqdev\yii2\cart\widgets\QuantityCell;
+use yii\data\ActiveDataProvider;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\helpers\Html;
@@ -8,8 +12,8 @@ use yii\helpers\Html;
 $this->title = Yii::t('cart', 'Checkout');
 $this->blocks['subTitle'] = Yii::t('cart', 'Date') . ': ' . Yii::$app->formatter->asDate(new DateTime());
 
-/** @var \yii\data\ActiveDataProvider $dataProvider */
-/** @var \hiqdev\yii2\cart\ShoppingCart $cart */
+/** @var ActiveDataProvider $dataProvider */
+/** @var ShoppingCart $cart */
 
 $this->registerCss(/** @lang CSS */ "
 .invoice-overlay {
@@ -73,19 +77,15 @@ $this->registerCss(/** @lang CSS */ "
                     [
                         'attribute' => 'quantity',
                         'label' => Yii::t('cart', 'Quantity'),
-                        'value' => function ($model, $key, $index, $column) {
-                            return QuantityCell::widget(['model' => $model]); //, 'type' => 'number'
+                        'contentOptions' => ['style' => 'vertical-align: middle;white-space: nowrap;'],
+                        'value' => static function ($model) {
+                            return QuantityCell::widget(['model' => $model]);
                         },
                         'format' => 'raw',
                     ],
                     [
-                        'attribute' => 'price',
-                        'label' => Yii::t('cart', 'Price'),
-                        'contentOptions' => ['style' => 'vertical-align: middle;white-space: nowrap;'],
-                        'value' => function ($model) use ($cart) {
-                            return $cart->formatCurrency($model->cost);
-                        },
-                        'format' => 'raw',
+                        'class' => PriceColumn::class,
+                        'cart' => $cart,
                     ],
                     'actions' => [
                         'class' => ActionColumn::className(),
