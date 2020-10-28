@@ -143,13 +143,13 @@ class SiteController extends \hipanel\controllers\SiteController
                 'includeCaptcha' => !empty(Yii::$app->params[RecaptchaConfig::SITE_KEY]),
             ]);
         }
-        if ($this->validateCaptha() && $thread->load(Yii::$app->request->post(), '') && $thread->save()) {
+        if ($this->validateCaptcha() && $thread->load(Yii::$app->request->post(), '') && $thread->save()) {
             Yii::$app->session->setFlash('contactFormSubmitted', 1);
         }
         return $this->redirect(['/site/contact', '#' => 'sendstatus']);
     }
 
-    private function validateCaptha(): bool
+    private function validateCaptcha(): bool
     {
         if (empty(Yii::$app->params[RecaptchaConfig::SITE_KEY])) {
             return true;
