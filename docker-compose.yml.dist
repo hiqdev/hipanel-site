@@ -24,7 +24,10 @@ services:
       - ./:/app
       - ./.docker/php/var/log/php:/var/log/php
     networks:
-      - local-network
+      local-network:
+        aliases:
+          - local-php-fpm
+      hiapi-network:
     extra_hosts:
       - "${API_HOSTS_LINE}"
     environment:
@@ -36,4 +39,7 @@ networks:
   proxy-network:
     external:
       name: "nginx-proxy-network-${REAL_IP}"
+  hiapi-network:
+    external:
+      name: "${HIAPI_SITE}"
 
