@@ -32,6 +32,14 @@ return [
 
             ],
         ],
+        'articles' => [
+            'class' => \hiqdev\yii2\modules\pages\Module::class,
+            'pageSize' => 5,
+            'storage' => [
+                'class' => \hiqdev\yii2\modules\pages\storage\WordPressApi::class,
+                'url' => $params['wp.url'],
+            ],
+        ],
         'merchant' => [
             'finishPage' => '/finance/cart/finish',
         ],

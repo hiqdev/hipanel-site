@@ -23,8 +23,10 @@ services:
       - ./:/app
       - ./.docker/php/var/log/php:/var/log/php
     networks:
-      - local-network
-      - hiapi-network
+      local-network:
+        aliases:
+          - local-php-fpm
+      hiapi-network:
     environment:
       - "ENV=${ENV}"
       - "PHP_IDE_CONFIG=serverName=${HOSTS}"
