@@ -7,6 +7,7 @@ use yii\helpers\Html;
 
 $model->setMetaData();
 $this->title = 'Articles';
+$params = Yii::$app->params;
 
 ?>
 <article>
@@ -14,8 +15,8 @@ $this->title = 'Articles';
         <h2><?= Html::a($model->title, $model->getUrl()) ?></h2>
         <div class="themeta">
             POSTED BY
-            <a href="#" title="Posts by Ocean Themes" rel="author">
-                HiQDev
+            <a href="#" title="" rel="author">
+                <?= Yii::$app->params['organization.name'] ?>
             </a>
             ON March <?= mt_rand(1, 31) ?> 2021,<a href=""> 0 COMMENTS</a>
         </div>
