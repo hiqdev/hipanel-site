@@ -58,10 +58,6 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
                 'label' => Yii::t('hipanel:site', 'API'),
                 'url' => ['/pages/api/index'],
             ],
-            'articles' => [
-                'label' => Yii::t('hipanel:site', 'Articles'),
-                'url' => ['/articles'],
-            ],
             [
                 'label' => CartTeaser::widget(),
                 'encode' => false,
