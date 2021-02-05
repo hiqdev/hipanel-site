@@ -12,6 +12,6 @@ return [
     'hipanel.notPanel'            => true,
     'hipanel.site.defaultTheme'   => 'dataserv',
 
-    'api.demo.url'                => 'https://demo-api.hiqedv.com',
+    'api.demo.url'                => 'https://demo-api.hiqdev.com',
     'api.prod.url'                => 'https://api.hiqdev.com',
 ];
