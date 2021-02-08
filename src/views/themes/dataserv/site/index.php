@@ -1,6 +1,7 @@
 <?php
 
 use hipanel\modules\finance\widgets\AvailableMerchants;
+use hipanel\site\widgets\ArticlesSection;
 use hipanel\site\widgets\DomainPriceTable;
 use yii\helpers\Html;
 
@@ -34,6 +35,8 @@ $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registrati
         </div>
     </div>
 </div>
+
+<?= ArticlesSection::widget() ?>
 
 <div class="domain-features-text">
     <div class="row">
