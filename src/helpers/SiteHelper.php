@@ -10,8 +10,8 @@
 
 namespace hipanel\site\helpers;
 
+use hipanel\helpers\SellerHelper;
 use Yii;
-use yii\base\InvalidConfigException;
 
 class SiteHelper
 {
@@ -21,17 +21,7 @@ class SiteHelper
      */
     public static function getSeller()
     {
-        if (Yii::$app->user->isGuest) {
-            if (isset(Yii::$app->params['user.seller'])) {
-                $seller = Yii::$app->params['user.seller'];
-            } else {
-                throw new InvalidConfigException('"seller" param must be set');
-            }
-        } else {
-            $seller = Yii::$app->user->identity->seller;
-        }
-
-        return $seller;
+        return SellerHelper::get();
     }
 
     /**
@@ -46,7 +36,7 @@ class SiteHelper
         }
         foreach ($resources as $k => $v) {
             $type = static::prepareDomainType($v['type']);
-            if ($zones[$v['object_id']]) {
+            if (!empty($zones[$v['object_id']])) {
                 $resource['zone:.' . $zones[$v['object_id']]][$type] = $v;
             }
             if (preg_match('/^premium_dns/', $v['type'])) {
@@ -63,7 +53,19 @@ class SiteHelper
      */
     private static function prepareDomainType(string $type): string
     {
-        return reset(array_filter(explode('domain,', $type)));
+        if (strpos($type, 'domain,') === false) {
+            return '';
+        }
+
+        $types = explode('domain,', $type);
+
+        $types = array_filter($types);
+
+        if (empty($types)) {
+            return '';
+        }
+
+        return reset($types);
     }
 
     /**
@@ -118,12 +120,12 @@ class SiteHelper
         /** @var Calculation[] $calculations */
         $calculations = [];
 
-        $cacheKeys = [
-            Yii::$app->params['user.seller'],
-            Yii::$app->user->id,
+        $cacheKeys = array_filter([
+            self::getSeller(),
+            Yii::$app->user->isGuest ? null : Yii::$app->user->id,
             $type,
             $tariff_id,
-        ];
+        ]);
 
         /** @var Tariff[] $tariffs */
         $tariffs = Yii::$app->getCache()->getTimeCached(3600, $cacheKeys, function ($seller, $client_id, $type, $tariff_id) {

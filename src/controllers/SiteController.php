@@ -168,12 +168,13 @@ class SiteController extends \hipanel\controllers\SiteController
         $seller = SiteHelper::getSeller();
         /** @var Plan $plan */
         $plans = Yii::$app->cache->getOrSet('PlansGetAvailable' . $seller, function () use ($seller) {
-            return array_shift(Plan::find()
+            $plans = Plan::find()
                 ->action('get-available-info')
                 ->joinWithPrices()
                 ->where(['seller' => $seller])
                 ->andFilterWhere(['type' => 'domain'])
-                ->all());
+                ->all();
+            return array_shift($plans);
         }, 60);
         $domainZones = Yii::$app->cache->getOrSet('getZones', function () {
             return Domain::batchPerform('getZones', []);

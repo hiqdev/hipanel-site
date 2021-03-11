@@ -24,7 +24,7 @@ class NavbarMenu extends \hiqdev\yii2\menus\Menu
     {
         return [
             [
-                'label' => '<i class="fa fa-user"></i>&nbsp;' . Yii::$app->user->identity->username,
+                'label' => '<i class="fa fa-user"></i>&nbsp;' . (Yii::$app->user->isGuest ? '' : Yii::$app->user->identity->username),
                 'encode' => false,
                 'visible' => !Yii::$app->user->isGuest,
             ],
