@@ -10,7 +10,7 @@
 
 namespace hipanel\site\helpers;
 
-use hipanel\helpers\SellerHelper;
+use hipanel\helpers\UserHelper;
 use Yii;
 
 class SiteHelper
@@ -19,9 +19,9 @@ class SiteHelper
      * @throws InvalidConfigException
      * @return mixed
      */
-    public static function getSeller()
+    public static function getSeller(): string
     {
-        return SellerHelper::get();
+        return UserHelper::getSeller();
     }
 
     /**
@@ -58,9 +58,7 @@ class SiteHelper
         }
 
         $types = explode('domain,', $type);
-
         $types = array_filter($types);
-
         if (empty($types)) {
             return '';
         }
