@@ -62,8 +62,7 @@
         "hiqdev/hipanel-module-finance": "dev-master",
         "hiqdev/hipanel-module-server": "dev-master",
         "hiqdev/yii2-asset-icheck": "~1.0.2.5",
-        "vintage/yii2-invisible-recaptcha": "dev-master",
-        "hiqdev/hipanel-faq": "dev-master"
+        "vintage/yii2-invisible-recaptcha": "dev-master"
     },
     "require-dev": {
         "hiqdev/hidev-php": "dev-master",
