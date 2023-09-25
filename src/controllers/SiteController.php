@@ -149,13 +149,13 @@ class SiteController extends \hipanel\controllers\SiteController
         return $this->redirect(['/site/contact', '#' => 'sendstatus']);
     }
 
-    private function validateCaptcha(): bool
+    protected function validateCaptcha(): bool
     {
         if (empty(Yii::$app->params[RecaptchaConfig::SITE_KEY])) {
             return true;
         }
-        $validator = new InvisibleRecaptchaValidator(Yii::$app->getRequest()->post());
-        return (bool)$validator->validate();
+
+        return (new InvisibleRecaptchaValidator(Yii::$app->getRequest()->post()))->validate();
     }
 
     public function actionVds()
