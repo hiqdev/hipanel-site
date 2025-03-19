@@ -9,7 +9,7 @@
 <ul>
     <li>API доступен по HTTPS;</li>
     <li>доступна рабочая версии API по адресу <b><?= Yii::$app->params['api.prod.url'] ?></b></li>
-    <li>запросы шлются по адресу <b>https://hiapi.ahnames.com/apiCommand</b>. Данные запроса передаются с помощью GET
+    <li>запросы шлются по адресу <b><?= Yii::$app->params['api.prod.url'] ?>/apiCommand</b>. Данные запроса передаются с помощью GET
         или POST переменных;
     </li>
     <li>для авторизация используются перменные auth_login и auth_password;</li>
