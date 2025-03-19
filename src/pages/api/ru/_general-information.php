@@ -8,10 +8,10 @@
 </div>
 <ul>
     <li>API доступен по HTTPS;</li>
-    <li>доступны тестовая и рабочая версии API по адресам <b>https://demo-api.ahnames.com</b> и <b>https://api.ahnames.com</b>
+    <li>доступны тестовая и рабочая версии API по адресам <b>https://hiapi.ahnames.com</b> и <b>https://hiapi.ahnames.com</b>
         соответственно;
     </li>
-    <li>запросы шлются по адресу <b>https://api.ahnames.com/apiCommand</b>. Данные запроса передаются с помощью GET
+    <li>запросы шлются по адресу <b>https://hiapi.ahnames.com/apiCommand</b>. Данные запроса передаются с помощью GET
         или POST переменных;
     </li>
     <li>для авторизация используются перменные auth_login и auth_password;</li>
@@ -26,5 +26,5 @@
     </li>
 </ul>
 <b>Пример:</b><br>
-<pre>https://demo-api.ahnames.com/domainsCheck?auth_login=demo&amp;auth_password=demo&amp;domains=test.com,adfwer234asdf.net</pre>
+<pre>https://hiapi.ahnames.com/domainsCheck?auth_login=demo&amp;auth_password=demo&amp;domains=test.com,adfwer234asdf.net</pre>
 <p>Пример полностью рабочий, можно скопировать URL в браузер и поиграться, посмотреть вывод ошибок.</p>
