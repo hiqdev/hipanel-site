@@ -8,8 +8,20 @@
  * @copyright Copyright (c) 2018, AHnames (https://ahnames.com/)
  */
 
-require __DIR__ . '/../config/bootstrap.php';
+use Yiisoft\Composer\Config\Builder;
+use yii\web\Application;
 
-$config = require \hiqdev\composer\config\Builder::path('web');
+(function () {
+    require __DIR__ . '/../config/bootstrap.php';
 
-(new \yii\web\Application($config))->run();
+    $host = $_SERVER['HTTP_HOST'];
+    $type = (defined('HISITE_TEST') && HISITE_TEST) ? 'web-test' : 'web';
+    $path = Builder::path($host . '/' . $type);
+    if (!file_exists($path)) {
+        $path = Builder::path($type);
+    }
+
+    $config = require $path;
+
+    (new Application($config))->run();
+})();

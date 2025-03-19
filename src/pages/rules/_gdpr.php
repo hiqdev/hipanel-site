@@ -138,7 +138,7 @@ use yii\helpers\Html;
 <h5>Are You required to sign the DPA?</h5>
 
 <p>
-    In order to use Our products and services, you need to accept Our DPA, which We have provided a link to on Our website: <?= Yii::$app->params['organization.name'] ?>. By agreeing to Our Terms of Service Agreement, you are automatically accepting Our DPA and do not need to sign a separate document.
+    In order to use Our products and services, you need to accept Our DPA, which We have provided a link to on Our website: <?= $registrarName ?>. By agreeing to Our Terms of Service Agreement, you are automatically accepting Our DPA and do not need to sign a separate document.
 </p>
 
 

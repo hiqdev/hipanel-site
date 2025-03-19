@@ -22,7 +22,7 @@ class DomainSearchForm extends Widget
 
     public function run()
     {
-        return $this->render((new\ReflectionClass($this))->getShortName(), [
+        return $this->render((new \ReflectionClass($this))->getShortName(), [
             'model' => $this->model,
             'template' => $this->template,
             'zones' => $this->zones,

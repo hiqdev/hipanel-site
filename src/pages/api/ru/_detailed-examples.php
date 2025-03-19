@@ -113,11 +113,11 @@
 <h4>2.1. domainsCheck</h4>
 <p>Единственный аргумент этой команды - "domains" - список доменнов через запятую для проверки их доступности для
     регистрации.<br>* - "звёздочка", значит что аргумент обязательный, если он не передан будет ошибка.</p>
-<pre>https://hiapi.ahnames.com/domainsCheck?auth_login=demo&amp;auth_password=demo&amp;domains=test.com,adfwer234asdf.net</pre>
+<pre><?= Yii::$app->params['api.prod.url'] ?>/domainsCheck?auth_login=demo&amp;auth_password=demo&amp;domains=test.com,adfwer234asdf.net</pre>
 
 <h4>2.2. domainRegister</h4>
 <p>Обязательно указывать только имя домена, для остальных параметров предусмотрены дефолты.</p>
-<pre>https://hiapi.ahnames.com/domainRegister?auth_login=demo&amp;auth_password=demo&amp;domain=test42345.com</pre>
+<pre><?= Yii::$app->params['api.prod.url'] ?>/domainRegister?auth_login=demo&amp;auth_password=demo&amp;domain=test42345.com</pre>
 
 <h4>2.3. domainsRegister</h4>
 <p>Пример bulk-операции - одновременно над несколькими объектами. В описании аргументов используется слово "массив" -
@@ -125,27 +125,28 @@
     операции, в данном случае domainRegister.</p>
 <p><b>по независящим от нас обстоятельствам иногда выполнение операции может занимать до 10 минут. поэтому ставьте
         таймаут ожидания ответа от апи - 10 минут.</b></p>
-<pre>https://hiapi.ahnames.com/domainsRegister?auth_login=demo&amp;auth_password=demo&amp;0[domain]=test42345.com&amp;1[domain]=test123123.net</pre>
+
+<pre><?= Yii::$app->params['api.prod.url'] ?>/domainsRegister?auth_login=demo&amp;auth_password=demo&amp;0[domain]=test42345.com&amp;1[domain]=test123123.net</pre>
 
 <h4>2.4. domainGetInfo</h4>
 <p>Всё просто - надо передать имя или ID домена. Возвращает массив данных о домене.</p>
-<pre>https://hiapi.ahnames.com/domainGetInfo?auth_login=demo&amp;auth_password=demo&amp;domain=test42345.com</pre>
+<pre><?= Yii::$app->params['api.prod.url'] ?>/domainGetInfo?auth_login=demo&amp;auth_password=demo&amp;domain=test42345.com</pre>
 
 <h4>2.5. domainsGetInfo</h4>
 <p>Bulk-операция - одновременно над несколькими объектами.</p>
-<pre>https://hiapi.ahnames.com/domainsGetInfo?auth_login=demo&amp;auth_password=demo&amp;0[domain]=test42345.com&amp;1[domain]=test.com</pre>
+<pre><?= Yii::$app->params['api.prod.url'] ?>/domainsGetInfo?auth_login=demo&amp;auth_password=demo&amp;0[domain]=test42345.com&amp;1[domain]=test.com</pre>
 
 <h4>2.6. domainSetNote</h4>
 <p>Пустой или не преданный "note" - удаляет примечание.</p>
-<pre>https://hiapi.ahnames.com/domainSetNote?auth_login=demo&amp;auth_password=demo&amp;domain=test.com&amp;note=abc</pre>
+<pre><?= Yii::$app->params['api.prod.url'] ?>/domainSetNote?auth_login=demo&amp;auth_password=demo&amp;domain=test.com&amp;note=abc</pre>
 
 <h4>2.7. domainsSetNote</h4>
-<pre>https://hiapi.ahnames.com/domainsSetNote?auth_login=demo&amp;auth_password=demo&amp;0[domain]=test.com&amp;0[note]=abc&amp;1[domain]=test3.com&amp;1[note]=def</pre>
+<pre><?= Yii::$app->params['api.prod.url'] ?>/domainsSetNote?auth_login=demo&amp;auth_password=demo&amp;0[domain]=test.com&amp;0[note]=abc&amp;1[domain]=test3.com&amp;1[note]=def</pre>
 
 <h4>2.8. domainsSetDNS</h4>
-<pre>https://hiapi.ahnames.com/domainsSetDNS?auth_login=demo&amp;auth_password=demo&amp;5504202[1][type]=a&amp;5504202[1][value]=123.123.123.123&amp;5504202[1][no]=1&amp;5504202[1][ttl]=7200&amp;5504202[1][status]=new</pre>
+<pre><?= Yii::$app->params['api.prod.url'] ?>/domainsSetDNS?auth_login=demo&amp;auth_password=demo&amp;5504202[1][type]=a&amp;5504202[1][value]=123.123.123.123&amp;5504202[1][no]=1&amp;5504202[1][ttl]=7200&amp;5504202[1][status]=new</pre>
 
 <h4>2.9. serverBuy</h4>
-<pre>https://hiapi.ahnames.com/serverBuy?auth_login=demo&amp;auth_password=demo&amp;tariff=XENSSD%20VDS%204%20100+&amp;os=centos&amp;panel=isp&amp;cluster_id=1&amp;social=test&amp;purpose=test&amp;callback_url=http:\/\/my.domain.com\/page\/for\/callback</pre>
+<pre><?= Yii::$app->params['api.prod.url'] ?>/serverBuy?auth_login=demo&amp;auth_password=demo&amp;tariff=XENSSD%20VDS%204%20100+&amp;os=centos&amp;panel=isp&amp;cluster_id=1&amp;social=test&amp;purpose=test&amp;callback_url=http:\/\/my.domain.com\/page\/for\/callback</pre>
 
 
