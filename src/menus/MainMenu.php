@@ -22,26 +22,33 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
 
     public function items()
     {
+        $user = Yii::$app->user;
+        $language = Yii::$app->language ?? 'en';
 
         return [
             'domains' => [
                 'label' => Yii::t('hipanel:site', 'Domains'),
                 'url' => ['/site/index'],
             ],
-            'vds' => [
-                'label' => Yii::t('hipanel:site', 'VDS'),
-                'url' => ['/site/vds'],
-                'visible' => $this->canBuyVds(),
+            'cloud_servers' => [
+                'label' => Yii::t('hipanel:site', 'Cloud servers'),
+                'url' => "https://advancedhosting.com/{$language}/cloud-servers?refid=ahmenen",
+            ],
+            'cdn' => [
+                'label' => Yii::t('hipanel:site', 'CDN'),
+                'url' => "https://advancedhosting.com/{$language}/static-cdn/?refid=ahmenen",
             ],
             'certificate' => [
                 'label' => Yii::t('hipanel:site', 'SSL certificates'),
                 'url' => ['/certificate/certificate-order/index'],
                 'visible' => $this->canBuyCertificates(),
             ],
+            /***
             'transfer' => [
                 'label' => Yii::t('hipanel:site', 'Transfer'),
                 'url' => ['/domain/transfer/index'],
             ],
+            ***/
             'dns' => [
                 'label' => Yii::t('hipanel:site', 'DNS'),
                 'url' => ['/site/dns'],
