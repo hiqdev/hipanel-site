@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Rules' => 'Правила',
     'Terms of use' => 'Правила предоставления услуг',
     'Privacy Policy' => 'Политика конфиденциальности',
     'VPS terms of use' => 'Правила использования VDS',
@@ -11,4 +12,5 @@ return [
     'Registrant rights and responsibilities' => 'Права и обязаности регистранта',
     'Afilias Domain Anti-Abuse Policy' => 'Политика по борьбе со злоупотреблением Afilias',
     '.UA Policy Information' => 'Информация о политике .UA',
+    'Security and Abuse Policy' => 'Политика в области безопасности и противоправных действий',
 ];

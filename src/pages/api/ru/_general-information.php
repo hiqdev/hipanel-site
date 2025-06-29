@@ -8,10 +8,10 @@
 </div>
 <ul>
     <li>API доступен по HTTPS;</li>
-    <li>доступны тестовая и рабочая версии API по адресам <b><?= Yii::$app->params['api.demo.url'] ?></b> и <b>https://api.ahnames.com</b>
+    <li>доступны тестовая и рабочая версии API по адресам <b><?= Yii::$app->params['api.demo.url'] ?></b> и <b><?= Yii::$app->params['api.prod.url'] ?></b>
         соответственно;
     </li>
-    <li>запросы шлются по адресу <b>https://api.ahnames.com/apiCommand</b>. Данные запроса передаются с помощью GET
+    <li>запросы шлются по адресу <b><?= Yii::$app->params['api.prod.url'] ?>/apiCommand</b>. Данные запроса передаются с помощью GET
         или POST переменных;
     </li>
     <li>для авторизация используются перменные auth_login и auth_password;</li>

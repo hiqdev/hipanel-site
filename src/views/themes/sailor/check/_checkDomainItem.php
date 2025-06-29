@@ -31,19 +31,22 @@ $canBuyDomain = Yii::$app->user->isGuest || Yii::$app->user->can('domain.pay');
                 <?php endif; ?>
                 &nbsp;&nbsp;
                 <?php if ($model->isAvailable) : ?>
-                    <span class="domain-name"><?= $model->getDomain() ?></span><span
+                    <span class="domain-name"><?= $model->getDomainIDN() ?></span><span
                             class="domain-zone">.<?= $model->getZone() ?></span>
                 <?php else : ?>
-                    <span class="domain-name muted"><?= $model->getDomain() ?></span><span
+                    <span class="domain-name muted"><?= $model->getDomainIDN() ?></span><span
                             class="domain-zone muted">.<?= $model->getZone() ?></span>
                 <?php endif; ?>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-6">
                 <span class="domain-price">
-                    <?php if ($model->isAvailable) : ?>
+                    <?php if ($model->isAvailable && $model->isPremium === false) : ?>
                         <b><?= Yii::$app->formatter->format($model->resource->price, ['currency', $model->resource->currency]) ?></b>
                         <span class="domain-price-year">/ <?= Yii::t('hipanel:domain', 'year') ?></span>
-
+                    <?php elseif($model->isAvailable === true && $model->isPremium === true) : ?>
+                        <span class="domain-taken">
+                            <?= Yii::t('hipanel:domain', 'Domain is Premium') ?>. <?= Yii::t('hipanel:domain', 'Please ask real price') ?>
+                        </span>
                     <?php elseif ($model->isAvailable === false) : ?>
                         <span class="domain-taken">
                             <?= Yii::t('hipanel:domain', 'Domain is not available') ?>
@@ -52,7 +55,7 @@ $canBuyDomain = Yii::$app->user->isGuest || Yii::$app->user->can('domain.pay');
                 </span>
             </div>
             <div class="col-md-3 col-sm-12 col-xs-12 action-button">
-                <?php if ($model->isAvailable && $canBuyDomain) : ?>
+                <?php if ($model->isAvailable && $canBuyDomain && !$model->isPremium) : ?>
                     <?= Html::a('<i class="fa fa-cart-plus fa-lg"></i>&nbsp; ' . Yii::t('hipanel:domain', 'Add to cart'), ['add-to-cart-registration', 'name' => $model->fqdn], [
                         'data-pjax' => 0,
                         'class' => 'btn btn-theme add-to-cart-button',
@@ -60,6 +63,13 @@ $canBuyDomain = Yii::$app->user->isGuest || Yii::$app->user->can('domain.pay');
                         'data-complete-text' => '<i class="fa fa-check fa-lg"></i>&nbsp;&nbsp;' . Yii::t('hipanel:domain', 'In cart'),
                         'data-domain-url' => Url::to([$addToCartPath, 'name' => $model->fqdn]),
                         'data-topcart' => Url::toRoute([$topcartUrl]),
+                    ]) ?>
+                <?php elseif ($model->isPremium && $canBuyDomain) : ?>
+                    <?= Html::a('<i class="fa fa-search"></i>&nbsp; ' . Yii::t('hipanel:domain', 'Create ticket'), [
+                        '@ticket/create', 'subject' => $model->fqdn,
+                    ], [
+                        'target' => '_blank',
+                        'class' => 'btn btn-default btn-flat',
                     ]) ?>
                 <?php elseif ($model->isAvailable === false) : ?>
                     <?= Html::a('<i class="fa fa-search"></i>&nbsp; ' . Yii::t('hipanel:domain', 'WHOIS'),
