@@ -11,9 +11,11 @@
 namespace hipanel\site\controllers;
 
 use hipanel\modules\domain\cart\DomainRegistrationProduct;
+use hipanel\modules\domain\cart\WhoisProtectOrderProduct;
 use hipanel\modules\domain\forms\BulkCheckForm;
 use hipanel\modules\domain\models\Domain;
 use hipanel\modules\domain\repositories\DomainTariffRepository;
+use hipanel\modules\finance\models\Plan;
 use hipanel\modules\finance\models\Tariff;
 use hipanel\modules\server\cart\ServerOrderProduct;
 use hipanel\modules\server\helpers\ServerHelper;
@@ -23,6 +25,8 @@ use hipanel\logic\Impersonator;
 use hiqdev\yii2\cart\actions\AddToCartAction;
 use hisite\actions\RedirectAction;
 use hisite\actions\RenderAction;
+use vintage\recaptcha\helpers\RecaptchaConfig;
+use vintage\recaptcha\validators\InvisibleRecaptchaValidator;
 use Yii;
 use yii\helpers\ArrayHelper;
 
@@ -91,6 +95,10 @@ class SiteController extends \hipanel\controllers\SiteController
                 'class' => AddToCartAction::class,
                 'productClass' => DomainRegistrationProduct::class,
             ],
+            'add-to-cart-whois-protect' => [
+                'class' => AddToCartAction::class,
+                'productClass' => WhoisProtectOrderProduct::class,
+            ],
             'add-to-cart' => [
                 'class' => AddToCartAction::class,
                 'redirectToCart' => true,
@@ -129,15 +137,25 @@ class SiteController extends \hipanel\controllers\SiteController
         $thread = new Thread();
         $thread->scenario = Thread::SCENARIO_SUBMIT;
 
-        if (Yii::$app->request->isPost && $thread->load(Yii::$app->request->post(), '')) { //  && $thread->save()
+        if (!Yii::$app->request->isPost) {
+            return $this->render('contact', [
+                'thread' => $thread,
+                'includeCaptcha' => !empty(Yii::$app->params[RecaptchaConfig::SITE_KEY]),
+            ]);
+        }
+        if ($this->validateCaptcha() && $thread->load(Yii::$app->request->post(), '') && $thread->save()) {
             Yii::$app->session->setFlash('contactFormSubmitted', 1);
+        }
+        return $this->redirect(['/site/contact', '#' => 'sendstatus']);
+    }
 
-            return $this->redirect(['/site/contact', '#' => 'sendstatus']);
+    protected function validateCaptcha(): bool
+    {
+        if (empty(Yii::$app->params[RecaptchaConfig::SITE_KEY])) {
+            return true;
         }
 
-        return $this->render('contact', [
-            'thread' => $thread,
-        ]);
+        return (new InvisibleRecaptchaValidator(Yii::$app->getRequest()->post()))->validate();
     }
 
     public function actionVds()
@@ -147,42 +165,49 @@ class SiteController extends \hipanel\controllers\SiteController
 
     protected function getDomainPriceTableData()
     {
-        $domains = Yii::$app->cache->getOrSet('GetAvailableInfo', function () {
-            return array_shift(Tariff::batchPerform('GetAvailableInfo', [
-                'seller' => SiteHelper::getSeller(),
-                'type' => 'domain',
-            ]));
+        $seller = SiteHelper::getSeller();
+        /** @var Plan $plan */
+        $plans = Yii::$app->cache->getOrSet('PlansGetAvailable' . $seller, function () use ($seller) {
+            $plans = Plan::find()
+                ->action('get-available-info')
+                ->joinWithPrices()
+                ->where(['seller' => $seller])
+                ->andFilterWhere(['type' => 'domain'])
+                ->all();
+            return array_shift($plans);
         }, 60);
-        $domainZones = Yii::$app->cache->getOrSet('GetZones', function () {
-            return Domain::batchPerform('GetZones', []);
+        $domainZones = Yii::$app->cache->getOrSet('getZones', function () {
+            return Domain::batchPerform('getZones', []);
         }, 60);
-        $domains = SiteHelper::domain($domains['resources'], $domainZones);
+        $domains = SiteHelper::domain($plans['prices'], $domainZones);
 
         $promoTariffId = Yii::$app->cache->getOrSet('promoTariffId', function () {
             return Tariff::find()
-                ->andWhere(['seller' => Yii::$app->params['user.seller']])
+                ->andWhere(['seller' => SiteHelper::getSeller()])
                 ->andFilterWhere(['name' => 'client'])
                 ->one();
         }, 60*60);
+
+        $promotion = [];
         if ($promoTariffId) {
-            $promotion = Yii::$app->cache->getOrSet('GetInfo', function () {
-                return Tariff::perform('GetInfo', ['id' => $promoTariffId]);
+            // todo: create with Plans if needed
+            $promotion = Yii::$app->cache->getOrSet(['GetInfo', $promoTariffId->id], function () use ($promoTariffId) {
+                return Tariff::perform('GetInfo', ['id' => $promoTariffId->id]);
             }, 60);
-        } else {
-            $promotion = [];
         }
 
         foreach (['domains', 'promotion'] as $price) {
             $zones = $$price;
-
-            if (is_array($zones)) {
-                foreach ($zones as &$zone) {
-                    if (is_array($zone)) {
-                        foreach ($zone as $operation => $info) {
-                            if (!in_array($operation, ['dregistration', 'drenewal', 'dtransfer'], true)) {
-                                unset($zone[$operation]);
-                            }
-                        }
+            if (!is_array($zones)) {
+                continue;
+            }
+            foreach ($zones as &$zone) {
+                if (!is_array($zone)) {
+                    continue;
+                }
+                foreach ($zone as $operation => $info) {
+                    if (!in_array($operation, ['dregistration', 'drenewal', 'dtransfer'], true)) {
+                        unset($zone[$operation]);
                     }
                 }
             }

@@ -3,9 +3,11 @@
 /** @var yii\web\View $this */
 /** @var \hipanel\site\models\Thread $thread */
 /** @var yii\bootstrap\ActiveForm $form */
+/** @var bool $includeCaptcha */
 
 use hipanel\helpers\Url;
 use hiqdev\thememanager\widgets\FancyPanel;
+use vintage\recaptcha\widgets\InvisibleRecaptcha;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
@@ -119,6 +121,12 @@ $this->registerCss('.help-block { font-size: 12px; }');
                         'id' => 'message',
                         'placeholder' => $thread->getAttributeLabel('message'),
                     ]) ?>
+                    <?php if ($includeCaptcha) : ?>
+                        <?= InvisibleRecaptcha::widget([
+                            'formSelector' => '#submit-ticket',
+                        ]) ?>
+                        </br>
+                    <?php endif ?>
                     <?= Html::submitButton(Yii::t('hipanel:site:pages', 'Submit'), ['id' => 'submit', 'class' => 'mtr-btn button-fab ripple']) ?>
                     <?php ActiveForm::end() ?>
                 </div>

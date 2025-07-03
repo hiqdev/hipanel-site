@@ -1,6 +1,14 @@
-<h5>Reseller site on the basis AHnames.com</h5>
+<?php
+
+$params = Yii::$app->params;
+$salesEmail = $params['salesEmail'];
+$orgName = $params['organization.name'];
+
+?>
+
+<h5>Reseller site on the basis <?= $orgName ?></h5>
 <p>
-    We offer our partners to get standard reseller website based on Ahnames.com.<br>
+    We offer our partners to get standard reseller website based on <?= $orgName ?><br>
     It is completely free. You just have to tell us the following information:
 </p>
 <ul>
@@ -27,9 +35,7 @@
     <p>To become a reseller of AHnames domains you have to contact us via email, ICQ
         or Skype:</p>
     <span class="inf"><b>Mail</b><a
-                href="mailto:sales@AHnames.com">sales@AHnames.com</a></span>
-    <span class="inf"><b>ICQ</b>593341721</span>
-    <span class="inf"><b>Skype</b>ah.andre</span>
+    href="mailto:<?= $salesEmail ?>"><?= $salesEmail ?></a></span>
 </blockquote>
 
 <div class="alert alert-info">
