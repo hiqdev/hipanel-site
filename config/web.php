@@ -37,7 +37,6 @@ return [
         'language' => [
             'languages' => [
                 'en' => 'English',
-                'ru' => 'Русский',
             ],
         ],
     ],
@@ -98,7 +97,7 @@ return [
         ],
         'urlManager' => [
             'class' => \codemix\localeurls\UrlManager::class,
-            'languages' => ['ru', 'en'],
+            'languages' => ['en'],
             'enableDefaultLanguageUrlCode' => true,
         ],
         'themeManager' => [
