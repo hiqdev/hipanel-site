@@ -10,8 +10,8 @@
 
 namespace hipanel\site\helpers;
 
+use hipanel\helpers\UserHelper;
 use Yii;
-use yii\base\InvalidConfigException;
 
 class SiteHelper
 {
@@ -19,19 +19,9 @@ class SiteHelper
      * @throws InvalidConfigException
      * @return mixed
      */
-    public static function getSeller()
+    public static function getSeller(): string
     {
-        if (Yii::$app->user->isGuest) {
-            if (isset(Yii::$app->params['user.seller'])) {
-                $seller = Yii::$app->params['user.seller'];
-            } else {
-                throw new InvalidConfigException('"seller" param must be set');
-            }
-        } else {
-            $seller = Yii::$app->user->identity->seller;
-        }
-
-        return $seller;
+        return UserHelper::getSeller();
     }
 
     /**
@@ -41,18 +31,39 @@ class SiteHelper
      */
     public static function domain($resources, $zones)
     {
-        if (is_array($resources)) {
-            foreach ($resources as $k => $v) {
-                if ($zones[$v['object_id']]) {
-                    $resource['zone:.' . $zones[$v['object_id']]][$v['type']] = $v;
-                }
-                if (preg_match('/^premium_dns/', $v['type'])) {
-                    $resource['ref:class,feature'][$v['type']] = $v;
-                }
+        if (!is_array($resources)) {
+            return null;
+        }
+        foreach ($resources as $k => $v) {
+            $type = static::prepareDomainType($v['type']);
+            if (!empty($zones[$v['object_id']])) {
+                $resource['zone:.' . $zones[$v['object_id']]][$type] = $v;
+            }
+            if (preg_match('/^premium_dns/', $v['type'])) {
+                $resource['ref:class,feature'][$type] = $v;
             }
         }
 
         return $resource;
+    }
+
+    /**
+     * @param string $type Domain type to refactor
+     * @return string Refactored domain type
+     */
+    private static function prepareDomainType(string $type): string
+    {
+        if (strpos($type, 'domain,') === false) {
+            return '';
+        }
+
+        $types = explode('domain,', $type);
+        $types = array_filter($types);
+        if (empty($types)) {
+            return '';
+        }
+
+        return reset($types);
     }
 
     /**
@@ -107,12 +118,12 @@ class SiteHelper
         /** @var Calculation[] $calculations */
         $calculations = [];
 
-        $cacheKeys = [
-            Yii::$app->params['user.seller'],
-            Yii::$app->user->id,
+        $cacheKeys = array_filter([
+            self::getSeller(),
+            Yii::$app->user->isGuest ? null : Yii::$app->user->id,
             $type,
             $tariff_id,
-        ];
+        ]);
 
         /** @var Tariff[] $tariffs */
         $tariffs = Yii::$app->getCache()->getTimeCached(3600, $cacheKeys, function ($seller, $client_id, $type, $tariff_id) {
@@ -139,7 +150,7 @@ class SiteHelper
         }
 
         try {
-            $prices = Calculation::perform('CalcValue', $calculationData, true);
+            $prices = Calculation::perform('calcValue', $calculationData, true);
         } catch (ErrorResponseException $e) {
             $prices = $e->errorInfo['response'];
         } catch (\Exception $e) {

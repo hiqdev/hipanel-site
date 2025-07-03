@@ -1,7 +1,9 @@
 <?php
 
+use hipanel\modules\finance\widgets\ResourcePriceWidget;
 use yii\helpers\Html;
 
+/** @var $tableOptions array */
 /** @var $domainZones array */
 /** @var $domains array */
 ?>
@@ -24,15 +26,41 @@ use yii\helpers\Html;
                 <?php if (empty($v['price'])) $hide = true ?>
             <?php endforeach ?>
             <?php if (!$hide) : ?>
+                <?php
+                /**
+                 * 
+                 * @var \hipanel\modules\finance\models\DomainZonePrice[] $prices
+                 * @var \hipanel\modules\finance\models\DomainZonePrice $registration
+                 * @var \hipanel\modules\finance\models\DomainZonePrice $renewal
+                 * @var \hipanel\modules\finance\models\DomainZonePrice $transfer
+                 */
+                $prices = $domains[$name];
+                $registration = $prices['dregistration'] ?? null;
+                $renewal = $prices['drenewal'] ?? null;
+                $transfer = $prices['dtransfer'] ?? null;
+                ?>
                 <tr>
                     <td><?= Html::tag('span', '.' . $zone, ['class' => '']) ?></td>
                     <td>
-                        <b><?= Yii::$app->formatter->asCurrency($domains[$name]['dregistration']['price'], 'usd') ?></b>
-                        / <?= Yii::t('hipanel:site', 'year') ?></td>
-                    <td><?= Yii::$app->formatter->asCurrency($domains[$name]['drenewal']['price'], 'usd') ?>
-                        / <?= Yii::t('hipanel:site', 'year') ?></td>
+                        <?php if ($registration): ?>
+                            <b><?= ResourcePriceWidget::widget(['price' => $registration->getMoney()]) ?></b> / <?= Yii::t('hipanel:site', 'year') ?>
+                        <?php else: ?>
+                            -
+                        <?php endif ?>
+                    </td>
                     <td>
-                        <b><?= Yii::$app->formatter->asCurrency($domains[$name]['dtransfer']['price'], 'usd') ?></b>
+                        <?php if ($renewal): ?>
+                            <?= ResourcePriceWidget::widget(['price' => $renewal->getMoney()]) ?> / <?= Yii::t('hipanel:site', 'year') ?>
+                        <?php else: ?>
+                            -
+                        <?php endif ?>
+                    </td>
+                    <td>
+                        <?php if ($transfer): ?>
+                            <b><?= ResourcePriceWidget::widget(['price' => $transfer->getMoney()]) ?></b>
+                        <?php else: ?>
+                            -
+                        <?php endif ?>
                     </td>
                 </tr>
             <?php endif ?>

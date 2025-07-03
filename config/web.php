@@ -13,6 +13,7 @@ use ahnames\assets\ahnames\AhnamesAsset;
 return [
     'aliases' => [
         '@ticket/create' => '/site/feedback',
+        '@domain/add-to-cart-whois-protect' => '/site/add-to-cart-whois-protect',
     ],
     'controllerNamespace' => \hipanel\site\controllers::class,
     'modules' => [
@@ -181,6 +182,19 @@ return [
     ],
     'container' => [
         'definitions' => [
+            'additional.rules' => [
+                'class' => \hiqdev\yii2\modules\pages\components\AdditionalPages::class,
+                'pages' => [
+                    'Domain Name Registration Agreement' => [
+                        'path' => '@hipanel/site/pages/rules/_registration_agreement.php',
+                        'dictionary' => 'hipanel:pages',
+                        'params' => [
+                            'registrarName' => $params['organization.name'],
+                            'registrarUrl' => $params['organization.url'],
+                        ],
+                    ],
+                ],
+            ],
             \hiqdev\thememanager\menus\AbstractMainMenu::class => [
                 'class' => \hipanel\site\menus\MainMenu::class,
             ],

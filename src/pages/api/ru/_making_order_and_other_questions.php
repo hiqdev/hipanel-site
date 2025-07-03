@@ -1,6 +1,13 @@
-<h5>Реселлерский сайт на базе AHnames.com</h5>
+<?php
+
+$params = Yii::$app->params;
+$salesEmail = $params['salesEmail'];
+$orgName = $params['organization.name'];
+
+?>
+    <h5>Реселлерский сайт на базе <?= $orgName ?></h5>
 <p>
-    Нашим партнерам мы предлагаем получить стандартный реселлерский сайт, на базе AHnames.com.<br>
+    Нашим партнерам мы предлагаем получить стандартный реселлерский сайт, на базе <?= $orgName ?><br>
     Он предоставляется совершенно бесплатно. Вам необходимо сообщить нам следующую информацию:
 </p>
 <ul class="long-dash-list">
@@ -21,10 +28,8 @@
 </p>
 
 <blockquote>
-    <p>Что бы стать реселлером доменов компании AHnames Вам достаточно обратится по указанным контактам:</p>
-    <span class="inf"><b>Mail</b><a href="mailto:sales@AHnames.com">sales@AHnames.com</a></span>
-    <span class="inf"><b>ICQ</b>593341721</span>
-    <span class="inf"><b>Skype</b>ah.andre</span>
+    <p>Что бы стать реселлером доменов Вам достаточно обратится по указанным контактам:</p>
+    <span class="inf"><b>Mail</b><a href="mailto:<?= $salesEmail ?>"><?= $salesEmail ?></a></span>
 </blockquote>
 
 <div class="alert alert-info">

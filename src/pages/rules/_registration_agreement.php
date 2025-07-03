@@ -1,5 +1,5 @@
 	<p>This Agreement is in effect from May 23, 2010.</p>
-	<p>Danesco Trading, Ltd. (hereinafter referred to as 'Registrar') and Domain Name Administrator of the other part
+	<p><?= $registrarName ?> (hereinafter referred to as 'Registrar') and Domain Name Administrator of the other part
 	(referred together herein as the 'Parties') now hereby have signed this Agreement as follows</p>
 
 	<ol>
@@ -21,7 +21,7 @@
 			the domain name registration services.</p>
 			<p><b>'Premium Domain'</b> is a domain reserved by the top-level domain administrator, top-level national domain administrator, registry operator or ICANN with
 			the 'premium' status, the way and/or cost of the registration and/or renewal of which could differ from standard ones.</p>
-			<p><b>'Registrar'</b> is Danesco Trading, Ltd. which provides the domain name registration services and ensures the transfer of the required information to the registry.</p>
+			<p><b>'Registrar'</b> is <?= $registrarName ?> which provides the domain name registration services and ensures the transfer of the required information to the registry.</p>
 			<p><b>'Partner of Registrar'</b> (<b>'Partner'</b>) is a person participating in the partnership program of the Registrar (the party under the agreement on the provision
 			of comprehensive services, index EVO-REG).</p>
 			<p><b>'Other Registrar'</b> is any legal entity accredited by ICANN or another authorized entity, including the top-level international domain Administrator,
@@ -74,7 +74,7 @@
 
 				<li>Registrar is obliged to inform Administrator on the fact of changes in this Agreement, Uniform Domain Name Dispute Resolution Policy and Rules for Uniform
 				Domain Name Dispute Resolution Policy using channels of communications provided by Administrator at least seven days before the changes take effect and post the changes on
-				the Web-server of Registrar www.danesconames.com</li>
+				the Web-server of Registrar <?= $registrarUrl ?></li>
 
 				<li>if Administrator fails to agree the revised version of this Agreement, the Uniform Domain Name Dispute Resolution Policy or the Rules for Uniform Domain Name Dispute Resolution Policy,
 				Administrator for seven days shall send a request asking to revoke the domain name registration or the transfer the servicing of the domain name to Another Registrar.
@@ -151,7 +151,7 @@
 			<b>Fees and payment for the registration, the registration term renewal, the transfer of Registrar and the transfer of Domain name Administrator</b>
 			<ol>
 				<li>Domain name Administrator is responsible for paying the domain name registration and registration renewal fees, Registrar transfer fees, Domain name Administrator transfer fees on time.
-				The payment procedure is set by Registrar and posted on the Web-server of Registrar www.danesconames.com.</li>
+				The payment procedure is set by Registrar and posted on the Web-server of Registrar <?= $registrarUrl ?>.</li>
 				<li>Registrar reserves the right to change the fees and payment procedure, at its sole discretion.</li>
 			</ol>
 		</li>
@@ -165,7 +165,7 @@
 				during the registration of a domain name. Domain name administrator is responsible for the accuracy and timeliness of the provision of the registration
 				information, which includes the obligatory and additional information.</li>
 				<li>Domain name administration rights (Administrator transfer) shall be transferred under the policy set by Registrar.
-				The policy is posted on the Web-server of Registrar www.danesconames.com</li>
+				The policy is posted on the Web-server of Registrar <?= $registrarUrl ?></li>
 			</ol>
 		</li>
 
@@ -215,12 +215,12 @@
 				<li>Domain name Administrator agrees that information submitted by Administrator via filling in applications, other documents, including ones
 				in the electronic form, placed by Administrator into fields of the applicable documents with 'Public' remark will be placed by Registrar in public
 				search services (in particular, the Whois) and will be available to the indefinite circle of people. The list of information that is obligatory for
-				posting and posted as 'Public' under consent of Administrator is published on the Web-server of Registrar www.danesconames.com</li>
+				posting and posted as 'Public' under consent of Administrator is published on the Web-server of Registrar <?= $registrarUrl ?></li>
 				<li>Administrator agrees that ICANN or another authorized entity, including national top-level domain administrator, reserves the right to change existing policies,
 				restrictions or requirements or set the new ones relating to the form and the volume of the registration information submitted by Administrator, which Registrar is obliged to
 				make available to third parties.</li>
 				<li>Registrar gives access to the registration information of Administrator recorded in the database of Registrar to Administrator to browse it and update in the
-				fields open for update posted on the Web-server of Registrar www.danesconames.com</li>
+				fields open for update posted on the Web-server of Registrar <?= $registrarUrl ?></li>
 			</ol>
 		</li>
 
@@ -228,11 +228,11 @@
 		<li>
 			<b> Registrar transfer</b>
 			<ol>
-                <li>You hereby authorize the Danesco Trading, Ltd. to act as your "Designated Agent" for all gTLD domains in accordance with the Inter-Registrar Transfer Policy (IRTP) (https://www.icann.org/resources/pages/registrars/transfers-en). You agree that the "Designated Agent" has the explicit authority to approve and accept each "Change of Registrant" in compliance with the IRTP on your behalf in all instances, whether this change represents a change from or to your Registrant information. You accept that the authorization to act as the "Designated Agent" is a condition for registering your domain or managing it by Danesco Trading, Ltd.</li>
+                <li>You hereby authorize the <?= $registrarName ?> to act as your "Designated Agent" for all gTLD domains in accordance with the Inter-Registrar Transfer Policy (IRTP) (https://www.icann.org/resources/pages/registrars/transfers-en). You agree that the "Designated Agent" has the explicit authority to approve and accept each "Change of Registrant" in compliance with the IRTP on your behalf in all instances, whether this change represents a change from or to your Registrant information. You accept that the authorization to act as the "Designated Agent" is a condition for registering your domain or managing it by <?= $registrarName ?></li>
 				<li>Only domain name Administrator shall be allowed to initiate the Registrar transfer procedure (the transfer of the domain to
 				or from other Registrars). Registrar reserves the right to require Administrator to provide the written confirmation of the Registrar transfer request.</li>
 				<li>Domain name Administrator is transferred in accordance with the official letter from the domain name Administrator and simultaneously with the
-				transfer of the domain name for the servicing by Registrar. The typical letter is posted on the Web-server of Registrar www.danesconames.com</li>
+				transfer of the domain name for the servicing by Registrar. The typical letter is posted on the Web-server of Registrar <?= $registrarUrl ?></li>
 				<li>Registrar reserves the right to deny a Registrar transfer request
 					<p style="margin-left:25px; margin-top:15px">(i) during the first 60 calendar days after the initial domain name registration with the original Registrar;</p>
 					<p style="margin-left:25px">(ii) during the first 60 calendar days after the then current Registrar transfer;</p>
@@ -263,7 +263,7 @@
 				in English are listed in paragraph 2.4 of this Agreement.</li>
 				<li>If ICANN amends the Uniform Domain Name Dispute Resolution Policy or national domain Administrator amends Rules for Uniform Domain
 				Name Dispute Resolution Policy, the amendments are mandatory to observe by Administrator and Registrar of the domain name from the moment of their
-				publication by Registrar on its Web-server www.danesconames.com</li>
+				publication by Registrar on its Web-server <?= $registrarUrl ?></li>
 			</ol>
 		</li>
 
