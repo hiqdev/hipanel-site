@@ -98,7 +98,7 @@ return [
         ],
         'urlManager' => [
             'class' => \codemix\localeurls\UrlManager::class,
-            'languages' => !empty($params['language.languages']) ? array_keys($params['language.languages']) : ['en'],
+            'languages' => array_keys($params['language.languages']),
             'enableDefaultLanguageUrlCode' => true,
         ],
         'themeManager' => [
