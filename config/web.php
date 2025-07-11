@@ -36,9 +36,7 @@ return [
             'finishPage' => '/finance/cart/finish',
         ],
         'language' => [
-            'languages' => $params['language.languages'] ?? [
-                'en' => 'English',
-            ],
+            'languages' => $params['language.languages'],
         ],
     ],
     'components' => [
