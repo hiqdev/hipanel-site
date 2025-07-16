@@ -10,4 +10,9 @@
 
 return [
     'id' => 'hipanel-site',
+    'modules' => [
+        'language' => [
+            'languages' => $params['language.languages'],
+        ],
+    ],
 ];

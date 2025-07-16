@@ -36,9 +36,7 @@ return [
             'finishPage' => '/finance/cart/finish',
         ],
         'language' => [
-            'languages' => [
-                'en' => 'English',
-            ],
+            'languages' => $params['language.languages'],
         ],
     ],
     'components' => [
@@ -98,7 +96,7 @@ return [
         ],
         'urlManager' => [
             'class' => \codemix\localeurls\UrlManager::class,
-            'languages' => ['en'],
+            'languages' => array_keys($params['language.languages']),
             'enableDefaultLanguageUrlCode' => true,
         ],
         'themeManager' => [

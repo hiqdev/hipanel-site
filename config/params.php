@@ -9,6 +9,9 @@
  */
 
 return [
+    'language.languages'          => [
+        'en' => 'English',
+    ],
     'hipanel.notPanel'            => true,
     'hipanel.site.defaultTheme'   => 'dataserv',
 

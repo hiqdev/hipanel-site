@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx:
-    image: nginx:latest
+    image: nginx:alpine
     ports:
       - "80"
     volumes:
@@ -19,7 +19,7 @@ services:
       - "LETSENCRYPT_SINGLE_DOMAIN_CERTS=${LETSENCRYPT_SINGLE_DOMAIN_CERTS:-false}"
 
   php-fpm:
-    image: hiqdev/php:7.4-fpm
+    image: hiqdev/php:8.3-fpm-alpine
     volumes:
       - ./:/app
       - ./.docker/php/var/log/php:/var/log/php
@@ -37,9 +37,9 @@ networks:
   local-network:
     driver: bridge
   proxy-network:
-    external:
-      name: "nginx-proxy-network-${REAL_IP}"
+    external: true
+    name: "nginx-proxy-network-${REAL_IP}"
   hiapi-network:
-    external:
-      name: "${HIAPI_SITE}"
+    external: true
+    name: "${HIAPI_SITE}"
 
