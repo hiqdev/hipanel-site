@@ -101,6 +101,13 @@ return [
             'class' => \codemix\localeurls\UrlManager::class,
             'languages' => ['ru', 'en'],
             'enableDefaultLanguageUrlCode' => true,
+            // hipanel\components\Timezone posts to this route via Url::to('/site/timezone'),
+            // a leading-slash string Url::to() returns as-is without going through the
+            // language-aware UrlManager - so without this, codemix\localeurls redirects it
+            // to add the locale prefix, breaking the ajax call.
+            'ignoreLanguageUrlPatterns' => [
+                '#^site/timezone#' => '#^site/timezone#',
+            ],
         ],
         'themeManager' => [
             'defaultTheme' => $params['hipanel.site.defaultTheme'],
@@ -195,6 +202,12 @@ return [
                     ],
                 ],
             ],
+        ],
+        // yii\di\Container applies 'singletons' after 'definitions', so these menu
+        // overrides must be singletons too - otherwise yii2-thememanager's own
+        // generic singleton defaults for the same Abstract*Menu classes win regardless
+        // of composer package merge order.
+        'singletons' => [
             \hiqdev\thememanager\menus\AbstractMainMenu::class => [
                 'class' => \hipanel\site\menus\MainMenu::class,
             ],
