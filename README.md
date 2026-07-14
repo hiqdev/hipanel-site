@@ -40,6 +40,27 @@ or add
 
 to the require section of your composer.json.
 
+## Container overrides must be singletons, not definitions
+
+`config/web.php` registers `AbstractMainMenu`/`AbstractNavbarMenu`/`AbstractFooterMenu`
+under `container.singletons`, not `container.definitions`. `yii\di\Container` applies
+the `singletons` section after `definitions`, so a `definitions`-based override here
+used to always lose to `yii2-thememanager`'s own generic singleton defaults for the
+same abstract classes, regardless of composer package merge order - the site's real
+menus (via `hipanel\site\menus\*`) silently fell back to thememanager's generic
+placeholder menus. Any new `AbstractSomethingMenu` override added here should follow
+the same `singletons` convention.
+
+Note: `hiqdev/hipanel-core` separately registers its own `AbstractNavbarMenu` default
+(a dashboard navbar) under `container.definitions`. Because both this package and
+hipanel-core declare the same key, the composer-config-plugin output can end up with
+duplicate `AbstractNavbarMenu` entries under the same `singletons` array - a plain
+PHP array literal with a duplicate key, where whichever is written last in the
+generated file wins, independent of the singletons/definitions rule above. Consuming
+projects that need this to be reliable (not dependent on generation order) should
+force it from a `bootstrap` closure calling `Yii::$container->set()` instead of
+relying on static config alone.
+
 ## License
 
 This project is released under the terms of the BSD-3-Clause [license](LICENSE).
