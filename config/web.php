@@ -101,6 +101,13 @@ return [
             'class' => \codemix\localeurls\UrlManager::class,
             'languages' => ['ru', 'en'],
             'enableDefaultLanguageUrlCode' => true,
+            // hipanel\components\Timezone posts to this route via Url::to('/site/timezone'),
+            // a leading-slash string Url::to() returns as-is without going through the
+            // language-aware UrlManager - so without this, codemix\localeurls redirects it
+            // to add the locale prefix, breaking the ajax call.
+            'ignoreLanguageUrlPatterns' => [
+                '#^site/timezone#' => '#^site/timezone#',
+            ],
         ],
         'themeManager' => [
             'defaultTheme' => $params['hipanel.site.defaultTheme'],
