@@ -1,43 +1,71 @@
-version: '3'
-
 services:
   nginx:
     image: nginx:latest
+    ports:
+      - "80"
     volumes:
       - ./:/app
       - ./.docker/nginx/etc/nginx/conf.d:/etc/nginx/conf.d
-      - ./.docker/nginx/var/log/nginx:/var/log/nginx
-    links:
-      - php-fpm
+    tmpfs:
+      - /var/log/nginx
+    restart: unless-stopped
     networks:
-       - proxy-network
-       - local-network
+      local-network:
+        aliases:
+          - "${HIPANEL_DIST}"
+      proxy-network:
+      hiapi-network:
+      hipanel-network:
+        aliases:
+          - "${HIPANEL_DIST}"
     environment:
       - "VIRTUAL_HOST=${HOSTS}"
       - "LETSENCRYPT_HOST=${HOSTS}"
       - "LETSENCRYPT_EMAIL=devteam@hiqdev.com"
+      - "LETSENCRYPT_STANDALONE_CERTS=${LETSENCRYPT_STANDALONE_CERTS:-false}"
+
+  memcached:
+    image: memcached:latest
+    networks:
+      - local-network
+    command: '-m 128'
 
   php-fpm:
-    image: hiqdev/php:7.4-fpm
+    image: hiqdev/php:8.5-fpm-alpine
     volumes:
       - ./:/app
-      - ./.docker/php/var/log/php:/var/log/php
+    ulimits:
+      core:
+        hard: 0
+        soft: 0
+    tmpfs:
+      - /app/runtime/debug:uid=82,gid=82
+      - /app/runtime/cache:uid=82,gid=82
+      - /var/log/php
     networks:
+      hiapi-network:
       local-network:
         aliases:
           - local-php-fpm
-      hiapi-network:
+      selenium-network:
     environment:
       - "ENV=${ENV}"
-      - "PHP_IDE_CONFIG=serverName=${HOSTS}"
+      - "PHP_IDE_CONFIG=serverName=${HIPANEL_DIST}"
+      - "COOKIE_VALIDATION_KEY=${COOKIE_VALIDATION_KEY}"
+      - "HIAM_CLIENT_SECRET=${HIAM_CLIENT_SECRET}"
+      - "MAILER_PASSWORD=${MAILER_PASSWORD}"
+      - "SENTRY_DSN=${SENTRY_DSN}"
+      - "HIART_BASEURI=${HIART_BASEURI}"
 
 networks:
   local-network:
     driver: bridge
   hiapi-network:
-    external:
-      name: "${HIAPI_SITE}"
+    name: "${HIAPI_DIST}"
+    external: true
   proxy-network:
-    external:
-      name: "nginx-proxy-network-${REAL_IP}"
-
+    name: "nginx-proxy-network-${REAL_IP}"
+    external: true
+  hipanel-network:
+    name: "${HIPANEL_DIST}"
+    external: true
