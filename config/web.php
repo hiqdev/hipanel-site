@@ -195,6 +195,12 @@ return [
                     ],
                 ],
             ],
+        ],
+        // yii\di\Container applies 'singletons' after 'definitions', so these menu
+        // overrides must be singletons too - otherwise yii2-thememanager's own
+        // generic singleton defaults for the same Abstract*Menu classes win regardless
+        // of composer package merge order.
+        'singletons' => [
             \hiqdev\thememanager\menus\AbstractMainMenu::class => [
                 'class' => \hipanel\site\menus\MainMenu::class,
             ],
