@@ -43,6 +43,18 @@ class SiteController extends \hipanel\controllers\SiteController
         parent::__construct($id, $module, $impersonator, $config);
     }
 
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+        // hipanel\controllers\SiteController gates 'index' behind login because its own
+        // index action just redirects to the (private) dashboard. This subclass overrides
+        // 'index' below to render the public domain-search landing page instead, so it must
+        // not require login the way the parent's dashboard-redirect does.
+        $behaviors['loginRequired']['only'] = array_diff($behaviors['loginRequired']['only'], ['index']);
+
+        return $behaviors;
+    }
+
     public function actions()
     {
         return array_filter(array_merge(parent::actions(), [
