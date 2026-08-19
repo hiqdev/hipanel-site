@@ -49,6 +49,7 @@ class FaqMenu extends \hiqdev\yii2\menus\Menu
                 $items[$key] = $this->readFile($file);
             }
         }
+        $label = null;
         $index = "$path/index.php";
         if (is_file($index)) {
             $label = $this->readFile($index)['label'];
