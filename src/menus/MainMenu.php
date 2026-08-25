@@ -57,12 +57,10 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
                 'url' => ['/certificate/certificate-order/index'],
                 'visible' => $this->canBuyCertificates(),
             ],
-            /***
             'transfer' => [
                 'label' => Yii::t('hipanel:site', 'Transfer'),
                 'url' => ['/domain/transfer/index'],
             ],
-            ***/
             'dns' => [
                 'label' => Yii::t('hipanel:site', 'DNS'),
                 'url' => ['/site/dns'],
