@@ -30,13 +30,27 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
                 'label' => Yii::t('hipanel:site', 'Domains'),
                 'url' => ['/site/index'],
             ],
+            // 'Cloud servers'/'CDN' both point at AdvancedHosting's own upsell pages -
+            // only relevant for brands reselling AdvancedHosting's infrastructure.
+            // Brands with their own VDS ordering flow (see canBuyVds()) get a single
+            // 'vds' item instead (below), set via 'menu.vdsLink' - not shown at the
+            // same time as these two.
             'cloud_servers' => [
                 'label' => Yii::t('hipanel:site', 'Cloud servers'),
                 'url' => "https://advancedhosting.com/{$language}/cloud-servers?refid=ahmenen",
+                'visible' => !$this->canBuyVds(),
             ],
             'cdn' => [
                 'label' => Yii::t('hipanel:site', 'CDN'),
                 'url' => "https://advancedhosting.com/{$language}/static-cdn/?refid=ahmenen",
+                'visible' => !$this->canBuyVds(),
+            ],
+            'vds' => [
+                'label' => Yii::t('hipanel:site', 'VDS'),
+                // Same '{language}' template convention as
+                // 'module.server.order.redirect.url' (see OrderController::actionIndex).
+                'url' => preg_replace('/{language}/', $language, Yii::$app->params['menu.vdsLink'] ?? ''),
+                'visible' => $this->canBuyVds(),
             ],
             'certificate' => [
                 'label' => Yii::t('hipanel:site', 'SSL certificates'),
@@ -81,7 +95,12 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
         $user = Yii::$app->user;
         $params = Yii::$app->params;
 
-        return !empty($params['module.server.order.redirect.url']) && ($user->can('server.pay') || $user->isGuest);
+        // Was unused dead code checking 'module.server.order.redirect.url', which
+        // every brand has a value for (ahnames' advancedhosting.com upsell link is
+        // the default fallback - see yii-asset-ahnames/config/params.php), so that
+        // check could never actually distinguish "wants the single VDS link" brands
+        // from the rest. 'menu.vdsLink' is a dedicated, opt-in param instead.
+        return !empty($params['menu.vdsLink']) && ($user->can('server.pay') || $user->isGuest);
     }
 
     private function canBuyCertificates(): bool
