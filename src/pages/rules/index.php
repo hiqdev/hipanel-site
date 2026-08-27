@@ -3,14 +3,12 @@
 use hiqdev\yii2\modules\pages\components\AdditionalPages;
 use yii\helpers\Html;
 
-$this->title = Yii::t('hisite', 'Terms & Conditions');
-$registrarName = isset(Yii::$app->params['registrar.organization.name']) ? Yii::$app->params['registrar.organization.name'] : 'Danesco Trading, Ltd.';
-$registrarUrl = isset(Yii::$app->params['registrar.organization.url']) ? Yii::$app->params['registrar.organization.url'] : 'www.danesconames.com';
-
-?>
-<?php
 $this->title = Yii::t('hipanel:pages', 'Rules');
-$this->registerCss('.vps-features-tabs .tabs-left-vertical > .nav-tabs > li > a { font-size: 12px; }');
+$this->registerCss('
+.vps-features-tabs .tabs-left-vertical > .nav-tabs > li > a { font-size: 12px; }
+.vps-features-tabs .tab-content p,
+.vps-features-tabs .tab-content li { text-align: justify; }
+');
 $this->registerJs("
 // It adds tab href to url + opens tab based on hash on page load
 var hash = window.location.hash;
@@ -46,14 +44,9 @@ $(document).on('click', '.social .text-center a', function(e) {
 
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#termsOfUse"
-                                          data-toggle="tab"><?= Yii::t('hipanel:pages', 'Terms of use') ?></a>
+                                          data-toggle="tab"><?= Yii::t('hipanel:pages', 'Master Service Agreement') ?></a>
                     </li>
                     <li><a href="#privacyPolicy" data-toggle="tab"><?= Yii::t('hipanel:pages', 'Privacy Policy') ?></a>
-                    </li>
-                    <li><a href="#vps_terms_of_use"
-                           data-toggle="tab"><?= Yii::t('hipanel:pages', 'VPS terms of use') ?></a></li>
-                    <li><a href="#GDPR"
-                           data-toggle="tab"><?= Yii::t('hipanel:pages', 'General Data Protection Regulation, GDPR') ?></a>
                     </li>
                     <li><a href="#cancelationPolicy"
                            data-toggle="tab"><?= Yii::t('hipanel:pages', 'Cancelation policy') ?></a>
@@ -87,27 +80,19 @@ $(document).on('click', '.social .text-center a', function(e) {
                 <div class="tab-content">
 
                     <div class="tab-pane fade in active" id="termsOfUse">
-                        <h4><?= Yii::t('hipanel:pages', 'Terms of use') ?></h4>
+                        <h4><?= Yii::t('hipanel:pages', 'Master Service Agreement') ?></h4>
                         <hr class="small"/>
-                        <?= $this->render('_terms_of_use') ?>
+                        <?php // hipanel-site only owns the tab/rendering logic and a generic
+                        // fallback doc (_terms_of_use.php) - the actual MSA text is brand
+                        // content and lives in the vendor-specific package (e.g. ahnames.com's
+                        // family sets this in vendor/ahnames/yii-asset-ahnames/config/params.php). ?>
+                        <?= $this->render(Yii::$app->params['rules.msaView'] ?? '_terms_of_use') ?>
                     </div>
 
                     <div class="tab-pane fade" id="privacyPolicy">
                         <h4><?= Yii::t('hipanel:pages', 'Privacy Policy') ?></h4>
                         <hr class="small"/>
                         <?= $this->render('_privacy_policy') ?>
-                    </div>
-
-                    <div class="tab-pane fade" id="vps_terms_of_use">
-                        <h4><?= Yii::t('hipanel:pages', 'VPS terms of use') ?></h4>
-                        <hr class="small"/>
-                        <?= $this->render('_vps_terms_of_use') ?>
-                    </div>
-
-                    <div class="tab-pane fade" id="GDPR">
-                        <h4><?= Yii::t('hipanel:pages', 'General Data Protection Regulation, GDPR') ?></h4>
-                        <hr class="small"/>
-                        <?= $this->render('_gdpr', compact('registrarName')) ?>
                     </div>
 
                     <div class="tab-pane fade" id="cancelationPolicy">

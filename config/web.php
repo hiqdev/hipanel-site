@@ -201,16 +201,12 @@ return [
         'definitions' => [
             'additional.rules' => [
                 'class' => \hiqdev\yii2\modules\pages\components\AdditionalPages::class,
-                'pages' => [
-                    'Domain Name Registration Agreement' => [
-                        'path' => '@hipanel/site/pages/rules/_registration_agreement.php',
-                        'dictionary' => 'hipanel:pages',
-                        'params' => [
-                            'registrarName' => $params['organization.name'],
-                            'registrarUrl' => $params['organization.url'],
-                        ],
-                    ],
-                ],
+                // Used to default to a standalone "Domain Name Registration Agreement" doc
+                // here, but it's stale content (dead ICANN links) that duplicates the
+                // oldest entry in the MSA's "Prior Versions" archive - dropped rather than
+                // fixed, since the archive already covers it. Brands opt into extra
+                // documents via their own config now (see ahnames.com's config/web.php).
+                'pages' => [],
             ],
         ],
         // yii\di\Container applies 'singletons' after 'definitions', so these menu
