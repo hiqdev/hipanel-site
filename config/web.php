@@ -25,11 +25,19 @@ return [
         ],
         'pages' => [
             'pageSize' => 5,
+            // CompositeStorage so downstream projects can add their own brand-specific
+            // top-level pages (e.g. a "Stand With Ukraine" statement) by merging another
+            // entry into 'storages' from their own config, without touching this file -
+            // same principle as 'additional.rules' below: mechanism here, content there.
             'storage' => [
-                'class' => \hiqdev\yii2\modules\pages\storage\FileSystemStorage::class,
-                'fileSystem' => \creocoder\flysystem\LocalFilesystem::class,
-                'path' => '@hipanel/site/pages',
-
+                'class' => \hiqdev\yii2\modules\pages\storage\CompositeStorage::class,
+                'storages' => [
+                    'hipanel-site' => [
+                        'class' => \hiqdev\yii2\modules\pages\storage\FileSystemStorage::class,
+                        'fileSystem' => \creocoder\flysystem\LocalFilesystem::class,
+                        'path' => '@hipanel/site/pages',
+                    ],
+                ],
             ],
         ],
         'merchant' => [
