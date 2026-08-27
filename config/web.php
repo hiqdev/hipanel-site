@@ -104,9 +104,11 @@ return [
             // hipanel\components\Timezone posts to this route via Url::to('/site/timezone'),
             // a leading-slash string Url::to() returns as-is without going through the
             // language-aware UrlManager - so without this, codemix\localeurls redirects it
-            // to add the locale prefix, breaking the ajax call.
+            // to add the locale prefix, breaking the ajax call. hipanel\components\CsrfRetry's
+            // Url::to('/site/csrf-token') has the exact same problem.
             'ignoreLanguageUrlPatterns' => [
                 '#^site/timezone#' => '#^site/timezone#',
+                '#^site/csrf-token#' => '#^site/csrf-token#',
             ],
         ],
         'themeManager' => [
