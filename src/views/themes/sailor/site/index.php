@@ -38,6 +38,7 @@ $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registrati
                 'domains' => $domains,
                 'promotion' => $promotion,
                 'domainZones' => $domainZones,
+                'domainOperationsBlocked' => $domainOperationsBlocked,
                 'tableOptions' => [
                     'class' => 'table table-striped',
                 ],

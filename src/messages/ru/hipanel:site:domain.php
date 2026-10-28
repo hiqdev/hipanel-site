@@ -22,4 +22,5 @@ return [
     'Zone' => 'Доменные зоны',
     'as well as PayPal payments from your Visa and MasterCard' => 'а также платежные карты Visa и MasterCard, процессинг которых осуществляется через PayPal.',
     'Refund policy' => 'Политика возврата средств',
+    'Paid domain operations are blocked for your account' => 'Платные операции с доменами для вашего аккаунта заблокированы',
 ];
