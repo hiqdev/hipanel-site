@@ -30,7 +30,7 @@ $this->title = Yii::t('hipanel:site:domain', 'Domain names search and registrati
     <div class="row">
         <div class="row">
             <div class="col-sm-12">
-                <?= DomainPriceTable::widget(compact('domains', 'promotion', 'domainZones')) ?>
+                <?= DomainPriceTable::widget(compact('domains', 'promotion', 'domainZones', 'domainOperationsBlocked')) ?>
             </div>
         </div>
     </div>

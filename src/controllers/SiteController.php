@@ -191,7 +191,10 @@ class SiteController extends \hipanel\controllers\SiteController
         $domainZones = Yii::$app->cache->getOrSet('getZones', function () {
             return Domain::batchPerform('getZones', []);
         }, 60);
-        $domains = SiteHelper::domain($plans['prices'], $domainZones);
+        // A logged-in user gets their own seller's plans (UserHelper::getSeller()); a seller with no
+        // available domain plan means paid domain operations are blocked for that account.
+        $domains = $plans ? SiteHelper::domain($plans['prices'], $domainZones) : null;
+        $domainOperationsBlocked = !$plans && !Yii::$app->user->isGuest;
 
         $promoTariffId = Yii::$app->cache->getOrSet('promoTariffId', function () {
             return Tariff::find()
@@ -226,7 +229,7 @@ class SiteController extends \hipanel\controllers\SiteController
             $$price = $zones;
         }
 
-        return compact('domains', 'promotion', 'domainZones');
+        return compact('domains', 'promotion', 'domainZones', 'domainOperationsBlocked');
     }
 
     protected function redirectOrderVds()
