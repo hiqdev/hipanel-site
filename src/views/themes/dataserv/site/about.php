@@ -101,6 +101,13 @@ use yii\helpers\Html; ?>
         <div class="col-sm-12 text-justify">
             <dl>
 
+                <?php if (!empty(Yii::$app->params['infoEmail'])) : ?>
+                <dt><?= Yii::t('hipanel.site.about', 'General questions') ?></dt>
+                <dd>
+                    <?= Yii::$app->params['infoEmail'] ?>
+                </dd>
+                <?php endif ?>
+
                 <dt><?= Yii::t('hipanel.site.about', 'Sales') ?></dt>
                 <dd>
                     <?= Yii::$app->params['salesEmail'] ?>
@@ -117,6 +124,13 @@ use yii\helpers\Html; ?>
                     <br>
                     <?= Yii::$app->params['abuseEmail'] ?>
                 </dd>
+
+                <?php if (!empty(Yii::$app->params['dpoEmail'])) : ?>
+                <dt><?= Yii::t('hipanel.site.about', 'Privacy Policy inquiries') ?></dt>
+                <dd>
+                    <?= Yii::$app->params['dpoEmail'] ?>
+                </dd>
+                <?php endif ?>
 
                 <dt><?= Yii::t('hipanel.site.about', 'Fast communication') ?></dt>
                 <dd>
