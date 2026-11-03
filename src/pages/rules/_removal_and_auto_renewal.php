@@ -7,7 +7,7 @@
 
 <p>
     We will notify the clients 30, 14, 7 days and each following day prior to domain's expiration as well as one time
-    within 10 days after domain's expiration. The notification letter will include instructions about domain's
+    within 5 days after domain's expiration. The notification letter will include instructions about domain's
     renewal.
 </p>
 
