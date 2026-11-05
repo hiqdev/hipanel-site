@@ -39,4 +39,6 @@ return [
     '{org_name} services are: domain search, registration and transfer, as well as hosting for your projects (VPS). In addition, for users are available:' => 'Услуги {org_name} – это поиск, регистрация и трансфер доменов, а также хостинг для ваших проектов (VDS). Кроме того, пользователям доступны:
 
 ',
+    'General questions' => 'Общие вопросы',
+    'Privacy Policy inquiries' => 'Вопросы о политике конфиденциальности',
 ];
