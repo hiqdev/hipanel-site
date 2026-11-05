@@ -98,7 +98,9 @@ $(document).on('click', '.social .text-center a', function(e) {
                     <div class="tab-pane fade" id="cancelationPolicy">
                         <h4><?= Yii::t('hipanel:pages', 'Cancelation & Refunds') ?></h4>
                         <hr class="small"/>
-                        <?= $this->render('_cancelation_policy') ?>
+                        <?php // Generic fallback; brands that sell no VDS point this at their own
+                        // text via params (same approach as 'rules.msaView' above). ?>
+                        <?= $this->render(Yii::$app->params['rules.cancelationPolicyView'] ?? '_cancelation_policy') ?>
                     </div>
 
                     <div class="tab-pane fade" id="domainRemovalAndAutoRenewalPolicy">
