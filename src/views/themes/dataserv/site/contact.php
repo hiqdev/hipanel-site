@@ -52,6 +52,30 @@ $this->registerCss('.help-block { font-size: 12px; }');
             <?php FancyPanel::end() ?>
         </div>
     </div>
+
+    <?php if (!empty(Yii::$app->params['infoEmail']) || !empty(Yii::$app->params['dpoEmail'])) : ?>
+    <div class="row">
+        <?php if (!empty(Yii::$app->params['infoEmail'])) : ?>
+        <div class="col-sm-4">
+            <?php $panel = FancyPanel::begin([
+                'color' => 'green',
+                'title' => Yii::t('hipanel:site:pages', 'General questions'),
+            ]) ?>
+            <?= Html::mailto(Yii::$app->params['infoEmail'], Yii::$app->params['infoEmail']) ?>
+            <?php FancyPanel::end() ?>
+        </div>
+        <?php endif ?>
+        <?php if (!empty(Yii::$app->params['dpoEmail'])) : ?>
+        <div class="col-sm-4">
+            <?php $panel = FancyPanel::begin([
+                'title' => Yii::t('hipanel:site:pages', 'Privacy Policy inquiries'),
+            ]) ?>
+            <?= Html::mailto(Yii::$app->params['dpoEmail'], Yii::$app->params['dpoEmail']) ?>
+            <?php FancyPanel::end() ?>
+        </div>
+        <?php endif ?>
+    </div>
+    <?php endif ?>
     <div class="spacing-75"></div>
 
     <div class="row">
