@@ -92,7 +92,8 @@ $(document).on('click', '.social .text-center a', function(e) {
                     <div class="tab-pane fade" id="privacyPolicy">
                         <h4><?= Yii::t('hipanel:pages', 'Privacy Policy') ?></h4>
                         <hr class="small"/>
-                        <?= $this->render('_privacy_policy') ?>
+                        <?php // Same as rules.msaView above: a brand may supply its own text. ?>
+                        <?= $this->render(Yii::$app->params['rules.privacyPolicyView'] ?? '_privacy_policy') ?>
                     </div>
 
                     <div class="tab-pane fade" id="cancelationPolicy">
@@ -106,7 +107,7 @@ $(document).on('click', '.social .text-center a', function(e) {
                     <div class="tab-pane fade" id="domainRemovalAndAutoRenewalPolicy">
                         <h4><?= Yii::t('hipanel:pages', 'Domain removal and auto renewal Policy') ?></h4>
                         <hr class="small"/>
-                        <?= $this->render('_removal_and_auto_renewal') ?>
+                        <?= $this->render(Yii::$app->params['rules.removalAndAutoRenewalView'] ?? '_removal_and_auto_renewal') ?>
                     </div>
 
                     <?php foreach (AdditionalPages::instantiate('additional.rules')->getPages() as $page) : ?>
