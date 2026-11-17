@@ -3,6 +3,7 @@
 use hiqdev\yii2\cart\CartPositionInterface;
 use hiqdev\yii2\cart\grid\PriceColumn;
 use hiqdev\yii2\cart\ShoppingCart;
+use hiqdev\yii2\cart\widgets\Agreements;
 use hiqdev\yii2\cart\widgets\QuantityCell;
 use yii\data\ActiveDataProvider;
 use yii\grid\ActionColumn;
@@ -137,13 +138,27 @@ $this->registerCss(/** @lang CSS */ "
     </div>
     <!-- /.row -->
 
+    <?php $agreementsNeeded = Agreements::isNeeded($module) ?>
+    <?php if ($agreementsNeeded) : ?>
+        <div class="row no-print">
+            <div class="col-xs-12">
+                <?= Agreements::widget(['module' => $module]) ?>
+            </div>
+        </div>
+    <?php endif ?>
+
     <!-- this row will not appear when printing -->
     <div class="row no-print md-pb-30">
         <div class="col-xs-4">
             <?= Html::a('<i class="fa fa-trash"></i> ' . Yii::t('cart', 'Clear cart'), ['clear'], ['class' => 'btn btn-danger no-radius btn-lg used']); ?>
         </div>
         <div class="col-xs-8"><span class="pull-right">
-            <?php if ($module->termsPage) : ?>
+            <?php if ($agreementsNeeded) : ?>
+                <?= Agreements::orderButton('<i class="fa fa-credit-card"></i> ' . Yii::t('cart', 'Make order'), [
+                    'class' => 'btn btn-success no-radius btn-lg used',
+                ]) ?>
+            <?php else : ?>
+            <?php if ($module->termsPage && !empty($cart->positions)) : ?>
                 <?php $this->registerJs(<<<JS
                     const termsCheckbox = document.getElementById('term-of-use');
                     termsCheckbox.addEventListener('change', event => {
@@ -166,6 +181,7 @@ JS
                 <?php else : ?>
                     <?= Html::a('<i class="fa fa-credit-card"></i> ' . Yii::t('cart', 'Make order'), $module->orderPage, ['id' => 'make-order-button', 'class' => ($module->termsPage) ? 'btn btn-success no-radius btn-lg used disabled' : 'btn btn-success no-radius btn-lg used']); ?>
                 <?php endif ?>
+            <?php endif ?>
         </span></div>
     </div>
 </section>
