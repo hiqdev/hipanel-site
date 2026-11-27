@@ -48,6 +48,10 @@ $(document).on('click', '.social .text-center a', function(e) {
                     </li>
                     <li><a href="#privacyPolicy" data-toggle="tab"><?= Yii::t('hipanel:pages', 'Privacy Policy') ?></a>
                     </li>
+                    <?php if (!empty(Yii::$app->params['rules.cookiePolicyView'])) : ?>
+                        <li><a href="#cookiePolicy" data-toggle="tab"><?= Yii::t('hipanel:pages', 'Cookie Policy') ?></a>
+                        </li>
+                    <?php endif ?>
                     <li><a href="#cancelationPolicy"
                            data-toggle="tab"><?= Yii::t('hipanel:pages', 'Cancelation policy') ?></a>
                     </li>
@@ -95,6 +99,15 @@ $(document).on('click', '.social .text-center a', function(e) {
                         <?php // Same as rules.msaView above: a brand may supply its own text. ?>
                         <?= $this->render(Yii::$app->params['rules.privacyPolicyView'] ?? '_privacy_policy') ?>
                     </div>
+
+                    <?php // No generic fallback: the tab is shown only for brands that supply their own text. ?>
+                    <?php if (!empty(Yii::$app->params['rules.cookiePolicyView'])) : ?>
+                        <div class="tab-pane fade" id="cookiePolicy">
+                            <h4><?= Yii::t('hipanel:pages', 'Cookie Policy') ?></h4>
+                            <hr class="small"/>
+                            <?= $this->render(Yii::$app->params['rules.cookiePolicyView']) ?>
+                        </div>
+                    <?php endif ?>
 
                     <div class="tab-pane fade" id="cancelationPolicy">
                         <h4><?= Yii::t('hipanel:pages', 'Cancelation & Refunds') ?></h4>
