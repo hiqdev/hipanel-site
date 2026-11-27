@@ -3,6 +3,7 @@
 return [
     'Terms of use' => 'Правила предоставления услуг',
     'Privacy Policy' => 'Политика конфиденциальности',
+    'Cookie Policy' => 'Политика использования файлов cookie',
     'VPS terms of use' => 'Правила использования VDS',
     'General Data Protection Regulation, GDPR' => 'Общий регламент по защите данных (GDPR)',
     'Cancelation policy' => 'Правила отказа от услуг',
